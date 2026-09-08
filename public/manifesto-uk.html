@@ -7,45 +7,126 @@
 </head>
 <body>
 
-<header class="top-nav" style="border-bottom: 2px solid rgba(255,255,255,0.1); padding: 14px 20px; margin-bottom: 24px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-    <a href="https://evaline.online" class="brand-title" style="text-decoration:none; font-weight:700; color:#fff; font-size:1.1rem;">
-      <span class="logo-gem" style="color:#00e676;">◆</span> EVALINE NETWORK // СУВЕРЕННЫЙ МАНИФЕСТ
+<header class="top-nav" role="banner">
+  <div class="brand-row">
+    <a href="https://evaline.online" class="brand-title">
+      <span class="logo-gem">◆</span> EVALINE // EVANETWORK
     </a>
-    <div style="font-size: 0.88rem; color: #8b949e;">
-      <span>Кластер: Франкфурт (8 vCPU) ⟷ Айова (Edge HTTP/3)</span>
+    <div class="cluster-status-pill" id="cluster-status-indicator">
+      <span class="pulse-dot"></span>
+      <span>Кластер Активний: Франкфурт (8 vCPU) ⟷ Айова (Edge HTTP/3)</span>
     </div>
   </div>
-  <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); font-size: 0.88rem; display:flex; gap:16px; flex-wrap:wrap;">
-    <div>
-      <strong><span>Мова / Язык / Language:</span></strong>
-      [ <a href="/manifesto-ru.html" style="color:#00e5ff;">Русский</a> | <a href="/manifesto-uk.html" style="color:#00e5ff;">Українська</a> | <a href="/manifesto-en.html" style="color:#00e5ff;">English</a> ]
+
+  <!-- Master Controls Toolbar: Language, Themes, Accordions, Diagrams, Export -->
+  <div class="toolbar-container" role="toolbar" aria-label="Manifesto Controls">
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Мова:</span></span>
+      <div class="btn-group lang-switcher" role="group" aria-label="Language Selector">
+        <button type="button" class="lang-btn active" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+        <button type="button" class="lang-btn" data-lang="uk" onclick="setLanguage('uk')">UK</button>
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+      </div>
     </div>
-    <div>
-      <strong><span>Режими:</span></strong>
-      [ <a href="/manifesto.txt" style="color:#ffd600;">💻 <span>Термінал (ANSI TXT)</span></a> ] •
-      [ <a href="/manifesto-raw.html" style="color:#38bdf8;">📄 <span>Без стилів (Чистий HTML)</span></a> ] •
-      [ <a href="/manifesto.html" style="color:#00e676;">✨ <span>Повний Cyber Web UI</span></a> ]
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Оформлення:</span></span>
+      <div class="btn-group theme-switcher" role="group" aria-label="Theme Selector">
+        <button type="button" class="theme-btn active" data-theme="cyber" onclick="setTheme('cyber')" title="Киберпанк (Неон / Dark)">
+          🎨 <span>Кіберпанк</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
+          📄 <span>Без стилів</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="paper" onclick="setTheme('paper')" title="Бумажный светлый минимализм">
+          ☀️ <span>Папір</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="terminal" onclick="setTheme('terminal')" title="Зеленый моноширинный терминал">
+          📟 <span>Термінал</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Секції:</span></span>
+      <div class="btn-group" role="group" aria-label="Accordion Controls">
+        <button type="button" class="btn-ctrl" onclick="toggleAllAccordions(true)" title="Развернуть все секции">
+          ▾ <span>Розгорнути</span>
+        </button>
+        <button type="button" class="btn-ctrl" onclick="toggleAllAccordions(false)" title="Свернуть все секции">
+          ▸ <span>Згорнути</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Схеми:</span></span>
+      <div class="btn-group diagram-switcher" role="group" aria-label="Diagram Mode">
+        <button type="button" class="diagram-btn active" data-diag-mode="all" onclick="toggleDiagramMode('all')" title="Отображать векторные и текстовые схемы">
+          📊 <span>Всі</span>
+        </button>
+        <button type="button" class="diagram-btn" data-diag-mode="vector" onclick="toggleDiagramMode('vector')" title="Только векторные Mermaid-диаграммы">
+          ✨ <span>Вектор</span>
+        </button>
+        <button type="button" class="diagram-btn" data-diag-mode="ascii" onclick="toggleDiagramMode('ascii')" title="Только текстовые ASCII-схемы">
+          📟 ASCII
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Експорт:</span></span>
+      <div class="btn-group" role="group" aria-label="Export Formats">
+        <a href="/manifesto.txt" class="btn-ctrl" target="_blank" title="curl https://evaline.online/manifesto.txt">
+          💻 ANSI TXT
+        </a>
+        <a href="/MANIFESTO.md" class="btn-ctrl" target="_blank" title="Открыть чистый исходный Markdown">
+          📖 Markdown
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="container">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span>СУВЕРЕННА АГЕНТСЬКА ФАБРИКА ТА РЕАЛЬНЕ ВИРОБНИЦТВО ПОЛІМЕРІВ</span>
+    </div>
+    <h1 class="hero-title">
+      <span>МАНІФЕСТ EVALINE // АВТОНОМНИЙ ШТАТ ШІ-АГЕНТІВ, СИСТЕМА «КОНСИЛІУМ» ТА МАТЕРІАЛЬНИЙ СУВЕРЕНІТЕТ</span>
+    </h1>
+    <p class="hero-desc">
+      <span>Інженерно-виробничий маніфест першого суверенного альянсу фізичної індустрії полімерів EVA та розподіленої фабрики автономних цифрових співробітників. Ми ліквідуємо монополію одиночних чат-ботів, галюцинації та людську рутину через змагальний дебат 94 мовних моделей та пряме роботизоване керування верстатами ЧПК.</span>
+    </p>
+
+    <!-- Quick Jump Links -->
+    <div class="hero-links" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+      <a href="#models-matrix" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        📊 <span>Матриця 94 LLM-моделей</span>
+      </a>
+      <a href="#business-solutions" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        🏭 <span>Рішення для бізнесу та Завод</span>
+      </a>
+      <a href="#roi-calculator" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        💰 <span>Калькулятор окупності ROI</span>
+      </a>
+      <a href="#glossary" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        📖 <span>Глосарій 20 термінів</span>
+      </a>
+    </div>
+  </section>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 01: PROBLEM-STATEMENT
        ========================================================================= -->
   <details class="accordion-section" open id="problem-statement">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">01</span>
-        <h2 class="summary-title">
-          <span>Проблема ринку: чому бізнесу недостатньо звичайних чат-ботів</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Аудит вразливостей</span>
-      </div>
+      <span class="summary-num">[01]</span>
+      <span class="summary-title"><strong>Проблема ринку: чому бізнесу недостатньо звичайних чат-ботів</strong></span>
+      <span class="summary-badge">[<span>Аудит вразливостей</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -69,69 +150,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-red">
-        <div class="kpi-val">38%</div>
-        <div class="kpi-lbl"><span>Галюцинації одиночних LLM</span></div>
-        <div class="kpi-sub"><span>Помилки в розрахунках кошторисів і ТУ</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0</div>
-        <div class="kpi-lbl"><span>Прав виконання в ОС у чат-ботів</span></div>
-        <div class="kpi-sub"><span>Ізоляція без консолі, Git та ЧПК</span></div>
-      </div>
-      <div class="kpi-card kpi-red">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Залежність від вендорів США</span></div>
-        <div class="kpi-sub"><span>Збій хмари = параліч бізнесу</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">0 сек</div>
-        <div class="kpi-lbl"><span>Пам'ять між сесіями</span></div>
-        <div class="kpi-sub"><span>Втрата корпоративного контексту</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-red">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">38%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Галюцинації одиночних LLM</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Помилки в розрахунках кошторисів і ТУ</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Прав виконання в ОС у чат-ботів</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Ізоляція без консолі, Git та ЧПК</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-red">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Залежність від вендорів США</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Збій хмари = параліч бізнесу</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0 сек</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Пам'ять між сесіями</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Втрата корпоративного контексту</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  subgraph Traditional["❌ Одиночний чат-бот (Традиційний ШІ)"]
-    direction TB
-    A["Запит клієнта у веб-вікно"] --> B["Одиночна LLM (Black Box)"]
-    B --> C["Сліпі галюцинації (38% помилок у кошторисах)"]
-    B --> D["Ізоляція без інструментів (0 доступу до Git, 1С, ЧПК)"]
-    B --> E["Vendor Lock-in (Збій API = зупинка бізнесу)"]
-    C & D & E --> F["Збитки, брак сировини та розчарування"]
-  end
-
-  subgraph EvaNet["✅ Фабрика агентів EvaLine Network"]
-    direction TB
-    G["Корпоративна задача"] --> H["Арбітр Консиліуму"]
-    H --> I["21 MCP Сервер: Linux, Docker, Git, 1С, ЧПК"]
-    H --> J["Перехресний аудит 94 моделей (Точність 99.4%)"]
-    H --> K["Суверенний кластер Франкфурт + Айова (99.9%)"]
-    I & J & K --> L["Автономне виконання та зростання прибутку"]
-  end
-
-  classDef bad fill:#221015,stroke:#f87171,stroke-width:1px,color:#fca5a5;
-  classDef good fill:#0e201a,stroke:#00e676,stroke-width:1px,color:#a7f3d0;
-  class A,B,C,D,E,F bad;
-  class G,H,I,J,K,L good;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+------------------------------------+      +--------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+------------------------------------+      +--------------------------------------+
 | ❌ ОДИНОЧНЫЙ ЧАТ-БОТ (ПРОБЛЕМА)    |      | ✅ ФАБРИКА EVALINE NETWORK (РЕШЕНИЕ) |
 +------------------------------------+      +--------------------------------------+
 | • Текстовое окно без доступа к ОС  |  vs  | • 21 MCP сервер с правами в Linux    |
@@ -146,14 +210,7 @@
       <p class="lead-text"><span>Переважна більшість корпоративних впроваджень штучного інтелекту зазнає невдачі, зводячись до примітивного вікна веб-чату. На практиці бізнес миттєво стикається з фундаментальними обмеженнями одиночних мовних моделей:</span></p>
           <details class="sub-accordion" open id="sub-1-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">❌</span>
-          <h3 class="sub-title">
-            <span>Питання 1.1: У чому небезпека сліпих галюцинацій одиночних нейромереж?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Критичний ризик</span></span>
+        <span class="sub-icon">❌</span> <span class="sub-title"><strong>Питання 1.1: У чому небезпека сліпих галюцинацій одиночних нейромереж?</strong></span> <span class="sub-badge">[<span>Критичний ризик</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Одиночна мовна модель генерує відповіді з граничною лінгвістичною впевненістю, навіть коли фатально спотворює факти. В юриспруденції, фінансах, системній архітектурі та промисловому виробництві полімерів ціна вигаданої норми стандарту, помилки в рецептурі або вразливості в коді обертається колосальними збитками.</span></p>
@@ -162,14 +219,7 @@
 
           <details class="sub-accordion" open id="sub-1-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔒</span>
-          <h3 class="sub-title">
-            <span>Питання 1.2: Чому текстовий чат не здатний виконувати реальну роботу («проблема відсутності рук»)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Відсутність інструментів</span></span>
+        <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Питання 1.2: Чому текстовий чат не здатний виконувати реальну роботу («проблема відсутності рук»)?</strong></span> <span class="sub-badge">[<span>Відсутність інструментів</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Традиційний чат-бот замкнений у веб-інтерфейсі. Він не може самостійно зайти на сервер через SSH, зібрати Docker-образ, зробити коміт у Git, перевірити залишки сировини в 1С/ERP або згенерувати керуючий G-код для верстата ЧПК. Людина залишається вимушеним ручним посередником між монітором і виробництвом.</span></p>
@@ -178,14 +228,7 @@
 
           <details class="sub-accordion" open id="sub-1-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⛓️</span>
-          <h3 class="sub-title">
-            <span>Питання 1.3: Чим небезпечна залежність від монополій (Vendor Lock-in) та ризик блокування?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Стратегічна вразливість</span></span>
+        <span class="sub-icon">⛓️</span> <span class="sub-title"><strong>Питання 1.3: Чим небезпечна залежність від монополій (Vendor Lock-in) та ризик блокування?</strong></span> <span class="sub-badge">[<span>Стратегічна вразливість</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Прив'язка критичних процесів до одного закритого API робить компанію заручником чужої цінової політики, цензури, санкційних фільтрів та раптових аварій у дата-центрах Каліфорнії. Коли падає єдиний постачальник — зупиняються продажі, клієнтська підтримка та автоматизація бізнесу.</span></p>
@@ -194,21 +237,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 02: AGENT-FACTORY
        ========================================================================= -->
   <details class="accordion-section" open id="agent-factory">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">02</span>
-        <h2 class="summary-title">
-          <span>EvaNetwork: Фабрика агентів та автономне ШІ-агентство</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Інженерна платформа</span>
-      </div>
+      <span class="summary-num">[02]</span>
+      <span class="summary-title"><strong>EvaNetwork: Фабрика агентів та автономне ШІ-агентство</strong></span>
+      <span class="summary-badge">[<span>Інженерна платформа</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -232,64 +269,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">21</div>
-        <div class="kpi-lbl"><span>MCP-сервер у єдиному реєстрі</span></div>
-        <div class="kpi-sub"><span>Інструменти Linux, Git, Docker, DevTools</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Спеціалізованих ролей Тетраксиса</span></div>
-        <div class="kpi-sub"><span>Від Головного Архітектора до Майстра ЧПК</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3</div>
-        <div class="kpi-lbl"><span>Шари корпоративної пам'яті (RAG)</span></div>
-        <div class="kpi-sub"><span>ChromaDB, SQLite FTS5, Memory Graph</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Суверенне локальне виконання</span></div>
-        <div class="kpi-sub"><span>0% витоку корпоративних даних назовні</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">21</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>MCP-сервер у єдиному реєстрі</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Інструменти Linux, Git, Docker, DevTools</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Спеціалізованих ролей Тетраксиса</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Від Головного Архітектора до Майстра ЧПК</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Шари корпоративної пам'яті (RAG)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>ChromaDB, SQLite FTS5, Memory Graph</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Суверенне локальне виконання</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>0% витоку корпоративних даних назовні</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">mindmap
-  root((Фабрика EvaLine))
-    Цифровий Штат (10 Ролей)
-      01 Архітектор (Кетер // Стратегія)
-      02 Адам (Біна // CISO та ЧПК)
-      03 Ева (Хокма // CXO та Продажі)
-      04 Арбітр (Тіферет // Консенсус)
-      05 Розробник (Нецах // Кодинг)
-      10 Майстер ЧПК (Малхут // Завод)
-    Протокол MCP (21 сервер)
-      Системні (Bash, Docker, WireGuard)
-      Дані (SQLite, PostgreSQL, Filesystem)
-      Автоматизація (Chrome DevTools, Fetch)
-      Офіс (NotebookLM, Gmail, GDrive)
-    Пам'ять RAG (0% галюцинацій)
-      ChromaDB (1075 векторів)
-      SQLite FTS5 (1086 документів)
-      Memory Graph (Семантичні зв'язки)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ФАБРИКА АГЕНТОВ EVALINE NETWORK                        |
 +------------------------------------+------------------------------------+
 |  ЦИФРОВОЙ ШТАТ (10 РОЛЕЙ)          |  21 ИНСТРУМЕНТ MCP                 |
@@ -307,14 +332,7 @@
       <p class="lead-text"><span><strong>EvaLine</strong> проектує не поодинокі «віджети», а <strong>автономну фабрику спеціалізованих цифрових співробітників</strong>, об'єднаних промисловими протоколами передачі контексту та єдиним контуром управління:</span></p>
           <details class="sub-accordion" open id="sub-2-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">👥</span>
-          <h3 class="sub-title">
-            <span>Питання 2.1: Що таке фабрика агентів та в чому рольова спеціалізація цифрових співробітників?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>6 ключових ролей</span></span>
+        <span class="sub-icon">👥</span> <span class="sub-title"><strong>Питання 2.1: Що таке фабрика агентів та в чому рольова спеціалізація цифрових співробітників?</strong></span> <span class="sub-badge">[<span>6 ключових ролей</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Кожен агент EvaLine наділений чітким функціоналом та зоною відповідальності: Головний системний архітектор (<strong>Architect</strong>), Провідний інженер бекенду та шеф виробництва (<strong>Adam</strong>), Фронтенд-директор та амбасадор турботи про клієнта (<strong>Eva</strong>), Офіцер кібербезпеки (<strong>CISO</strong>), Аналітик баз даних (<strong>Data Engineer</strong>) та Стратегічний директор (<strong>CEO</strong>).</span></p>
@@ -323,14 +341,7 @@
 
           <details class="sub-accordion" open id="sub-2-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🛠️</span>
-          <h3 class="sub-title">
-            <span>Питання 2.2: Що дає відкритий протокол Model Context Protocol (MCP) та навіщо 21 сервер інструментів?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Фізичний доступ</span></span>
+        <span class="sub-icon">🛠️</span> <span class="sub-title"><strong>Питання 2.2: Що дає відкритий протокол Model Context Protocol (MCP) та навіщо 21 сервер інструментів?</strong></span> <span class="sub-badge">[<span>Фізичний доступ</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Через відкритий протокол Model Context Protocol наші агенти отримують реальні «руки» в інфраструктурі: пряме виконання команд Linux/Bash, керування Docker-контейнерами, читання та коміти в Git, запити до баз даних SQLite/PostgreSQL, автоматизація браузера через Chrome DevTools та виклики захищених REST/WebSocket API.</span></p>
@@ -339,14 +350,7 @@
 
           <details class="sub-accordion" open id="sub-2-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🧠</span>
-          <h3 class="sub-title">
-            <span>Питання 2.3: Як заземлена корпоративна пам'ять (RAG) гарантує 0% вигадок?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>0% фантазій</span></span>
+        <span class="sub-icon">🧠</span> <span class="sub-title"><strong>Питання 2.3: Як заземлена корпоративна пам'ять (RAG) гарантує 0% вигадок?</strong></span> <span class="sub-badge">[<span>0% фантазій</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Агенти ніколи не відповідають «наосліп». Перед генерацією будь-якої відповіді чи рішення агент звертається до трирівневої пам'яті: графова база сутностей Memory, векторне сховище ChromaDB та повнотекстовий пошук FTS5 по 360+ статтях внутрішньої документації, ДСТУ/ТУ, стандартах ISO 9001:2015 та базах 1С.</span></p>
@@ -355,14 +359,7 @@
 
           <details class="sub-accordion" open id="sub-2-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔄</span>
-          <h3 class="sub-title">
-            <span>Питання 2.4: Як влаштований закритий автономний цикл виконання та контроль якості?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Самовідновлення</span></span>
+        <span class="sub-icon">🔄</span> <span class="sub-title"><strong>Питання 2.4: Як влаштований закритий автономний цикл виконання та контроль якості?</strong></span> <span class="sub-badge">[<span>Самовідновлення</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Агенти функціонують у безперервному циклі: Сприйняття завдання ➔ Складання плану ➔ Виконання в пісочниці ➔ Лінтинг та тестування ➔ Взаємне рецензування колегами. У разі виявлення помилок або невідповідностей у кошторисі агент здійснює автоматичний відкат (rollback) та виправлення без турботи людини.</span></p>
@@ -371,21 +368,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 03: CONSILIUM-SYSTEM
        ========================================================================= -->
   <details class="accordion-section" open id="consilium-system">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">03</span>
-        <h2 class="summary-title">
-          <span>Система «Євалайн Консиліум»: Як працює колегіальний розум</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Колегіальний ШІ</span>
-      </div>
+      <span class="summary-num">[03]</span>
+      <span class="summary-title"><strong>Система «Євалайн Консиліум»: Як працює колегіальний розум</strong></span>
+      <span class="summary-badge">[<span>Колегіальний ШІ</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -409,64 +400,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">99.4%</div>
-        <div class="kpi-lbl"><span>Фактична точність вердиктів</span></div>
-        <div class="kpi-sub"><span>Повне виключення сліпих галюцинацій</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">4</div>
-        <div class="kpi-lbl"><span>Режими змагальної роботи</span></div>
-        <div class="kpi-sub"><span>Solo, Broadcast, Dialogue, Consilium</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">450 ms</div>
-        <div class="kpi-lbl"><span>Мінімальна затримка (Solo)</span></div>
-        <div class="kpi-sub"><span>Експрес-відповіді на типові запити</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3-Way</div>
-        <div class="kpi-lbl"><span>Перехресна валідація суддів</span></div>
-        <div class="kpi-sub"><span>Адам, Ева та незалежний Арбітр</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.4%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Фактична точність вердиктів</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Повне виключення сліпих галюцинацій</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Режими змагальної роботи</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Solo, Broadcast, Dialogue, Consilium</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">450 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Мінімальна затримка (Solo)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Експрес-відповіді на типові запити</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3-Way</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Перехресна валідація суддів</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Адам, Ева та незалежний Арбітр</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">sequenceDiagram
-  autonumber
-  actor User as Бізнес / Оператор
-  participant Arbiter as Арбітр Консиліуму
-  participant RAG as База знань RAG (ТУ/1С)
-  participant Adam as Адам (CISO / Інженерія)
-  participant Eva as Ева (CXO / Продажі / Голос)
-  
-  User->>Arbiter: Запит / Задача розрахунку кошторису
-  Arbiter->>RAG: Пошук регламентів (ГОСТ, залишки складу)
-  RAG-->>Arbiter: Перевірені факти та ліміти
-  Arbiter->>Adam: Експертиза міцності та безпека
-  Arbiter->>Eva: Клієнтський інтерфейс та конверсія
-  Adam-->>Eva: Обмеження рецептури полімерів
-  Eva-->>Adam: Вимоги клієнта та строки відвантаження
-  Adam->>Arbiter: Технічний вердикт та допуски
-  Eva->>Arbiter: Комерційний вердикт та ціна
-  Arbiter->>User: Синтезоване рішення (Точність 99.4%)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ПРОТОКОЛ ДЕБАТОВ СИСТЕМЫ «КОНСИЛИУМ»                   |
 |                                                                         |
 |  [Клиент] ---> [Арбитр Консилиума] <---> [Память RAG (ГОСТ, 1С, ТУ)]    |
@@ -489,14 +468,7 @@
       <p class="lead-text"><span>Головне технологічне ядро фабрики — <strong>Consilium Engine</strong>. Це алгоритмічна система багатоагентних змагальних дебатів, взаємного рецензування та консенсусу між незалежними нейромережевими архітектурами:</span></p>
           <details class="sub-accordion" open id="sub-3-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚖️</span>
-          <h3 class="sub-title">
-            <span>Питання 3.1: Як працюють 4 етапи вироблення рішення: від бізнес-потреби до результату?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Архітектурний протокол</span></span>
+        <span class="sub-icon">⚖️</span> <span class="sub-title"><strong>Питання 3.1: Як працюють 4 етапи вироблення рішення: від бізнес-потреби до результату?</strong></span> <span class="sub-badge">[<span>Архітектурний протокол</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="workflow-steps">
@@ -529,14 +501,7 @@
 
           <details class="sub-accordion" open id="sub-3-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚔️</span>
-          <h3 class="sub-title">
-            <span>Питання 3.2: Навіщо змушувати сперечатися різнорідні нейромережеві архітектури?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Виключення упередженості</span></span>
+        <span class="sub-icon">⚔️</span> <span class="sub-title"><strong>Питання 3.2: Навіщо змушувати сперечатися різнорідні нейромережеві архітектури?</strong></span> <span class="sub-badge">[<span>Виключення упередженості</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Жодна модель у світі не є ідеальною. Gemini має гігантський контекст у 2M токенів, Claude неперевершений в інженерному рефакторингу, а DeepSeek R1 перевершує аналоги у покрокових математичних міркуваннях. У системі Консиліум вони виступають опонентами: Claude виявляє логічні помилки в коді Gemini, DeepSeek перевіряє формули Claude, а Gemini синтезує масиви документів.</span></p>
@@ -545,14 +510,7 @@
 
           <details class="sub-accordion" open id="sub-3-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔍</span>
-          <h3 class="sub-title">
-            <span>Питання 3.3: Як математична верифікація усуває галюцинації (Точність 99.4%)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Точність 99.4%</span></span>
+        <span class="sub-icon">🔍</span> <span class="sub-title"><strong>Питання 3.3: Як математична верифікація усуває галюцинації (Точність 99.4%)?</strong></span> <span class="sub-badge">[<span>Точність 99.4%</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Для усунення галюцинацій використовується принцип математичного консенсусу. Якщо ймовірність істинності твердження не підтверджується незалежною моделлю-аудитором та першоджерелом у базі RAG, факт відкидається і відправляється на повторний цикл. Це гарантує надійність креслень та звітності на рівні 99.4%.</span></p>
@@ -561,14 +519,7 @@
 
           <details class="sub-accordion" open id="sub-3-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">☯️</span>
-          <h3 class="sub-title">
-            <span>Питання 3.4: У чому суть діалектичного балансу Адама (CISO) та Єви (CXO)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Подвійний контроль</span></span>
+        <span class="sub-icon">☯️</span> <span class="sub-title"><strong>Питання 3.4: У чому суть діалектичного балансу Адама (CISO) та Єви (CXO)?</strong></span> <span class="sub-badge">[<span>Подвійний контроль</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Управління платформою розділене між двома протилежними архетипами: <strong>Адам</strong> уособлює суворого інженера, який перевіряє безпеку, ліміти кошторису, відсутність вразливостей і дотримання технічних стандартів. <strong>Єва</strong> відповідає за людиноцентричність, емпатію, бездоганний стиль діалогу та задоволення потреб клієнтів. Їхній діалог народжує ідеальний баланс.</span></p>
@@ -577,21 +528,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 04: MODELS-MATRIX
        ========================================================================= -->
   <details class="accordion-section" open id="models-matrix">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">04</span>
-        <h2 class="summary-title">
-          <span>Матриця 94 LLM-моделей: Федерація інтелекту без вендор-локу</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>94 моделі онлайн</span>
-      </div>
+      <span class="summary-num">[04]</span>
+      <span class="summary-title"><strong>Матриця 94 LLM-моделей: Федерація інтелекту без вендор-локу</strong></span>
+      <span class="summary-badge">[<span>94 моделі онлайн</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -615,64 +560,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">94</div>
-        <div class="kpi-lbl"><span>Моделі в єдиній матриці</span></div>
-        <div class="kpi-sub"><span>Google, OpenRouter, OmniRoute, OpenCode</span></div>
-      </div>
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">62</div>
-        <div class="kpi-lbl"><span>Безкоштовні моделі ($0.00)</span></div>
-        <div class="kpi-sub"><span>100% безкоштовні квоти Google та OpenRouter</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">32</div>
-        <div class="kpi-lbl"><span>Комерційні флагмани</span></div>
-        <div class="kpi-sub"><span>Claude 3.7 Sonnet, DeepSeek R1, Gemini Pro</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">120 ms</div>
-        <div class="kpi-lbl"><span>Спрацьовування Circuit Breaker</span></div>
-        <div class="kpi-sub"><span>Миттєве перемикання на fallback</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">94</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Моделі в єдиній матриці</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Google, OpenRouter, OmniRoute, OpenCode</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">62</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Безкоштовні моделі ($0.00)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>100% безкоштовні квоти Google та OpenRouter</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">32</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Комерційні флагмани</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Claude 3.7 Sonnet, DeepSeek R1, Gemini Pro</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">120 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Спрацьовування Circuit Breaker</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Миттєве перемикання на fallback</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  Req["Запит до моделі"] --> Router["Інтелектуальний роутер"]
-  Router --> Prim{"Первинна модель (напр. gemini-2.5-flash)"}
-  Prim -->|Успіх 200 OK в межах 800ms| Res["Повернення клієнту"]
-  Prim -->|Таймаут / Помилка 5xx / Болванка| CB["⚡ Спрацьовування Circuit Breaker"]
-  CB --> Fallback["Каскад здорових моделей (Fallback Chain)"]
-  Fallback --> Alt1["dots-studio/dots-3-note:free"]
-  Alt1 --> Chk1{"Відповідь валідна?"}
-  Chk1 -->|Так| Res
-  Chk1 -->|Ні| Alt2["openrouter/free (Мета-пул)"]
-  Alt2 --> Res
-
-  classDef normal fill:#111927,stroke:#38bdf8,stroke-width:1px,color:#e6edf3;
-  classDef fail fill:#261216,stroke:#f87171,stroke-width:1px,color:#fca5a5;
-  classDef ok fill:#0e201a,stroke:#00e676,stroke-width:1px,color:#a7f3d0;
-  class Req,Router,Fallback,Alt1,Alt2 normal;
-  class Prim,CB,Chk1 fail;
-  class Res ok;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  АВТОМАТИЧЕСКИЙ КАСКАД FAILOVER И ЗАЩИТЫ                |
 |                                                                         |
 |  [Запрос] ---> [Первичная модель] --(OK)----------------> [200 Ответ]   |
@@ -692,14 +625,7 @@
       <p class="lead-text"><span>В основі суверенітету платформи — єдиний реєстр з <strong>94 мовних моделей</strong> від провідних світових лабораторій, розділений на безкоштовний та комерційний пули:</span></p>
           <details class="sub-accordion" open id="sub-4-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🟢</span>
-          <h3 class="sub-title">
-            <span>Питання 4.1: Що входить до безкоштовного пулу моделей (Free Quota Tier $0.00 — 62 моделі)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Нульова собівартість</span></span>
+        <span class="sub-icon">🟢</span> <span class="sub-title"><strong>Питання 4.1: Що входить до безкоштовного пулу моделей (Free Quota Tier $0.00 — 62 моделі)?</strong></span> <span class="sub-badge">[<span>Нульова собівартість</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>EvaLine використовує передову квоту Google AI Pro / AI Studio (15 RPM, 1M TPM, 1,500 запитів на добу на модель) та безкоштовні ендпоінти OpenRouter. 62 передові моделі (включно з Gemini 3.8 Flash, 3.1 Flash, Qwen 2.5, Llama 3.3) забезпечують до 90% всієї рутинної роботи фабрики із собівартістю токенів рівно $0.00.</span></p>
@@ -708,14 +634,7 @@
 
           <details class="sub-accordion" open id="sub-4-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💎</span>
-          <h3 class="sub-title">
-            <span>Питання 4.2: Для яких завдань використовується платний комерційний пул (32 моделі)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Максимальний IQ</span></span>
+        <span class="sub-icon">💎</span> <span class="sub-title"><strong>Питання 4.2: Для яких завдань використовується платний комерційний пул (32 моделі)?</strong></span> <span class="sub-badge">[<span>Максимальний IQ</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Для завдань найвищої відповідальності — проєктування архітектурних специфікацій, глибокий аудит кібербезпеки та математична верифікація — залучаються найпотужніші платні моделі: Claude 3.7 Sonnet (з розширеним мисленням), DeepSeek R1, OpenAI o1/o3-mini та Gemini 3.1 Pro.</span></p>
@@ -724,14 +643,7 @@
 
           <details class="sub-accordion" open id="sub-4-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔀</span>
-          <h3 class="sub-title">
-            <span>Питання 4.3: Як роутер OmniRoute здійснює динамічну маршрутизацію запитів?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Автономна оптимізація</span></span>
+        <span class="sub-icon">🔀</span> <span class="sub-title"><strong>Питання 4.3: Як роутер OmniRoute здійснює динамічну маршрутизацію запитів?</strong></span> <span class="sub-badge">[<span>Автономна оптимізація</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Вхідний запит аналізується за 15 мілісекунд: оцінюється складність, необхідний контекст та рівень критичності. Прості завдання автоматично скеровуються на безкоштовні моделі зі швидкістю 150+ токенів/сек, а складні розрахунки ескалюються на платні флагмани, зменшуючи бюджет у 8–12 разів.</span></p>
@@ -740,14 +652,7 @@
 
           <details class="sub-accordion" open id="sub-4-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📈</span>
-          <h3 class="sub-title">
-            <span>Питання 4.4: Як контролюється телеметрія флоту та автоматичний відмовостійкий резерв?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>99.9% доступність</span></span>
+        <span class="sub-icon">📈</span> <span class="sub-title"><strong>Питання 4.4: Як контролюється телеметрія флоту та автоматичний відмовостійкий резерв?</strong></span> <span class="sub-badge">[<span>99.9% доступність</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Служба моніторингу кожні 60 секунд перевіряє затримки (TTFT) та коефіцієнт помилок усіх 94 моделей. При найменшій деградації або вичерпанні лімітів трафік безшовно перемикається на альтернативного провайдера без розриву сесії користувача.</span></p>
@@ -2027,21 +1932,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 05: COMPARATIVE-AUDIT
        ========================================================================= -->
   <details class="accordion-section" open id="comparative-audit">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">05</span>
-        <h2 class="summary-title">
-          <span>Порівняльний аудит: Одиночний чат-бот vs Система «Євалайн Консиліум»</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Технічний аудит</span>
-      </div>
+      <span class="summary-num">[05]</span>
+      <span class="summary-title"><strong>Порівняльний аудит: Одиночний чат-бот vs Система «Євалайн Консиліум»</strong></span>
+      <span class="summary-badge">[<span>Технічний аудит</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2065,72 +1964,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">-78%</div>
-        <div class="kpi-lbl"><span>Зниження витрат на розробку</span></div>
-        <div class="kpi-sub"><span>Автономне написання та аудит коду</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">12x</div>
-        <div class="kpi-lbl"><span>Прискорення розрахунків кошторисів і ТУ</span></div>
-        <div class="kpi-sub"><span>З 4 днів до 20 хвилин в автоматичному режимі</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">550+ т</div>
-        <div class="kpi-lbl"><span>Виробництво полімерів EVA / міс</span></div>
-        <div class="kpi-sub"><span>Завод Чорноморськ (2.8 га, преси, ЧПК)</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">48 ч</div>
-        <div class="kpi-lbl"><span>Доставка зі складу ЄС (Братислава)</span></div>
-        <div class="kpi-sub"><span>Оптові поставки листів та матів по Європі</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">-78%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Зниження витрат на розробку</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Автономне написання та аудит коду</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">12x</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Прискорення розрахунків кошторисів і ТУ</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>З 4 днів до 20 хвилин в автоматичному режимі</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">550+ т</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Виробництво полімерів EVA / міс</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Завод Чорноморськ (2.8 га, преси, ЧПК)</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">48 ч</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Доставка зі складу ЄС (Братислава)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Оптові поставки листів та матів по Європі</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart LR
-  subgraph Plant["🏭 Завод EVA (Чорноморськ, 2.8 га)"]
-    direction TB
-    P1["Гранули Севілену (Borealis/LG)"] --> P2["Автоматичне компаундування"]
-    P2 --> P3["Преси гарячого спінювання (550+ т/міс)"]
-    P3 --> P4["Прецизійний ЧПК розкрій (G-Code)"]
-    P4 --> P5["Контроль якості ISO 9001 / CE"]
-  end
-
-  subgraph Logistics["🇪🇺 Європейська логістика"]
-    direction TB
-    L1["Складський хаб у Братиславі"] --> L2["Відвантаження до Німеччини, Польщі, Чехії"]
-    L2 --> L3["Доставка клієнту за 48 годин"]
-  end
-
-  subgraph AIConsilium["🤖 Цифровий нагляд EvaLine"]
-    direction TB
-    A1["Адам: Рецептури, ліміти, ЧПК розкрій"]
-    A2["Ева: CRM, розрахунок кошторисів, 6 мов"]
-    A3["Юрист-Логіст: УКТЗЕД, митниця, ISO"]
-  end
-
-  AIConsilium -.->|Керування G-кодом| P4
-  AIConsilium -.->|Контроль якості| P5
-  AIConsilium -.->|Митне оформлення| L1
-  P5 ==> L1</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                ПРОИЗВОДСТВЕННЫЙ КОНВЕЙЕР И AI-КОНТУР                    |
 |                                                                         |
 |  [Гранулы EVA] --> [Вспенивание] --> [ЧПУ Раскрой] --> [Контроль ISO]  |
@@ -2150,14 +2029,7 @@
       <p class="lead-text"><span>Об'єктивний технічний аудит підтверджує перевагу розподіленої системи Консиліум над будь-яким одиночним споживчим чат-ботом:</span></p>
           <details class="sub-accordion" open id="sub-5-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📊</span>
-          <h3 class="sub-title">
-            <span>Питання 5.1: Які результати порівняльного аналізу одиночного чат-бота та Консиліуму?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Факторний аналіз</span></span>
+        <span class="sub-icon">📊</span> <span class="sub-title"><strong>Питання 5.1: Які результати порівняльного аналізу одиночного чат-бота та Консиліуму?</strong></span> <span class="sub-badge">[<span>Факторний аналіз</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="table-responsive">
@@ -2208,14 +2080,7 @@
 
           <details class="sub-accordion" open id="sub-5-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔒</span>
-          <h3 class="sub-title">
-            <span>Питання 5.2: Як забезпечується аудит безпеки, приватності та суверенітету даних?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Нульове розголошення</span></span>
+        <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Питання 5.2: Як забезпечується аудит безпеки, приватності та суверенітету даних?</strong></span> <span class="sub-badge">[<span>Нульове розголошення</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>На відміну від споживчих чат-ботів, де запити співробітників потрапляють у публічні хмари і використовуються для навчання глобальних моделей, платформа EvaLine ізольована: клієнтські дані та креслення ніколи не передаються третім особам і циркулюють суворо всередині зашифрованого периметра.</span></p>
@@ -2224,14 +2089,7 @@
 
           <details class="sub-accordion" open id="sub-5-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💵</span>
-          <h3 class="sub-title">
-            <span>Питання 5.3: Яка реальна юніт-економіка та сукупна вартість володіння (TCO)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Економія 85%</span></span>
+        <span class="sub-icon">💵</span> <span class="sub-title"><strong>Питання 5.3: Яка реальна юніт-економіка та сукупна вартість володіння (TCO)?</strong></span> <span class="sub-badge">[<span>Економія 85%</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Використання гібридного контуру з 62 безкоштовних та 32 платних моделей знижує операційні витрати компанії на обробку запитів на 85%. Бізнес отримує потужність штучного інтелекту промислового класу без роздування IT-бюджету.</span></p>
@@ -2240,21 +2098,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 06: MILITARY-RESILIENCE
        ========================================================================= -->
   <details class="accordion-section" open id="military-resilience">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">06</span>
-        <h2 class="summary-title">
-          <span>Військова стійкість, блекаут-резистентність та кластер двох вузлів</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Відмовостійкість</span>
-      </div>
+      <span class="summary-num">[06]</span>
+      <span class="summary-title"><strong>Військова стійкість, блекаут-резистентність та кластер двох вузлів</strong></span>
+      <span class="summary-badge">[<span>Відмовостійкість</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2278,64 +2130,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">99.9%</div>
-        <div class="kpi-lbl"><span>Цільовий аптайм кластера</span></div>
-        <div class="kpi-sub"><span>Двовузлова топологія Франкфурт + Айова</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">129 ms</div>
-        <div class="kpi-lbl"><span>Наскрізна затримка WireGuard Mesh</span></div>
-        <div class="kpi-sub"><span>Шифрування ChaCha20-Poly1305 в ядрі Linux</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">HTTP/3</div>
-        <div class="kpi-lbl"><span>Сучасний протокол QUIC (Caddy)</span></div>
-        <div class="kpi-sub"><span>Захист від DDoS та рання відповідь без затримок</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">32 GB</div>
-        <div class="kpi-lbl"><span>Оперативної пам'яті у ядрі обчислень</span></div>
-        <div class="kpi-sub"><span>8 vCPU, локальний NVMe, захист EarlyOOM</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.9%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Цільовий аптайм кластера</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Двовузлова топологія Франкфурт + Айова</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">129 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Наскрізна затримка WireGuard Mesh</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Шифрування ChaCha20-Poly1305 в ядрі Linux</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">HTTP/3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Сучасний протокол QUIC (Caddy)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Захист від DDoS та рання відповідь без затримок</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">32 GB</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Оперативної пам'яті у ядрі обчислень</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>8 vCPU, локальний NVMe, захист EarlyOOM</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  Client(["Клієнт / Web / CLI / WhatsApp / SIP"]) -->|HTTPS HTTP/3 QUIC| Edge["Edge Node: evaline-micro-vm (Айова)"]
-  
-  subgraph EdgeLayer["Пограничний шлюз (Iowa Edge)"]
-    Edge --> Caddy["Caddy v2: SSL, DDoS фільтр, Early Response"]
-  end
-  
-  Caddy -->|Шифрований тунель WireGuard Mesh (129ms)| Core["Compute Core: evabot-agent-vm (Франкфурт)"]
-  
-  subgraph CoreLayer["Обчислювальне ядро (Frankfurt Core)"]
-    Core --> CoreServer["Node.js / TypeScript Server :3000"]
-    CoreServer --> EngineConsilium["Двигун Консиліуму"]
-    CoreServer --> MCPSuite["21 MCP Сервер (Docker, Bash, Git, DBs)"]
-    CoreServer --> LocalRAG["Локальна пам'ять: ChromaDB + SQLite FTS5"]
-  end
-  
-  CoreLayer -.->|VPN канал| FactoryFloor["ЧПК верстати заводу Чорноморськ"]
-  CoreLayer -.->|API шлюз| EUWarehouse["Хаб Братислава (ЄС)"]</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  СУВЕРЕННЫЙ ДВУХУЗЛОВОЙ КЛАСТЕР WIREGUARD               |
 |                                                                         |
 |  [Интернет-клиенты]                                                     |
@@ -2358,14 +2198,7 @@
       <p class="lead-text"><span>Інфраструктура EvaLine створена за стандартами військової відмовостійкості з повним географічним та енергетичним резервуванням:</span></p>
           <details class="sub-accordion" open id="sub-6-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🇩🇪</span>
-          <h3 class="sub-title">
-            <span>Питання 6.1: Навіщо ядро EvaBrain розміщено у Франкфурті (8 vCPU, 32GB RAM)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>8 vCPU / 32GB RAM</span></span>
+        <span class="sub-icon">🇩🇪</span> <span class="sub-title"><strong>Питання 6.1: Навіщо ядро EvaBrain розміщено у Франкфурті (8 vCPU, 32GB RAM)?</strong></span> <span class="sub-badge">[<span>8 vCPU / 32GB RAM</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Високопродуктивний сервер (8 ядер Intel Xeon, 32 ГБ RAM) у дата-центрі GCP europe-west3-a (Франкфурт-на-Майні). Тут безперервно функціонують усі важкі агенти, компілятори, локальні мовні сервери LSP, шина MCP та графова пам'ять. 100% аптайм гарантовано навіть при блекауті в регіоні.</span></p>
@@ -2374,14 +2207,7 @@
 
           <details class="sub-accordion" open id="sub-6-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🇺🇸</span>
-          <h3 class="sub-title">
-            <span>Питання 6.2: Яку захисну роль відіграє крайовий шлюз EvaFace в Айові (HTTP/3)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>HTTP/3 QUIC</span></span>
+        <span class="sub-icon">🇺🇸</span> <span class="sub-title"><strong>Питання 6.2: Яку захисну роль відіграє крайовий шлюз EvaFace в Айові (HTTP/3)?</strong></span> <span class="sub-badge">[<span>HTTP/3 QUIC</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Полегшений edge-вузол на базі Caddy v2 з апаратною підтримкою протоколу HTTP/3 QUIC, TLS 1.3 та Brotli-стиснення. Приймає глобальний трафік користувачів з усього світу, блокує DDoS-атаки, кешує статику та захищено проксує запити в ядро.</span></p>
@@ -2390,14 +2216,7 @@
 
           <details class="sub-accordion" open id="sub-6-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🌐</span>
-          <h3 class="sub-title">
-            <span>Питання 6.3: Як магістраль WireGuard Mesh з ChaCha20-Poly1305 ізолює мережу?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Peer-to-Peer шифрування</span></span>
+        <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Питання 6.3: Як магістраль WireGuard Mesh з ChaCha20-Poly1305 ізолює мережу?</strong></span> <span class="sub-badge">[<span>Peer-to-Peer шифрування</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Дата-центри у Франкфурті та США об'єднані через піринговий тунель WireGuard без відкритих публічних портів керування. Автоматичні служби-сторожі (Watchdog що 3 хвилини) та захист ядра (EarlyOOM) виключають зависання процесів та ізоляцію мережі.</span></p>
@@ -2406,14 +2225,7 @@
 
           <details class="sub-accordion" open id="sub-6-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚡</span>
-          <h3 class="sub-title">
-            <span>Питання 6.4: Як гарантується робота при блекаутах, обривах зв'язку та ракетних ударах?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Автономне виробництво</span></span>
+        <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Питання 6.4: Як гарантується робота при блекаутах, обривах зв'язку та ракетних ударах?</strong></span> <span class="sub-badge">[<span>Автономне виробництво</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Інфраструктура EvaLine спроєктована для роботи в умовах ракетних ударів та аварій енергосистеми. Якщо фізичний завод переходить на резервні дизель-генератори, цифрова фабрика агентів у хмарі Європи не припиняє приймати замовлення, формувати рахунки та оновлювати складські залишки ні на секунду.</span></p>
@@ -2422,21 +2234,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 07: ECOSYSTEM-CATALOG
        ========================================================================= -->
   <details class="accordion-section" open id="ecosystem-catalog">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">07</span>
-        <h2 class="summary-title">
-          <span>Єдина екосистема: Каталог доменів та сервісів</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>4 домени кластера</span>
-      </div>
+      <span class="summary-num">[07]</span>
+      <span class="summary-title"><strong>Єдина екосистема: Каталог доменів та сервісів</strong></span>
+      <span class="summary-badge">[<span>4 домени кластера</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2445,83 +2251,82 @@
     <div class="infographic-panel" id="infographic-sec-07">
       <div class="infographic-header">
         <div class="infographic-title-wrap">
-          <span class="infographic-icon">🗺️</span>
+          <span class="infographic-icon">🧭</span>
           <div>
             <div class="infographic-eyebrow">
-              <span>ІНФОГРАФІКА РОЗДІЛУ 07 // ЕКОСИСТЕМА ТА КАРТА</span>
+              <span>ІНФОГРАФІКА РОЗДІЛУ 07 // КАТАЛОГ ДОМЕНІВ ТА СЕРВІСІВ</span>
             </div>
             <h3 class="infographic-title">
-              <span>Графік впровадження фабрики агентів EvaLine за 4 тижні без зупинки бізнесу</span>
+              <span>Карта взаємозв'язку публічних доменів, робочих станцій та API-шлюзів</span>
             </h3>
           </div>
         </div>
         <div class="infographic-desc">
-          <span>Поетапний план інтеграції цифрового персоналу в процеси компанії.</span>
+          <span>Єдиний периметр з 4 доменів, бази знань Quartz та інтерактивного голосового сервісу EvaVoice.</span>
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">30 дней</div>
-        <div class="kpi-lbl"><span>Повний цикл впровадження під ключ</span></div>
-        <div class="kpi-sub"><span>Від аудиту до повної промислової експлуатації</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">4 фазы</div>
-        <div class="kpi-lbl"><span>Чітка покрокова дорожня карта</span></div>
-        <div class="kpi-sub"><span>Аудит, Ядро, Інструменти MCP, Консиліум</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0 дней</div>
-        <div class="kpi-lbl"><span>Простою діючих систем</span></div>
-        <div class="kpi-sub"><span>Паралельний запуск без зупинки 1С та ЧПК</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Гарантія передачі суверенного коду</span></div>
-        <div class="kpi-sub"><span>Усі ключі, бази та сервери залишаються у замовника</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Ключових домени у федеративній мережі</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Робоча станція, Телеметрія, Маніфест, Портал</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.9%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Цільовий SLA доступності терміналів</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Резервування Caddy v2 HTTP/3 та CNAME</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">250 мс</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Потоковий голос EvaVoice API</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>FastAPI :8000 WebSocket у реальному часі</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">360+</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Статей документації Quartz</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Специфікації API, регламенти ТУ та ДСТУ</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">gantt
-  title Дорожня карта інтеграції фабрики агентів EvaLine (30 днів)
-  dateFormat  YYYY-MM-DD
-  axisFormat  %d.%m
-  section 1. Експрес-аудит (Дні 1-7)
-  Інтерв'ю ключових спеціалістів :a1, 2026-10-01, 3d
-  Збір регламентів, ТУ та прайсів :a2, after a1, 4d
-  section 2. Суверенне ядро (Дні 8-14)
-  Розгортання локального сервера :b1, after a2, 3d
-  Індексація RAG (ChromaDB + FTS5)  :b2, after b1, 4d
-  section 3. Підключення MCP (Дні 15-21)
-  Інтеграція з 1С, ERP та базою даних :c1, after b2, 4d
-  Налаштування прав та контурів захисту :c2, after c1, 3d
-  section 4. Запуск Консиліуму (Дні 22-30)
-  Навчання операторів та персоналу     :d1, after c2, 4d
-  Промисловий запуск 24/7              :d2, after d1, 5d</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
-|               4 ФАЗЫ ВНЕДРЕНИЯ ПОД КЛЮЧ ЗА 30 ДНЕЙ                      |
-|                                                                         |
-|  [ФАЗА 1: ДНИ 1-7]    Интервью, сбор ТУ, оцифровка документации         |
-|  [ФАЗА 2: ДНИ 8-14]   Установка суверенного сервера и индексация RAG    |
-|  [ФАЗА 3: ДНИ 15-21]  Подключение 21 MCP к 1С/ERP и станкам ЧПУ         |
-|  [ФАЗА 4: ДНИ 22-30]  Обучение команды и ввод Консилиума 24/7 в строй   |
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
+|                  ЕДИНАЯ ЭКОСИСТЕМА ДОМЕНОВ EVALINE NETWORK              |
++-------------------------------------------------------------------------+
+                                     │
+           ┌─────────────────────────┼─────────────────────────┐
+           ▼                         ▼                         ▼
+   [evabot.online]          [evaline.network]          [evaline.online]
+   Рабочая станция ИИ       TUI-Дашборд телеметрии     Суверенный Манифест
+   • Чат с Консилиумом      • Задержки 94 моделей      • Философия суверенитета
+   • Голос в реальном вр.   • Нагрузка узлов Франкфурт • Завод полимеров 2.8 га
+           │                         │                         │
+           ├─────────────────────────┼─────────────────────────┤
+           ▼                         ▼                         ▼
+   [evabot.online/docs/]   [evabot.online/voice/docs]  [evaline.website]
+   База знаний Quartz      FastAPI Swagger UI          Главный навигационный
+   • 360+ статей ТУ/ГОСТ   • STT/TTS REST & WebSocket  каталог экосистемы
 +-------------------------------------------------------------------------+</pre>
       </details>
       </div>
@@ -2530,14 +2335,7 @@
       <p class="lead-text"><span>Екосистема об'єднує спеціалізовані домени та API-шлюзи для різноманітних бізнес-сценаріїв:</span></p>
           <details class="sub-accordion" open id="sub-7-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🌐</span>
-          <h3 class="sub-title">
-            <span>Питання 7.1: Які ключові веб-термінали та сервіси входять до мережі компанії?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>4 ключові домени</span></span>
+        <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Питання 7.1: Які ключові веб-термінали та сервіси входять до мережі компанії?</strong></span> <span class="sub-badge">[<span>4 ключові домени</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="hub-grid">
@@ -2570,14 +2368,7 @@
 
           <details class="sub-accordion" open id="sub-7-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📚</span>
-          <h3 class="sub-title">
-            <span>Питання 7.2: Де вивчити технічну документацію з архітектури (Quartz Docs)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>База знань</span></span>
+        <span class="sub-icon">📚</span> <span class="sub-title"><strong>Питання 7.2: Де вивчити технічну документацію з архітектури (Quartz Docs)?</strong></span> <span class="sub-badge">[<span>База знань</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Відкрита та закрита корпоративна документація компанії, розгорнута на швидкому рушії Quartz. Включає 360+ структурованих статей: детальні схеми кластера, рольові інструкції агентів, специфікації API, виробничі регламенти ТУ/ДСТУ та стандарти контролю якості ISO 9001:2015.</span></p>
@@ -2589,14 +2380,7 @@
 
           <details class="sub-accordion" open id="sub-7-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🎙️</span>
-          <h3 class="sub-title">
-            <span>Питання 7.3: Як підключити інтерактивний голосовий сервіс EvaVoice API?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Синтез та розпізнавання</span></span>
+        <span class="sub-icon">🎙️</span> <span class="sub-title"><strong>Питання 7.3: Як підключити інтерактивний голосовий сервіс EvaVoice API?</strong></span> <span class="sub-badge">[<span>Синтез та розпізнавання</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Високошвидкісний асинхронний мікросервіс на FastAPI та WebSocket для миттєвого синтезу та розпізнавання мови в реальному часі. Забезпечує голосовий зв'язок з агентами EvaLine через браузер, телефонні шлюзи SIP або мобільні пристрої із затримкою менше 250 мс.</span></p>
@@ -2608,21 +2392,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 08: BUSINESS-SOLUTIONS
        ========================================================================= -->
   <details class="accordion-section" open id="business-solutions">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">08</span>
-        <h2 class="summary-title">
-          <span>Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Практичне впровадження</span>
-      </div>
+      <span class="summary-num">[08]</span>
+      <span class="summary-title"><strong>Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot</strong></span>
+      <span class="summary-badge">[<span>Практичне впровадження</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2646,29 +2424,38 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Універсальних посад цифрового штату</span></div>
-        <div class="kpi-sub"><span>Від Головного Архітектора до Майстра ЧПК</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">1+2+3+4</div>
-        <div class="kpi-lbl"><span>Сакральний Тетраксис Піфагора (=10)</span></div>
-        <div class="kpi-sub"><span>4 гармонійних яруси управління</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Ступенів Дерева Сфірот</span></div>
-        <div class="kpi-sub"><span>Від Кетер (Задум) до Малхут (Фізичний світ)</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0%</div>
-        <div class="kpi-lbl"><span>Конфліктів та дублювання зон</span></div>
-        <div class="kpi-sub"><span>Суворі математичні та правові межі</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Універсальних посад цифрового штату</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Від Головного Архітектора до Майстра ЧПК</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">1+2+3+4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Сакральний Тетраксис Піфагора (=10)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>4 гармонійних яруси управління</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Ступенів Дерева Сфірот</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Від Кетер (Задум) до Малхут (Фізичний світ)</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Конфліктів та дублювання зон</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Суворі математичні та правові межі</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
             <div class="tetraktys-svg-card">
         <div class="tetraktys-svg-header">
@@ -2781,48 +2568,17 @@
         </div>
       </div>
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">graph TD
-  K["01. Архітектор // Кетер (Vision & Аксіоми)"]
-  B["02. Адам // Біна (CISO & Інженерія)"]
-  C["03. Ева // Хокма (CXO & Голос)"]
-  T["04. Арбітр // Тіферет (Консиліум 99.4%)"]
-  N["05. Розробник // Нецах (Код & Git)"]
-  H["06. Комунікатор // Ход (Voice Engine)"]
-  Y["07. Хранитель // Йесод (ChromaDB / RAG)"]
-  S["08. SRE Адмін // Оболонка (WireGuard Mesh)"]
-  L["09. Юрист // Брама (УКТЗЕД & Compliance)"]
-  M["10. Майстер ЧПК // Малхут (Цех Чорноморськ)"]
-
-  K --> B & C
-  B --> T & N
-  C --> T & H
-  T --> Y
-  N --> S
-  H --> L
-  Y & S & L --> M
-
-  classDef t1 fill:#1c2333,stroke:#ffd600,stroke-width:2px,color:#ffd600;
-  classDef t2 fill:#1c2333,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
-  classDef t3 fill:#1c2333,stroke:#00e5ff,stroke-width:2px,color:#00e5ff;
-  classDef t4 fill:#1c2333,stroke:#00e676,stroke-width:2px,color:#00e676;
-  class K t1;
-  class B,C t2;
-  class T,N,H t3;
-  class Y,S,L,M t4;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">                      ▲ [РЯД I: МОНАДА — 1 УЗЕЛ]
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">                      ▲ [РЯД I: МОНАДА — 1 УЗЕЛ]
                01. Архитектор (Chief Architect)
                              Кетер
                                │
@@ -2845,14 +2601,7 @@
       <p class="lead-text"><span><strong>EvaLine</strong> об'єднує важку фізичну індустрію полімерів EVA та передову розподілену фабрику автономних агентів:</span></p>
           <details class="sub-accordion" open id="sub-8-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🏭</span>
-          <h3 class="sub-title">
-            <span>Питання 8.1: Які фізичні потужності заводу EvaLine та складу в ЄС?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Завод 2.8 га</span></span>
+        <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Питання 8.1: Які фізичні потужності заводу EvaLine та складу в ЄС?</strong></span> <span class="sub-badge">[<span>Завод 2.8 га</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -2965,14 +2714,7 @@
 
           <details class="sub-accordion" open id="sub-8-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📐</span>
-          <h3 class="sub-title">
-            <span>Питання 8.2: Як влаштований Тетраксис Піфагора (1+2+3+4=10), Сфірот та 10 універсальних посад?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>10 ролей Тетраксиса</span></span>
+        <span class="sub-icon">📐</span> <span class="sub-title"><strong>Питання 8.2: Як влаштований Тетраксис Піфагора (1+2+3+4=10), Сфірот та 10 універсальних посад?</strong></span> <span class="sub-badge">[<span>10 ролей Тетраксиса</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3113,14 +2855,7 @@
 
           <details class="sub-accordion" open id="sub-8-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚡</span>
-          <h3 class="sub-title">
-            <span>Питання 8.3: Як виглядає наскрізний конвеєр: від дзвінка до верстата ЧПК та відвантаження (7 кроків)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Наскрізний конвеєр</span></span>
+        <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Питання 8.3: Як виглядає наскрізний конвеєр: від дзвінка до верстата ЧПК та відвантаження (7 кроків)?</strong></span> <span class="sub-badge">[<span>Наскрізний конвеєр</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3184,14 +2919,7 @@
 
           <details class="sub-accordion" open id="sub-8-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📈</span>
-          <h3 class="sub-title">
-            <span>Питання 8.4: Які підтверджені метрики бізнес-трансформації («До» та «Після»)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Метрики До/Після</span></span>
+        <span class="sub-icon">📈</span> <span class="sub-title"><strong>Питання 8.4: Які підтверджені метрики бізнес-трансформації («До» та «Після»)?</strong></span> <span class="sub-badge">[<span>Метрики До/Після</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3310,14 +3038,7 @@
 
           <details class="sub-accordion" open id="sub-8-5">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📋</span>
-          <h3 class="sub-title">
-            <span>Питання 8.5: Як виглядає покроковий протокол інтеграції на підприємство (5 фаз за 2–4 тижні)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>5 фаз впровадження</span></span>
+        <span class="sub-icon">📋</span> <span class="sub-title"><strong>Питання 8.5: Як виглядає покроковий протокол інтеграції на підприємство (5 фаз за 2–4 тижні)?</strong></span> <span class="sub-badge">[<span>5 фаз впровадження</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3406,20 +3127,32 @@
           </div>
         </div>
       </div>
+            <!-- Gantt Implementation Roadmap Box (Text Monospace) -->
+      <div class="diagram-box" style="margin-top: 24px;">
+        <div class="diagram-box-header">
+          <div class="diagram-box-title">
+            <strong><span>ГРАФІК ВПРОВАДЖЕННЯ (ASCII)</span></strong>
+          </div>
+        </div>
+        <details class="ascii-toggle" open>
+          <summary class="ascii-toggle-btn"><strong>📟 <span>Текстовий графік впровадження (ASCII)</span></strong></summary>
+          <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
+|               4 ФАЗЫ ВНЕДРЕНИЯ ПОД КЛЮЧ ЗА 30 ДНЕЙ                      |
+|                                                                         |
+|  [ФАЗА 1: ДНИ 1-7]    Интервью, сбор ТУ, оцифровка документации         |
+|  [ФАЗА 2: ДНИ 8-14]   Установка суверенного сервера и индексация RAG    |
+|  [ФАЗА 3: ДНИ 15-21]  Подключение 21 MCP к 1С/ERP и станкам ЧПУ         |
+|  [ФАЗА 4: ДНИ 22-30]  Обучение команды и ввод Консилиума 24/7 в строй   |
++-------------------------------------------------------------------------+</pre>
+        </details>
+      </div>
     
       </div>
     </details>
 
           <details class="sub-accordion" open id="sub-8-6">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💰</span>
-          <h3 class="sub-title">
-            <span>Питання 8.6: Як влаштований інтерактивний калькулятор економічної окупності впровадження (ROI)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Калькулятор ROI</span></span>
+        <span class="sub-icon">💰</span> <span class="sub-title"><strong>Питання 8.6: Як влаштований інтерактивний калькулятор економічної окупності впровадження (ROI)?</strong></span> <span class="sub-badge">[<span>Калькулятор ROI</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3496,14 +3229,7 @@
 
           <details class="sub-accordion" open id="sub-8-7">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔌</span>
-          <h3 class="sub-title">
-            <span>Питання 8.7: Як архітектура 21 MCP-конектора інтегрує фабрику агентів в IT-ландшафт підприємства?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>21 MCP Конектор</span></span>
+        <span class="sub-icon">🔌</span> <span class="sub-title"><strong>Питання 8.7: Як архітектура 21 MCP-конектора інтегрує фабрику агентів в IT-ландшафт підприємства?</strong></span> <span class="sub-badge">[<span>21 MCP Конектор</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3532,21 +3258,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 09: GLOSSARY
        ========================================================================= -->
   <details class="accordion-section" open id="glossary">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">09</span>
-        <h2 class="summary-title">
-          <span>Глосарій термінів: Простими словами про високі технології EvaLine</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>20 термінів</span>
-      </div>
+      <span class="summary-num">[09]</span>
+      <span class="summary-title"><strong>Глосарій термінів: Простими словами про високі технології EvaLine</strong></span>
+      <span class="summary-badge">[<span>20 термінів</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -3570,69 +3290,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">20</div>
-        <div class="kpi-lbl"><span>Базових понять у глосарії</span></div>
-        <div class="kpi-sub"><span>З простими аналогіями та точними тех. ТУ</span></div>
-      </div>
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">4</div>
-        <div class="kpi-lbl"><span>Категорії термінів</span></div>
-        <div class="kpi-sub"><span>Нейромережі, Інфраструктура, Виробництво, Бізнес</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Розуміння для інвесторів та цеху</span></div>
-        <div class="kpi-sub"><span>Доступна мова без надмірної термінології</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3</div>
-        <div class="kpi-lbl"><span>Мови термінологічної бази</span></div>
-        <div class="kpi-sub"><span>Русский, Українська, English</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Показник</span></th>
+            <th width="38%" align="left"><span>Параметр системи</span></th>
+            <th width="44%" align="left"><span>Значення для бізнесу / ТУ</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">20</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Базових понять у глосарії</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>З простими аналогіями та точними тех. ТУ</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Категорії термінів</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Нейромережі, Інфраструктура, Виробництво, Бізнес</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Розуміння для інвесторів та цеху</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Доступна мова без надмірної термінології</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Мови термінологічної бази</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Русский, Українська, English</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>ІНТЕРАКТИВНА АРХІТЕКТУРНА СХЕМА</span></span>
+            <strong><span>АРХІТЕКТУРНА СХЕМА (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">mindmap
-  root((Глосарій EvaLine))
-    Штучний Інтелект
-      Консиліум (Змагальний арбітраж)
-      Автономний агент (Цифровий співробітник)
-      LLM Моделі (94 нейромережі)
-      Пам'ять RAG (Вектори + Графи)
-      Протокол MCP (21 сервер інструментів)
-    Інфраструктура та Захист
-      WireGuard Mesh (Шифрований тунель)
-      Суверенний кластер (Франкфурт + Айова)
-      Edge Caddy v2 (HTTP/3 та DDoS фільтр)
-      Circuit Breaker (120ms перемикання)
-    Виробництво Полімерів
-      Севілен (Співполімер EVA)
-      Завод Чорноморськ (2.8 га, 550+ т/міс)
-      ЧПК плотери (Розкрій килимків та матів)
-      Преси гарячого формування
-    Бізнес та Стандарти
-      Zero Vendor Lock-in (Незалежність)
-      TCO Окупність (Повернення інвестицій)
-      ISO 9001 (Стандарти якості)
-      УКТЗЕД (Європейська митниця)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 Перегляд схеми в текстовому вигляді (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Текстова схема (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ИНТЕЛЛЕКТ-КАРТА ГЛОССАРИЯ EVALINE                      |
 |                                                                         |
 |  [НЕЙРОСЕТИ & АГЕНТЫ]       [ИНФРАСТРУКТУРА & ЗАЩИТА]                   |
@@ -3675,14 +3378,7 @@
 
           <details class="sub-accordion" open id="sub-9-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🤖</span>
-          <h3 class="sub-title">
-            <span>Питання 9.1: Що означають терміни ШІ та фабрики агентів простими словами (9 понять)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>ШІ & Агенти</span></span>
+        <span class="sub-icon">🤖</span> <span class="sub-title"><strong>Питання 9.1: Що означають терміни ШІ та фабрики агентів простими словами (9 понять)?</strong></span> <span class="sub-badge">[<span>ШІ & Агенти</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="ai">
@@ -3798,14 +3494,7 @@
 
           <details class="sub-accordion" open id="sub-9-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🏭</span>
-          <h3 class="sub-title">
-            <span>Питання 9.2: Що потрібно знати про полімери EVA та технологію заводу простими словами (7 понять)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Полімери & Завод</span></span>
+        <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Питання 9.2: Що потрібно знати про полімери EVA та технологію заводу простими словами (7 понять)?</strong></span> <span class="sub-badge">[<span>Полімери & Завод</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="poly">
@@ -3897,14 +3586,7 @@
 
           <details class="sub-accordion" open id="sub-9-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🛡️</span>
-          <h3 class="sub-title">
-            <span>Питання 9.3: Як розшифрувати терміни мережевої безпеки та стійкості простими словами (4 поняття)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Безпека</span></span>
+        <span class="sub-icon">🛡️</span> <span class="sub-title"><strong>Питання 9.3: Як розшифрувати терміни мережевої безпеки та стійкості простими словами (4 поняття)?</strong></span> <span class="sub-badge">[<span>Безпека</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="sec">
@@ -3960,6 +3642,7 @@
 
     </div>
   </details>
+  <hr class="section-divider">
 
   <!-- FOOTER -->
   <footer>

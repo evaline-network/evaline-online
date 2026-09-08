@@ -7,45 +7,126 @@
 </head>
 <body>
 
-<header class="top-nav" style="border-bottom: 2px solid rgba(255,255,255,0.1); padding: 14px 20px; margin-bottom: 24px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-    <a href="https://evaline.online" class="brand-title" style="text-decoration:none; font-weight:700; color:#fff; font-size:1.1rem;">
-      <span class="logo-gem" style="color:#00e676;">◆</span> EVALINE NETWORK // СУВЕРЕННЫЙ МАНИФЕСТ
+<header class="top-nav" role="banner">
+  <div class="brand-row">
+    <a href="https://evaline.online" class="brand-title">
+      <span class="logo-gem">◆</span> EVALINE // EVANETWORK
     </a>
-    <div style="font-size: 0.88rem; color: #8b949e;">
-      <span>Cluster: Frankfurt (8 vCPU) ⟷ Iowa (Edge HTTP/3)</span>
+    <div class="cluster-status-pill" id="cluster-status-indicator">
+      <span class="pulse-dot"></span>
+      <span>Cluster Online: Frankfurt (8 vCPU) ⟷ Iowa (Edge HTTP/3)</span>
     </div>
   </div>
-  <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); font-size: 0.88rem; display:flex; gap:16px; flex-wrap:wrap;">
-    <div>
-      <strong><span>Language / Мова / Язык:</span></strong>
-      [ <a href="/manifesto-ru.html" style="color:#00e5ff;">Русский</a> | <a href="/manifesto-uk.html" style="color:#00e5ff;">Українська</a> | <a href="/manifesto-en.html" style="color:#00e5ff;">English</a> ]
+
+  <!-- Master Controls Toolbar: Language, Themes, Accordions, Diagrams, Export -->
+  <div class="toolbar-container" role="toolbar" aria-label="Manifesto Controls">
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Lang:</span></span>
+      <div class="btn-group lang-switcher" role="group" aria-label="Language Selector">
+        <button type="button" class="lang-btn active" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+        <button type="button" class="lang-btn" data-lang="uk" onclick="setLanguage('uk')">UK</button>
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+      </div>
     </div>
-    <div>
-      <strong><span>Modes:</span></strong>
-      [ <a href="/manifesto.txt" style="color:#ffd600;">💻 <span>Terminal (ANSI TXT)</span></a> ] •
-      [ <a href="/manifesto-raw.html" style="color:#38bdf8;">📄 <span>Raw HTML (No CSS)</span></a> ] •
-      [ <a href="/manifesto.html" style="color:#00e676;">✨ <span>Full Cyber Web UI</span></a> ]
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Style:</span></span>
+      <div class="btn-group theme-switcher" role="group" aria-label="Theme Selector">
+        <button type="button" class="theme-btn active" data-theme="cyber" onclick="setTheme('cyber')" title="Киберпанк (Неон / Dark)">
+          🎨 <span>Cyber UI</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
+          📄 <span>Raw HTML</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="paper" onclick="setTheme('paper')" title="Бумажный светлый минимализм">
+          ☀️ <span>Paper Light</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="terminal" onclick="setTheme('terminal')" title="Зеленый моноширинный терминал">
+          📟 <span>Terminal</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Sections:</span></span>
+      <div class="btn-group" role="group" aria-label="Accordion Controls">
+        <button type="button" class="btn-ctrl" onclick="toggleAllAccordions(true)" title="Развернуть все секции">
+          ▾ <span>Expand</span>
+        </button>
+        <button type="button" class="btn-ctrl" onclick="toggleAllAccordions(false)" title="Свернуть все секции">
+          ▸ <span>Collapse</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Diagrams:</span></span>
+      <div class="btn-group diagram-switcher" role="group" aria-label="Diagram Mode">
+        <button type="button" class="diagram-btn active" data-diag-mode="all" onclick="toggleDiagramMode('all')" title="Отображать векторные и текстовые схемы">
+          📊 <span>All</span>
+        </button>
+        <button type="button" class="diagram-btn" data-diag-mode="vector" onclick="toggleDiagramMode('vector')" title="Только векторные Mermaid-диаграммы">
+          ✨ <span>Vector</span>
+        </button>
+        <button type="button" class="diagram-btn" data-diag-mode="ascii" onclick="toggleDiagramMode('ascii')" title="Только текстовые ASCII-схемы">
+          📟 ASCII
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <span class="toolbar-label"><span>Export:</span></span>
+      <div class="btn-group" role="group" aria-label="Export Formats">
+        <a href="/manifesto.txt" class="btn-ctrl" target="_blank" title="curl https://evaline.online/manifesto.txt">
+          💻 ANSI TXT
+        </a>
+        <a href="/MANIFESTO.md" class="btn-ctrl" target="_blank" title="Открыть чистый исходный Markdown">
+          📖 Markdown
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="container">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span>SOVEREIGN AGENT FACTORY & PHYSICAL POLYMER MANUFACTURING</span>
+    </div>
+    <h1 class="hero-title">
+      <span>EVALINE MANIFESTO // AUTONOMOUS AI AGENT FLEET, CONCILIUM CONSENSUS & PHYSICAL SOVEREIGNTY</span>
+    </h1>
+    <p class="hero-desc">
+      <span>Engineering and manufacturing manifesto of the first sovereign alliance uniting physical EVA polymer production with an autonomous digital employee factory. We eliminate single-chatbot monopolies, hallucinations, and routine human fatigue through adversarial consensus across 94 LLMs and direct CNC robotic execution.</span>
+    </p>
+
+    <!-- Quick Jump Links -->
+    <div class="hero-links" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+      <a href="#models-matrix" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        📊 <span>94-Model LLM Matrix</span>
+      </a>
+      <a href="#business-solutions" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        🏭 <span>Business Solutions & Plant</span>
+      </a>
+      <a href="#roi-calculator" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        💰 <span>Interactive ROI Calculator</span>
+      </a>
+      <a href="#glossary" class="btn-ctrl" style="text-decoration: none; padding: 8px 16px;">
+        📖 <span>20-Term Plain Glossary</span>
+      </a>
+    </div>
+  </section>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 01: PROBLEM-STATEMENT
        ========================================================================= -->
   <details class="accordion-section" open id="problem-statement">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">01</span>
-        <h2 class="summary-title">
-          <span>Market Bottleneck: Why Standalone Chatbots Fail in Enterprise</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Vulnerability Audit</span>
-      </div>
+      <span class="summary-num">[01]</span>
+      <span class="summary-title"><strong>Market Bottleneck: Why Standalone Chatbots Fail in Enterprise</strong></span>
+      <span class="summary-badge">[<span>Vulnerability Audit</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -69,69 +150,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-red">
-        <div class="kpi-val">38%</div>
-        <div class="kpi-lbl"><span>Single LLM Hallucinations</span></div>
-        <div class="kpi-sub"><span>Fatal errors in quotes and engineering specs</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0</div>
-        <div class="kpi-lbl"><span>OS Execution Rights in Web Bots</span></div>
-        <div class="kpi-sub"><span>Complete tool deprivation (text-only prison)</span></div>
-      </div>
-      <div class="kpi-card kpi-red">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>US Cloud Vendor Lock-in</span></div>
-        <div class="kpi-sub"><span>Cloud outage halts enterprise operations</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">0 сек</div>
-        <div class="kpi-lbl"><span>Memory Across Sessions</span></div>
-        <div class="kpi-sub"><span>Full context loss on browser tab close</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-red">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">38%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Single LLM Hallucinations</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Fatal errors in quotes and engineering specs</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>OS Execution Rights in Web Bots</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Complete tool deprivation (text-only prison)</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-red">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>US Cloud Vendor Lock-in</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Cloud outage halts enterprise operations</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0 сек</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Memory Across Sessions</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Full context loss on browser tab close</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  subgraph Traditional["❌ Standalone Chatbot (Legacy AI)"]
-    direction TB
-    A["Client prompt in browser window"] --> B["Isolated LLM (Black Box)"]
-    B --> C["Blind Hallucinations (38% spec error rate)"]
-    B --> D["Tool Deprivation (Zero Linux, Git, ERP or CNC access)"]
-    B --> E["Vendor Lock-in (API outage halts operations)"]
-    C & D & E --> F["Financial losses and failed adoption"]
-  end
-
-  subgraph EvaNet["✅ EvaLine Agent Factory"]
-    direction TB
-    G["Enterprise objective"] --> H["Consilium Arbiter Engine"]
-    H --> I["21 MCP Tool Suite: Bash, Docker, Git, 1C, CNC"]
-    H --> J["Multi-LLM Cross Examination (99.4% precision)"]
-    H --> K["Sovereign Frankfurt + Iowa Mesh Cluster (99.9%)"]
-    I & J & K --> L["Autonomous execution & maximum profitability"]
-  end
-
-  classDef bad fill:#221015,stroke:#f87171,stroke-width:1px,color:#fca5a5;
-  classDef good fill:#0e201a,stroke:#00e676,stroke-width:1px,color:#a7f3d0;
-  class A,B,C,D,E,F bad;
-  class G,H,I,J,K,L good;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+------------------------------------+      +--------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+------------------------------------+      +--------------------------------------+
 | ❌ ОДИНОЧНЫЙ ЧАТ-БОТ (ПРОБЛЕМА)    |      | ✅ ФАБРИКА EVALINE NETWORK (РЕШЕНИЕ) |
 +------------------------------------+      +--------------------------------------+
 | • Текстовое окно без доступа к ОС  |  vs  | • 21 MCP сервер с правами в Linux    |
@@ -146,14 +210,7 @@
       <p class="lead-text"><span>The vast majority of corporate AI implementations fail because they reduce intelligence to an isolated web chatbox. In real-world enterprise environments, businesses face systemic bottlenecks from standalone language models:</span></p>
           <details class="sub-accordion" open id="sub-1-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">❌</span>
-          <h3 class="sub-title">
-            <span>Question 1.1: What are the dangers of blind hallucinations in standalone AI?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Critical Risk</span></span>
+        <span class="sub-icon">❌</span> <span class="sub-title"><strong>Question 1.1: What are the dangers of blind hallucinations in standalone AI?</strong></span> <span class="sub-badge">[<span>Critical Risk</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Standalone language models generate responses with absolute syntactic confidence even while fatally hallucinating critical facts. In legal compliance, financial forecasting, system architecture, and polymer manufacturing, a single hallucinated standard, compounding formulation error, or security flaw leads to catastrophic financial and operational losses.</span></p>
@@ -162,14 +219,7 @@
 
           <details class="sub-accordion" open id="sub-1-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔒</span>
-          <h3 class="sub-title">
-            <span>Question 1.2: Why is text chat isolated and unable to execute physical actions?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Tool Deprivation</span></span>
+        <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Question 1.2: Why is text chat isolated and unable to execute physical actions?</strong></span> <span class="sub-badge">[<span>Tool Deprivation</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Traditional chatbots remain trapped inside a static web browser window. They cannot SSH into production servers, build Docker containers, commit code to Git repositories, query live ERP/1C inventory, or generate CNC G-code cutting paths. Humans remain burdened as manual, error-prone copy-paste intermediaries.</span></p>
@@ -178,14 +228,7 @@
 
           <details class="sub-accordion" open id="sub-1-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⛓️</span>
-          <h3 class="sub-title">
-            <span>Question 1.3: What are the severe risks of vendor lock-in and infrastructure fragility?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Strategic Vulnerability</span></span>
+        <span class="sub-icon">⛓️</span> <span class="sub-title"><strong>Question 1.3: What are the severe risks of vendor lock-in and infrastructure fragility?</strong></span> <span class="sub-badge">[<span>Strategic Vulnerability</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Anchoring enterprise automation to a single proprietary cloud API leaves business operations exposed to sudden price hikes, rate limits, arbitrary geopolitical account suspensions, and cloud outages. When a single vendor suffers downtime, customer support, sales pipelines, and ERP workflows immediately grind to a halt.</span></p>
@@ -194,21 +237,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 02: AGENT-FACTORY
        ========================================================================= -->
   <details class="accordion-section" open id="agent-factory">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">02</span>
-        <h2 class="summary-title">
-          <span>EvaNetwork: Sovereign Agent Factory & Autonomous AI Agency</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Core Platform</span>
-      </div>
+      <span class="summary-num">[02]</span>
+      <span class="summary-title"><strong>EvaNetwork: Sovereign Agent Factory & Autonomous AI Agency</strong></span>
+      <span class="summary-badge">[<span>Core Platform</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -232,64 +269,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">21</div>
-        <div class="kpi-lbl"><span>Connected MCP Tool Servers</span></div>
-        <div class="kpi-sub"><span>Full OS, Git, Docker, DB capabilities</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Specialized Tetraktys Roles</span></div>
-        <div class="kpi-sub"><span>From Chief Architect down to CNC Master</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3</div>
-        <div class="kpi-lbl"><span>Layers of Enterprise Memory RAG</span></div>
-        <div class="kpi-sub"><span>ChromaDB, SQLite FTS5, Memory Graph</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Local Sovereign Execution</span></div>
-        <div class="kpi-sub"><span>Zero data leakage to third-party logs</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">21</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Connected MCP Tool Servers</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Full OS, Git, Docker, DB capabilities</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Specialized Tetraktys Roles</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>From Chief Architect down to CNC Master</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Layers of Enterprise Memory RAG</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>ChromaDB, SQLite FTS5, Memory Graph</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Local Sovereign Execution</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Zero data leakage to third-party logs</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">mindmap
-  root((EvaLine Factory))
-    Digital Workforce (10 Roles)
-      01 Architect (Kether // Strategy)
-      02 Adam (Binah // CISO & CNC)
-      03 Eva (Chokmah // CXO & Sales)
-      04 Arbiter (Tifereth // Consensus)
-      05 Lead Dev (Netzach // Code)
-      10 CNC Master (Malkuth // Shopfloor)
-    MCP Protocol (21 Servers)
-      System (Bash, Docker, WireGuard)
-      Data (SQLite, PostgreSQL, Filesystem)
-      Automation (Chrome DevTools, Fetch)
-      Office (NotebookLM, Gmail, GDrive)
-    Memory RAG (Zero Hallucination)
-      ChromaDB (1,075 Vectors)
-      SQLite FTS5 (1,086 Documents)
-      Memory Graph (Entity Relationships)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ФАБРИКА АГЕНТОВ EVALINE NETWORK                        |
 +------------------------------------+------------------------------------+
 |  ЦИФРОВОЙ ШТАТ (10 РОЛЕЙ)          |  21 ИНСТРУМЕНТ MCP                 |
@@ -307,14 +332,7 @@
       <p class="lead-text"><span><strong>EvaLine</strong> builds not disposable novelty bots, but an <strong>autonomous factory of specialized digital employees</strong> bound by industrial context protocols and unified deterministic oversight:</span></p>
           <details class="sub-accordion" open id="sub-2-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">👥</span>
-          <h3 class="sub-title">
-            <span>Question 2.1: What is an agent factory and how are digital employee personas structured?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>6 Core Personas</span></span>
+        <span class="sub-icon">👥</span> <span class="sub-title"><strong>Question 2.1: What is an agent factory and how are digital employee personas structured?</strong></span> <span class="sub-badge">[<span>6 Core Personas</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Every EvaLine agent is endowed with explicit authority boundaries and rigorous domain prompts: Chief Systems Architect (<strong>Architect</strong>), Lead Backend Engineer & Manufacturing Master (<strong>Adam</strong>), Customer Experience & Omnichannel Director (<strong>Eva</strong>), Chief Information Security Officer (<strong>CISO</strong>), Telemetry & Data Engineer (<strong>Data Engineer</strong>), and Strategic Coordinator (<strong>CEO</strong>).</span></p>
@@ -323,14 +341,7 @@
 
           <details class="sub-accordion" open id="sub-2-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🛠️</span>
-          <h3 class="sub-title">
-            <span>Question 2.2: What capabilities does the MCP tool bus provide with 21 execution servers?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Physical Execution</span></span>
+        <span class="sub-icon">🛠️</span> <span class="sub-title"><strong>Question 2.2: What capabilities does the MCP tool bus provide with 21 execution servers?</strong></span> <span class="sub-badge">[<span>Physical Execution</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Standardized via the Model Context Protocol, our autonomous agents possess real hands in compute and production environments: direct sandboxed Linux/Bash execution, Docker lifecycle orchestration, Git version control commits, live SQLite/PostgreSQL telemetry queries, Chrome DevTools headless automation, and authenticated REST/WebSocket ERP webhooks.</span></p>
@@ -339,14 +350,7 @@
 
           <details class="sub-accordion" open id="sub-2-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🧠</span>
-          <h3 class="sub-title">
-            <span>Question 2.3: How does grounded enterprise RAG memory ensure 0% hallucinations?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Zero Hallucination</span></span>
+        <span class="sub-icon">🧠</span> <span class="sub-title"><strong>Question 2.3: How does grounded enterprise RAG memory ensure 0% hallucinations?</strong></span> <span class="sub-badge">[<span>Zero Hallucination</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Agents never reply based on ungrounded statistical guesses. Prior to forming any technical output or production order, agents cross-reference a 3-tier corporate memory: semantic graph entity relations (Memory MCP), high-density vector retrieval (ChromaDB), and deterministic FTS5 full-text indexing over 360+ documentation articles, ISO 9001:2015 specs, and inventory ledgers.</span></p>
@@ -355,14 +359,7 @@
 
           <details class="sub-accordion" open id="sub-2-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔄</span>
-          <h3 class="sub-title">
-            <span>Question 2.4: How is the closed-loop autonomous execution and QA cycle structured?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Self-Healing</span></span>
+        <span class="sub-icon">🔄</span> <span class="sub-title"><strong>Question 2.4: How is the closed-loop autonomous execution and QA cycle structured?</strong></span> <span class="sub-badge">[<span>Self-Healing</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Our agents operate inside a closed autonomous control loop: Task Perception ➔ Formal Step Decomposition ➔ Sandboxed Sandbox Execution ➔ Static Analysis & Test Verification ➔ Peer Review. If a syntax regression or volumetric discrepancy is caught, the system initiates an automated git rollback and iteratively refines the solution before final output.</span></p>
@@ -371,21 +368,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 03: CONSILIUM-SYSTEM
        ========================================================================= -->
   <details class="accordion-section" open id="consilium-system">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">03</span>
-        <h2 class="summary-title">
-          <span>The EvaLine Consilium System: Collective Intelligence Engine</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Consensus Engine</span>
-      </div>
+      <span class="summary-num">[03]</span>
+      <span class="summary-title"><strong>The EvaLine Consilium System: Collective Intelligence Engine</strong></span>
+      <span class="summary-badge">[<span>Consensus Engine</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -409,64 +400,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">99.4%</div>
-        <div class="kpi-lbl"><span>Factual Verdict Precision</span></div>
-        <div class="kpi-sub"><span>Total elimination of blind hallucinations</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">4</div>
-        <div class="kpi-lbl"><span>Adversarial Deliberation Modes</span></div>
-        <div class="kpi-sub"><span>Solo, Broadcast, Dialogue, Consilium</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">450 ms</div>
-        <div class="kpi-lbl"><span>Minimum Solo Latency</span></div>
-        <div class="kpi-sub"><span>Sub-second turnaround on routine requests</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3-Way</div>
-        <div class="kpi-lbl"><span>3-Way Cross-Examination</span></div>
-        <div class="kpi-sub"><span>Adam, Eva and impartial Arbiter</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.4%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Factual Verdict Precision</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Total elimination of blind hallucinations</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Adversarial Deliberation Modes</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Solo, Broadcast, Dialogue, Consilium</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">450 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Minimum Solo Latency</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Sub-second turnaround on routine requests</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3-Way</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>3-Way Cross-Examination</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Adam, Eva and impartial Arbiter</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">sequenceDiagram
-  autonumber
-  actor User as Enterprise Client
-  participant Arbiter as Consilium Arbiter
-  participant RAG as Knowledge RAG (Specs/ERP)
-  participant Adam as Adam (CISO / Chief Engineer)
-  participant Eva as Eva (CXO / Sales / Voice)
-  
-  User->>Arbiter: Request / Complex Specification
-  Arbiter->>RAG: Retrieve grounded context (ISO/Inventory)
-  RAG-->>Arbiter: Verified grounding facts
-  Arbiter->>Adam: Safety, engineering & code audit
-  Arbiter->>Eva: Customer experience & commercial value
-  Adam-->>Eva: Structural & manufacturing constraints
-  Eva-->>Adam: Delivery requirements & client value
-  Adam->>Arbiter: Formal engineering verdict
-  Eva->>Arbiter: Commercial & communications verdict
-  Arbiter->>User: Synthesized consensus decision (99.4% precision)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ПРОТОКОЛ ДЕБАТОВ СИСТЕМЫ «КОНСИЛИУМ»                   |
 |                                                                         |
 |  [Клиент] ---> [Арбитр Консилиума] <---> [Память RAG (ГОСТ, 1С, ТУ)]    |
@@ -489,14 +468,7 @@
       <p class="lead-text"><span>The core technological engine of our platform is the <strong>Consilium Engine</strong>: an algorithmic multi-agent framework facilitating adversarial debates, cross-model peer review, and formal consensus arbitration across heterogeneous neural architectures:</span></p>
           <details class="sub-accordion" open id="sub-3-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚖️</span>
-          <h3 class="sub-title">
-            <span>Question 3.1: What are the 4 stages of decision synthesis: from demand to implementation?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Consensus Protocol</span></span>
+        <span class="sub-icon">⚖️</span> <span class="sub-title"><strong>Question 3.1: What are the 4 stages of decision synthesis: from demand to implementation?</strong></span> <span class="sub-badge">[<span>Consensus Protocol</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="workflow-steps">
@@ -529,14 +501,7 @@
 
           <details class="sub-accordion" open id="sub-3-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚔️</span>
-          <h3 class="sub-title">
-            <span>Question 3.2: Why mandate adversarial debates across heterogeneous LLM families?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Zero Model Bias</span></span>
+        <span class="sub-icon">⚔️</span> <span class="sub-title"><strong>Question 3.2: Why mandate adversarial debates across heterogeneous LLM families?</strong></span> <span class="sub-badge">[<span>Zero Model Bias</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>No single model holds absolute superiority across all cognitive tasks. Google Gemini provides a massive 2,000,000 token context window, Anthropic Claude excels in architectural refactoring, and DeepSeek R1 masters deterministic mathematical derivation. Inside the Consilium, they serve as rigorous adversarial peers: Claude attacks Gemini's code for edge cases, DeepSeek verifies numerical formulas, and Gemini fuses multimodal enterprise context.</span></p>
@@ -545,14 +510,7 @@
 
           <details class="sub-accordion" open id="sub-3-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔍</span>
-          <h3 class="sub-title">
-            <span>Question 3.3: How does formal mathematical verification eliminate hallucinations (99.4% accuracy)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>99.4% Precision</span></span>
+        <span class="sub-icon">🔍</span> <span class="sub-title"><strong>Question 3.3: How does formal mathematical verification eliminate hallucinations (99.4% accuracy)?</strong></span> <span class="sub-badge">[<span>99.4% Precision</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>To eliminate hallucinations, EvaLine deploys formal cross-verification algorithms. Any factual claim, numerical dimension, or code branch that lacks corroboration by both an independent audit LLM and canonical RAG source citations is automatically rejected and sent back for re-verification, achieving a verified factual reliability rate of 99.4%.</span></p>
@@ -561,14 +519,7 @@
 
           <details class="sub-accordion" open id="sub-3-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">☯️</span>
-          <h3 class="sub-title">
-            <span>Question 3.4: What is the core of the dialectical executive balance: Adam vs. Eva?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Dual Governance</span></span>
+        <span class="sub-icon">☯️</span> <span class="sub-title"><strong>Question 3.4: What is the core of the dialectical executive balance: Adam vs. Eva?</strong></span> <span class="sub-badge">[<span>Dual Governance</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Platform governance is anchored in an executive dichotomy: <strong>Adam</strong> embodies the unyielding CISO and production chief, enforcing zero-trust boundaries, budget caps, and strict standard compliance. <strong>Eva</strong> embodies the Chief Experience Officer, driving empathy, multilingual prose, brand warmth, and client success. Their dialectical tension creates products that are both technically bulletproof and delightful to use.</span></p>
@@ -577,21 +528,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 04: MODELS-MATRIX
        ========================================================================= -->
   <details class="accordion-section" open id="models-matrix">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">04</span>
-        <h2 class="summary-title">
-          <span>94-Model Multi-Provider Matrix: Sovereign Intelligence Federation</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>94 Active LLMs</span>
-      </div>
+      <span class="summary-num">[04]</span>
+      <span class="summary-title"><strong>94-Model Multi-Provider Matrix: Sovereign Intelligence Federation</strong></span>
+      <span class="summary-badge">[<span>94 Active LLMs</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -615,64 +560,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">94</div>
-        <div class="kpi-lbl"><span>Total Unified LLM Models</span></div>
-        <div class="kpi-sub"><span>Google, OpenRouter, OmniRoute, OpenCode</span></div>
-      </div>
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">62</div>
-        <div class="kpi-lbl"><span>Zero-Cost Free Models ($0.00)</span></div>
-        <div class="kpi-sub"><span>100% free production quotas without API bills</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">32</div>
-        <div class="kpi-lbl"><span>Flagship Commercial Tier</span></div>
-        <div class="kpi-sub"><span>Claude 3.7 Sonnet, DeepSeek R1, Gemini Pro</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">120 ms</div>
-        <div class="kpi-lbl"><span>Circuit Breaker Failover</span></div>
-        <div class="kpi-sub"><span>Instant failover to healthy alternatives</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">94</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Total Unified LLM Models</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Google, OpenRouter, OmniRoute, OpenCode</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">62</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Zero-Cost Free Models ($0.00)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>100% free production quotas without API bills</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">32</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Flagship Commercial Tier</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Claude 3.7 Sonnet, DeepSeek R1, Gemini Pro</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">120 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Circuit Breaker Failover</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Instant failover to healthy alternatives</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  Req["Client model request"] --> Router["Auto-Routing Engine"]
-  Router --> Prim{"Primary Candidate (e.g. gemini-2.5-flash)"}
-  Prim -->|Success 200 OK under 800ms| Res["Return verified response"]
-  Prim -->|Timeout / 5xx / Junk Stub| CB["⚡ Circuit Breaker Trips"]
-  CB --> Fallback["Ranked Fallback Chain (10 Candidates)"]
-  Fallback --> Alt1["dots-studio/dots-3-note:free"]
-  Alt1 --> Chk1{"Response valid?"}
-  Chk1 -->|Yes| Res
-  Chk1 -->|No| Alt2["openrouter/free (Dynamic Meta-Pool)"]
-  Alt2 --> Res
-
-  classDef normal fill:#111927,stroke:#38bdf8,stroke-width:1px,color:#e6edf3;
-  classDef fail fill:#261216,stroke:#f87171,stroke-width:1px,color:#fca5a5;
-  classDef ok fill:#0e201a,stroke:#00e676,stroke-width:1px,color:#a7f3d0;
-  class Req,Router,Fallback,Alt1,Alt2 normal;
-  class Prim,CB,Chk1 fail;
-  class Res ok;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  АВТОМАТИЧЕСКИЙ КАСКАД FAILOVER И ЗАЩИТЫ                |
 |                                                                         |
 |  [Запрос] ---> [Первичная модель] --(OK)----------------> [200 Ответ]   |
@@ -692,14 +625,7 @@
       <p class="lead-text"><span>The sovereign foundation of our platform is an integrated registry of <strong>94 LLM models</strong> from the world's leading AI labs, tiered into free and frontier commercial pools:</span></p>
           <details class="sub-accordion" open id="sub-4-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🟢</span>
-          <h3 class="sub-title">
-            <span>Question 4.1: What constitutes the 100% free quota tier ($0.00 fleet — 62 models)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Zero Token Cost</span></span>
+        <span class="sub-icon">🟢</span> <span class="sub-title"><strong>Question 4.1: What constitutes the 100% free quota tier ($0.00 fleet — 62 models)?</strong></span> <span class="sub-badge">[<span>Zero Token Cost</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>EvaLine leverages authorized high-throughput Google AI Pro / AI Studio quotas (15 RPM, 1M TPM, 1,500 daily requests per model) and OpenRouter free tiers. 62 state-of-the-art models (including Gemini 3.8 Flash, 3.1 Flash, Qwen 2.5, Llama 3.3) absorb up to 90% of all routine enterprise operations at exactly $0.00 token cost.</span></p>
@@ -708,14 +634,7 @@
 
           <details class="sub-accordion" open id="sub-4-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💎</span>
-          <h3 class="sub-title">
-            <span>Question 4.2: When does the Consilium invoke the commercial frontier fleet (32 models)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Frontier Benchmark</span></span>
+        <span class="sub-icon">💎</span> <span class="sub-title"><strong>Question 4.2: When does the Consilium invoke the commercial frontier fleet (32 models)?</strong></span> <span class="sub-badge">[<span>Frontier Benchmark</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>For mission-critical operations — industrial CAD engineering, formal cryptographic audits, and complex legal syntheses — the Consilium invokes top commercial frontier LLMs: Claude 3.7 Sonnet (with extended reasoning tokens), DeepSeek R1, OpenAI o1/o3-mini, and Gemini 3.1 Pro.</span></p>
@@ -724,14 +643,7 @@
 
           <details class="sub-accordion" open id="sub-4-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔀</span>
-          <h3 class="sub-title">
-            <span>Question 4.3: How does the OmniRoute dynamic router optimize cost and latency?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Autonomous Routing</span></span>
+        <span class="sub-icon">🔀</span> <span class="sub-title"><strong>Question 4.3: How does the OmniRoute dynamic router optimize cost and latency?</strong></span> <span class="sub-badge">[<span>Autonomous Routing</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Every inbound task is evaluated within 15 milliseconds for token volume, semantic ambiguity, and safety implications. Lightweight tasks route to zero-cost micro-models at 150+ tokens/sec, while rigorous reasoning tasks escalate to frontier models, slashing enterprise LLM expenditure by 8–12x.</span></p>
@@ -740,14 +652,7 @@
 
           <details class="sub-accordion" open id="sub-4-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📈</span>
-          <h3 class="sub-title">
-            <span>Question 4.4: How does real-time fleet telemetry drive automated failover across regions?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>99.9% Uptime</span></span>
+        <span class="sub-icon">📈</span> <span class="sub-title"><strong>Question 4.4: How does real-time fleet telemetry drive automated failover across regions?</strong></span> <span class="sub-badge">[<span>99.9% Uptime</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Continuous automated health-checks evaluate Time-to-First-Token (TTFT), error rates, and API throughput across all 94 models every 60 seconds. If an upstream provider throttles, traffic redirects instantaneously across alternate providers with zero user disruption.</span></p>
@@ -2027,21 +1932,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 05: COMPARATIVE-AUDIT
        ========================================================================= -->
   <details class="accordion-section" open id="comparative-audit">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">05</span>
-        <h2 class="summary-title">
-          <span>Comparative Audit: Standalone Chatbot vs. EvaLine Consilium System</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Technical Audit</span>
-      </div>
+      <span class="summary-num">[05]</span>
+      <span class="summary-title"><strong>Comparative Audit: Standalone Chatbot vs. EvaLine Consilium System</strong></span>
+      <span class="summary-badge">[<span>Technical Audit</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2065,72 +1964,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">-78%</div>
-        <div class="kpi-lbl"><span>Development Cost Reduction</span></div>
-        <div class="kpi-sub"><span>Autonomous engineering & rapid iteration</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">12x</div>
-        <div class="kpi-lbl"><span>Quoting & Spec Generation Speedup</span></div>
-        <div class="kpi-sub"><span>From 4 business days down to 20 minutes</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">550+ т</div>
-        <div class="kpi-lbl"><span>EVA Polymer Plant Monthly Capacity</span></div>
-        <div class="kpi-sub"><span>Chornomorsk plant (2.8 ha, hot presses, CNC)</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">48 ч</div>
-        <div class="kpi-lbl"><span>EU Delivery from Bratislava Hub</span></div>
-        <div class="kpi-sub"><span>Rapid dispatch across the European Union</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">-78%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Development Cost Reduction</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Autonomous engineering & rapid iteration</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">12x</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Quoting & Spec Generation Speedup</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>From 4 business days down to 20 minutes</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">550+ т</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>EVA Polymer Plant Monthly Capacity</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Chornomorsk plant (2.8 ha, hot presses, CNC)</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">48 ч</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>EU Delivery from Bratislava Hub</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Rapid dispatch across the European Union</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart LR
-  subgraph Plant["🏭 EVA Plant (Chornomorsk, 2.8 ha)"]
-    direction TB
-    P1["Raw EVA Granules (Borealis/LG)"] --> P2["Automated Compounding & Blending"]
-    P2 --> P3["High-Pressure Hot Foaming (550+ t/mo)"]
-    P3 --> P4["CNC Precision Plotter Cutting (G-Code)"]
-    P4 --> P5["Quality Control ISO 9001 / CE"]
-  end
-
-  subgraph Logistics["🇪🇺 European Logistics Hub"]
-    direction TB
-    L1["Bratislava Central Warehouse"] --> L2["Dispatch to Germany, Poland, Czechia"]
-    L2 --> L3["Delivery to customer within 48h"]
-  end
-
-  subgraph AIConsilium["🤖 EvaLine Autonomous Supervision"]
-    direction TB
-    A1["Adam: Compounding specs & CNC G-Code"]
-    A2["Eva: Omnichannel CRM & multi-lingual sales"]
-    A3["Legal Agent: Customs, EU Directives, ISO"]
-  end
-
-  AIConsilium -.->|CNC Automation| P4
-  AIConsilium -.->|Quality verification| P5
-  AIConsilium -.->|Customs clearance| L1
-  P5 ==> L1</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                ПРОИЗВОДСТВЕННЫЙ КОНВЕЙЕР И AI-КОНТУР                    |
 |                                                                         |
 |  [Гранулы EVA] --> [Вспенивание] --> [ЧПУ Раскрой] --> [Контроль ISO]  |
@@ -2150,14 +2029,7 @@
       <p class="lead-text"><span>An objective technical audit demonstrates the structural superiority of the distributed Consilium architecture over standalone consumer chatbots:</span></p>
           <details class="sub-accordion" open id="sub-5-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📊</span>
-          <h3 class="sub-title">
-            <span>Question 5.1: What are the benchmark results: single chatbot vs. EvaLine Consilium?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Factor Analysis</span></span>
+        <span class="sub-icon">📊</span> <span class="sub-title"><strong>Question 5.1: What are the benchmark results: single chatbot vs. EvaLine Consilium?</strong></span> <span class="sub-badge">[<span>Factor Analysis</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="table-responsive">
@@ -2208,14 +2080,7 @@
 
           <details class="sub-accordion" open id="sub-5-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔒</span>
-          <h3 class="sub-title">
-            <span>Question 5.2: How is enterprise security, privacy, and sovereign data governance audited?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Zero Data Exposure</span></span>
+        <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Question 5.2: How is enterprise security, privacy, and sovereign data governance audited?</strong></span> <span class="sub-badge">[<span>Zero Data Exposure</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Unlike public consumer chatbots where confidential business spreadsheets and legal contracts are exposed to third-party model retraining, EvaLine operates strictly within a sandboxed enterprise boundary: zero training on corporate telemetry, strict RBAC permissions, and encrypted at-rest storage.</span></p>
@@ -2224,14 +2089,7 @@
 
           <details class="sub-accordion" open id="sub-5-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💵</span>
-          <h3 class="sub-title">
-            <span>Question 5.3: What are the verified unit economics and TCO optimizations?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>85% Cost Reduction</span></span>
+        <span class="sub-icon">💵</span> <span class="sub-title"><strong>Question 5.3: What are the verified unit economics and TCO optimizations?</strong></span> <span class="sub-badge">[<span>85% Cost Reduction</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Deploying an intelligent dual-tier architecture with 62 zero-cost models and 32 frontier models compresses monthly enterprise API overhead by up to 85%, providing industrial-grade AI throughput while maintaining lean operational expenditure.</span></p>
@@ -2240,21 +2098,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 06: MILITARY-RESILIENCE
        ========================================================================= -->
   <details class="accordion-section" open id="military-resilience">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">06</span>
-        <h2 class="summary-title">
-          <span>Military Resilience, Blackout Defense & Dual-Node Cluster Topology</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>High Availability</span>
-      </div>
+      <span class="summary-num">[06]</span>
+      <span class="summary-title"><strong>Military Resilience, Blackout Defense & Dual-Node Cluster Topology</strong></span>
+      <span class="summary-badge">[<span>High Availability</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2278,64 +2130,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">99.9%</div>
-        <div class="kpi-lbl"><span>Cluster SLA Availability</span></div>
-        <div class="kpi-sub"><span>Dual-node active mesh: Frankfurt + Iowa</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">129 ms</div>
-        <div class="kpi-lbl"><span>WireGuard Interconnect Latency</span></div>
-        <div class="kpi-sub"><span>Kernel-level ChaCha20-Poly1305 tunnel</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">HTTP/3</div>
-        <div class="kpi-lbl"><span>Caddy Edge HTTP/3 QUIC</span></div>
-        <div class="kpi-sub"><span>Zero-RTT TLS 1.3 with upstream keep-alive</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">32 GB</div>
-        <div class="kpi-lbl"><span>Compute Core Dedicated RAM</span></div>
-        <div class="kpi-sub"><span>8 vCPU, local NVMe storage & earlyoom daemons</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.9%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Cluster SLA Availability</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Dual-node active mesh: Frankfurt + Iowa</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">129 ms</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>WireGuard Interconnect Latency</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Kernel-level ChaCha20-Poly1305 tunnel</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">HTTP/3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Caddy Edge HTTP/3 QUIC</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Zero-RTT TLS 1.3 with upstream keep-alive</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">32 GB</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Compute Core Dedicated RAM</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>8 vCPU, local NVMe storage & earlyoom daemons</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">flowchart TD
-  Client(["Client / Web / CLI / WhatsApp / SIP"]) -->|HTTPS HTTP/3 QUIC| Edge["Edge Node: evaline-micro-vm (Iowa)"]
-  
-  subgraph EdgeLayer["Edge Security Layer (Iowa Edge)"]
-    Edge --> Caddy["Caddy v2: SSL, DDoS Mitigation, Early Response"]
-  end
-  
-  Caddy -->|Encrypted WireGuard Mesh Tunnel (129ms)| Core["Compute Core: evabot-agent-vm (Frankfurt)"]
-  
-  subgraph CoreLayer["Dedicated Core (Frankfurt Compute Node)"]
-    Core --> CoreServer["Node.js / TypeScript Server :3000"]
-    CoreServer --> EngineConsilium["Consilium Multi-Agent Engine"]
-    CoreServer --> MCPSuite["21 MCP Servers (Docker, Bash, Git, DBs)"]
-    CoreServer --> LocalRAG["Sovereign RAG: ChromaDB + SQLite FTS5"]
-  end
-  
-  CoreLayer -.->|Encrypted VPN| FactoryFloor["CNC Plotters at Chornomorsk Plant"]
-  CoreLayer -.->|API Gateway| EUWarehouse["Bratislava EU Warehouse"]</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  СУВЕРЕННЫЙ ДВУХУЗЛОВОЙ КЛАСТЕР WIREGUARD               |
 |                                                                         |
 |  [Интернет-клиенты]                                                     |
@@ -2358,14 +2198,7 @@
       <p class="lead-text"><span>EvaLine infrastructure is engineered to defense-grade fault tolerance with full geographic and energy redundancy:</span></p>
           <details class="sub-accordion" open id="sub-6-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🇩🇪</span>
-          <h3 class="sub-title">
-            <span>Question 6.1: Why is the dedicated EvaBrain compute core hosted in Frankfurt?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>8 vCPU / 32GB RAM</span></span>
+        <span class="sub-icon">🇩🇪</span> <span class="sub-title"><strong>Question 6.1: Why is the dedicated EvaBrain compute core hosted in Frankfurt?</strong></span> <span class="sub-badge">[<span>8 vCPU / 32GB RAM</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>High-performance compute node (8 vCPUs Intel Xeon, 32 GB RAM) located in GCP datacenter europe-west3-a (Frankfurt). Hosts heavy agent loops, compilers, local LSP engines, MCP servers, and semantic graph memory, guaranteeing 100% uptime regardless of regional infrastructure disturbances.</span></p>
@@ -2374,14 +2207,7 @@
 
           <details class="sub-accordion" open id="sub-6-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🇺🇸</span>
-          <h3 class="sub-title">
-            <span>Question 6.2: What protective role does the EvaFace edge ingress proxy fulfill?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>HTTP/3 QUIC</span></span>
+        <span class="sub-icon">🇺🇸</span> <span class="sub-title"><strong>Question 6.2: What protective role does the EvaFace edge ingress proxy fulfill?</strong></span> <span class="sub-badge">[<span>HTTP/3 QUIC</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Hardened edge gateway built on Caddy v2 with native HTTP/3 QUIC, TLS 1.3, and Brotli compression. Ingests global client traffic, absorbs DDoS volumetric surges, serves cached assets, and securely proxies verified workloads to the core.</span></p>
@@ -2390,14 +2216,7 @@
 
           <details class="sub-accordion" open id="sub-6-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🌐</span>
-          <h3 class="sub-title">
-            <span>Question 6.3: How does the WireGuard encrypted mesh backbone secure communications?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>P2P Encryption</span></span>
+        <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Question 6.3: How does the WireGuard encrypted mesh backbone secure communications?</strong></span> <span class="sub-badge">[<span>P2P Encryption</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Nodes are interconnected via private point-to-point WireGuard mesh tunnels with zero publicly exposed backend ports. Automated watchdog daemons (polling every 180s) and EarlyOOM kernel protectors prevent memory deadlocks and silent process dropouts.</span></p>
@@ -2406,14 +2225,7 @@
 
           <details class="sub-accordion" open id="sub-6-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚡</span>
-          <h3 class="sub-title">
-            <span>Question 6.4: How is uninterrupted manufacturing continuity maintained during blackouts?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Autonomous Plant</span></span>
+        <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Question 6.4: How is uninterrupted manufacturing continuity maintained during blackouts?</strong></span> <span class="sub-badge">[<span>Autonomous Plant</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>EvaLine infrastructure is architected to endure extreme blackout conditions. When the physical factory shifts seamlessly to industrial diesel generators, our cloud agent fleet in Western Europe continues processing customer orders, booking inventory, and calculating CNC production queues without a single second of downtime.</span></p>
@@ -2422,21 +2234,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 07: ECOSYSTEM-CATALOG
        ========================================================================= -->
   <details class="accordion-section" open id="ecosystem-catalog">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">07</span>
-        <h2 class="summary-title">
-          <span>Unified Ecosystem: Domain Directory & Public Services Hub</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>4 Cluster Domains</span>
-      </div>
+      <span class="summary-num">[07]</span>
+      <span class="summary-title"><strong>Unified Ecosystem: Domain Directory & Public Services Hub</strong></span>
+      <span class="summary-badge">[<span>4 Cluster Domains</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2445,83 +2251,82 @@
     <div class="infographic-panel" id="infographic-sec-07">
       <div class="infographic-header">
         <div class="infographic-title-wrap">
-          <span class="infographic-icon">🗺️</span>
+          <span class="infographic-icon">🧭</span>
           <div>
             <div class="infographic-eyebrow">
-              <span>SECTION 07 DASHBOARD // ECOSYSTEM & ROADMAP</span>
+              <span>SECTION 07 DASHBOARD // UNIFIED ECOSYSTEM & GATEWAYS</span>
             </div>
             <h3 class="infographic-title">
-              <span>30-Day Phased Deployment Gantt Chart with Zero Production Downtime</span>
+              <span>Interconnected Map of Public Domains, Operator Workstations & API Gateways</span>
             </h3>
           </div>
         </div>
         <div class="infographic-desc">
-          <span>Systematic phased rollout guaranteeing zero legacy downtime and sovereign code handover.</span>
+          <span>Unified operational perimeter linking four public endpoints, Quartz documentation, and real-time voice streaming.</span>
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">30 дней</div>
-        <div class="kpi-lbl"><span>Turnkey Implementation Timeline</span></div>
-        <div class="kpi-sub"><span>From initial discovery to full production go-live</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">4 фазы</div>
-        <div class="kpi-lbl"><span>Phased Delivery Architecture</span></div>
-        <div class="kpi-sub"><span>Audit, Sovereign Core, MCP Tools, Consilium</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0 дней</div>
-        <div class="kpi-lbl"><span>Zero Legacy System Downtime</span></div>
-        <div class="kpi-sub"><span>Side-by-side rollout with zero ERP disruption</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Sovereign IP & Code Handover</span></div>
-        <div class="kpi-sub"><span>Customer retains full data and infrastructure sovereignty</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Core Production Domains in Mesh</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>AI Workstation, Telemetry, Manifesto, Gateway</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">99.9%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>SLA Availability across Public Endpoints</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Global Edge Proxy with sub-second failover</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">250 мс</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Real-Time EvaVoice API Latency</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>FastAPI bidirectional WebSocket STT/TTS</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">360+</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Technical Documentation Articles (Quartz)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Complete architecture specs, APIs & standards</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">gantt
-  title EvaLine Agent Factory Implementation Roadmap (30 Days)
-  dateFormat  YYYY-MM-DD
-  axisFormat  %d.%m
-  section 1. Discovery & Audit (Days 1-7)
-  Stakeholder interviews & pain audit :a1, 2026-10-01, 3d
-  Document & ERP spec ingestion        :a2, after a1, 4d
-  section 2. Sovereign Core (Days 8-14)
-  Deploy on-prem/cloud node            :b1, after a2, 3d
-  RAG Indexing (ChromaDB + FTS5)       :b2, after b1, 4d
-  section 3. MCP Tool Hub (Days 15-21)
-  Integrate 1C / ERP / CNC tools       :c1, after b2, 4d
-  Security sandboxing & permissions    :c2, after c1, 3d
-  section 4. Consilium Go-Live (Days 22-30)
-  Staff workshops & shadow runs        :d1, after c2, 4d
-  24/7 Autonomous Production Go-Live   :d2, after d1, 5d</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
-|               4 ФАЗЫ ВНЕДРЕНИЯ ПОД КЛЮЧ ЗА 30 ДНЕЙ                      |
-|                                                                         |
-|  [ФАЗА 1: ДНИ 1-7]    Интервью, сбор ТУ, оцифровка документации         |
-|  [ФАЗА 2: ДНИ 8-14]   Установка суверенного сервера и индексация RAG    |
-|  [ФАЗА 3: ДНИ 15-21]  Подключение 21 MCP к 1С/ERP и станкам ЧПУ         |
-|  [ФАЗА 4: ДНИ 22-30]  Обучение команды и ввод Консилиума 24/7 в строй   |
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
+|                  ЕДИНАЯ ЭКОСИСТЕМА ДОМЕНОВ EVALINE NETWORK              |
++-------------------------------------------------------------------------+
+                                     │
+           ┌─────────────────────────┼─────────────────────────┐
+           ▼                         ▼                         ▼
+   [evabot.online]          [evaline.network]          [evaline.online]
+   Рабочая станция ИИ       TUI-Дашборд телеметрии     Суверенный Манифест
+   • Чат с Консилиумом      • Задержки 94 моделей      • Философия суверенитета
+   • Голос в реальном вр.   • Нагрузка узлов Франкфурт • Завод полимеров 2.8 га
+           │                         │                         │
+           ├─────────────────────────┼─────────────────────────┤
+           ▼                         ▼                         ▼
+   [evabot.online/docs/]   [evabot.online/voice/docs]  [evaline.website]
+   База знаний Quartz      FastAPI Swagger UI          Главный навигационный
+   • 360+ статей ТУ/ГОСТ   • STT/TTS REST & WebSocket  каталог экосистемы
 +-------------------------------------------------------------------------+</pre>
       </details>
       </div>
@@ -2530,14 +2335,7 @@
       <p class="lead-text"><span>Our unified digital ecosystem links specialized domain endpoints and API services for comprehensive enterprise operations:</span></p>
           <details class="sub-accordion" open id="sub-7-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🌐</span>
-          <h3 class="sub-title">
-            <span>Question 7.1: What are the primary public web terminals and interfaces across the network?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>4 Core Domains</span></span>
+        <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Question 7.1: What are the primary public web terminals and interfaces across the network?</strong></span> <span class="sub-badge">[<span>4 Core Domains</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="hub-grid">
@@ -2570,14 +2368,7 @@
 
           <details class="sub-accordion" open id="sub-7-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📚</span>
-          <h3 class="sub-title">
-            <span>Question 7.2: Where can developers study technical documentation and specifications?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Knowledge Base</span></span>
+        <span class="sub-icon">📚</span> <span class="sub-title"><strong>Question 7.2: Where can developers study technical documentation and specifications?</strong></span> <span class="sub-badge">[<span>Knowledge Base</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Internal and developer documentation hosted on Quartz. Encompasses 360+ structured articles: complete cluster topologies, agent prompt profiles, API endpoints, manufacturing standards, and ISO 9001:2015 compliance protocols.</span></p>
@@ -2589,14 +2380,7 @@
 
           <details class="sub-accordion" open id="sub-7-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🎙️</span>
-          <h3 class="sub-title">
-            <span>Question 7.3: How do operators integrate the real-time EvaVoice API (FastAPI :8000)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>STT & TTS Engine</span></span>
+        <span class="sub-icon">🎙️</span> <span class="sub-title"><strong>Question 7.3: How do operators integrate the real-time EvaVoice API (FastAPI :8000)?</strong></span> <span class="sub-badge">[<span>STT & TTS Engine</span>]</span>
       </summary>
       <div class="sub-content">
 <p><span>Ultra-low-latency asynchronous microservice built on FastAPI and bidirectional WebSockets for real-time speech-to-text and text-to-speech. Connects operators directly to EvaLine agents via browser, SIP VoIP telephony, or mobile apps with sub-250ms latency.</span></p>
@@ -2608,21 +2392,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 08: BUSINESS-SOLUTIONS
        ========================================================================= -->
   <details class="accordion-section" open id="business-solutions">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">08</span>
-        <h2 class="summary-title">
-          <span>Business Solutions, Manufacturing Integration & EvaBot Anatomy</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>Production Reality</span>
-      </div>
+      <span class="summary-num">[08]</span>
+      <span class="summary-title"><strong>Business Solutions, Manufacturing Integration & EvaBot Anatomy</strong></span>
+      <span class="summary-badge">[<span>Production Reality</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -2646,29 +2424,38 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Universal Digital Job Positions</span></div>
-        <div class="kpi-sub"><span>Direct alignment from Chief Architect to CNC Master</span></div>
-      </div>
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">1+2+3+4</div>
-        <div class="kpi-lbl"><span>Pythagorean Tetraktys (1+2+3+4=10)</span></div>
-        <div class="kpi-sub"><span>Four harmonious organisational tiers</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">10</div>
-        <div class="kpi-lbl"><span>Sephirot Emanation Stages</span></div>
-        <div class="kpi-sub"><span>From Kether (Vision) down to Malkuth (Physical Plant)</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">0%</div>
-        <div class="kpi-lbl"><span>Zero Role Collision or Ambiguity</span></div>
-        <div class="kpi-sub"><span>Deterministic responsibility boundaries across all agents</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Universal Digital Job Positions</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Direct alignment from Chief Architect to CNC Master</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">1+2+3+4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Pythagorean Tetraktys (1+2+3+4=10)</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Four harmonious organisational tiers</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Sephirot Emanation Stages</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>From Kether (Vision) down to Malkuth (Physical Plant)</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Zero Role Collision or Ambiguity</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Deterministic responsibility boundaries across all agents</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
             <div class="tetraktys-svg-card">
         <div class="tetraktys-svg-header">
@@ -2781,48 +2568,17 @@
         </div>
       </div>
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">graph TD
-  K["01. Architect // Kether (Vision & Axioms)"]
-  B["02. Adam // Binah (CISO & Engineering)"]
-  C["03. Eva // Chokmah (CXO & Voice)"]
-  T["04. Arbiter // Tifereth (Consilium 99.4%)"]
-  N["05. Lead Dev // Netzach (Code & Git)"]
-  H["06. Voice Spec // Hod (Voice Engine)"]
-  Y["07. Memory RAG // Yesod (ChromaDB / RAG)"]
-  S["08. SRE Admin // Yesod Shield (WireGuard)"]
-  L["09. Legal // Malkuth Gate (Compliance)"]
-  M["10. CNC Master // Malkuth (Physical Plant)"]
-
-  K --> B & C
-  B --> T & N
-  C --> T & H
-  T --> Y
-  N --> S
-  H --> L
-  Y & S & L --> M
-
-  classDef t1 fill:#1c2333,stroke:#ffd600,stroke-width:2px,color:#ffd600;
-  classDef t2 fill:#1c2333,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
-  classDef t3 fill:#1c2333,stroke:#00e5ff,stroke-width:2px,color:#00e5ff;
-  classDef t4 fill:#1c2333,stroke:#00e676,stroke-width:2px,color:#00e676;
-  class K t1;
-  class B,C t2;
-  class T,N,H t3;
-  class Y,S,L,M t4;</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">                      ▲ [РЯД I: МОНАДА — 1 УЗЕЛ]
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">                      ▲ [РЯД I: МОНАДА — 1 УЗЕЛ]
                01. Архитектор (Chief Architect)
                              Кетер
                                │
@@ -2845,14 +2601,7 @@
       <p class="lead-text"><span><strong>EvaLine</strong> uniquely fuses physical industrial polymer manufacturing with an autonomous distributed agent factory:</span></p>
           <details class="sub-accordion" open id="sub-8-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🏭</span>
-          <h3 class="sub-title">
-            <span>Question 8.1: What are EvaLine's physical factory assets, capacity, and EU hub?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>2.8 Ha Plant</span></span>
+        <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Question 8.1: What are EvaLine's physical factory assets, capacity, and EU hub?</strong></span> <span class="sub-badge">[<span>2.8 Ha Plant</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -2965,14 +2714,7 @@
 
           <details class="sub-accordion" open id="sub-8-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📐</span>
-          <h3 class="sub-title">
-            <span>Question 8.2: How does the Pythagorean Tetraktys (1+2+3+4=10) map to Sephirot and 10 universal roles?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>10 Tetraktys Roles</span></span>
+        <span class="sub-icon">📐</span> <span class="sub-title"><strong>Question 8.2: How does the Pythagorean Tetraktys (1+2+3+4=10) map to Sephirot and 10 universal roles?</strong></span> <span class="sub-badge">[<span>10 Tetraktys Roles</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3113,14 +2855,7 @@
 
           <details class="sub-accordion" open id="sub-8-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">⚡</span>
-          <h3 class="sub-title">
-            <span>Question 8.3: What does the end-to-end autonomous pipeline look like: call to CNC (7 steps)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>7-Step Pipeline</span></span>
+        <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Question 8.3: What does the end-to-end autonomous pipeline look like: call to CNC (7 steps)?</strong></span> <span class="sub-badge">[<span>7-Step Pipeline</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3184,14 +2919,7 @@
 
           <details class="sub-accordion" open id="sub-8-4">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📈</span>
-          <h3 class="sub-title">
-            <span>Question 8.4: What are the verified transformation benchmarks: Before vs. After?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Before/After Metrics</span></span>
+        <span class="sub-icon">📈</span> <span class="sub-title"><strong>Question 8.4: What are the verified transformation benchmarks: Before vs. After?</strong></span> <span class="sub-badge">[<span>Before/After Metrics</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3310,14 +3038,7 @@
 
           <details class="sub-accordion" open id="sub-8-5">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">📋</span>
-          <h3 class="sub-title">
-            <span>Question 8.5: What is the phased onboarding methodology for enterprise (5 phases in 2-4 weeks)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>5-Phase Protocol</span></span>
+        <span class="sub-icon">📋</span> <span class="sub-title"><strong>Question 8.5: What is the phased onboarding methodology for enterprise (5 phases in 2-4 weeks)?</strong></span> <span class="sub-badge">[<span>5-Phase Protocol</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3406,20 +3127,32 @@
           </div>
         </div>
       </div>
+            <!-- Gantt Implementation Roadmap Box (Text Monospace) -->
+      <div class="diagram-box" style="margin-top: 24px;">
+        <div class="diagram-box-header">
+          <div class="diagram-box-title">
+            <strong><span>IMPLEMENTATION SCHEDULE (ASCII)</span></strong>
+          </div>
+        </div>
+        <details class="ascii-toggle" open>
+          <summary class="ascii-toggle-btn"><strong>📟 <span>Implementation text schedule (ASCII)</span></strong></summary>
+          <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
+|               4 ФАЗЫ ВНЕДРЕНИЯ ПОД КЛЮЧ ЗА 30 ДНЕЙ                      |
+|                                                                         |
+|  [ФАЗА 1: ДНИ 1-7]    Интервью, сбор ТУ, оцифровка документации         |
+|  [ФАЗА 2: ДНИ 8-14]   Установка суверенного сервера и индексация RAG    |
+|  [ФАЗА 3: ДНИ 15-21]  Подключение 21 MCP к 1С/ERP и станкам ЧПУ         |
+|  [ФАЗА 4: ДНИ 22-30]  Обучение команды и ввод Консилиума 24/7 в строй   |
++-------------------------------------------------------------------------+</pre>
+        </details>
+      </div>
     
       </div>
     </details>
 
           <details class="sub-accordion" open id="sub-8-6">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">💰</span>
-          <h3 class="sub-title">
-            <span>Question 8.6: How does the real-time financial ROI calculator compute cost savings?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Interactive ROI</span></span>
+        <span class="sub-icon">💰</span> <span class="sub-title"><strong>Question 8.6: How does the real-time financial ROI calculator compute cost savings?</strong></span> <span class="sub-badge">[<span>Interactive ROI</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3496,14 +3229,7 @@
 
           <details class="sub-accordion" open id="sub-8-7">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🔌</span>
-          <h3 class="sub-title">
-            <span>Question 8.7: How does the 21 MCP adapter suite integrate agents into enterprise IT systems?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>21 MCP Adapters</span></span>
+        <span class="sub-icon">🔌</span> <span class="sub-title"><strong>Question 8.7: How does the 21 MCP adapter suite integrate agents into enterprise IT systems?</strong></span> <span class="sub-badge">[<span>21 MCP Adapters</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -3532,21 +3258,15 @@
 
     </div>
   </details>
+  <hr class="section-divider">
   <!-- =========================================================================
        SECTION 09: GLOSSARY
        ========================================================================= -->
   <details class="accordion-section" open id="glossary">
     <summary class="accordion-summary">
-      <div class="summary-left">
-        <span class="summary-chevron">▾</span>
-        <span class="summary-num">09</span>
-        <h2 class="summary-title">
-          <span>Plain-Language Glossary: High Technologies in Accessible Terms</span>
-        </h2>
-      </div>
-      <div class="summary-badge">
-        <span>20 Clear Terms</span>
-      </div>
+      <span class="summary-num">[09]</span>
+      <span class="summary-title"><strong>Plain-Language Glossary: High Technologies in Accessible Terms</strong></span>
+      <span class="summary-badge">[<span>20 Clear Terms</span>]</span>
     </summary>
     <div class="accordion-content">
           <!-- =====================================================================
@@ -3570,69 +3290,52 @@
         </div>
       </div>
 
-      <!-- KPI METRIC GAUGES -->
-      <div class="kpi-grid">
-      <div class="kpi-card kpi-cyan">
-        <div class="kpi-val">20</div>
-        <div class="kpi-lbl"><span>Core Enterprise Concepts</span></div>
-        <div class="kpi-sub"><span>Plain-human analogies + technical rigor</span></div>
-      </div>
-      <div class="kpi-card kpi-green">
-        <div class="kpi-val">4</div>
-        <div class="kpi-lbl"><span>Term Categories</span></div>
-        <div class="kpi-sub"><span>AI, Infrastructure, EVA Plant, Business ROI</span></div>
-      </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-val">100%</div>
-        <div class="kpi-lbl"><span>Accessibility for Stakeholders</span></div>
-        <div class="kpi-sub"><span>Crystal clarity for boardrooms and shopfloors alike</span></div>
-      </div>
-      <div class="kpi-card kpi-purple">
-        <div class="kpi-val">3</div>
-        <div class="kpi-lbl"><span>Languages in Knowledge Base</span></div>
-        <div class="kpi-sub"><span>Russian, Ukrainian, English</span></div>
-      </div>
-      </div>
+      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
+      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="18%" align="center"><span>Metric</span></th>
+            <th width="38%" align="left"><span>System Parameter</span></th>
+            <th width="44%" align="left"><span>Business Impact / Technical Spec</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="kpi-row kpi-cyan">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">20</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Core Enterprise Concepts</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Plain-human analogies + technical rigor</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-green">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">4</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Term Categories</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>AI, Infrastructure, EVA Plant, Business ROI</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-amber">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">100%</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Accessibility for Stakeholders</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Crystal clarity for boardrooms and shopfloors alike</span></small></td>
+        </tr>
+        <tr class="kpi-row kpi-purple">
+          <td class="kpi-val-cell" align="center"><strong class="kpi-val">3</strong></td>
+          <td class="kpi-lbl-cell"><strong><span>Languages in Knowledge Base</span></strong></td>
+          <td class="kpi-sub-cell"><small><span>Russian, Ukrainian, English</span></small></td>
+        </tr>
+        </tbody>
+      </table>
 
       
 
-      <!-- INTERACTIVE MERMAID DIAGRAM BOX -->
+      <!-- ARCHITECTURE DIAGRAM BOX (Text Monospace) -->
       <div class="diagram-box">
         <div class="diagram-box-header">
           <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <span><span>INTERACTIVE ARCHITECTURE SCHEMATIC</span></span>
+            <strong><span>ARCHITECTURE SCHEMATIC (ASCII / ANSI)</span></strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
         </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang"><div class="mermaid">mindmap
-  root((EvaLine Glossary))
-    Artificial Intelligence
-      Consilium (Adversarial Deliberation)
-      Autonomous Agent (Digital Employee)
-      LLM Models (94-model unified fleet)
-      RAG Memory (ChromaDB + SQLite FTS5)
-      MCP Protocol (21 tool servers)
-    Infrastructure & Security
-      WireGuard Mesh (ChaCha20-Poly1305)
-      Sovereign Cluster (Frankfurt + Iowa)
-      Edge Caddy v2 (HTTP/3 QUIC & DDoS)
-      Circuit Breaker (120ms failover)
-    Polymer Manufacturing
-      Sevilen (EVA Copolymer)
-      Chornomorsk Plant (2.8 ha, 550+ t/mo)
-      CNC Plotters (G-Code cutting)
-      High-Pressure Hot Foaming
-    Business & Standards
-      Zero Vendor Lock-in (Sovereignty)
-      TCO & ROI (Rapid Payback)
-      ISO 9001 (European Quality CE)
-      Customs & Tariffs (Bratislava Hub)</div></div>
-        </div>
-              <details class="ascii-toggle">
-        <summary class="ascii-toggle-btn"><span>📟 View diagram in text mode (ASCII / ANSI)</span></summary>
-        <pre class="ascii-diagram">+-------------------------------------------------------------------------+
+              <!-- Text Monospace Diagram (ASCII / ANSI) -->
+      <details class="ascii-toggle" open>
+        <summary class="ascii-toggle-btn"><strong>📟 <span>Text schematic (ASCII / ANSI)</span></strong></summary>
+        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
 |                  ИНТЕЛЛЕКТ-КАРТА ГЛОССАРИЯ EVALINE                      |
 |                                                                         |
 |  [НЕЙРОСЕТИ & АГЕНТЫ]       [ИНФРАСТРУКТУРА & ЗАЩИТА]                   |
@@ -3675,14 +3378,7 @@
 
           <details class="sub-accordion" open id="sub-9-1">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🤖</span>
-          <h3 class="sub-title">
-            <span>Question 9.1: What do AI and agentic factory terms mean in plain language (9 terms)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>AI & Agents</span></span>
+        <span class="sub-icon">🤖</span> <span class="sub-title"><strong>Question 9.1: What do AI and agentic factory terms mean in plain language (9 terms)?</strong></span> <span class="sub-badge">[<span>AI & Agents</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="ai">
@@ -3798,14 +3494,7 @@
 
           <details class="sub-accordion" open id="sub-9-2">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🏭</span>
-          <h3 class="sub-title">
-            <span>Question 9.2: What essential terms explain EVA polymers and manufacturing (7 terms)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Polymers & Plant</span></span>
+        <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Question 9.2: What essential terms explain EVA polymers and manufacturing (7 terms)?</strong></span> <span class="sub-badge">[<span>Polymers & Plant</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="poly">
@@ -3897,14 +3586,7 @@
 
           <details class="sub-accordion" open id="sub-9-3">
       <summary class="sub-summary">
-        <div class="sub-summary-left">
-          <span class="sub-chevron">▾</span>
-          <span class="sub-icon">🛡️</span>
-          <h3 class="sub-title">
-            <span>Question 9.3: How to understand mesh security, dual clusters, and blackout resilience (4 terms)?</span>
-          </h3>
-        </div>
-        <span class="sub-badge"><span>Security</span></span>
+        <span class="sub-icon">🛡️</span> <span class="sub-title"><strong>Question 9.3: How to understand mesh security, dual clusters, and blackout resilience (4 terms)?</strong></span> <span class="sub-badge">[<span>Security</span>]</span>
       </summary>
       <div class="sub-content">
 <div class="glossary-grid">        <div class="glossary-card" data-category="sec">
@@ -3960,6 +3642,7 @@
 
     </div>
   </details>
+  <hr class="section-divider">
 
   <!-- FOOTER -->
   <footer>
