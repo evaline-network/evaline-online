@@ -963,6 +963,515 @@
       line-height: 1.55;
     }
 
+    
+    /* ==========================================================================
+       SECTION 08: BUSINESS SOLUTIONS, PIPELINE & ROI CALCULATOR STYLES
+       ========================================================================== */
+    .biz-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: clamp(16px, 2vw, 24px);
+      margin: 28px 0;
+    }
+
+    .biz-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: clamp(20px, 2.5vw, 26px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+
+    .biz-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
+      background: var(--bg-card-hover);
+    }
+
+    .biz-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .biz-card-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      padding: 10px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 10px;
+      color: var(--accent-cyan);
+    }
+
+    .biz-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .biz-pain-box {
+      background: rgba(255, 23, 68, 0.06);
+      border-left: 3px solid var(--accent-red);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      color: #f87171;
+    }
+
+    .biz-solution-box {
+      background: rgba(0, 230, 118, 0.06);
+      border-left: 3px solid var(--accent-green);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .biz-solution-box strong {
+      color: var(--accent-green);
+    }
+
+    /* Pipeline Flow Infographic */
+    .pipeline-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(20px, 3vw, 32px);
+      margin: 32px 0;
+    }
+
+    .pipeline-title-box {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .pipeline-title-box h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .pipeline-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: 16px;
+      position: relative;
+    }
+
+    .pipe-step {
+      background: rgba(14, 18, 27, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .pipe-step:hover {
+      border-color: var(--accent-green);
+      transform: translateY(-2px);
+    }
+
+    .pipe-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pipe-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .pipe-desc {
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    .pipe-tech {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.06);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 229, 255, 0.15);
+      margin-top: auto;
+    }
+
+    /* Before vs After Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .compare-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compare-metric-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .compare-delta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .compare-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .compare-row.before span:last-child {
+      color: #f87171;
+      font-weight: 600;
+    }
+
+    .compare-row.after span:last-child {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .compare-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 6px;
+      position: relative;
+    }
+
+    .compare-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+      border-radius: 4px;
+      transition: width 0.8s ease;
+    }
+
+    /* Interactive ROI Calculator */
+    .roi-calc-box {
+      background: linear-gradient(145deg, rgba(14, 18, 27, 0.95), rgba(9, 12, 19, 0.95));
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      padding: clamp(24px, 3.5vw, 36px);
+      margin: 36px 0;
+    }
+
+    .roi-calc-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .roi-calc-header h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: #fff;
+      margin: 0;
+    }
+
+    .roi-badge {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: var(--accent-green);
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .roi-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 32px;
+    }
+
+    .roi-sliders {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .roi-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .roi-field-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .roi-field-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .roi-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+      transition: transform 0.1s;
+    }
+
+    .roi-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .roi-results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .roi-result-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .roi-result-label {
+      font-size: 0.84rem;
+      color: var(--fg-muted);
+    }
+
+    .roi-result-val {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .roi-result-val.green { color: var(--accent-green); }
+    .roi-result-val.cyan { color: var(--accent-cyan); }
+    .roi-result-val.amber { color: var(--accent-amber); }
+
+    /* 5-Phase Onboarding Pipeline */
+    .phase-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .phase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: clamp(18px, 2vw, 24px);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+
+    .phase-card:hover {
+      border-color: var(--accent-green);
+      background: var(--bg-card-hover);
+    }
+
+    .phase-badge-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phase-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 230, 118, 0.1);
+      border: 2px solid var(--accent-green);
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .phase-days {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--fg-subtle);
+      white-space: nowrap;
+    }
+
+    .phase-body h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .phase-body p {
+      font-size: 0.95rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .phase-deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .phase-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Sephirot Engine Grid */
+    .sephirot-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(20px, 3vw, 32px);
+      margin: 32px 0;
+    }
+
+    .sephirot-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .sephirot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 16px;
+    }
+
+    .sephira-card {
+      background: rgba(14, 18, 27, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .sephira-card:hover {
+      border-color: var(--accent-purple);
+      transform: translateY(-2px);
+    }
+
+    .sephira-tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sephira-level {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sephira-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sephira-desc {
+      font-size: 0.86rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    .sephira-model {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      margin-top: auto;
+    }
+
     @media (max-width: 768px) {
       .matrix-search-box input { width: 100%; }
     }
@@ -982,6 +1491,8 @@
       <a href="https://evabot.online" class="nav-link">EvaBot</a>
       <a href="https://evaline.network" class="nav-link">EvaNetwork</a>
       <a href="https://evaline.website" class="nav-link">Хаб сервисов</a>
+      <a href="#business-solutions" class="nav-link">Решения для бизнеса</a>
+      <a href="#integration-pipeline" class="nav-link">Интеграция</a>
       <a href="#models-matrix" class="nav-link">94 Модели</a>
       <a href="#glossary" class="nav-link">Глоссарий</a>
       <a href="https://evabot.online/docs/" class="nav-link">База знаний</a>
@@ -2683,10 +3194,591 @@
   </section>
 
 
-  <!-- Section 08: Glossary of Terms for Everyday People -->
-  <section class="section" id="glossary">
+
+  <!-- =========================================================================
+       SECTION 08: BUSINESS SOLUTIONS, MANUFACTURING INTEGRATION & EVABOT ANATOMY
+       ========================================================================= -->
+  <section class="section" id="business-solutions">
     <div class="section-header">
       <span class="section-num">08</span>
+      <h2 class="section-title">Прикладные решения для бизнеса и производства: Инженерия автономности и пошаговая интеграция</h2>
+    </div>
+    <p class="lead-text">
+      Платформа <strong>EvaBot & EvaLine Consilium</strong> создана не как абстрактная нейросеть для разговоров, а как производственный инструмент прямого действия. Мы проверили систему на собственном химическом заводе полимеров в Черноморске и европейском логистическом хабе в Братиславе. Ниже подробно описано, как устраняются ключевые боли бизнеса, как работает сквозной конвейер данных и как внедрить платформу в любое стороннее предприятие за 3–4 недели.
+    </p>
+
+    <!-- Subsection: Business & Manufacturing Pain Points vs EvaBot Solutions -->
+    <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: #fff; margin: 36px 0 16px;">
+      1. Системные боли бизнеса и завода vs Инженерия EvaBot
+    </h3>
+    <p>
+      Традиционные предприятия теряют от 15% до 40% потенциальной маржи из-за задержек человеческой коммуникации, брака в расчетах и разрозненных программных систем. EvaBot устраняет эти потери на фундаментальном уровне:
+    </p>
+
+    <div class="biz-highlight-grid">
+      <!-- Pain 1 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">⏳</div>
+          <div class="biz-card-title">Человеческий фактор и дефицит кадров</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль бизнеса:</strong> Менеджеры отвечают клиентам по 40–90 минут в рабочее время, ночью заявки простаивают, B2B-клиенты уходят к конкурентам. Высокая текучка, обучение новичка занимает до 3 месяцев.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> Ролевые агенты <strong>Адам</strong> (инженер/B2B/безопасность) и <strong>Ева</strong> (продажи/забота на 6 языках). Время первого квалифицированного ответа — <strong>1.2 секунды</strong> в режиме 24/7/365 с доступом к реальным складским остаткам.
+        </div>
+      </div>
+
+      <!-- Pain 2 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">📐</div>
+          <div class="biz-card-title">Брак в раскрое и сметных спецификациях</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль производства:</strong> Ошибки мастеров при расчете выкроек автомобильных ковриков или татами приводят к перерасходу полимерного сырья до 12% и накоплению неликвидных обрезков листа.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> Встроенный математический калькулятор раскроя листа ЭВА (2000×1250 мм, ячейки «Ромб»/«Соты»). Учет плотности (75–250 кг/м³) и твердости (30–75 Shore A) позволяет автоматизировать генерацию раскроя для плоттеров ЧПУ с браком менее 0.01%.
+        </div>
+      </div>
+
+      <!-- Pain 3 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">🧠</div>
+          <div class="biz-card-title">Галлюцинации и ненадежность одиночного ИИ</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль бизнеса:</strong> Обычный чат-бот уверенно выдумывает несуществующие статьи законов, занижает цены или обещает клиенту невыполнимые сроки, подставляя руководство под судебные иски.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> <strong>Евалайн Консилиум</strong>. Ни один важный документ или ответ не отдается одной модели. Решение вырабатывается состязательным спором 4–6 разнородных LLM (Gemini 2.5 Pro + Claude 3.7 + DeepSeek R1) с финальным аудитом CISO.
+        </div>
+      </div>
+
+      <!-- Pain 4 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">🔌</div>
+          <div class="biz-card-title">Разрозненность софта: «Зоопарк систем»</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль бизнеса:</strong> 1С, CRM Битрикс, Telegram-каналы менеджеров, складской софт и файлы Excel живут изолированно. Сотрудники вручную копируют строки, порождая хаос и недостачи.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> Единая шина из <strong>21 MCP-сервера</strong> и модульных API. Агенты нативно обращаются к базам SQLite, PostgreSQL, ERP-системам, складским таблицам и мессенджерам без участия посредников.
+        </div>
+      </div>
+
+      <!-- Pain 5 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">⚖️</div>
+          <div class="biz-card-title">Юридические и таможенные риски экспорта в ЕС</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль бизнеса:</strong> Подготовка внешнеэкономических контрактов (ВЭД), проверка регламентов ЕС, кодов УКТВЭД, стандартов ISO 9001, CE и антикоррупционных директив UNIC отнимает дни юридического отдела.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> Агент <strong>Legal Compliance</strong>. Проверяет контрактные спецификации за 40 секунд по обновляемой базе европейских нормативов логистического хаба в Братиславе и гарантирует 100% юридическую чистоту сделки.
+        </div>
+      </div>
+
+      <!-- Pain 6 -->
+      <div class="biz-card">
+        <div class="biz-card-header">
+          <div class="biz-card-icon">🛡️</div>
+          <div class="biz-card-title">Уязвимость перед блэкаутами и обрывами связи</div>
+        </div>
+        <div class="biz-pain-box">
+          <strong>Боль производства:</strong> Военные риски, аварии энергосетей и падение городских провайдеров полностью замораживают работу предприятия, приводя к огромным штрафам за срыв поставок.
+        </div>
+        <div class="biz-solution-box">
+          <strong>Решение EvaBot:</strong> Двухузловой отказоустойчивый кластер (Франкфурт ⟷ Айова) на закрытой магистрали WireGuard Mesh. Облачные агенты продолжают прием и оформление заказов круглосуточно, а заводские генераторы запитывают производство.
+        </div>
+      </div>
+    </div>
+
+    <!-- Subsection: End-to-End Dataflow Infographic -->
+    <div class="pipeline-wrapper" id="integration-pipeline">
+      <div class="pipeline-title-box">
+        <div class="hero-eyebrow">Сквозная архитектура // End-to-End Execution Flow</div>
+        <h3>Инфографика конвейера данных: От запроса клиента до станка и отгрузки</h3>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--fg-muted);">
+          Каждая транзакция, сообщение или заказ проходит 7-ступенчатую защищенную магистраль обработки в реальном времени:
+        </p>
+      </div>
+
+      <div class="pipeline-flow">
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 01 // Омниканал</span>
+          <div class="pipe-name">Клиентский вход</div>
+          <div class="pipe-desc">Входящий звонок (EvaVoice), Telegram, WhatsApp, B2B-портал или вебхук из 1C/CRM.</div>
+          <div class="pipe-tech">FastAPI • WebSpeech • REST API</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 02 // Edge Shield</span>
+          <div class="pipe-name">Периметровый щит</div>
+          <div class="pipe-desc">Сервер в Айове (США) отбивает DDoS, проверяет mTLS, нормализует заголовки и шифрует запрос.</div>
+          <div class="pipe-tech">Caddy HTTP/3 • OOM Shield • e2-micro</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 03 // Mesh Tunnel</span>
+          <div class="pipe-name">Магистраль WireGuard</div>
+          <div class="pipe-desc">Зашифрованный туннель между США и Германией. Пинг 115 мс, полная изоляция от публичного интернета.</div>
+          <div class="pipe-tech">Tailscale Mesh • ChaCha20-Poly1305</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 04 // RAG & Память</span>
+          <div class="pipe-name">Семантический контекст</div>
+          <div class="pipe-desc">Мгновенное извлечение ТУ, складских остатков, прайсов и истории отношений с контрагентом.</div>
+          <div class="pipe-tech">ChromaDB • SQLite FTS5 • 178 Документов</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 05 // Консилиум</span>
+          <div class="pipe-name">Коллегиальный дебат</div>
+          <div class="pipe-desc">Параллельный опрос моделей Google, Anthropic, DeepSeek. Синтез консенсуса и отсечение галлюцинаций.</div>
+          <div class="pipe-tech">Gemini 2.5 Pro • Claude 3.7 • DeepSeek R1</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 06 // CISO & QA Аудит</span>
+          <div class="pipe-name">Контроль безопасности</div>
+          <div class="pipe-desc">Проверка инъекций, сметных лимитов, соблюдения норм UNIC, ISO 9001 и коммерческой тайны.</div>
+          <div class="pipe-tech">RulesEngine • OWASP Guard • Token Budget</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge">Шаг 07 // Исполнение</span>
+          <div class="pipe-name">Физическое действие</div>
+          <div class="pipe-desc">Запись накладной в 1С, отправка файла раскроя на станок ЧПУ, генерация счета и голосовой ответ клиенту.</div>
+          <div class="pipe-tech">21 MCP Server • ЧПУ Плоттер • ERP/1C</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subsection: Before vs After Transformation Metrics -->
+    <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: #fff; margin: 36px 0 16px;">
+      2. Метрики эффективности: Бизнес-показатели «До» и «После» внедрения
+    </h3>
+
+    <div class="compare-grid">
+      <!-- Metric 1 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Скорость первого ответа</span>
+          <span class="compare-delta">-99.9%</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения (Люди):</span>
+          <span>45 минут</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot (Автономно):</span>
+          <span>1.2 секунды</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 98%;"></div>
+        </div>
+      </div>
+
+      <!-- Metric 2 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Себестоимость обращения</span>
+          <span class="compare-delta">-99.5%</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения (Оператор):</span>
+          <span>$4.50 / заявка</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot (Гибрид LLM):</span>
+          <span>$0.02 / заявка</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 96%;"></div>
+        </div>
+      </div>
+
+      <!-- Metric 3 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Брак в сметах и раскрое</span>
+          <span class="compare-delta">-99.8%</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения (Ручной счет):</span>
+          <span>8.4% ошибок</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot (ЧПУ/Формулы):</span>
+          <span>&lt; 0.01% брака</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 99%;"></div>
+        </div>
+      </div>
+
+      <!-- Metric 4 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Режим доступности сервиса</span>
+          <span class="compare-delta">+320%</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения:</span>
+          <span>40 ч / неделю</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot:</span>
+          <span>168 ч / нед (24/7/365)</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Metric 5 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Проверка экспортного ВЭД</span>
+          <span class="compare-delta">-99.8%</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения (Юристы):</span>
+          <span>3 рабочих дня</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot (Legal Agent):</span>
+          <span>40 секунд</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 97%;"></div>
+        </div>
+      </div>
+
+      <!-- Metric 6 -->
+      <div class="compare-card">
+        <div class="compare-metric-title">
+          <span>Мультиязычный охват</span>
+          <span class="compare-delta">6 Языков</span>
+        </div>
+        <div class="compare-row before">
+          <span>До внедрения:</span>
+          <span>1–2 языка со словарем</span>
+        </div>
+        <div class="compare-row after">
+          <span>С EvaBot:</span>
+          <span>UK, EN, DE, PL, RO, RU нативно</span>
+        </div>
+        <div class="compare-bar-wrap">
+          <div class="compare-bar-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subsection: Interactive ROI & Cost Savings Calculator -->
+    <div class="roi-calc-box">
+      <div class="roi-calc-header">
+        <div>
+          <h3>Интерактивный калькулятор окупаемости внедрения EvaBot</h3>
+          <p style="color: var(--fg-muted); margin-top: 4px; font-size: 0.95rem;">
+            Передвигайте ползунки под параметры вашего отдела продаж, поддержки или производства:
+          </p>
+        </div>
+        <div class="roi-badge">⚡ Real-time OpEx Engine</div>
+      </div>
+
+      <div class="roi-layout">
+        <!-- Sliders Column -->
+        <div class="roi-sliders">
+          <div class="roi-field">
+            <div class="roi-field-header">
+              <span>Сотрудников в отделе (продажи, саппорт, сметчики):</span>
+              <span class="roi-field-val" id="val-staff">5 человек</span>
+            </div>
+            <input type="range" id="slider-staff" class="roi-slider" min="1" max="50" value="5" oninput="updateRoiCalc()">
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-header">
+              <span>Обращений и заказов в месяц:</span>
+              <span class="roi-field-val" id="val-tickets">3 500 заявок</span>
+            </div>
+            <input type="range" id="slider-tickets" class="roi-slider" min="200" max="30000" step="100" value="3500" oninput="updateRoiCalc()">
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-header">
+              <span>Средняя стоимость часа специалиста:</span>
+              <span class="roi-field-val" id="val-wage">$15 / час</span>
+            </div>
+            <input type="range" id="slider-wage" class="roi-slider" min="5" max="60" step="1" value="15" oninput="updateRoiCalc()">
+          </div>
+        </div>
+
+        <!-- Results Column -->
+        <div class="roi-results-grid">
+          <div class="roi-result-card">
+            <span class="roi-result-label">Чистая экономия в месяц:</span>
+            <span class="roi-result-val green" id="res-savings">$7,875</span>
+            <span style="font-size: 0.76rem; color: var(--fg-subtle);">С учетом снижения OpEx на 80%+</span>
+          </div>
+
+          <div class="roi-result-card">
+            <span class="roi-result-label">Высвобождено рабочих часов:</span>
+            <span class="roi-result-val cyan" id="res-hours">525 ч/мес</span>
+            <span style="font-size: 0.76rem; color: var(--fg-subtle);">Направлено на развитие и сделки</span>
+          </div>
+
+          <div class="roi-result-card">
+            <span class="roi-result-label">Прогнозируемый ROI платформы:</span>
+            <span class="roi-result-val amber" id="res-roi">420%</span>
+            <span style="font-size: 0.76rem; color: var(--fg-subtle);">Возврат инвестиций в первый же квартал</span>
+          </div>
+
+          <div class="roi-result-card">
+            <span class="roi-result-label">Срок полной окупаемости:</span>
+            <span class="roi-result-val" id="res-payback" style="color: #a78bfa;">18 дней</span>
+            <span style="font-size: 0.76rem; color: var(--fg-subtle);">За счет гибридных бесплатных квот</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subsection: 5-Phase Onboarding Protocol -->
+    <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: #fff; margin: 36px 0 16px;">
+      3. Пошаговый протокол интеграции в любой бизнес (от 2 до 4 недель)
+    </h3>
+    <p>
+      Внедрение EvaBot не требует остановки текущих операций или дорогостоящего переписывания существующего софта. Процесс разбит на 5 четких регламентированных фаз:
+    </p>
+
+    <div class="phase-timeline">
+      <!-- Phase 1 -->
+      <div class="phase-card">
+        <div class="phase-badge-col">
+          <div class="phase-circle">1</div>
+          <span class="phase-days">Дни 1–3</span>
+        </div>
+        <div class="phase-body">
+          <h4>Фаза 1: Семантический аудит и оцифровка корпоративной памяти</h4>
+          <p>
+            Сбор и векторизация закрытой документации: прайс-листов, регламентов ГОСТ/ISO/ТУ, коммерческих условий, должностных инструкций и архивов переписки в векторную базу ChromaDB и полнотекстовый индекс SQLite FTS5.
+          </p>
+          <div class="phase-deliverables">
+            <span class="phase-pill">Корпоративный RAG-индекс</span>
+            <span class="phase-pill">Политика безопасности PII</span>
+            <span class="phase-pill">Таблица ключевых бизнес-сущностей</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-card">
+        <div class="phase-badge-col">
+          <div class="phase-circle">2</div>
+          <span class="phase-days">Дни 4–7</span>
+        </div>
+        <div class="phase-body">
+          <h4>Фаза 2: Подключение операционных инструментов через 21 MCP-сервер</h4>
+          <p>
+            Безопасное развертывание MCP-коннекторов к рабочему софту заказчика: 1С:Предприятие, CRM Битрикс24 / amoCRM, базам данных PostgreSQL / MySQL, складским модулям и защищенным мессенджерам (Telegram, WhatsApp, Web-виджет).
+          </p>
+          <div class="phase-deliverables">
+            <span class="phase-pill">21 MCP Sandbox</span>
+            <span class="phase-pill">Двусторонний API 1С / CRM</span>
+            <span class="phase-pill">Омничейн вебхуки</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-card">
+        <div class="phase-badge-col">
+          <div class="phase-circle">3</div>
+          <span class="phase-days">Дни 8–14</span>
+        </div>
+        <div class="phase-body">
+          <h4>Фаза 3: Развертывание ролевых агентов и калибровка Консилиума</h4>
+          <p>
+            Адаптация системных промптов и правил взаимодействия. Настройка связки агентов <strong>Адам</strong> (инженерные расчеты, смета, аудит безопасности) и <strong>Ева</strong> (клиентский сервис, продажи, оформление заказов). Выбор оптимального пула моделей из каталога 94 LLM под целевой бюджет.
+          </p>
+          <div class="phase-deliverables">
+            <span class="phase-pill">Ролевой профиль Адам & Ева</span>
+            <span class="phase-pill">Калибровка Консилиума</span>
+            <span class="phase-pill">Оптимизация себестоимости токенов</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-card">
+        <div class="phase-badge-col">
+          <div class="phase-circle">4</div>
+          <span class="phase-days">Дни 15–21</span>
+        </div>
+        <div class="phase-body">
+          <h4>Фаза 4: Пилотный режим Shadow Mode (Параллельная работа без риска)</h4>
+          <p>
+            Агенты обрабатывают реальные входящие заявки параллельно с живыми сотрудниками: генерируют черновики ответов, сметы и накладные. Сотрудники компании проверяют результат в 1 клик, дообучая систему и подтверждая 100% точность перед выходом в эфир.
+          </p>
+          <div class="phase-deliverables">
+            <span class="phase-pill">Zero-Risk тестирование</span>
+            <span class="phase-pill">Аналитика точности ответов</span>
+            <span class="phase-pill">Обучение персонала работе с ИИ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="phase-card">
+        <div class="phase-badge-col">
+          <div class="phase-circle">5</div>
+          <span class="phase-days">День 22+</span>
+        </div>
+        <div class="phase-body">
+          <h4>Фаза 5: Полномасштабный автономный продакшн и финансовый мониторинг</h4>
+          <p>
+            Перевод 80–90% рутинных коммуникаций, расчетов раскроя и оформления первичных документов на автономное исполнение в режиме 24/7/365. Подключение дашборда телеметрии <code>evaline.network</code> и посекундного контроля затрат <code>AccountingEngine</code>.
+          </p>
+          <div class="phase-deliverables">
+            <span class="phase-pill">Автономия 24/7</span>
+            <span class="phase-pill">Дашборд evaline.network</span>
+            <span class="phase-pill">Посекундный учет OpEx/CapEx</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subsection: Sephirot Decision Tree (10 Spheres of Corporate Intelligence) -->
+    <div class="sephirot-box">
+      <div class="sephirot-header">
+        <div class="hero-eyebrow">Архитектура Sephirot Engine // Древо корпоративного интеллекта</div>
+        <h3 style="font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: #fff; margin-bottom: 8px;">
+          10 ступеней принятия решений: От высшего замысла до станка ЧПУ
+        </h3>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--fg-muted);">
+          В ядре EvaBot реализована классическая 10-уровневая структура каскадного делегирования решений:
+        </p>
+      </div>
+
+      <div class="sephirot-grid">
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 01 // Уровень Короны</span>
+            <span>👑</span>
+          </div>
+          <div class="sephira-title">Кетер (Kether) — Видение</div>
+          <div class="sephira-desc">Высший замысел собственника, стратегические цели компании и незыблемые корпоративные аксиомы.</div>
+          <div class="sephira-model">LLM: Gemini 3.1 Pro (2M Контекст)</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 02 // Мудрость</span>
+            <span>💡</span>
+          </div>
+          <div class="sephira-title">Хокма (Chokmah) — Стратегия</div>
+          <div class="sephira-desc">Трансформация видения в 2–3 смелые стратегические гипотезы с оценкой рисков и компромиссов.</div>
+          <div class="sephira-model">LLM: Gemini 3.8 Flash • Скорость</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 03 // Понимание</span>
+            <span>📐</span>
+          </div>
+          <div class="sephira-title">Бина (Binah) — Архитектура</div>
+          <div class="sephira-desc">Строгая декомпозиция, формальные спецификации, структуры баз данных и технологические ограничения.</div>
+          <div class="sephira-model">LLM: Claude 3.7 Sonnet • Архитектура</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 04 // Милосердие</span>
+            <span>🤝</span>
+          </div>
+          <div class="sephira-title">Хесед (Chesed) — Экспансия</div>
+          <div class="sephira-desc">Продажи, мультиязычный маркетинг, забота о клиентах и партнерские программы B2B / Private Label.</div>
+          <div class="sephira-model">Агент Ева • Мультиязычность (6 языков)</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 05 // Строгость</span>
+            <span>🛡️</span>
+          </div>
+          <div class="sephira-title">Гевура (Gevurah) — CISO & Аудит</div>
+          <div class="sephira-desc">Бескомпромиссный контроль безопасности, лимитов смет, комплаенса UNIC/ISO и защита от промпт-инъекций.</div>
+          <div class="sephira-model">Агент Адам • CISO & Безопасность</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 06 // Баланс</span>
+            <span>⚖️</span>
+          </div>
+          <div class="sephira-title">Тиферет (Tifereth) — Синтез</div>
+          <div class="sephira-desc">Гармонизация компромиссов: сведение аргументов Хесед (продажи) и Гевура (безопасность) в консенсус.</div>
+          <div class="sephira-model">Consilium Consensus Synthesizer</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 07 // Победа</span>
+            <span>⚡</span>
+          </div>
+          <div class="sephira-title">Нецах (Netzach) — DevOps & CI/CD</div>
+          <div class="sephira-desc">Непрерывная интеграция, мониторинг контейнеров, деплой без простоев и поддержание скорости ответа.</div>
+          <div class="sephira-model">DevOps SRE Daemon • Mesh-контроль</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 08 // Слава</span>
+            <span>🎙️</span>
+          </div>
+          <div class="sephira-title">Ход (Hod) — Коммуникация & Голос</div>
+          <div class="sephira-desc">Голосовой движок EvaVoice, интерактивные веб-интерфейсы, документация API и чистый стиль.</div>
+          <div class="sephira-model">EvaVoice Engine • FastAPI :8000</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 09 // Основание</span>
+            <span>💾</span>
+          </div>
+          <div class="sephira-title">Йесод (Yesod) — Память & RAG</div>
+          <div class="sephira-desc">Векторный фундамент ChromaDB, таблицы SQLite, сессионная память и архив производственных знаний.</div>
+          <div class="sephira-model">ChromaDB + SQLite FTS5 Engine</div>
+        </div>
+
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level">Ступень 10 // Материя</span>
+            <span>🏭</span>
+          </div>
+          <div class="sephira-title">Малхут (Malkuth) — Завод & Физический мир</div>
+          <div class="sephira-desc">Реальное воплощение: ЧПУ-плоттеры раскроя, пресс-формы завода в Черноморске, европейский склад в Братиславе и отгрузка продукции.</div>
+          <div class="sephira-model">Физическое производство полимеров EVA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section 09: Glossary of Terms for Everyday People -->
+  <section class="section" id="glossary">
+    <div class="section-header">
+      <span class="section-num">09</span>
       <h2 class="section-title">Глоссарий терминов: Простыми словами о высоких технологиях EvaLine</h2>
     </div>
     <p class="lead-text">
@@ -3190,6 +4282,55 @@
         renderGlossary();
       });
     }
+  });
+
+
+  // =========================================================================
+  // INTERACTIVE ROI CALCULATOR LOGIC
+  // =========================================================================
+  function updateRoiCalc() {
+    const staffInput = document.getElementById('slider-staff');
+    const ticketsInput = document.getElementById('slider-tickets');
+    const wageInput = document.getElementById('slider-wage');
+
+    if (!staffInput || !ticketsInput || !wageInput) return;
+
+    const staff = parseInt(staffInput.value, 10);
+    const tickets = parseInt(ticketsInput.value, 10);
+    const wage = parseInt(wageInput.value, 10);
+
+    // Update labels
+    document.getElementById('val-staff').textContent = staff + ' человек';
+    document.getElementById('val-tickets').textContent = tickets.toLocaleString('ru-RU') + ' заявок';
+    document.getElementById('val-wage').textContent = '$' + wage + ' / час';
+
+    // Business Math:
+    // Average human takes ~12 mins (0.2h) per ticket/quote/order.
+    // EvaBot handles 85% of queries automatically at negligible token cost (~$0.02).
+    const automatedTickets = tickets * 0.85;
+    const hoursSaved = Math.round(automatedTickets * 0.20);
+    const grossSavings = Math.round(hoursSaved * wage);
+    
+    // Monthly platform running cost estimate (hybrid free+paid pool): ~$180 - $350
+    const platformCost = 250;
+    const netSavings = Math.max(0, grossSavings - platformCost);
+
+    // ROI = (Net Savings / Platform Cost) * 100
+    const roiPercent = Math.round((netSavings / platformCost) * 100);
+
+    // Payback days (assuming 30-day month)
+    const paybackDays = netSavings > 0 ? Math.max(3, Math.round((platformCost / (grossSavings / 30)))) : 30;
+
+    // Display
+    document.getElementById('res-savings').textContent = '$' + netSavings.toLocaleString('en-US');
+    document.getElementById('res-hours').textContent = hoursSaved.toLocaleString('ru-RU') + ' ч/мес';
+    document.getElementById('res-roi').textContent = roiPercent.toLocaleString('en-US') + '%';
+    document.getElementById('res-payback').textContent = paybackDays + ' дней';
+  }
+
+  // Initial trigger
+  document.addEventListener('DOMContentLoaded', () => {
+    updateRoiCalc();
   });
 
   checkCluster();
