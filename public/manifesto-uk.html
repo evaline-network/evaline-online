@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маніфест EvaLine // Фабрика ШІ-агентів, Консиліум та Завод полімерів EVA (Текстова версія)</title>
+</head>
+<body>
+
+<header class="top-nav" style="border-bottom: 2px solid rgba(255,255,255,0.1); padding: 14px 20px; margin-bottom: 24px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <a href="https://evaline.online" class="brand-title" style="text-decoration:none; font-weight:700; color:#fff; font-size:1.1rem;">
+      <span class="logo-gem" style="color:#00e676;">◆</span> EVALINE NETWORK // СУВЕРЕННЫЙ МАНИФЕСТ
+    </a>
+    <div style="font-size: 0.88rem; color: #8b949e;">
+      <span>Кластер: Франкфурт (8 vCPU) ⟷ Айова (Edge HTTP/3)</span>
+    </div>
+  </div>
+  <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); font-size: 0.88rem; display:flex; gap:16px; flex-wrap:wrap;">
+    <div>
+      <strong><span>Мова / Язык / Language:</span></strong>
+      [ <a href="/manifesto-ru.html" style="color:#00e5ff;">Русский</a> | <a href="/manifesto-uk.html" style="color:#00e5ff;">Українська</a> | <a href="/manifesto-en.html" style="color:#00e5ff;">English</a> ]
+    </div>
+    <div>
+      <strong><span>Режими:</span></strong>
+      [ <a href="/manifesto.txt" style="color:#ffd600;">💻 <span>Термінал (ANSI TXT)</span></a> ] •
+      [ <a href="/manifesto-raw.html" style="color:#38bdf8;">📄 <span>Без стилів (Чистий HTML)</span></a> ] •
+      [ <a href="/manifesto.html" style="color:#00e676;">✨ <span>Повний Cyber Web UI</span></a> ]
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- =========================================================================
+       SECTION 01: PROBLEM-STATEMENT
+       ========================================================================= -->
+  <details class="accordion-section" open id="problem-statement">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">01</span>
+        <h2 class="summary-title">
+          <span>Проблема ринку: чому бізнесу недостатньо звичайних чат-ботів</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Аудит вразливостей</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Переважна більшість корпоративних впроваджень штучного інтелекту зазнає невдачі, зводячись до примітивного вікна веб-чату. На практиці бізнес миттєво стикається з фундаментальними обмеженнями одиночних мовних моделей:</span></p>
+          <details class="sub-accordion" open id="sub-1-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">❌</span>
+          <h3 class="sub-title">
+            <span>Питання 1.1: У чому небезпека сліпих галюцинацій одиночних нейромереж?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Критичний ризик</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Одиночна мовна модель генерує відповіді з граничною лінгвістичною впевненістю, навіть коли фатально спотворює факти. В юриспруденції, фінансах, системній архітектурі та промисловому виробництві полімерів ціна вигаданої норми стандарту, помилки в рецептурі або вразливості в коді обертається колосальними збитками.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-1-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔒</span>
+          <h3 class="sub-title">
+            <span>Питання 1.2: Чому текстовий чат не здатний виконувати реальну роботу («проблема відсутності рук»)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Відсутність інструментів</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Традиційний чат-бот замкнений у веб-інтерфейсі. Він не може самостійно зайти на сервер через SSH, зібрати Docker-образ, зробити коміт у Git, перевірити залишки сировини в 1С/ERP або згенерувати керуючий G-код для верстата ЧПК. Людина залишається вимушеним ручним посередником між монітором і виробництвом.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-1-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">⛓️</span>
+          <h3 class="sub-title">
+            <span>Питання 1.3: Чим небезпечна залежність від монополій (Vendor Lock-in) та ризик блокування?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Стратегічна вразливість</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Прив'язка критичних процесів до одного закритого API робить компанію заручником чужої цінової політики, цензури, санкційних фільтрів та раптових аварій у дата-центрах Каліфорнії. Коли падає єдиний постачальник — зупиняються продажі, клієнтська підтримка та автоматизація бізнесу.</span></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 02: AGENT-FACTORY
+       ========================================================================= -->
+  <details class="accordion-section" open id="agent-factory">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">02</span>
+        <h2 class="summary-title">
+          <span>EvaNetwork: Фабрика агентів та автономне ШІ-агентство</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Інженерна платформа</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span><strong>EvaLine</strong> проектує не поодинокі «віджети», а <strong>автономну фабрику спеціалізованих цифрових співробітників</strong>, об'єднаних промисловими протоколами передачі контексту та єдиним контуром управління:</span></p>
+          <details class="sub-accordion" open id="sub-2-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">👥</span>
+          <h3 class="sub-title">
+            <span>Питання 2.1: Що таке фабрика агентів та в чому рольова спеціалізація цифрових співробітників?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>6 ключових ролей</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Кожен агент EvaLine наділений чітким функціоналом та зоною відповідальності: Головний системний архітектор (<strong>Architect</strong>), Провідний інженер бекенду та шеф виробництва (<strong>Adam</strong>), Фронтенд-директор та амбасадор турботи про клієнта (<strong>Eva</strong>), Офіцер кібербезпеки (<strong>CISO</strong>), Аналітик баз даних (<strong>Data Engineer</strong>) та Стратегічний директор (<strong>CEO</strong>).</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-2-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🛠️</span>
+          <h3 class="sub-title">
+            <span>Питання 2.2: Що дає відкритий протокол Model Context Protocol (MCP) та навіщо 21 сервер інструментів?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Фізичний доступ</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Через відкритий протокол Model Context Protocol наші агенти отримують реальні «руки» в інфраструктурі: пряме виконання команд Linux/Bash, керування Docker-контейнерами, читання та коміти в Git, запити до баз даних SQLite/PostgreSQL, автоматизація браузера через Chrome DevTools та виклики захищених REST/WebSocket API.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-2-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🧠</span>
+          <h3 class="sub-title">
+            <span>Питання 2.3: Як заземлена корпоративна пам'ять (RAG) гарантує 0% вигадок?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>0% фантазій</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Агенти ніколи не відповідають «наосліп». Перед генерацією будь-якої відповіді чи рішення агент звертається до трирівневої пам'яті: графова база сутностей Memory, векторне сховище ChromaDB та повнотекстовий пошук FTS5 по 360+ статтях внутрішньої документації, ДСТУ/ТУ, стандартах ISO 9001:2015 та базах 1С.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-2-4">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔄</span>
+          <h3 class="sub-title">
+            <span>Питання 2.4: Як влаштований закритий автономний цикл виконання та контроль якості?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Самовідновлення</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Агенти функціонують у безперервному циклі: Сприйняття завдання ➔ Складання плану ➔ Виконання в пісочниці ➔ Лінтинг та тестування ➔ Взаємне рецензування колегами. У разі виявлення помилок або невідповідностей у кошторисі агент здійснює автоматичний відкат (rollback) та виправлення без турботи людини.</span></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 03: CONSILIUM-SYSTEM
+       ========================================================================= -->
+  <details class="accordion-section" open id="consilium-system">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">03</span>
+        <h2 class="summary-title">
+          <span>Система «Євалайн Консиліум»: Як працює колегіальний розум</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Колегіальний ШІ</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Головне технологічне ядро фабрики — <strong>Consilium Engine</strong>. Це алгоритмічна система багатоагентних змагальних дебатів, взаємного рецензування та консенсусу між незалежними нейромережевими архітектурами:</span></p>
+          <details class="sub-accordion" open id="sub-3-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">⚖️</span>
+          <h3 class="sub-title">
+            <span>Питання 3.1: Як працюють 4 етапи вироблення рішення: від бізнес-потреби до результату?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Архітектурний протокол</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="workflow-steps">
+          <div class="step-box">
+            <div class="step-num"><span>Етап 01</span></div>
+            <div class="step-title"><span>Декомпозиція та контекст</span></div>
+            <p class="step-desc"><span>Архітектор та Бізнес-аналітик формулюють технічні обмеження, критерії якості та витягують регламенти з вічної пам'яті RAG.</span></p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num"><span>Етап 02</span></div>
+            <div class="step-title"><span>Паралельний дебат</span></div>
+            <p class="step-desc"><span>Завдання одночасно передається різнорідним моделям (Google Gemini, Anthropic Claude, DeepSeek R1). Кожна пропонує свій проєкт рішення.</span></p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num"><span>Етап 03</span></div>
+            <div class="step-title"><span>Змагальний аудит</span></div>
+            <p class="step-desc"><span>Адам та CISO перевіряють код і кошториси на вразливості та перевитрату ресурсів. Єва оцінює зрозумілість і цінність для клієнта.</span></p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num"><span>Етап 04</span></div>
+            <div class="step-title"><span>Консенсус та виконання</span></div>
+            <p class="step-desc"><span>Логічний арбітр синтезує підсумкове рішення. Через MCP-сервери команди надходять на бойові сервери, ЧПК або в CRM.</span></p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-3-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">⚔️</span>
+          <h3 class="sub-title">
+            <span>Питання 3.2: Навіщо змушувати сперечатися різнорідні нейромережеві архітектури?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Виключення упередженості</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Жодна модель у світі не є ідеальною. Gemini має гігантський контекст у 2M токенів, Claude неперевершений в інженерному рефакторингу, а DeepSeek R1 перевершує аналоги у покрокових математичних міркуваннях. У системі Консиліум вони виступають опонентами: Claude виявляє логічні помилки в коді Gemini, DeepSeek перевіряє формули Claude, а Gemini синтезує масиви документів.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-3-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔍</span>
+          <h3 class="sub-title">
+            <span>Питання 3.3: Як математична верифікація усуває галюцинації (Точність 99.4%)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Точність 99.4%</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Для усунення галюцинацій використовується принцип математичного консенсусу. Якщо ймовірність істинності твердження не підтверджується незалежною моделлю-аудитором та першоджерелом у базі RAG, факт відкидається і відправляється на повторний цикл. Це гарантує надійність креслень та звітності на рівні 99.4%.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-3-4">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">☯️</span>
+          <h3 class="sub-title">
+            <span>Питання 3.4: У чому суть діалектичного балансу Адама (CISO) та Єви (CXO)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Подвійний контроль</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Управління платформою розділене між двома протилежними архетипами: <strong>Адам</strong> уособлює суворого інженера, який перевіряє безпеку, ліміти кошторису, відсутність вразливостей і дотримання технічних стандартів. <strong>Єва</strong> відповідає за людиноцентричність, емпатію, бездоганний стиль діалогу та задоволення потреб клієнтів. Їхній діалог народжує ідеальний баланс.</span></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 04: MODELS-MATRIX
+       ========================================================================= -->
+  <details class="accordion-section" open id="models-matrix">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">04</span>
+        <h2 class="summary-title">
+          <span>Матриця 94 LLM-моделей: Федерація інтелекту без вендор-локу</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>94 моделі онлайн</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>В основі суверенітету платформи — єдиний реєстр з <strong>94 мовних моделей</strong> від провідних світових лабораторій, розділений на безкоштовний та комерційний пули:</span></p>
+          <details class="sub-accordion" open id="sub-4-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🟢</span>
+          <h3 class="sub-title">
+            <span>Питання 4.1: Що входить до безкоштовного пулу моделей (Free Quota Tier $0.00 — 62 моделі)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Нульова собівартість</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>EvaLine використовує передову квоту Google AI Pro / AI Studio (15 RPM, 1M TPM, 1,500 запитів на добу на модель) та безкоштовні ендпоінти OpenRouter. 62 передові моделі (включно з Gemini 3.8 Flash, 3.1 Flash, Qwen 2.5, Llama 3.3) забезпечують до 90% всієї рутинної роботи фабрики із собівартістю токенів рівно $0.00.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-4-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">💎</span>
+          <h3 class="sub-title">
+            <span>Питання 4.2: Для яких завдань використовується платний комерційний пул (32 моделі)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Максимальний IQ</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Для завдань найвищої відповідальності — проєктування архітектурних специфікацій, глибокий аудит кібербезпеки та математична верифікація — залучаються найпотужніші платні моделі: Claude 3.7 Sonnet (з розширеним мисленням), DeepSeek R1, OpenAI o1/o3-mini та Gemini 3.1 Pro.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-4-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔀</span>
+          <h3 class="sub-title">
+            <span>Питання 4.3: Як роутер OmniRoute здійснює динамічну маршрутизацію запитів?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Автономна оптимізація</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Вхідний запит аналізується за 15 мілісекунд: оцінюється складність, необхідний контекст та рівень критичності. Прості завдання автоматично скеровуються на безкоштовні моделі зі швидкістю 150+ токенів/сек, а складні розрахунки ескалюються на платні флагмани, зменшуючи бюджет у 8–12 разів.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-4-4">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📈</span>
+          <h3 class="sub-title">
+            <span>Питання 4.4: Як контролюється телеметрія флоту та автоматичний відмовостійкий резерв?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>99.9% доступність</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Служба моніторингу кожні 60 секунд перевіряє затримки (TTFT) та коефіцієнт помилок усіх 94 моделей. При найменшій деградації або вичерпанні лімітів трафік безшовно перемикається на альтернативного провайдера без розриву сесії користувача.</span></p>
+      </div>
+    </details>
+
+      
+    <!-- Interactive Matrix Filters -->
+    <div class="matrix-controls">
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="free">
+          <span>🟢 Безкоштовний пул ($0.00 — 62 моделі)</span>
+        </button>
+        <button class="filter-btn" data-filter="paid">
+          <span>💎 Платний комерційний пул (32 моделі)</span>
+        </button>
+        <button class="filter-btn" data-filter="all">
+          <span>🌐 Всі 94 моделі</span>
+        </button>
+      </div>
+
+      <div class="search-sort-bar">
+        <input type="text" id="model-search" class="matrix-search-input" placeholder="<span>🔍 Пошук за назвою, роллю, провайдером...</span>">
+        
+        <select id="model-sort" class="matrix-select">
+          <option value="quality"><span>Сортування: За інтелектом / IQ 🧠</span></option>
+          <option value="recency"><span>Сортування: За новизною ✨</span></option>
+          <option value="speed"><span>Сортування: За швидкістю відповіді ⚡</span></option>
+          <option value="price"><span>Сортування: За вартістю $</span></option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Models Cards Container -->
+    <div class="models-grid" id="models-grid">
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 3.1 Pro</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>100</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>2M токенів (~1.5M слів)</span></span>
+          </div>
+          <p class="model-desc">Premier enterprise reasoning frontier model with 2M token context, deep logic, and architectural planning capability.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Головний системний архітектор та логічний арбітр (Контекст 2M)</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Pro / AI Studio: 2 RPM, 32k TPM, 50 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Gemini 3.1 Pro (Edge Router)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>100</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>2M токенів (~1.5M слів)</span></span>
+          </div>
+          <p class="model-desc">Premier enterprise reasoning frontier model with 2M context proxied via OmniRoute daemon cluster.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Головний системний архітектор та логічний арбітр (Контекст 2M)</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Direct edge routing via internal daemon cluster ($0.00 margin)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 3.8 Flash</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>99</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Frontier ultra-fast autonomous agentic model with native real-time tool orchestration and multi-modal streaming.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Надшвидкий мультиагентний виконавець та автономний роутер</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Pro / AI Studio: 15 RPM, 1M TPM, 1,500 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Gemini 3.8 Flash (Edge Router)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>99</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Frontier ultra-fast autonomous agentic model routed via internal OmniRoute daemon cluster.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Надшвидкий мультиагентний виконавець та автономний роутер</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Direct edge routing via internal daemon cluster ($0.00 margin)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 3.1 Flash</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>96</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Lightweight high-efficiency frontier flash model with ultra-low latency inference.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Надшвидкий мультиагентний виконавець та автономний роутер</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 15 RPM, 1M TPM ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute DeepSeek R1 (Daemon Cluster)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>95</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">DeepSeek R1 reasoning executed through local OmniRoute daemon cluster.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Покрокові математичні міркування та змагальний аудит логіки</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">DeepSeek R1 (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>95</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Frontier open reasoning model with chain-of-thought verification, 100% free via OpenRouter tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Покрокові математичні міркування та змагальний аудит логіки</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 2.5 Pro</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>95</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>2M токенів (~1.5M слів)</span></span>
+          </div>
+          <p class="model-desc">Premier reasoning and code generation engine for complex analytical challenges.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Головний системний архітектор та логічний арбітр (Контекст 2M)</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 2 RPM, 32k TPM, 50 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 2.5 Flash</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>93</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Google’s fastest flagship model with native multimodal reasoning and real-time responsiveness.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Складні аналітичні міркування та верифікація гіпотез</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 15 RPM, 1M TPM, 1,500 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Gemini 2.5 Flash (Edge Router)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>93</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Workhorse Google model routed via OmniRoute daemon. Fast, multimodal, 1M context.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Складні аналітичні міркування та верифікація гіпотез</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Direct edge routing via internal daemon cluster ($0.00 margin)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Qwen 2.5 Coder 32B (Daemon Cluster)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>93</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Alibaba Qwen 2.5 Coder 32B code generation specialist routed via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Складні аналітичні міркування та верифікація гіпотез</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Qwen 2.5 Coder 32B (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>93</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Alibaba Qwen code generation specialist with 128k context on OpenRouter free tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Складні аналітичні міркування та верифікація гіпотез</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute CF Qwen 2.5 Coder 32B (Cloudflare via edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>93</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Alibaba Qwen 2.5 Coder 32B code specialist via Cloudflare Workers AI on the OmniRoute edge.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Складні аналітичні міркування та верифікація гіпотез</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Self-hosted edge routing ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Gemini 2.5 Pro (Edge Router)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>90</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>2M токенів (~1.5M слів)</span></span>
+          </div>
+          <p class="model-desc">High-availability routing proxy via OmniRoute daemon with automatic load balancing and fallback.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Головний системний архітектор та логічний арбітр (Контекст 2M)</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Direct edge routing via internal daemon cluster ($0.00 margin)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute OpenAI o3-mini (Edge Proxy)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>88</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">OpenAI o3-mini fast reasoning model with cost-effective chain-of-thought via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Формальна верифікація алгоритмів та докази безпеки</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Claude 3.5 Haiku (Edge Proxy)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>86</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">High speed, cost-effective Anthropic Claude 3.5 Haiku routed via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Швидкий синтаксичний аналіз, валідація JSON та мікроагенти</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Claude 3.5 Haiku (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>86</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">Anthropic Claude 3.5 Haiku fast inference model 100% free via OpenRouter community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Швидкий синтаксичний аналіз, валідація JSON та мікроагенти</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Llama 3.3 70B (Daemon Cluster)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>85</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Meta Llama 3.3 70B Instruct open weights routed through OmniRoute daemon cluster.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Суверенна незалежна експертиза відкритих ваг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Llama 3.3 70B Instruct (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>85</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">State-of-the-art Meta 70B open weight instruction model hosted on OpenRouter free tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Суверенна незалежна експертиза відкритих ваг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute CF Llama 3.3 70B (Cloudflare via edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>85</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Meta Llama 3.3 70B Instruct via Cloudflare Workers AI routed by the local OmniRoute edge daemon.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Суверенна незалежна експертиза відкритих ваг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Self-hosted edge routing ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 2.0 Flash</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>83</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Next-gen streaming architecture for high-frequency interactive dialogues and agent loops.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 15 RPM, 1M TPM, 1,500 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 2.0 Flash Lite</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>83</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Ultra cost-efficient model designed for extreme throughput and low latency agent tasks.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 30 RPM, 1,500 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Gemini 2.0 Flash (Edge Router)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>83</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Next-gen streaming architecture routed via OmniRoute for high-frequency interactive dialogues.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Direct edge routing via internal daemon cluster ($0.00 margin)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 2.0 Flash Exp (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>83</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">2025 Frontier</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Ultra-fast Google experimental Gemini 2.0 Flash endpoint accessed via OpenRouter free gateway.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute GPT-4o Mini (Edge Proxy)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>82</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">OpenAI GPT-4o Mini cost-efficient multimodal model proxied via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">GPT-4o Mini (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>82</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">OpenAI GPT-4o Mini cost-efficient model, 100% free via OpenRouter community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Інженерна розробка, системна інтеграція та тести</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 1.5 Pro</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>70</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>2M токенів (~1.5M слів)</span></span>
+          </div>
+          <p class="model-desc">2,000,000 token context window capable of ingesting entire codebases and long video streams.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 2 RPM, 32k TPM, 50 RPD ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Groq GPT-OSS 120B (Groq via edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>70</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">OpenAI GPT-OSS 120B on Groq LPU ultra-low-latency inference via the OmniRoute edge daemon.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Groq free tier routed by self-hosted edge ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 1.5 Flash</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>65</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Fast, lightweight multimodal model with 1,000,000 tokens context.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 15 RPM, 1M TPM ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 1.5 Flash 8B</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>65</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Compact 8-billion parameter version built for high-speed lightweight routing.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Google AI Studio: 15 RPM ($0.00)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenRouter Free Models Router</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>50</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">Meta-router that auto-picks any currently-available 100% free OpenRouter model. Never dies from a single model removal — TOP-1 entry choice.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Coder Pro</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>50</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Zen-grade enterprise coding model with multi-language refactoring, AST analysis, and security audit. Pro tier with deeper reasoning.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemini 3.0 Flash (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Google Gemini 3.0 Flash ultra-fast model, 100% free via OpenRouter community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Dolphin 3.0 R1 2506 (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Open-source reasoning model Dolphin 3.0 R1 fine-tuned for instruction following, free on OpenRouter.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Покрокові математичні міркування та змагальний аудит логіки</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">inclusionAI Ling 3.0 Flash Sante (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">inclusionAI Ling 3.0 Flash reasoning model, 262k context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute DeepSeek V3 (Daemon Cluster)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">✨ 2026 Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">DeepSeek V3 671B MoE with extreme cost efficiency and high coding quality routed via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemma 2 (27B Instruct)</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>8192 токенів</span></span>
+          </div>
+          <p class="model-desc">Google’s flagship open weights model with performance rivaling closed models.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Локальні легковажні задачі та допоміжні мікросервіси</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Open Weights ($0.00) or Google AI Studio Free Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Gemma 2 (9B Instruct)</div>
+            <span class="provider-badge provider-google">Google DeepMind</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>8192 токенів</span></span>
+          </div>
+          <p class="model-desc">High efficiency open weights model with exceptional reasoning-per-parameter ratio.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Локальні легковажні задачі та допоміжні мікросервіси</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Open Weights ($0.00) or Google AI Studio Free Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Mistral 7B (Daemon Cluster)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>32k токенів</span></span>
+          </div>
+          <p class="model-desc">Fast, reliable Mistral 7B lightweight instruction model routed via OmniRoute.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Європейський суверенний аудит та багатомовний аналіз</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Routed through high-throughput OmniRoute node ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Mistral 7B Instruct (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>32k токенів</span></span>
+          </div>
+          <p class="model-desc">Fast, reliable 7B lightweight instruction model on OpenRouter free queue.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Європейський суверенний аудит та багатомовний аналіз</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">NVIDIA Nemotron 3 Ultra 550B (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Smartest free model of the fleet: NVIDIA Nemotron 3 Ultra 550B MoE (55B active) reasoning, 1M context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Thinking Machines Inkling (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Thinking Machines flagship with 1M context on OpenRouter free tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Thinking Machines Inkling Small (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">Fast small variant of Inkling, 1M context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">NVIDIA Nemotron 3 Super 120B (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">NVIDIA Nemotron 3 Super 120B MoE (12B active), 262k context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Dots Studio Dots3-Note Preview (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>512k токенів</span></span>
+          </div>
+          <p class="model-desc">Dots3-Note 512k-context preview model on OpenRouter free tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Google Gemma 4 31B IT (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">Google Gemma 4 31B open-weights instruct via OpenRouter community tier (does NOT consume our Google account).</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Локальні легковажні задачі та допоміжні мікросервіси</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Cohere North Mini Code (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">Cohere North Mini coding specialist, 256k context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">Poolside Laguna S 2.1 (Free on OpenRouter)</div>
+            <span class="provider-badge provider-default">OpenRouter</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">Poolside Laguna S 2.1 code-generation model, 262k context, free community tier.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter Community Free Tier (20 RPM queue)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute CF GPT-OSS 120B (Cloudflare via edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">OpenAI GPT-OSS 120B open-weights routed through Cloudflare Workers AI via the local OmniRoute edge daemon.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Self-hosted edge routing ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute Z.ai GLM 5.3 Flash (edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Z.ai GLM 5.3 Flash fast frontier model routed by the OmniRoute edge daemon.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">Z.ai free tier routed by self-hosted edge ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OmniRoute OR Nemotron 3 Ultra 550B (OpenRouter via edge)</div>
+            <span class="provider-badge provider-omniroute">OmniRoute</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>1M токенів (~750k слів)</span></span>
+          </div>
+          <p class="model-desc">NVIDIA Nemotron 3 Ultra 550B MoE routed through OpenRouter free tier by the OmniRoute edge daemon.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenRouter community free tier routed by self-hosted edge ($0.00 node fee)</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Go Coder 32B</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Specialized enterprise coding platform model with automated unit test generation and refactoring.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Go Fast (Low-Latency)</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>32k токенів</span></span>
+          </div>
+          <p class="model-desc">Ultra-low latency code agent model optimized for autocomplete and fast interactive edits.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Fast 7B (Edge Coder)</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>32k токенів</span></span>
+          </div>
+          <p class="model-desc">Lightweight 7B Zen-fast edge coder optimized for IDE autocomplete and inline refactoring at sub-100ms latency.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Reasoner 32B</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>128k токенів</span></span>
+          </div>
+          <p class="model-desc">Deep chain-of-thought reasoning coder for complex algorithms, architectural refactors, and bug forensics.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Multi-Lang 70B</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>200k токенів</span></span>
+          </div>
+          <p class="model-desc">70B frontier code model supporting 100+ languages with deep context and CI/CD-grade refactoring.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Security Auditor</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Specialized security audit coder trained on OWASP Top 10, CVE database, and zero-trust patterns.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Test Generator</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Automated unit test and integration test generation. Supports Jest, pytest, JUnit, Go test frameworks.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Docs Writer</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Technical documentation generator producing JSDoc, OpenAPI specs, README files, and architecture diagrams.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Frontend (React/Next.js)</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Frontend specialist for React 19, Next.js 15, TypeScript, Tailwind CSS, and component architecture.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen Backend (Go/Rust)</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">Backend systems specialist for Go, Rust, gRPC, microservices, and high-throughput APIs.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-header">
+            <div class="model-name">OpenCode Zen DevOps (K8s/Terraform)</div>
+            <span class="provider-badge provider-default">OpenCode AI</span>
+          </div>
+          <div class="model-metrics">
+            <span class="metric-pill iq">🧠 IQ: <strong>45</strong>/100</span>
+            <span class="metric-pill tier-free"><span>🟢 Free Quota $0.00</span></span>
+            <span class="metric-pill">Standard Fleet</span>
+            <span class="metric-pill">📚 <span>64k токенів</span></span>
+          </div>
+          <p class="model-desc">DevOps and SRE specialist for Kubernetes manifests, Terraform modules, Helm charts, and CI/CD pipelines.</p>
+          <div class="model-role">
+            <strong><span>Роль у Консиліумі:</span></strong> <span>Високошвидкісна фонова обробка та потоковий парсинг</span>
+          </div>
+          <div class="model-pricing-box">
+          <div><span class="price-tag free">100% Free Quota</span> • <span>Собівартість: $0.00</span></div>
+          <div style="color: var(--fg-muted); font-size: 0.72rem;">OpenCode Zen Developer Community Quota</div>
+        </div>
+        </div>
+    </div>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 05: COMPARATIVE-AUDIT
+       ========================================================================= -->
+  <details class="accordion-section" open id="comparative-audit">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">05</span>
+        <h2 class="summary-title">
+          <span>Порівняльний аудит: Одиночний чат-бот vs Система «Євалайн Консиліум»</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Технічний аудит</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Об'єктивний технічний аудит підтверджує перевагу розподіленої системи Консиліум над будь-яким одиночним споживчим чат-ботом:</span></p>
+          <details class="sub-accordion" open id="sub-5-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📊</span>
+          <h3 class="sub-title">
+            <span>Питання 5.1: Які результати порівняльного аналізу одиночного чат-бота та Консиліуму?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Факторний аналіз</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="table-responsive">
+        <table class="comparison-table" border="1" cellpadding="8" cellspacing="0">
+          <thead>
+            <tr>
+              <th><span>Критерій оцінки</span></th>
+              <th><span>Звичайний чат-бот (ChatGPT / Copilot)</span></th>
+              <th class="col-highlight"><span>Система «Євалайн Консиліум»</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><span>Архітектура виконання</span></strong></td>
+              <td><span>Поодинокі відповіді у вікні чату без інтеграції.</span></td>
+              <td class="col-highlight"><span>Автономний штат спеціалістів наскрізного циклу.</span></td>
+            </tr>
+            <tr>
+              <td><strong><span>Стійкість до галюцинацій</span></strong></td>
+              <td><span>Низька: модель схильна впевнено вигадувати факти.</span></td>
+              <td class="col-highlight"><span>Висока: перехресний аудит кількома незалежними LLM (точність 99.4%).</span></td>
+            </tr>
+            <tr>
+              <td><strong><span>Виконання дій в IT та цеху</span></strong></td>
+              <td><span>Неможливо (лише поради та шматочки тексту).</span></td>
+              <td class="col-highlight"><span>Пряме керування серверами, кодом, верстатами ЧПК та Docker через MCP.</span></td>
+            </tr>
+            <tr>
+              <td><strong><span>Безпека корпоративних даних</span></strong></td>
+              <td><span>Витік комерційної таємниці на сервери сторонніх компаній.</span></td>
+              <td class="col-highlight"><span>Суверенна архітектура: закритий WireGuard контур та ізольовані БД.</span></td>
+            </tr>
+            <tr>
+              <td><strong><span>Залежність від одного провайдера</span></strong></td>
+              <td><span>100% залежність: при збої провайдера процес зупиняється.</span></td>
+              <td class="col-highlight"><span>Федерація з 94 моделей з автоматичним перемиканням резерву.</span></td>
+            </tr>
+            <tr>
+              <td><strong><span>Економіка володіння (TCO)</span></strong></td>
+              <td><span>Фіксована дорога підписка на кожного користувача.</span></td>
+              <td class="col-highlight"><span>Гібридний пул: 90% завдань на безкоштовному шарі, ROI 400%–900%.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-5-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔒</span>
+          <h3 class="sub-title">
+            <span>Питання 5.2: Як забезпечується аудит безпеки, приватності та суверенітету даних?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Нульове розголошення</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>На відміну від споживчих чат-ботів, де запити співробітників потрапляють у публічні хмари і використовуються для навчання глобальних моделей, платформа EvaLine ізольована: клієнтські дані та креслення ніколи не передаються третім особам і циркулюють суворо всередині зашифрованого периметра.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-5-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">💵</span>
+          <h3 class="sub-title">
+            <span>Питання 5.3: Яка реальна юніт-економіка та сукупна вартість володіння (TCO)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Економія 85%</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Використання гібридного контуру з 62 безкоштовних та 32 платних моделей знижує операційні витрати компанії на обробку запитів на 85%. Бізнес отримує потужність штучного інтелекту промислового класу без роздування IT-бюджету.</span></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 06: MILITARY-RESILIENCE
+       ========================================================================= -->
+  <details class="accordion-section" open id="military-resilience">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">06</span>
+        <h2 class="summary-title">
+          <span>Військова стійкість, блекаут-резистентність та кластер двох вузлів</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Відмовостійкість</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Інфраструктура EvaLine створена за стандартами військової відмовостійкості з повним географічним та енергетичним резервуванням:</span></p>
+          <details class="sub-accordion" open id="sub-6-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🇩🇪</span>
+          <h3 class="sub-title">
+            <span>Питання 6.1: Навіщо ядро EvaBrain розміщено у Франкфурті (8 vCPU, 32GB RAM)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>8 vCPU / 32GB RAM</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Високопродуктивний сервер (8 ядер Intel Xeon, 32 ГБ RAM) у дата-центрі GCP europe-west3-a (Франкфурт-на-Майні). Тут безперервно функціонують усі важкі агенти, компілятори, локальні мовні сервери LSP, шина MCP та графова пам'ять. 100% аптайм гарантовано навіть при блекауті в регіоні.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-6-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🇺🇸</span>
+          <h3 class="sub-title">
+            <span>Питання 6.2: Яку захисну роль відіграє крайовий шлюз EvaFace в Айові (HTTP/3)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>HTTP/3 QUIC</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Полегшений edge-вузол на базі Caddy v2 з апаратною підтримкою протоколу HTTP/3 QUIC, TLS 1.3 та Brotli-стиснення. Приймає глобальний трафік користувачів з усього світу, блокує DDoS-атаки, кешує статику та захищено проксує запити в ядро.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-6-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🌐</span>
+          <h3 class="sub-title">
+            <span>Питання 6.3: Як магістраль WireGuard Mesh з ChaCha20-Poly1305 ізолює мережу?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Peer-to-Peer шифрування</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Дата-центри у Франкфурті та США об'єднані через піринговий тунель WireGuard без відкритих публічних портів керування. Автоматичні служби-сторожі (Watchdog що 3 хвилини) та захист ядра (EarlyOOM) виключають зависання процесів та ізоляцію мережі.</span></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-6-4">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">⚡</span>
+          <h3 class="sub-title">
+            <span>Питання 6.4: Як гарантується робота при блекаутах, обривах зв'язку та ракетних ударах?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Автономне виробництво</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Інфраструктура EvaLine спроєктована для роботи в умовах ракетних ударів та аварій енергосистеми. Якщо фізичний завод переходить на резервні дизель-генератори, цифрова фабрика агентів у хмарі Європи не припиняє приймати замовлення, формувати рахунки та оновлювати складські залишки ні на секунду.</span></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 07: ECOSYSTEM-CATALOG
+       ========================================================================= -->
+  <details class="accordion-section" open id="ecosystem-catalog">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">07</span>
+        <h2 class="summary-title">
+          <span>Єдина екосистема: Каталог доменів та сервісів</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>4 домени кластера</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Екосистема об'єднує спеціалізовані домени та API-шлюзи для різноманітних бізнес-сценаріїв:</span></p>
+          <details class="sub-accordion" open id="sub-7-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🌐</span>
+          <h3 class="sub-title">
+            <span>Питання 7.1: Які ключові веб-термінали та сервіси входять до мережі компанії?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>4 ключові домени</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="hub-grid">
+        <a href="https://evabot.online" class="hub-item">
+          <span class="hub-item-badge"><span>Робоча станція ШІ</span></span>
+          <div class="hub-item-domain">evabot.online</div>
+          <div class="hub-item-desc"><span>Головний інтерактивний термінал EvaBot: мультимодельний діалог, запуск Консиліуму та голосова взаємодія.</span></div>
+        </a>
+
+        <a href="https://evaline.network" class="hub-item">
+          <span class="hub-item-badge"><span>Телеметрія кластера</span></span>
+          <div class="hub-item-domain">evaline.network</div>
+          <div class="hub-item-desc"><span>Високотехнологічний TUI-дашборд: моніторинг процесів, затримок мережі та стану 94 LLM моделей у реальному часі.</span></div>
+        </a>
+
+        <a href="https://evaline.online" class="hub-item">
+          <span class="hub-item-badge"><span>Маніфест і філософія</span></span>
+          <div class="hub-item-domain">evaline.online</div>
+          <div class="hub-item-desc"><span>Офіційний маніфест фабрики агентів, системи Консиліум та принципів суверенного інтелекту і полімерного виробництва.</span></div>
+        </a>
+
+        <a href="https://evaline.website" class="hub-item">
+          <span class="hub-item-badge"><span>Центральний портал</span></span>
+          <div class="hub-item-domain">evaline.website</div>
+          <div class="hub-item-desc"><span>Єдиний навігаційний каталог усіх сервісів, продуктів, інструментів та точок входу компанії.</span></div>
+        </a>
+      </div>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-7-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📚</span>
+          <h3 class="sub-title">
+            <span>Питання 7.2: Де вивчити технічну документацію з архітектури (Quartz Docs)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>База знань</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Відкрита та закрита корпоративна документація компанії, розгорнута на швидкому рушії Quartz. Включає 360+ структурованих статей: детальні схеми кластера, рольові інструкції агентів, специфікації API, виробничі регламенти ТУ/ДСТУ та стандарти контролю якості ISO 9001:2015.</span></p>
+        <p><a href="https://evabot.online/docs/" target="_blank" style="color: var(--cyan); text-decoration: underline;">
+          <span>Перейти до бази знань Quartz ➔</span>
+        </a></p>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-7-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🎙️</span>
+          <h3 class="sub-title">
+            <span>Питання 7.3: Як підключити інтерактивний голосовий сервіс EvaVoice API?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Синтез та розпізнавання</span></span>
+      </summary>
+      <div class="sub-content">
+<p><span>Високошвидкісний асинхронний мікросервіс на FastAPI та WebSocket для миттєвого синтезу та розпізнавання мови в реальному часі. Забезпечує голосовий зв'язок з агентами EvaLine через браузер, телефонні шлюзи SIP або мобільні пристрої із затримкою менше 250 мс.</span></p>
+        <p><a href="https://evabot.online/voice/docs" target="_blank" style="color: var(--accent); text-decoration: underline;">
+          <span>Відкрити Swagger UI інтерактивного API ➔</span>
+        </a></p>
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 08: BUSINESS-SOLUTIONS
+       ========================================================================= -->
+  <details class="accordion-section" open id="business-solutions">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">08</span>
+        <h2 class="summary-title">
+          <span>Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>Практичне впровадження</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span><strong>EvaLine</strong> об'єднує важку фізичну індустрію полімерів EVA та передову розподілену фабрику автономних агентів:</span></p>
+          <details class="sub-accordion" open id="sub-8-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🏭</span>
+          <h3 class="sub-title">
+            <span>Питання 8.1: Які фізичні потужності заводу EvaLine та складу в ЄС?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Завод 2.8 га</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="factory-overview-card">
+        <div class="factory-header-row">
+          <div>
+            <div class="hero-eyebrow"><span>МАТЕРІАЛЬНИЙ СУВЕРЕНІТЕТ // PHYSICAL ASSETS</span></div>
+            <h4 style="color:#fff; font-size: 1.25rem; margin: 4px 0;">
+              <span>Завод полімерів EvaLine (Чорноморськ) та Логістичний хаб ЄС (Братислава)</span>
+            </h4>
+          </div>
+          <span class="sub-badge"><span>ISO 9001:2015 & CE</span></span>
+        </div>
+        <p style="color: var(--fg-muted); margin-bottom: 16px;">
+          <span>EvaLine — це не просто віртуальний софт, а фізичний промисловий гігант: власна фабрика площею 2.8 гектара в Чорноморську (Одеська область), 100+ кваліфікованих інженерів та операторів, щомісячний випуск понад 550 тонн полімерного листа ЕВА, 8 автоматизованих ліній спінювання та 4 розкрійні плотери ЧПК. Європейський склад у Братиславі (Obchodna 37) гарантує безмитну експрес-доставку країнами ЄС за 24–48 годин.</span>
+        </p>
+
+        <!-- Product Line Badges -->
+        <div class="product-tags-row" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+          <span class="pill-tech">🚗 <span>Автокилимки EvaLine Drive (Ромб/Стільники 8мм)</span></span>
+          <span class="pill-tech">🐄 <span>Мати для ВРХ «Бурьонка» (Компенсація 25%)</span></span>
+          <span class="pill-tech">⛵ <span>Морський тік Marine Teak (3M VHB, УФ-стійкий)</span></span>
+          <span class="pill-tech">🥋 <span>Татамі «Ластівчин хвіст» (75-250 кг/м³)</span></span>
+        </div>
+      </div>
+
+      <!-- 6 Pain & Solution Cards -->
+      <div class="biz-grid" style="margin-top: 20px;">
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">⚡</div>
+            <div class="biz-card-title"><span>Повільний саппорт та втрата клієнтів</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль бізнесу:</span></strong> <span>Менеджери відповідають по 40–90 хвилин, вночі заявки простоюють, B2B-клієнти йдуть до конкурентів. Плинність кадрів, навчання новачка триває до 3 місяців.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Рольові агенти Адам (інженер/B2B) та Єва (продажі/турбота 6 мовами). Час першої кваліфікованої відповіді — 1.2 секунди в режимі 24/7/365 з перевіркою реальних залишків на складі.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">📐</div>
+            <div class="biz-card-title"><span>Брак у розкрої та сметних специфікаціях</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль виробництва:</span></strong> <span>Помилки майстрів при розрахунку викрійок килимків або татамі призводять до перевитрати полімерного листа до 12% та накопичення обрізків.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Автоматична генерація векторних карт розкрою (DXF/G-код) та сувора геометрична оптимізація nesting. Зниження відходів до мінімуму (< 0.01% браку).</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">💸</div>
+            <div class="biz-card-title"><span>Неконтрольовані витрати на хмарний ШІ</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль фінансів:</span></strong> <span>Підключення сирих API OpenAI або Claude призводить до рахунків у тисячі доларів за рутинні запити, які могла вирішити безкоштовна модель.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Дворівневий маршрутизатор OmniRoute. 90% трафіку спрямовується на авторизований безкоштовний пул Google AI Studio ($0.00), заощаджуючи до 85% бюджету.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">⚖️</div>
+            <div class="biz-card-title"><span>Складнощі з експортом та стандартами ЄС</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль юристів та ЗЕД:</span></strong> <span>Помилки в класифікації кодів УКТЗЕД, антикорупційних вимогах UNIC та деклараціях відповідності CE затримують вантажі на митниці.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Юрист-агент із ЗЕД перевіряє специфікації за базою регламентів ЄС за 40 секунд. Логістичний хаб у Братиславі забезпечує безшовний транзит.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">🧠</div>
+            <div class="biz-card-title"><span>Витік знань при звільненні ключових майстрів</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль керівництва:</span></strong> <span>Специфіка рецептур, властивості пластифікаторів ЕВА та нюанси налаштувань верстатів зберігаються лише в головах ветеранів заводу.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Оцифрування 100% корпоративної пам'яті в ChromaDB та SQLite FTS5. Знання належать заводу, а агенти навчають нових операторів за години.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">🛡️</div>
+            <div class="biz-card-title"><span>Ризик блекаутів та втрати замовлень</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span>Біль інфраструктури:</span></strong> <span>Перебої з електрикою або зв'язком паралізують прийом замовлень та відвантаження, призводячи до штрафів за контрактами.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span>Рішення EvaBot:</span></strong> <span>Двовузловий відмовостійкий кластер (Франкфурт ⟷ Айова) на закритій магістралі WireGuard Mesh. Хмарні агенти продовжують прийом замовлень, а дизелі живлять цех.</span>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📐</span>
+          <h3 class="sub-title">
+            <span>Питання 8.2: Як влаштований Тетраксис Піфагора (1+2+3+4=10), Сфірот та 10 універсальних посад?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>10 ролей Тетраксиса</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="sephirot-box">
+        <div class="sephirot-header">
+          <div class="hero-eyebrow"><span>ТЕТРАКСИС ПІФАГОРА // 1 + 2 + 3 + 4 = 10 РОЛЕЙ</span></div>
+          <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin: 4px 0 8px;">
+            <span>Гармонійна ієрархія 10 універсальних посад цифрового штату</span>
+          </h4>
+          <p style="max-width: 860px; margin: 0 auto; color: var(--fg-muted);">
+            <span>У фабриці EvaLine усунуто плутанину хаотичних мікроботів. 10 ролей структуровано за законом сакрального Тетраксису Піфагора (1+2+3+4 = 10 вузлів) у суворій відповідності з 10 ступенями Сфірот — від вищого задуму власника до фізичного верстата ЧПК:</span>
+          </p>
+        </div>
+
+        <div class="tetraktys-container">
+          <!-- TIER 1: MONAD -->
+          <div class="tetraktys-tier-block">
+            <div class="tier-heading">▲ <span>РЯД I // МОНАДА (1 ВУЗОЛ): ВИЩИЙ ЗАДУМ ⟷ КЕТЕР</span></div>
+            <div class="sephirot-grid" style="grid-template-columns: 1fr;">
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 01</span> &bull; <span>Кетер (Kether) // Вищий задум</span></span>
+              <span>👑</span>
+            </div>
+            <div class="sephira-title"><span>Архітектор (Chief Architect)</span></div>
+            <div class="sephira-desc"><span>Визначення глобального бачення, системних аксіом, декомпозиція завдань верхнього рівня та стратегічне цілепокладання.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Gemini 3.1 Pro (2M Context) • Claude 3.7</div>
+          </div>
+            </div>
+          </div>
+
+          <!-- TIER 2: DYAD -->
+          <div class="tetraktys-tier-block">
+            <div class="tier-heading">▲▲ <span>РЯД II // ДІАДА (2 ВУЗЛИ): БІНАРНИЙ КОНТУР СИЛ ⟷ БІНА / ГЕВУРА & ХОКМА / ХЕСЕД</span></div>
+            <div class="sephirot-grid">
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 02</span> &bull; <span>Біна / Гевура // Форма & Суворість</span></span>
+              <span>🛡️</span>
+            </div>
+            <div class="sephira-title"><span>Адам (Chief Engineer / CISO)</span></div>
+            <div class="sephira-desc"><span>Шеф інженерії, безпеки та виробництва. Формальна верифікація, аудит коду, кошторисні ліміти, контроль розкрою на ЧПК та дотримання ДСТУ/ISO.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Claude 3.7 Sonnet • DeepSeek R1 • Linux MCP</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 03</span> &bull; <span>Хокма / Хесед // Мудрість & Експансія</span></span>
+              <span>🤝</span>
+            </div>
+            <div class="sephira-title"><span>Єва (Customer Experience Officer / CXO)</span></div>
+            <div class="sephira-desc"><span>Директор клієнтського досвіду, сервісу та продажів. Багатомовна жива комунікація 6 мовами (UK, EN, DE, PL, RO, RU), емпатія, B2B-угоди.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Gemini 3.8 Flash • OmniRoute • Voice Engine</div>
+          </div>
+            </div>
+          </div>
+
+          <!-- TIER 3: TRIAD -->
+          <div class="tetraktys-tier-block">
+            <div class="tier-heading">▲▲▲ <span>РЯД III // ТРІАДА (3 ВУЗЛИ): ДИНАМІЧНИЙ БАЛАНС ⟷ ТІФЕРЕТ, НЕЦАХ, ХОД</span></div>
+            <div class="sephirot-grid">
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 04</span> &bull; <span>Тіферет (Tifereth) // Гармонія & Синтез</span></span>
+              <span>⚖️</span>
+            </div>
+            <div class="sephira-title"><span>Арбітр Консиліуму (Consilium Arbiter)</span></div>
+            <div class="sephira-desc"><span>Головний арбітр Консиліуму. Алгоритмічне вирішення суперечок між Адамом (безпека) та Євою (продажі), змагальний синтез з точністю 99.4%.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Consilium Consensus Engine • Multi-LLM Judge</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 05</span> &bull; <span>Нецах (Netzach) // Перемога & Енергія</span></span>
+              <span>⚡</span>
+            </div>
+            <div class="sephira-title"><span>Розробник (Lead Developer / Coder)</span></div>
+            <div class="sephira-desc"><span>Провідний інженер розробки та кодингу. Написання чистого коду, збірка мікросервісів, рефакторинг, тести, лінтинг, Docker, Git та скрипти.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Claude 3.7 Sonnet • DeepSeek R1 • LSP Servers</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 06</span> &bull; <span>Ход (Hod) // Мова & Форма вираження</span></span>
+              <span>🎙️</span>
+            </div>
+            <div class="sephira-title"><span>Комунікатор (Voice & Speech Specialist)</span></div>
+            <div class="sephira-desc"><span>Спеціаліст з мовної взаємодії. Потоковий синтез та розпізнавання мови в реальному часі (EvaVoice FastAPI :8000), дзвінки SIP/VoIP.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> EvaVoice Engine • WebSpeech • WebSocket</div>
+          </div>
+            </div>
+          </div>
+
+          <!-- TIER 4: TETRAD -->
+          <div class="tetraktys-tier-block">
+            <div class="tier-heading">▲▲▲▲ <span>РЯД IV // ТЕТРАДА (4 ВУЗЛИ): МАТЕРІАЛІЗАЦІЯ (1 + 2 + 3 + 4 = 10) ⟷ ЙЕСОД, МАЛХУТ</span></div>
+            <div class="sephirot-grid">
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 07</span> &bull; <span>Йесод (Yesod) // Основа & Пам'ять</span></span>
+              <span>💾</span>
+            </div>
+            <div class="sephira-title"><span>Охоронець Пам'яті (Data & RAG Specialist)</span></div>
+            <div class="sephira-desc"><span>Архіваріус та охоронець знань. Векторні бази ChromaDB, таблиці SQLite FTS5, семантична пам'ять Memory Graph, прайс-листи та регламенти ТУ.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> ChromaDB • SQLite FTS5 • Memory Graph MCP</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 08</span> &bull; <span>Оболонка Йесод // Захисний каркас</span></span>
+              <span>🔧</span>
+            </div>
+            <div class="sephira-title"><span>Системний Адміністратор (SRE / DevOps)</span></div>
+            <div class="sephira-desc"><span>Черговий системний інженер. Моніторинг затримок 94 моделей, шифрована магістраль WireGuard Mesh, EarlyOOM, Caddy HTTP/3 та аптайм 99.9%.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> WireGuard Mesh • Caddy v2 • Watchdog Daemons</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 09</span> &bull; <span>Брама Малхут // Митниця & Закони</span></span>
+              <span>📜</span>
+            </div>
+            <div class="sephira-title"><span>Юрист-Логіст (Legal & EU Compliance)</span></div>
+            <div class="sephira-desc"><span>Юрист із ЗЕД та координатор європейської логістики. Перевірка контрактів, кодів УКТЗЕД, антикорупційних норм UNIC, логістика хабу в Братиславі.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> Legal Compliance RAG • EU Trade Directives</div>
+          </div>
+          <div class="sephira-card">
+            <div class="sephira-tag">
+              <span class="sephira-level"><span>Вузол 10</span> &bull; <span>Малхут (Malkuth) // Фізичний Світ</span></span>
+              <span>🏭</span>
+            </div>
+            <div class="sephira-title"><span>Майстер Заводу (CNC & Production Master)</span></div>
+            <div class="sephira-desc"><span>Шеф виробничого цеху та ЧПК. Реальне фізичне виробництво на заводі в Чорноморську (2.8 га, 550+ т/міс), розкрій на плотерах, килимки, мати, татамі.</span></div>
+            <div class="sephira-model"><strong><span>Стек:</span></strong> CAM DXF/G-Code • Foaming Presses • ISO 9001</div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">⚡</span>
+          <h3 class="sub-title">
+            <span>Питання 8.3: Як виглядає наскрізний конвеєр: від дзвінка до верстата ЧПК та відвантаження (7 кроків)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Наскрізний конвеєр</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <p style="color: var(--fg-muted); margin-bottom: 20px;">
+        <span>Кожна транзакція, вхідний дзвінок або креслення деталі проходить 7-ступеневу захищену магістраль обробки в реальному часі:</span>
+      </p>
+
+      <div class="pipeline-flow">
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 01 // Омніканал</span></span>
+          <div class="pipe-name"><span>Клієнтський вхід</span></div>
+          <div class="pipe-desc"><span>Вхідний дзвінок (EvaVoice), Telegram, WhatsApp, B2B-портал або вебхук з 1С/CRM.</span></div>
+          <div class="pipe-tech">FastAPI • WebSpeech • REST API</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 02 // Захист</span></span>
+          <div class="pipe-name"><span>Фільтрація трафіку</span></div>
+          <div class="pipe-desc"><span>Крайовий шлюз EvaFace (Айова) відсікає DDoS, валідує JWT-токени та шифрує тунель.</span></div>
+          <div class="pipe-tech">Caddy HTTP/3 • TLS 1.3 • WireGuard</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 03 // Маршрутизатор</span></span>
+          <div class="pipe-name"><span>OmniRoute селектор</span></div>
+          <div class="pipe-desc"><span>Аналіз складності завдання за 15 мс та вибір: безкоштовний пул ($0) або платний флагман.</span></div>
+          <div class="pipe-tech">Token Classifier • TTFT Monitor</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 04 // Пам'ять</span></span>
+          <div class="pipe-name"><span>RAG та контекст</span></div>
+          <div class="pipe-desc"><span>Вилучення цін, креслень та регламентів ISO/ТУ з бази ChromaDB та таблиць SQLite.</span></div>
+          <div class="pipe-tech">ChromaDB • SQLite FTS5 • Memory Graph</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 05 // Консиліум</span></span>
+          <div class="pipe-name"><span>Колегіальний дебат</span></div>
+          <div class="pipe-desc"><span>Паралельне опитування моделей Google, Anthropic, DeepSeek. Синтез консенсусу без галюцинацій.</span></div>
+          <div class="pipe-tech">Gemini 3.1 Pro • Claude 3.7 • DeepSeek R1</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 06 // Аудит</span></span>
+          <div class="pipe-name"><span>Контроль безпеки</span></div>
+          <div class="pipe-desc"><span>Перевірка лімітів кошторису, дотримання норм UNIC, ISO 9001 та комерційної таємниці.</span></div>
+          <div class="pipe-tech">RulesEngine • OWASP Guard • Token Budget</div>
+        </div>
+
+        <div class="pipe-step">
+          <span class="pipe-badge"><span>Крок 07 // Виконання</span></span>
+          <div class="pipe-name"><span>Фізична дія</span></div>
+          <div class="pipe-desc"><span>Формування рахунків в 1С, вивантаження G-коду на розкрійні плотери ЧПК у Чорноморську.</span></div>
+          <div class="pipe-tech">MCP 1C • CNC G-Code • Bitrix24 Hook</div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-4">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📈</span>
+          <h3 class="sub-title">
+            <span>Питання 8.4: Які підтверджені метрики бізнес-трансформації («До» та «Після»)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Метрики До/Після</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Швидкість першої відповіді</span></span>
+            <span class="compare-delta">-99.9%</span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До (Людина):</span></span>
+            <span><span>45 хвилин</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot (Автономно):</span></span>
+            <span><span>1.2 секунди</span></span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 98%;"></div>
+          </div>
+        </div>
+
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Собівартість заявки</span></span>
+            <span class="compare-delta">-99.5%</span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До (Оператор):</span></span>
+            <span>$4.50 / <span>заявка</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot (Гібрид):</span></span>
+            <span>$0.02 / <span>заявка</span></span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 96%;"></div>
+          </div>
+        </div>
+
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Брак у кошторисах і розкрої</span></span>
+            <span class="compare-delta">-99.8%</span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До (Ручний рахунок):</span></span>
+            <span>8.4% <span>помилок</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot (ЧПК/CAM):</span></span>
+            <span>&lt; 0.01% <span>браку</span></span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 99%;"></div>
+          </div>
+        </div>
+
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Режим доступності</span></span>
+            <span class="compare-delta">+320%</span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До впровадження:</span></span>
+            <span>40 <span>год / тиждень</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot:</span></span>
+            <span>168 <span>год / тижд (24/7)</span></span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Перевірка експортного ЗЕД</span></span>
+            <span class="compare-delta">-99.8%</span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До (Юристи):</span></span>
+            <span>3 <span>робочі дні</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot (Legal):</span></span>
+            <span>40 <span>секунд</span></span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 97%;"></div>
+          </div>
+        </div>
+
+        <div class="compare-card">
+          <div class="compare-metric-title">
+            <span><span>Багатомовне охоплення</span></span>
+            <span class="compare-delta">6 <span>Мов</span></span>
+          </div>
+          <div class="compare-row before">
+            <span><span>До впровадження:</span></span>
+            <span>1–2 <span>мови зі словником</span></span>
+          </div>
+          <div class="compare-row after">
+            <span><span>З EvaBot:</span></span>
+            <span>UK, EN, DE, PL, RO, RU</span>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-5">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">📋</span>
+          <h3 class="sub-title">
+            <span>Питання 8.5: Як виглядає покроковий протокол інтеграції на підприємство (5 фаз за 2–4 тижні)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>5 фаз впровадження</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <p style="color: var(--fg-muted); margin-bottom: 20px;">
+        <span>Впровадження EvaBot не потребує зупинки виробництва або переписування софту. Процес розбитий на 5 чітких фаз (2–4 тижні):</span>
+      </p>
+
+      <div class="phase-timeline">
+        <div class="phase-card">
+          <div class="phase-badge-col">
+            <div class="phase-circle">1</div>
+            <span class="phase-days"><span>Дні 1–3</span></span>
+          </div>
+          <div class="phase-body">
+            <h4><span>Фаза 1: Семантичний аудит та оцифрування корпоративної пам'яті</span></h4>
+            <p><span>Збір та векторизація прайс-листів, регламентів ДСТУ/ISO/ТУ, комерційних умов та архівів листування у векторну базу ChromaDB та індекс SQLite FTS5.</span></p>
+            <div class="phase-deliverables">
+              <span class="phase-pill">RAG-индекс</span>
+              <span class="phase-pill">PII Security</span>
+              <span class="phase-pill">Entity Graph</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-badge-col">
+            <div class="phase-circle">2</div>
+            <span class="phase-days"><span>Дні 4–7</span></span>
+          </div>
+          <div class="phase-body">
+            <h4><span>Фаза 2: Підключення операційних інструментів через 21 MCP-сервер</span></h4>
+            <p><span>Безпечне розгортання MCP-конекторів до 1С:Підприємство, CRM Бітрікс24/amoCRM, баз PostgreSQL/MySQL та захищених месенджерів.</span></p>
+            <div class="phase-deliverables">
+              <span class="phase-pill">21 MCP Sandbox</span>
+              <span class="phase-pill">1C/CRM API</span>
+              <span class="phase-pill">Omnichannel Webhooks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-badge-col">
+            <div class="phase-circle">3</div>
+            <span class="phase-days"><span>Дні 8–14</span></span>
+          </div>
+          <div class="phase-body">
+            <h4><span>Фаза 3: Розгортання рольових агентів та калібрування Консиліуму</span></h4>
+            <p><span>Налаштування системних промптів Адама (інженерія/кошторис/CISO) та Єви (клієнтський сервіс/продажі). Підбір оптимального пулу з 94 LLM під бюджет.</span></p>
+            <div class="phase-deliverables">
+              <span class="phase-pill">Adam & Eva Personas</span>
+              <span class="phase-pill">Consilium Consensus</span>
+              <span class="phase-pill">Token Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-badge-col">
+            <div class="phase-circle">4</div>
+            <span class="phase-days"><span>Дні 15–21</span></span>
+          </div>
+          <div class="phase-body">
+            <h4><span>Фаза 4: Пілотний режим Shadow Mode (Паралельна робота без ризику)</span></h4>
+            <p><span>Агенти обробляють реальні заявки паралельно з живими працівниками: генерують чернетки кошторисів та накладних для перевірки в 1 клік.</span></p>
+            <div class="phase-deliverables">
+              <span class="phase-pill">Zero-Risk Shadowing</span>
+              <span class="phase-pill">Precision Analytics</span>
+              <span class="phase-pill">Staff AI Training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-badge-col">
+            <div class="phase-circle">5</div>
+            <span class="phase-days"><span>День 22+</span></span>
+          </div>
+          <div class="phase-body">
+            <h4><span>Фаза 5: Повномасштабний автономний продакшн та фінансовий облік</span></h4>
+            <p><span>Переведення 85%+ рутини на автономне виконання 24/7/365. Підключення дашборда evaline.network та обліку витрат AccountingEngine.</span></p>
+            <div class="phase-deliverables">
+              <span class="phase-pill">24/7 Autonomy</span>
+              <span class="phase-pill">evaline.network</span>
+              <span class="phase-pill">AccountingEngine</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-6">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">💰</span>
+          <h3 class="sub-title">
+            <span>Питання 8.6: Як влаштований інтерактивний калькулятор економічної окупності впровадження (ROI)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Калькулятор ROI</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="roi-calc-box" id="roi-calculator">
+        <div class="roi-calc-header">
+          <div>
+            <h3 style="color:#fff; margin: 0 0 4px 0;">
+              <span>Інтерактивний калькулятор окупності впровадження EvaBot</span>
+            </h3>
+            <p style="color: var(--fg-muted); margin: 0; font-size: 0.92rem;">
+              <span>Пересувайте повзунки під реальні параметри вашої компанії:</span>
+            </p>
+          </div>
+          <div class="roi-badge">⚡ Real-time OpEx Engine</div>
+        </div>
+
+        <div class="roi-layout">
+          <div class="roi-sliders">
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span>Співробітників у відділі (продажі, саппорт, кошторис):</span></span>
+                <span class="roi-field-val" id="val-staff">5 человек</span>
+              </div>
+              <input type="range" id="slider-staff" class="roi-slider" min="1" max="50" value="5" oninput="updateRoiCalc()">
+            </div>
+
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span>Звернень та замовлень на місяць:</span></span>
+                <span class="roi-field-val" id="val-tickets">3 500 заявок</span>
+              </div>
+              <input type="range" id="slider-tickets" class="roi-slider" min="200" max="30000" step="100" value="3500" oninput="updateRoiCalc()">
+            </div>
+
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span>Середня вартість години фахівця:</span></span>
+                <span class="roi-field-val" id="val-wage">$15 / час</span>
+              </div>
+              <input type="range" id="slider-wage" class="roi-slider" min="5" max="60" step="1" value="15" oninput="updateRoiCalc()">
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span>Чиста економія бюджету на місяць:</span></span>
+              <span class="roi-result-val green" id="res-savings">$7,625</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span>З урахуванням зниження OpEx на 80%+</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span>Вивільнено робочих годин:</span></span>
+              <span class="roi-result-val cyan" id="res-hours">525 ч/мес</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span>Спрямовано на розвиток та угоди</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span>Прогнозований ROI платформи:</span></span>
+              <span class="roi-result-val amber" id="res-roi">420%</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span>Повернення інвестицій у перший же місяць</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span>Термін повної окупності:</span></span>
+              <span class="roi-result-val" id="res-payback" style="color: #a78bfa;">18 дней</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span>Завдяки гібридним безкоштовним квотам</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-7">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🔌</span>
+          <h3 class="sub-title">
+            <span>Питання 8.7: Як архітектура 21 MCP-конектора інтегрує фабрику агентів в IT-ландшафт підприємства?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>21 MCP Конектор</span></span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🔌</div>
+          <h4 class="card-title"><span>Протокол Model Context Protocol (MCP)</span></h4>
+          <p class="card-text"><span>21 спеціалізований сервер стандартизує доступ агентів до даних: файлові системи, репозиторії Git, СУБД SQLite/PostgreSQL, SSH-консолі та веб-браузер.</span></p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h4 class="card-title"><span>Безшовна інтеграція з 1С:Підприємство</span></h4>
+          <p class="card-text"><span>Двосторонній обмін через OData / REST API: читання номенклатури, перевірка реальних залишків полімерів на складах та автоматичне виставлення рахунків.</span></p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏭</div>
+          <h4 class="card-title"><span>Промисловий контур ЧПК та CAM</span></h4>
+          <p class="card-text"><span>Генерація DXF/G-коду для цифрових розкрійних комплексів (плотерів). Оптимізація схеми розкладки листа мінімізує відходи сировини.</span></p>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+    </div>
+  </details>
+  <!-- =========================================================================
+       SECTION 09: GLOSSARY
+       ========================================================================= -->
+  <details class="accordion-section" open id="glossary">
+    <summary class="accordion-summary">
+      <div class="summary-left">
+        <span class="summary-chevron">▾</span>
+        <span class="summary-num">09</span>
+        <h2 class="summary-title">
+          <span>Глосарій термінів: Простими словами про високі технології EvaLine</span>
+        </h2>
+      </div>
+      <div class="summary-badge">
+        <span>20 термінів</span>
+      </div>
+    </summary>
+    <div class="accordion-content">
+      <p class="lead-text"><span>Ми створюємо передові автономні технології та полімерні матеріали, але розмовляємо з клієнтами та партнерами зрозумілою людською мовою без складного жаргону:</span></p>
+      
+    <div class="glossary-controls">
+      <div class="glossary-tabs">
+        <button class="glossary-tab active" data-glossary-filter="all">
+          <span>Всі 20 понять</span>
+        </button>
+        <button class="glossary-tab" data-glossary-filter="ai">
+          <span>🤖 Штучний інтелект</span>
+        </button>
+        <button class="glossary-tab" data-glossary-filter="poly">
+          <span>🏭 Завод та Полімери</span>
+        </button>
+        <button class="glossary-tab" data-glossary-filter="sec">
+          <span>🛡️ Мережа та Безпека</span>
+        </button>
+      </div>
+      <div style="flex: 1; max-width: 380px; min-width: 240px;">
+        <input type="text" id="glossary-search" class="matrix-search-input" placeholder="<span>🔍 Знайти термін (Консиліум, ЕВА, Шор, RAG...)...</span>" style="width: 100%;">
+      </div>
+    </div>
+
+          <details class="sub-accordion" open id="sub-9-1">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🤖</span>
+          <h3 class="sub-title">
+            <span>Питання 9.1: Що означають терміни ШІ та фабрики агентів простими словами (9 понять)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>ШІ & Агенти</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="glossary-grid">        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>ШІ-Агент (AI Agent)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span>Це не просто чат-бот для листування, а <strong>цифровий співробітник</strong>. Він має реальний доступ до програм: сам перевіряє сировину на складі, формує рахунки, перевіряє креслення, надсилає листи клієнтам та виправляє код без участі людини.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Автономна програмна сутність з моделлю міркувань, пам'яттю, сприйняттям контексту та набором виконуваних інструментів (tools/API).</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Євалайн Консиліум (AI Consilium)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Електронна рада директорів або консиліум лікарів</strong>. Замість сліпої віри одній моделі, завдання віддається кільком незалежним нейромережам (Google, Anthropic, DeepSeek, Meta). Вони сперечаються, критикують та перевіряють висновки одна одної, видаючи рішення без галюцинацій.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Багатоагентний консенсусний протокол паралельного дебату різнорідних LLM з арбітражем та змагальним аудитом логіки.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>LLM (Велика мовна модель)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Цифровий мозок колосального кругозору</strong>. Розуміє звичайну людську мову будь-якою мовою світу, вловлює найтонший контекст завдання та формулює відповідь так, немов ви спілкуєтеся з ерудованим профільним експертом.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Large Language Model — глибока нейромережа із сотнями мільярдів параметрів, навчена на масивах текстів і коду.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Галюцинації нейромереж (Hallucinations)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Небезпечна вигадка штучного інтелекту</strong>. Момент, коли робот із впевненим виглядом вигадує неіснуючі закони, вигадані ціни чи неправдиві характеристики. В EvaLine галюцинації усуваються Консиліумом та перевіркою за базами знань.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Генерація синтаксично правдоподібних, але семантично помилкових або відсутніх у вибірці фактів.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>RAG (Пошук по корпоративних знаннях)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Розумний секретар із доступом до сейфа компанії</strong>. Перш ніж відповісти, агент за частку секунди знаходить потрібний пункт у ваших договорах, ДСТУ/ТУ, регламентах чи складських базах, відповідаючи строго за документами.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Retrieval-Augmented Generation — гібридна архітектура семантичного векторного пошуку за закритими базами з генерацією.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Контекстне вікно та Токени (Tokens)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Розмір «оперативної пам'яті» нейромережі</strong>. Токен — це шматочок слова (3–4 літери). Якщо у більшості ботів пам'ять розміром з брошуру, то 2 000 000 токенів у наших моделей дозволяють тримати в голові одразу 30 томів документації.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Context Window (токени) — граничний обсяг вхідної та вихідної послідовності, що утримується в увазі за один такт роботи.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Мультимодальність (Multimodal AI)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>ШІ, який бачить, чує та говорить</strong>. Йому не потрібно передруковувати текст: ви можете показати йому фото деталі, надіслати креслення чи надиктувати голосове повідомлення на ходу — він зрозуміє все.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Здатність єдиної нейромережевої архітектури безшовно сприймати та генерувати текст, аудіо, зображення, відео, вектори.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>MCP (Model Context Protocol)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Безпечний «маніпулятор» для штучного інтелекту</strong>. Завдяки 21 MCP-серверу агент не просто пише текст, а фізично і безпечно відкриває файли, робить запити в бази даних та керує серверами під суворим контролем прав.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Відкритий стандарт безпечного зв'язку LLM з локальними та віддаленими ресурсами (інструменти, файли, бази даних, IDE).</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="ai">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Адам та Єва (Ролі агентів Adam & Eva)</span></div>
+            <span class="glossary-category-pill cat-ai"><span>Штучний Інтелект</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Два ключові віртуальні топ-менеджери</strong>: Адам виступає в ролі суворого аудитора, який перевіряє безпеку, кошториси та відсутність вразливостей; Єва відповідає за клієнтський сервіс, живу мову та турботу.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Бінарна рольова поляризація контуру: Адам (CISO, формальна верифікація) та Єва (UX, синтез, турбота про клієнта).</span>
+          </div>
+        </div></div>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-9-2">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🏭</span>
+          <h3 class="sub-title">
+            <span>Питання 9.2: Що потрібно знати про полімери EVA та технологію заводу простими словами (7 понять)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Полімери & Завод</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="glossary-grid">        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>ЕВА-полімер (EVA / Етиленвінілацетат)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Легкий, «вічний» та екологічний полімер</strong>. Він у 4 рази легший за гуму, абсолютно не вбирає вологу та запахи, зберігає еластичність від -40°C до +70°C. З нього ми виробляємо килимки, татамі, палубні покриття для яхт і взуття.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Співполімер етилену та вінілацетату — екологічно чистий спінений мікропористий полімер закритокомірчастої структури.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Комірки «Ромб» та «Стільники» (EVA Sheets)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Пастки для бруду та води в автокилимках</strong>. Вода, сніг та пісок запечатуються в комірках (до 2.5 літрів на салон) і не переливаються під ногами при різкому гальмуванні. Взуття та салон завжди сухі.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Глибоке об'ємне формування лицьового шару листа (глибина 7–8 мм, кут нахилу стінок 60°) для гідродинамічної локалізації рідини.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Шор А (Твердість за шкалою Shore A)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Термометр пружності матеріалу</strong>: 20–30 ShA — м'який мов зефір (дитячі пазли); 50–55 ShA — золотий стандарт автокилимків; 70–75 ShA — надміцний настил для тренажерних залів та важкої техніки.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Метод вимірювання глибини вдавлювання індентора за стандартом ISO 868 / ASTM D2240 для характеристики пружності еластомерів.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Мати для ферм «Бурьонка»</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Теплий та м'який «матрац» для корів на фермі</strong>. Захищає худобу від сирого бетону, запобігає маститу та хворобам суглобів. Корови дають на 10–15% більше молока, а 25% вартості компенсує держава.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Монолітні термоізоляційні тваринницькі мати підвищеної щільності з антиковзним рифленням та антибактеріальним просоченням.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Штучний палубний тік (Marine Teak)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Преміальне палубне покриття для катерів та яхт</strong>. Виглядає як натуральне тикове дерево, але не гниє, не вигоряє на сонці, не нагрівається та не ковзає, навіть якщо палубу залила морська хвиля.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Двошаровий УФ-стабілізований ЕВА-матеріал морського класу з лазерним гравіюванням ламелей та клейовим шаром 3M VHB.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Татамі «Ластівчин хвіст» (Tatami Puzzle)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Безпечна підлога для єдиноборств і фітнесу</strong>. Плити збираються як велетенський пазл за лічені хвилини. Вони амортизують жорсткі падіння, не ковзають і легко миються.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Двосторонні збірні спортивні мати з ЕВА щільністю 75–250 кг/м³ з універсальним замковим з'єднанням.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="poly">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Private Label (Контрактне виробництво)</span></div>
+            <span class="glossary-category-pill cat-poly"><span>Виробництво EvaLine</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Ми виробляємо — ви продаєте під своїм брендом</strong>. Завод EvaLine випускає продукцію вищої якості, наносить ваш логотип і пакує замовлення. Ви отримуєте товар європейської якості без витрат на верстати.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Виробничий аутсорсинг повного циклу за специфікаціями замовника з брендуванням та сертифікацією CE / ISO 9001.</span>
+          </div>
+        </div></div>
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-9-3">
+      <summary class="sub-summary">
+        <div class="sub-summary-left">
+          <span class="sub-chevron">▾</span>
+          <span class="sub-icon">🛡️</span>
+          <h3 class="sub-title">
+            <span>Питання 9.3: Як розшифрувати терміни мережевої безпеки та стійкості простими словами (4 поняття)?</span>
+          </h3>
+        </div>
+        <span class="sub-badge"><span>Безпека</span></span>
+      </summary>
+      <div class="sub-content">
+<div class="glossary-grid">        <div class="glossary-card" data-category="sec">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Mesh-мережа та WireGuard</span></div>
+            <span class="glossary-category-pill cat-sec"><span>Мережа та Безпека</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Броньована лінія зв'язку між серверами</strong>. З'єднує дата-центри у Франкфурті та США через особистий зашифрований тунель без можливості перехоплення хакерами з інтернету.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Пірингова оверлейна топологія з криптографічною маршрутизацією ChaCha20-Poly1305 в ізольованому просторі адрес.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="sec">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Двовузловий кластер («Щит» та «Мозок»)</span></div>
+            <span class="glossary-category-pill cat-sec"><span>Мережа та Безпека</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Розподіл праці для максимальної надійності</strong>. Легкий сервер у США зустрічає відвідувачів і відбиває атаки («Щит»), а потужний 8-ядерний сервер у Німеччині в тиші робить обчислення ШІ («Мозок»).</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Географічно розподілена зв'язка: Edge Ingress проксі (США, Айова) + Dedicated Compute Core (ФРН, Франкфурт).</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="sec">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>Блекаут-резистентність (Blackout Resilience)</span></div>
+            <span class="glossary-category-pill cat-sec"><span>Мережа та Безпека</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Стійкість у будь-яких форс-мажорах</strong>. Якщо на заводі зникає світло, виробництво переходить на генератори, а хмарні роботи в Європі не припиняють приймати замовлення ні на секунду.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Автономний контур відмовостійкості: незалежні канали живлення, генератори заводу та розподілена хмарна реплікація.</span>
+          </div>
+        </div>
+        <div class="glossary-card" data-category="sec">
+          <div class="glossary-header">
+            <div class="glossary-term"><span>API (Інтерфейс зв'язку програм)</span></div>
+            <span class="glossary-category-pill cat-sec"><span>Мережа та Безпека</span></span>
+          </div>
+          <div class="glossary-plain">
+            <strong><span>Простими словами:</span></strong> <span><strong>Універсальний «штекер і розетка» для програм</strong>. Дозволяє агентам за кілька хвилин підключитися до вашої 1C, CRM Бітрікс, Telegram-каналу чи банку і працювати як єдине ціле.</span>
+          </div>
+          <div class="glossary-tech">
+            <strong><span>Технічне визначення:</span></strong> <span>Application Programming Interface — стандартизований протокол взаємодії сервісів за архітектурою REST / WebSocket.</span>
+          </div>
+        </div></div>
+      </div>
+    </details>
+
+    </div>
+  </details>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <span>EVALINE NETWORK & EVABOT ONLINE // СУВЕРЕННА ФАБРИКА АВТОНОМНИХ ШІ-АГЕНТІВ ТА ВИРОБНИЦТВО ПОЛІМЕРІВ EVA</span>
+    </p>
+    <p style="margin-top: 8px;">
+      <span>Фізичне виробництво: Україна, м. Чорноморськ, вул. Промислова, 1 • Склад у ЄС: Словаччина, м. Братислава, Obchodna 37 • Сертифікація ISO 9001:2015 & CE</span>
+    </p>
+    <p style="margin-top: 8px; color: var(--fg-subtle);">
+      <span>Кластер: Франкфурт (8 vCPU Dedicated Core) ⟷ Айова (Edge HTTP/3) ⟷ Захищений WireGuard Mesh-контур.</span>
+    </p>
+  </footer>
+
+</div> <!-- End .container -->
+
+</body>
+</html>
