@@ -16,6 +16,11 @@
     "speed": 85,
     "composite": 97,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
+      "uk": "Надшвидкий мультиагентний виконавець та автономний роутер",
+      "en": "Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router"
+    },
     "roleHint": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
     "numPrice": 0.0
   },
@@ -36,6 +41,11 @@
     "speed": 45,
     "composite": 94,
     "recommended": false,
+    "roleHints": {
+      "ru": "Главный системный архитектор и логический арбитр (Контекст 2M)",
+      "uk": "Головний системний архітектор та логічний арбітр (Контекст 2M)",
+      "en": "Lead System Architect & Logical Arbitrator (2M Context Window)"
+    },
     "roleHint": "Главный системный архитектор и логический арбитр (Контекст 2M)",
     "numPrice": 0.0
   },
@@ -56,6 +66,11 @@
     "speed": 85,
     "composite": 95,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
+      "uk": "Надшвидкий мультиагентний виконавець та автономний роутер",
+      "en": "Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router"
+    },
     "roleHint": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
     "numPrice": 0.0
   },
@@ -76,6 +91,11 @@
     "speed": 85,
     "composite": 90,
     "recommended": true,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.0
   },
@@ -96,6 +116,11 @@
     "speed": 45,
     "composite": 89,
     "recommended": true,
+    "roleHints": {
+      "ru": "Главный системный архитектор и логический арбитр (Контекст 2M)",
+      "uk": "Головний системний архітектор та логічний арбітр (Контекст 2M)",
+      "en": "Lead System Architect & Logical Arbitrator (2M Context Window)"
+    },
     "roleHint": "Главный системный архитектор и логический арбитр (Контекст 2M)",
     "numPrice": 0.0
   },
@@ -116,6 +141,11 @@
     "speed": 85,
     "composite": 84,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -136,6 +166,11 @@
     "speed": 100,
     "composite": 86,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -156,6 +191,11 @@
     "speed": 45,
     "composite": 70,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -176,6 +216,11 @@
     "speed": 85,
     "composite": 71,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -196,6 +241,11 @@
     "speed": 85,
     "composite": 71,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -216,6 +266,11 @@
     "speed": 50,
     "composite": 47,
     "recommended": false,
+    "roleHints": {
+      "ru": "Локальные легковесные задачи и вспомогательные микросервисы",
+      "uk": "Локальні легковажні задачі та допоміжні мікросервіси",
+      "en": "Local Lightweight Inference & Ancillary Microservices"
+    },
     "roleHint": "Локальные легковесные задачи и вспомогательные микросервисы",
     "numPrice": 0.0
   },
@@ -236,6 +291,11 @@
     "speed": 50,
     "composite": 47,
     "recommended": false,
+    "roleHints": {
+      "ru": "Локальные легковесные задачи и вспомогательные микросервисы",
+      "uk": "Локальні легковажні задачі та допоміжні мікросервіси",
+      "en": "Local Lightweight Inference & Ancillary Microservices"
+    },
     "roleHint": "Локальные легковесные задачи и вспомогательные микросервисы",
     "numPrice": 0.0
   },
@@ -256,6 +316,11 @@
     "speed": 50,
     "composite": 85,
     "recommended": false,
+    "roleHints": {
+      "ru": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
+      "uk": "Глибокий інженерний кодинг, архітектурний рев'ю та рефакторинг",
+      "en": "Deep Engineering Coding, Architecture Review & Refactoring"
+    },
     "roleHint": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
     "numPrice": 3.0
   },
@@ -276,6 +341,11 @@
     "speed": 50,
     "composite": 71,
     "recommended": false,
+    "roleHints": {
+      "ru": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
+      "uk": "Глибокий інженерний кодинг, архітектурний рев'ю та рефакторинг",
+      "en": "Deep Engineering Coding, Architecture Review & Refactoring"
+    },
     "roleHint": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
     "numPrice": 3.0
   },
@@ -296,6 +366,11 @@
     "speed": 70,
     "composite": 74,
     "recommended": false,
+    "roleHints": {
+      "ru": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
+      "uk": "Швидкий синтаксичний аналіз, валідація JSON та мікроагенти",
+      "en": "Rapid Syntax Parsing, JSON Validation & Micro-Agents"
+    },
     "roleHint": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
     "numPrice": 0.8
   },
@@ -316,6 +391,11 @@
     "speed": 50,
     "composite": 62,
     "recommended": false,
+    "roleHints": {
+      "ru": "Суверенная независимая экспертиза открытых весов",
+      "uk": "Суверенна незалежна експертиза відкритих ваг",
+      "en": "Sovereign Open-Weights Independent Evaluation"
+    },
     "roleHint": "Суверенная независимая экспертиза открытых весов",
     "numPrice": 0.7
   },
@@ -336,6 +416,11 @@
     "speed": 50,
     "composite": 50,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.9
   },
@@ -356,6 +441,11 @@
     "speed": 50,
     "composite": 65,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 3.5
   },
@@ -376,6 +466,11 @@
     "speed": 50,
     "composite": 59,
     "recommended": false,
+    "roleHints": {
+      "ru": "Европейский суверенный аудит и мультиязычный анализ",
+      "uk": "Європейський суверенний аудит та багатомовний аналіз",
+      "en": "European Sovereign Audit & Multilingual Analysis"
+    },
     "roleHint": "Европейский суверенный аудит и мультиязычный анализ",
     "numPrice": 2.0
   },
@@ -396,6 +491,11 @@
     "speed": 50,
     "composite": 70,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.3
   },
@@ -416,6 +516,11 @@
     "speed": 50,
     "composite": 81,
     "recommended": false,
+    "roleHints": {
+      "ru": "Пошаговые математические рассуждения и состязательный аудит логики",
+      "uk": "Покрокові математичні міркування та змагальний аудит логіки",
+      "en": "Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit"
+    },
     "roleHint": "Пошаговые математические рассуждения и состязательный аудит логики",
     "numPrice": 0.55
   },
@@ -436,6 +541,11 @@
     "speed": 50,
     "composite": 57,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 2.0
   },
@@ -456,6 +566,11 @@
     "speed": 50,
     "composite": 53,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 2.5
   },
@@ -476,6 +591,11 @@
     "speed": 65,
     "composite": 95,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
+      "uk": "Надшвидкий мультиагентний виконавець та автономний роутер",
+      "en": "Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router"
+    },
     "roleHint": "Сверхбыстрый мультиагентный исполнитель и автономный роутер",
     "numPrice": 0.0
   },
@@ -496,6 +616,11 @@
     "speed": 65,
     "composite": 96,
     "recommended": false,
+    "roleHints": {
+      "ru": "Главный системный архитектор и логический арбитр (Контекст 2M)",
+      "uk": "Головний системний архітектор та логічний арбітр (Контекст 2M)",
+      "en": "Lead System Architect & Logical Arbitrator (2M Context Window)"
+    },
     "roleHint": "Главный системный архитектор и логический арбитр (Контекст 2M)",
     "numPrice": 0.0
   },
@@ -516,6 +641,11 @@
     "speed": 65,
     "composite": 89,
     "recommended": false,
+    "roleHints": {
+      "ru": "Главный системный архитектор и логический арбитр (Контекст 2M)",
+      "uk": "Головний системний архітектор та логічний арбітр (Контекст 2M)",
+      "en": "Lead System Architect & Logical Arbitrator (2M Context Window)"
+    },
     "roleHint": "Главный системный архитектор и логический арбитр (Контекст 2M)",
     "numPrice": 0.0
   },
@@ -536,6 +666,11 @@
     "speed": 65,
     "composite": 88,
     "recommended": true,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.0
   },
@@ -556,6 +691,11 @@
     "speed": 65,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -576,6 +716,11 @@
     "speed": 50,
     "composite": 84,
     "recommended": false,
+    "roleHints": {
+      "ru": "Пошаговые математические рассуждения и состязательный аудит логики",
+      "uk": "Покрокові математичні міркування та змагальний аудит логіки",
+      "en": "Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit"
+    },
     "roleHint": "Пошаговые математические рассуждения и состязательный аудит логики",
     "numPrice": 0.0
   },
@@ -596,6 +741,11 @@
     "speed": 50,
     "composite": 67,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -616,6 +766,11 @@
     "speed": 50,
     "composite": 79,
     "recommended": false,
+    "roleHints": {
+      "ru": "Суверенная независимая экспертиза открытых весов",
+      "uk": "Суверенна незалежна експертиза відкритих ваг",
+      "en": "Sovereign Open-Weights Independent Evaluation"
+    },
     "roleHint": "Суверенная независимая экспертиза открытых весов",
     "numPrice": 0.0
   },
@@ -636,6 +791,11 @@
     "speed": 50,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.0
   },
@@ -656,6 +816,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Европейский суверенный аудит и мультиязычный анализ",
+      "uk": "Європейський суверенний аудит та багатомовний аналіз",
+      "en": "European Sovereign Audit & Multilingual Analysis"
+    },
     "roleHint": "Европейский суверенный аудит и мультиязычный анализ",
     "numPrice": 0.0
   },
@@ -676,6 +841,11 @@
     "speed": 50,
     "composite": 70,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 2.5
   },
@@ -696,6 +866,11 @@
     "speed": 65,
     "composite": 75,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -716,6 +891,11 @@
     "speed": 50,
     "composite": 75,
     "recommended": false,
+    "roleHints": {
+      "ru": "Формальная верификация алгоритмов и доказательства безопасности",
+      "uk": "Формальна верифікація алгоритмів та докази безпеки",
+      "en": "Formal Algorithm Verification & Provable Safety Checks"
+    },
     "roleHint": "Формальная верификация алгоритмов и доказательства безопасности",
     "numPrice": 15.0
   },
@@ -736,6 +916,11 @@
     "speed": 65,
     "composite": 81,
     "recommended": false,
+    "roleHints": {
+      "ru": "Формальная верификация алгоритмов и доказательства безопасности",
+      "uk": "Формальна верифікація алгоритмів та докази безпеки",
+      "en": "Formal Algorithm Verification & Provable Safety Checks"
+    },
     "roleHint": "Формальная верификация алгоритмов и доказательства безопасности",
     "numPrice": 0.0
   },
@@ -756,6 +941,11 @@
     "speed": 50,
     "composite": 85,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 3.0
   },
@@ -776,6 +966,11 @@
     "speed": 50,
     "composite": 71,
     "recommended": false,
+    "roleHints": {
+      "ru": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
+      "uk": "Глибокий інженерний кодинг, архітектурний рев'ю та рефакторинг",
+      "en": "Deep Engineering Coding, Architecture Review & Refactoring"
+    },
     "roleHint": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
     "numPrice": 3.0
   },
@@ -796,6 +991,11 @@
     "speed": 70,
     "composite": 77,
     "recommended": false,
+    "roleHints": {
+      "ru": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
+      "uk": "Швидкий синтаксичний аналіз, валідація JSON та мікроагенти",
+      "en": "Rapid Syntax Parsing, JSON Validation & Micro-Agents"
+    },
     "roleHint": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
     "numPrice": 0.0
   },
@@ -816,6 +1016,11 @@
     "speed": 50,
     "composite": 57,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 2.0
   },
@@ -836,6 +1041,11 @@
     "speed": 80,
     "composite": 87,
     "recommended": false,
+    "roleHints": {
+      "ru": "Пошаговые математические рассуждения и состязательный аудит логики",
+      "uk": "Покрокові математичні міркування та змагальний аудит логіки",
+      "en": "Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit"
+    },
     "roleHint": "Пошаговые математические рассуждения и состязательный аудит логики",
     "numPrice": 0.0
   },
@@ -856,6 +1066,11 @@
     "speed": 80,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Суверенная независимая экспертиза открытых весов",
+      "uk": "Суверенна незалежна експертиза відкритих ваг",
+      "en": "Sovereign Open-Weights Independent Evaluation"
+    },
     "roleHint": "Суверенная независимая экспертиза открытых весов",
     "numPrice": 0.0
   },
@@ -876,6 +1091,11 @@
     "speed": 65,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -896,6 +1116,11 @@
     "speed": 50,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.0
   },
@@ -916,6 +1141,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Европейский суверенный аудит и мультиязычный анализ",
+      "uk": "Європейський суверенний аудит та багатомовний аналіз",
+      "en": "European Sovereign Audit & Multilingual Analysis"
+    },
     "roleHint": "Европейский суверенный аудит и мультиязычный анализ",
     "numPrice": 0.0
   },
@@ -936,6 +1166,11 @@
     "speed": 70,
     "composite": 77,
     "recommended": false,
+    "roleHints": {
+      "ru": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
+      "uk": "Швидкий синтаксичний аналіз, валідація JSON та мікроагенти",
+      "en": "Rapid Syntax Parsing, JSON Validation & Micro-Agents"
+    },
     "roleHint": "Быстрый синтаксический анализ, валидация JSON и микроагенты",
     "numPrice": 0.0
   },
@@ -956,6 +1191,11 @@
     "speed": 65,
     "composite": 74,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -976,6 +1216,11 @@
     "speed": 65,
     "composite": 75,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.0
   },
@@ -996,6 +1241,11 @@
     "speed": 50,
     "composite": 68,
     "recommended": false,
+    "roleHints": {
+      "ru": "Пошаговые математические рассуждения и состязательный аудит логики",
+      "uk": "Покрокові математичні міркування та змагальний аудит логіки",
+      "en": "Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit"
+    },
     "roleHint": "Пошаговые математические рассуждения и состязательный аудит логики",
     "numPrice": 0.0
   },
@@ -1016,6 +1266,11 @@
     "speed": 80,
     "composite": 59,
     "recommended": true,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1036,6 +1291,11 @@
     "speed": 80,
     "composite": 60,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1056,6 +1316,11 @@
     "speed": 80,
     "composite": 60,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1076,6 +1341,11 @@
     "speed": 80,
     "composite": 60,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1096,6 +1366,11 @@
     "speed": 80,
     "composite": 58,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1116,6 +1391,11 @@
     "speed": 80,
     "composite": 58,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1136,6 +1416,11 @@
     "speed": 80,
     "composite": 58,
     "recommended": false,
+    "roleHints": {
+      "ru": "Локальные легковесные задачи и вспомогательные микросервисы",
+      "uk": "Локальні легковажні задачі та допоміжні мікросервіси",
+      "en": "Local Lightweight Inference & Ancillary Microservices"
+    },
     "roleHint": "Локальные легковесные задачи и вспомогательные микросервисы",
     "numPrice": 0.0
   },
@@ -1156,6 +1441,11 @@
     "speed": 95,
     "composite": 60,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1176,6 +1466,11 @@
     "speed": 95,
     "composite": 76,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1196,6 +1491,11 @@
     "speed": 80,
     "composite": 58,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1216,6 +1516,11 @@
     "speed": 50,
     "composite": 52,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1236,6 +1541,11 @@
     "speed": 50,
     "composite": 79,
     "recommended": false,
+    "roleHints": {
+      "ru": "Суверенная независимая экспертиза открытых весов",
+      "uk": "Суверенна незалежна експертиза відкритих ваг",
+      "en": "Sovereign Open-Weights Independent Evaluation"
+    },
     "roleHint": "Суверенная независимая экспертиза открытых весов",
     "numPrice": 0.0
   },
@@ -1256,6 +1566,11 @@
     "speed": 50,
     "composite": 82,
     "recommended": false,
+    "roleHints": {
+      "ru": "Сложные аналитические рассуждения и верификация гипотез",
+      "uk": "Складні аналітичні міркування та верифікація гіпотез",
+      "en": "Complex Analytical Reasoning & Hypothesis Verification"
+    },
     "roleHint": "Сложные аналитические рассуждения и верификация гипотез",
     "numPrice": 0.0
   },
@@ -1276,6 +1591,11 @@
     "speed": 50,
     "composite": 61,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1296,6 +1616,11 @@
     "speed": 65,
     "composite": 54,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1316,6 +1641,11 @@
     "speed": 50,
     "composite": 57,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1336,6 +1666,11 @@
     "speed": 50,
     "composite": 70,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 2.5
   },
@@ -1356,6 +1691,11 @@
     "speed": 65,
     "composite": 72,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.15
   },
@@ -1376,6 +1716,11 @@
     "speed": 50,
     "composite": 75,
     "recommended": false,
+    "roleHints": {
+      "ru": "Формальная верификация алгоритмов и доказательства безопасности",
+      "uk": "Формальна верифікація алгоритмів та докази безпеки",
+      "en": "Formal Algorithm Verification & Provable Safety Checks"
+    },
     "roleHint": "Формальная верификация алгоритмов и доказательства безопасности",
     "numPrice": 15.0
   },
@@ -1396,6 +1741,11 @@
     "speed": 65,
     "composite": 77,
     "recommended": false,
+    "roleHints": {
+      "ru": "Формальная верификация алгоритмов и доказательства безопасности",
+      "uk": "Формальна верифікація алгоритмів та докази безпеки",
+      "en": "Formal Algorithm Verification & Provable Safety Checks"
+    },
     "roleHint": "Формальная верификация алгоритмов и доказательства безопасности",
     "numPrice": 1.1
   },
@@ -1416,6 +1766,11 @@
     "speed": 50,
     "composite": 71,
     "recommended": false,
+    "roleHints": {
+      "ru": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
+      "uk": "Глибокий інженерний кодинг, архітектурний рев'ю та рефакторинг",
+      "en": "Deep Engineering Coding, Architecture Review & Refactoring"
+    },
     "roleHint": "Глубокий инженерный кодинг, архитектурный ревью и рефакторинг",
     "numPrice": 3.0
   },
@@ -1436,6 +1791,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 15.0
   },
@@ -1456,6 +1816,11 @@
     "speed": 65,
     "composite": 86,
     "recommended": false,
+    "roleHints": {
+      "ru": "Инженерная разработка, системная интеграция и тесты",
+      "uk": "Інженерна розробка, системна інтеграція та тести",
+      "en": "Engineering Development, System Integration & Testing"
+    },
     "roleHint": "Инженерная разработка, системная интеграция и тесты",
     "numPrice": 0.075
   },
@@ -1476,6 +1841,11 @@
     "speed": 65,
     "composite": 73,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 1.25
   },
@@ -1496,6 +1866,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.14
   },
@@ -1516,6 +1891,11 @@
     "speed": 50,
     "composite": 78,
     "recommended": false,
+    "roleHints": {
+      "ru": "Суверенная независимая экспертиза открытых весов",
+      "uk": "Суверенна незалежна експертиза відкритих ваг",
+      "en": "Sovereign Open-Weights Independent Evaluation"
+    },
     "roleHint": "Суверенная независимая экспертиза открытых весов",
     "numPrice": 3.5
   },
@@ -1536,6 +1916,11 @@
     "speed": 50,
     "composite": 59,
     "recommended": false,
+    "roleHints": {
+      "ru": "Европейский суверенный аудит и мультиязычный анализ",
+      "uk": "Європейський суверенний аудит та багатомовний аналіз",
+      "en": "European Sovereign Audit & Multilingual Analysis"
+    },
     "roleHint": "Европейский суверенный аудит и мультиязычный анализ",
     "numPrice": 2.0
   },
@@ -1556,6 +1941,11 @@
     "speed": 50,
     "composite": 59,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.9
   },
@@ -1576,6 +1966,11 @@
     "speed": 50,
     "composite": 57,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 2.0
   },
@@ -1596,6 +1991,11 @@
     "speed": 50,
     "composite": 50,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 3.5
   },
@@ -1616,6 +2016,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.59
   },
@@ -1636,6 +2041,11 @@
     "speed": 50,
     "composite": 81,
     "recommended": false,
+    "roleHints": {
+      "ru": "Пошаговые математические рассуждения и состязательный аудит логики",
+      "uk": "Покрокові математичні міркування та змагальний аудит логіки",
+      "en": "Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit"
+    },
     "roleHint": "Пошаговые математические рассуждения и состязательный аудит логики",
     "numPrice": 0.55
   },
@@ -1656,6 +2066,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1676,6 +2091,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1696,6 +2116,11 @@
     "speed": 50,
     "composite": 54,
     "recommended": true,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1716,6 +2141,11 @@
     "speed": 50,
     "composite": 49,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1736,6 +2166,11 @@
     "speed": 50,
     "composite": 52,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1756,6 +2191,11 @@
     "speed": 50,
     "composite": 54,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1776,6 +2216,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1796,6 +2241,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1816,6 +2266,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1836,6 +2291,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1856,6 +2316,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   },
@@ -1876,6 +2341,11 @@
     "speed": 50,
     "composite": 51,
     "recommended": false,
+    "roleHints": {
+      "ru": "Высокоскоростная фоновая обработка и потоковый парсинг",
+      "uk": "Високошвидкісна фонова обробка та потоковий парсинг",
+      "en": "High-Throughput Background Processing & Stream Parsing"
+    },
     "roleHint": "Высокоскоростная фоновая обработка и потоковый парсинг",
     "numPrice": 0.0
   }
