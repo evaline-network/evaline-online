@@ -8110,5 +8110,26 @@ details.sub-accordion[open] > summary.sub-summary {
   });
 </script>
 
+
+<script>
+setTimeout(() => {
+  try {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+  } catch(e) {}
+  setTimeout(() => {
+    const all = [...document.querySelectorAll('svg[id^="mmd-"]')];
+    const viaSelector = [...document.querySelectorAll('.diagram-canvas .mermaid svg')];
+    const report = ['count_all=' + all.length, 'count_sel=' + viaSelector.length];
+    all.forEach(sg => {
+      const r = sg.getBoundingClientRect();
+      const chain = [];
+      let c = sg.parentElement;
+      while (c && chain.length < 4) { chain.push(c.tagName + '[' + c.className + ']'); c = c.parentElement; }
+      report.push(sg.id + ' w=' + Math.round(r.width) + ' iw=' + window.innerWidth + ' chain=' + chain.join('>'));
+    });
+    document.title = report.join(' || ');
+  }, 6000);
+}, 300);
+</script>
 </body>
 </html>

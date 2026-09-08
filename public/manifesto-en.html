@@ -32,17 +32,14 @@
     <div class="toolbar-group">
       <span class="toolbar-label"><span>Style:</span></span>
       <div class="btn-group theme-switcher" role="group" aria-label="Theme Selector">
-        <button type="button" class="theme-btn active" data-theme="cyber" onclick="setTheme('cyber')" title="Киберпанк (Неон / Dark)">
-          🎨 <span>Cyber UI</span>
-        </button>
-        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
-          📄 <span>Raw HTML</span>
-        </button>
-        <button type="button" class="theme-btn" data-theme="paper" onclick="setTheme('paper')" title="Бумажный светлый минимализм">
-          ☀️ <span>Paper Light</span>
+        <button type="button" class="theme-btn active" data-theme="web" onclick="setTheme('web')" title="Полноценный веб поверх терминального стиля">
+          🖥️ <span>Web</span>
         </button>
         <button type="button" class="theme-btn" data-theme="terminal" onclick="setTheme('terminal')" title="Зеленый моноширинный терминал">
           📟 <span>Terminal</span>
+        </button>
+        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
+          📄 <span>Raw HTML</span>
         </button>
       </div>
     </div>
@@ -92,6 +89,13 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
+    <pre class="hero-ascii" aria-label="EVALINE ASCII logo">
+   _______    _____    __    _____   ________
+  / ____/ |  / /   |  / /   /  _/ | / / ____/
+ / __/  | | / / /| | / /    / //  |/ / __/
+/ /___  | |/ / ___ |/ /____/ // /|  / /___
+/_____/  |___/_/  |_/_____/___/_/ |_/_____/
+</pre>
     <div class="hero-eyebrow">
       <span>SOVEREIGN AGENT FACTORY & PHYSICAL POLYMER MANUFACTURING</span>
     </div>
@@ -208,7 +212,7 @@
     </div>
 
       <p class="lead-text"><span>The vast majority of corporate AI implementations fail because they reduce intelligence to an isolated web chatbox. In real-world enterprise environments, businesses face systemic bottlenecks from standalone language models:</span></p>
-          <details class="sub-accordion" open id="sub-1-1">
+          <details class="sub-accordion" id="sub-1-1">
       <summary class="sub-summary">
         <span class="sub-icon">❌</span> <span class="sub-title"><strong>Question 1.1: What are the dangers of blind hallucinations in standalone AI?</strong></span> <span class="sub-badge">[<span>Critical Risk</span>]</span>
       </summary>
@@ -217,7 +221,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-1-2">
+          <details class="sub-accordion" id="sub-1-2">
       <summary class="sub-summary">
         <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Question 1.2: Why is text chat isolated and unable to execute physical actions?</strong></span> <span class="sub-badge">[<span>Tool Deprivation</span>]</span>
       </summary>
@@ -226,7 +230,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-1-3">
+          <details class="sub-accordion" id="sub-1-3">
       <summary class="sub-summary">
         <span class="sub-icon">⛓️</span> <span class="sub-title"><strong>Question 1.3: What are the severe risks of vendor lock-in and infrastructure fragility?</strong></span> <span class="sub-badge">[<span>Strategic Vulnerability</span>]</span>
       </summary>
@@ -241,7 +245,7 @@
   <!-- =========================================================================
        SECTION 02: AGENT-FACTORY
        ========================================================================= -->
-  <details class="accordion-section" open id="agent-factory">
+  <details class="accordion-section" id="agent-factory">
     <summary class="accordion-summary">
       <span class="summary-num">[02]</span>
       <span class="summary-title"><strong>EvaNetwork: Sovereign Agent Factory & Autonomous AI Agency</strong></span>
@@ -319,8 +323,8 @@
 +------------------------------------+------------------------------------+
 |  ЦИФРОВОЙ ШТАТ (10 РОЛЕЙ)          |  21 ИНСТРУМЕНТ MCP                 |
 |  • 01. Архитектор (Кетер)          |  • Bash, Linux, Docker, WireGuard  |
-|  • 02. Адам (CISO / ЧПУ)           |  • SQLite, Postgres, Filesystem    |
-|  • 03. Ева (CXO / 6 языков)        |  • Chrome DevTools, Fetch, API     |
+|  • 02. Адам (Бэкенд/ЧПУ)           |  • SQLite, Postgres, Filesystem    |
+|  • 03. Ева (UI/Фронт/Лицо)        |  • Chrome DevTools, Fetch, API      |
 |  • 04. Арбитр Консилиума           +------------------------------------+
 |  • 05-10. Разработчик, Мастер ЧПУ  |  ТРЕХСЛОЙНЫЙ RAG (ПАМЯТЬ)          |
 |                                    |  • ChromaDB + SQLite FTS5 + Graph  |
@@ -330,16 +334,16 @@
     </div>
 
       <p class="lead-text"><span><strong>EvaLine</strong> builds not disposable novelty bots, but an <strong>autonomous factory of specialized digital employees</strong> bound by industrial context protocols and unified deterministic oversight:</span></p>
-          <details class="sub-accordion" open id="sub-2-1">
+          <details class="sub-accordion" id="sub-2-1">
       <summary class="sub-summary">
         <span class="sub-icon">👥</span> <span class="sub-title"><strong>Question 2.1: What is an agent factory and how are digital employee personas structured?</strong></span> <span class="sub-badge">[<span>6 Core Personas</span>]</span>
       </summary>
       <div class="sub-content">
-<p><span>Every EvaLine agent is endowed with explicit authority boundaries and rigorous domain prompts: Chief Systems Architect (<strong>Architect</strong>), Lead Backend Engineer & Manufacturing Master (<strong>Adam</strong>), Customer Experience & Omnichannel Director (<strong>Eva</strong>), Chief Information Security Officer (<strong>CISO</strong>), Telemetry & Data Engineer (<strong>Data Engineer</strong>), and Strategic Coordinator (<strong>CEO</strong>).</span></p>
+<p><span>Every EvaLine agent is endowed with explicit authority boundaries and rigorous domain prompts: Chief Systems Architect (<strong>Architect</strong>), Lead Backend & Development Engineer, Chief of Manufacturing, Security & Business Processes (<strong>Adam</strong>), Frontend Director, Company Face & Client-Care Voice (<strong>Eva</strong>), Chief Information Security Officer (<strong>CISO</strong>), Telemetry & Data Engineer (<strong>Data Engineer</strong>), and Strategic Coordinator (<strong>CEO</strong>).</span></p>
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-2-2">
+          <details class="sub-accordion" id="sub-2-2">
       <summary class="sub-summary">
         <span class="sub-icon">🛠️</span> <span class="sub-title"><strong>Question 2.2: What capabilities does the MCP tool bus provide with 21 execution servers?</strong></span> <span class="sub-badge">[<span>Physical Execution</span>]</span>
       </summary>
@@ -348,7 +352,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-2-3">
+          <details class="sub-accordion" id="sub-2-3">
       <summary class="sub-summary">
         <span class="sub-icon">🧠</span> <span class="sub-title"><strong>Question 2.3: How does grounded enterprise RAG memory ensure 0% hallucinations?</strong></span> <span class="sub-badge">[<span>Zero Hallucination</span>]</span>
       </summary>
@@ -357,7 +361,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-2-4">
+          <details class="sub-accordion" id="sub-2-4">
       <summary class="sub-summary">
         <span class="sub-icon">🔄</span> <span class="sub-title"><strong>Question 2.4: How is the closed-loop autonomous execution and QA cycle structured?</strong></span> <span class="sub-badge">[<span>Self-Healing</span>]</span>
       </summary>
@@ -372,7 +376,7 @@
   <!-- =========================================================================
        SECTION 03: CONSILIUM-SYSTEM
        ========================================================================= -->
-  <details class="accordion-section" open id="consilium-system">
+  <details class="accordion-section" id="consilium-system">
     <summary class="accordion-summary">
       <span class="summary-num">[03]</span>
       <span class="summary-title"><strong>The EvaLine Consilium System: Collective Intelligence Engine</strong></span>
@@ -466,7 +470,7 @@
     </div>
 
       <p class="lead-text"><span>The core technological engine of our platform is the <strong>Consilium Engine</strong>: an algorithmic multi-agent framework facilitating adversarial debates, cross-model peer review, and formal consensus arbitration across heterogeneous neural architectures:</span></p>
-          <details class="sub-accordion" open id="sub-3-1">
+          <details class="sub-accordion" id="sub-3-1">
       <summary class="sub-summary">
         <span class="sub-icon">⚖️</span> <span class="sub-title"><strong>Question 3.1: What are the 4 stages of decision synthesis: from demand to implementation?</strong></span> <span class="sub-badge">[<span>Consensus Protocol</span>]</span>
       </summary>
@@ -499,7 +503,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-3-2">
+          <details class="sub-accordion" id="sub-3-2">
       <summary class="sub-summary">
         <span class="sub-icon">⚔️</span> <span class="sub-title"><strong>Question 3.2: Why mandate adversarial debates across heterogeneous LLM families?</strong></span> <span class="sub-badge">[<span>Zero Model Bias</span>]</span>
       </summary>
@@ -508,7 +512,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-3-3">
+          <details class="sub-accordion" id="sub-3-3">
       <summary class="sub-summary">
         <span class="sub-icon">🔍</span> <span class="sub-title"><strong>Question 3.3: How does formal mathematical verification eliminate hallucinations (99.4% accuracy)?</strong></span> <span class="sub-badge">[<span>99.4% Precision</span>]</span>
       </summary>
@@ -517,12 +521,12 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-3-4">
+          <details class="sub-accordion" id="sub-3-4">
       <summary class="sub-summary">
-        <span class="sub-icon">☯️</span> <span class="sub-title"><strong>Question 3.4: What is the core of the dialectical executive balance: Adam vs. Eva?</strong></span> <span class="sub-badge">[<span>Dual Governance</span>]</span>
+        <span class="sub-icon">☯️</span> <span class="sub-title"><strong>Question 3.4: What is the core of the dialectical executive balance: Adam (Backend & Security) vs. Eva (Frontend & Face)?</strong></span> <span class="sub-badge">[<span>Dual Governance</span>]</span>
       </summary>
       <div class="sub-content">
-<p><span>Platform governance is anchored in an executive dichotomy: <strong>Adam</strong> embodies the unyielding CISO and production chief, enforcing zero-trust boundaries, budget caps, and strict standard compliance. <strong>Eva</strong> embodies the Chief Experience Officer, driving empathy, multilingual prose, brand warmth, and client success. Their dialectical tension creates products that are both technically bulletproof and delightful to use.</span></p>
+<p><span>Platform governance is anchored in an executive dichotomy: <strong>Adam</strong> embodies the unyielding backend and development engineer: zero-trust security, business-process rigor, budget caps, manufacturing discipline, and strict standard compliance. <strong>Eva</strong> is the frontend and the face of the company: empathy, multilingual prose, brand warmth, and instant client success. Their dialectical tension creates products that are both technically bulletproof and delightful to use.</span></p>
       </div>
     </details>
 
@@ -532,7 +536,7 @@
   <!-- =========================================================================
        SECTION 04: MODELS-MATRIX
        ========================================================================= -->
-  <details class="accordion-section" open id="models-matrix">
+  <details class="accordion-section" id="models-matrix">
     <summary class="accordion-summary">
       <span class="summary-num">[04]</span>
       <span class="summary-title"><strong>94-Model Multi-Provider Matrix: Sovereign Intelligence Federation</strong></span>
@@ -623,7 +627,7 @@
     </div>
 
       <p class="lead-text"><span>The sovereign foundation of our platform is an integrated registry of <strong>94 LLM models</strong> from the world's leading AI labs, tiered into free and frontier commercial pools:</span></p>
-          <details class="sub-accordion" open id="sub-4-1">
+          <details class="sub-accordion" id="sub-4-1">
       <summary class="sub-summary">
         <span class="sub-icon">🟢</span> <span class="sub-title"><strong>Question 4.1: What constitutes the 100% free quota tier ($0.00 fleet — 62 models)?</strong></span> <span class="sub-badge">[<span>Zero Token Cost</span>]</span>
       </summary>
@@ -632,7 +636,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-4-2">
+          <details class="sub-accordion" id="sub-4-2">
       <summary class="sub-summary">
         <span class="sub-icon">💎</span> <span class="sub-title"><strong>Question 4.2: When does the Consilium invoke the commercial frontier fleet (32 models)?</strong></span> <span class="sub-badge">[<span>Frontier Benchmark</span>]</span>
       </summary>
@@ -641,7 +645,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-4-3">
+          <details class="sub-accordion" id="sub-4-3">
       <summary class="sub-summary">
         <span class="sub-icon">🔀</span> <span class="sub-title"><strong>Question 4.3: How does the OmniRoute dynamic router optimize cost and latency?</strong></span> <span class="sub-badge">[<span>Autonomous Routing</span>]</span>
       </summary>
@@ -650,7 +654,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-4-4">
+          <details class="sub-accordion" id="sub-4-4">
       <summary class="sub-summary">
         <span class="sub-icon">📈</span> <span class="sub-title"><strong>Question 4.4: How does real-time fleet telemetry drive automated failover across regions?</strong></span> <span class="sub-badge">[<span>99.9% Uptime</span>]</span>
       </summary>
@@ -700,6 +704,10 @@
             <span class="metric-pill">📚 <span>2M tokens (~1.5M words)</span></span>
           </div>
           <p class="model-desc">Premier enterprise reasoning frontier model with 2M token context, deep logic, and architectural planning capability.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-12-09</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-09-01</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Lead System Architect & Logical Arbitrator (2M Context Window)</span>
           </div>
@@ -720,6 +728,10 @@
             <span class="metric-pill">📚 <span>2M tokens (~1.5M words)</span></span>
           </div>
           <p class="model-desc">Premier enterprise reasoning frontier model with 2M context proxied via OmniRoute daemon cluster.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-12-09</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-09-01</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Lead System Architect & Logical Arbitrator (2M Context Window)</span>
           </div>
@@ -740,6 +752,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Frontier ultra-fast autonomous agentic model with native real-time tool orchestration and multi-modal streaming.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-05-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-09-01</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router</span>
           </div>
@@ -760,6 +776,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Frontier ultra-fast autonomous agentic model routed via internal OmniRoute daemon cluster.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-05-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-09-01</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router</span>
           </div>
@@ -780,6 +800,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Lightweight high-efficiency frontier flash model with ultra-low latency inference.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-12-04</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-09-01</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Ultra-Fast Multi-Agent Executor & Autonomous Low-Latency Router</span>
           </div>
@@ -800,6 +824,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">DeepSeek R1 reasoning executed through local OmniRoute daemon cluster.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-01-20</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit</span>
           </div>
@@ -820,6 +848,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Frontier open reasoning model with chain-of-thought verification, 100% free via OpenRouter tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-01-20</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit</span>
           </div>
@@ -840,6 +872,10 @@
             <span class="metric-pill">📚 <span>2M tokens (~1.5M words)</span></span>
           </div>
           <p class="model-desc">Premier reasoning and code generation engine for complex analytical challenges.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-03-25</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Lead System Architect & Logical Arbitrator (2M Context Window)</span>
           </div>
@@ -860,6 +896,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Google’s fastest flagship model with native multimodal reasoning and real-time responsiveness.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-06-17</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Complex Analytical Reasoning & Hypothesis Verification</span>
           </div>
@@ -880,6 +920,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Workhorse Google model routed via OmniRoute daemon. Fast, multimodal, 1M context.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-06-17</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Complex Analytical Reasoning & Hypothesis Verification</span>
           </div>
@@ -900,6 +944,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Alibaba Qwen 2.5 Coder 32B code generation specialist routed via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-11-12</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Complex Analytical Reasoning & Hypothesis Verification</span>
           </div>
@@ -920,6 +968,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Alibaba Qwen code generation specialist with 128k context on OpenRouter free tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-11-12</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Complex Analytical Reasoning & Hypothesis Verification</span>
           </div>
@@ -940,6 +992,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Alibaba Qwen 2.5 Coder 32B code specialist via Cloudflare Workers AI on the OmniRoute edge.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Complex Analytical Reasoning & Hypothesis Verification</span>
           </div>
@@ -960,6 +1016,10 @@
             <span class="metric-pill">📚 <span>2M tokens (~1.5M words)</span></span>
           </div>
           <p class="model-desc">High-availability routing proxy via OmniRoute daemon with automatic load balancing and fallback.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-03-25</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-02-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Lead System Architect & Logical Arbitrator (2M Context Window)</span>
           </div>
@@ -980,6 +1040,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">OpenAI o3-mini fast reasoning model with cost-effective chain-of-thought via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-01-31</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Formal Algorithm Verification & Provable Safety Checks</span>
           </div>
@@ -1000,6 +1064,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">High speed, cost-effective Anthropic Claude 3.5 Haiku routed via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-11-04</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-08-10</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Rapid Syntax Parsing, JSON Validation & Micro-Agents</span>
           </div>
@@ -1020,6 +1088,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">Anthropic Claude 3.5 Haiku fast inference model 100% free via OpenRouter community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-08-10</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Rapid Syntax Parsing, JSON Validation & Micro-Agents</span>
           </div>
@@ -1040,6 +1112,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Meta Llama 3.3 70B Instruct open weights routed through OmniRoute daemon cluster.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-06</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Sovereign Open-Weights Independent Evaluation</span>
           </div>
@@ -1060,6 +1136,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">State-of-the-art Meta 70B open weight instruction model hosted on OpenRouter free tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-06</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Sovereign Open-Weights Independent Evaluation</span>
           </div>
@@ -1080,6 +1160,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Meta Llama 3.3 70B Instruct via Cloudflare Workers AI routed by the local OmniRoute edge daemon.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Sovereign Open-Weights Independent Evaluation</span>
           </div>
@@ -1100,6 +1184,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Next-gen streaming architecture for high-frequency interactive dialogues and agent loops.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-11</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1120,6 +1208,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Ultra cost-efficient model designed for extreme throughput and low latency agent tasks.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-02-05</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1140,6 +1232,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Next-gen streaming architecture routed via OmniRoute for high-frequency interactive dialogues.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-11</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1160,6 +1256,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Ultra-fast Google experimental Gemini 2.0 Flash endpoint accessed via OpenRouter free gateway.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-11</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-11-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1180,6 +1280,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">OpenAI GPT-4o Mini cost-efficient multimodal model proxied via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-07-18</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-08-10</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1200,6 +1304,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">OpenAI GPT-4o Mini cost-efficient model, 100% free via OpenRouter community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-07-18</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-08-10</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Engineering Development, System Integration & Testing</span>
           </div>
@@ -1220,6 +1328,10 @@
             <span class="metric-pill">📚 <span>2M tokens (~1.5M words)</span></span>
           </div>
           <p class="model-desc">2,000,000 token context window capable of ingesting entire codebases and long video streams.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-02-15</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-04-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1240,6 +1352,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">OpenAI GPT-OSS 120B on Groq LPU ultra-low-latency inference via the OmniRoute edge daemon.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1260,6 +1376,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Fast, lightweight multimodal model with 1,000,000 tokens context.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-05-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-04-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1280,6 +1400,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Compact 8-billion parameter version built for high-speed lightweight routing.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-05-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-04-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1300,6 +1424,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">Meta-router that auto-picks any currently-available 100% free OpenRouter model. Never dies from a single model removal — TOP-1 entry choice.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1320,6 +1448,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Zen-grade enterprise coding model with multi-language refactoring, AST analysis, and security audit. Pro tier with deeper reasoning.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-01-20</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1340,6 +1472,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Google Gemini 3.0 Flash ultra-fast model, 100% free via OpenRouter community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-11-06</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1360,6 +1496,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Open-source reasoning model Dolphin 3.0 R1 fine-tuned for instruction following, free on OpenRouter.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-06-15</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Step-by-Step Chain-of-Thought Math & Adversarial Logic Audit</span>
           </div>
@@ -1380,6 +1520,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">inclusionAI Ling 3.0 Flash reasoning model, 262k context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-10-07</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1400,6 +1544,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">DeepSeek V3 671B MoE with extreme cost efficiency and high coding quality routed via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-12-26</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2026-06-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1420,6 +1568,10 @@
             <span class="metric-pill">📚 <span>8192 tokens</span></span>
           </div>
           <p class="model-desc">Google’s flagship open weights model with performance rivaling closed models.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-06-27</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-04-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Local Lightweight Inference & Ancillary Microservices</span>
           </div>
@@ -1440,6 +1592,10 @@
             <span class="metric-pill">📚 <span>8192 tokens</span></span>
           </div>
           <p class="model-desc">High efficiency open weights model with exceptional reasoning-per-parameter ratio.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2024-06-27</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2025-04-20</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Local Lightweight Inference & Ancillary Microservices</span>
           </div>
@@ -1460,6 +1616,10 @@
             <span class="metric-pill">📚 <span>32k tokens</span></span>
           </div>
           <p class="model-desc">Fast, reliable Mistral 7B lightweight instruction model routed via OmniRoute.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2023-09-27</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>European Sovereign Audit & Multilingual Analysis</span>
           </div>
@@ -1480,6 +1640,10 @@
             <span class="metric-pill">📚 <span>32k tokens</span></span>
           </div>
           <p class="model-desc">Fast, reliable 7B lightweight instruction model on OpenRouter free queue.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2023-09-27</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>European Sovereign Audit & Multilingual Analysis</span>
           </div>
@@ -1500,6 +1664,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Smartest free model of the fleet: NVIDIA Nemotron 3 Ultra 550B MoE (55B active) reasoning, 1M context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1520,6 +1688,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Thinking Machines flagship with 1M context on OpenRouter free tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-04-10</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1540,6 +1712,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">Fast small variant of Inkling, 1M context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-04-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1560,6 +1736,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">NVIDIA Nemotron 3 Super 120B MoE (12B active), 262k context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-10-24</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1580,6 +1760,10 @@
             <span class="metric-pill">📚 <span>512k tokens</span></span>
           </div>
           <p class="model-desc">Dots3-Note 512k-context preview model on OpenRouter free tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-02</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1600,6 +1784,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">Google Gemma 4 31B open-weights instruct via OpenRouter community tier (does NOT consume our Google account).</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-10-16</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>Local Lightweight Inference & Ancillary Microservices</span>
           </div>
@@ -1620,6 +1808,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">Cohere North Mini coding specialist, 256k context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-08-05</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1640,6 +1832,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">Poolside Laguna S 2.1 code-generation model, 262k context, free community tier.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-09-12</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1660,6 +1856,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">OpenAI GPT-OSS 120B open-weights routed through Cloudflare Workers AI via the local OmniRoute edge daemon.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1680,6 +1880,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Z.ai GLM 5.3 Flash fast frontier model routed by the OmniRoute edge daemon.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1700,6 +1904,10 @@
             <span class="metric-pill">📚 <span>1M tokens (~750k words)</span></span>
           </div>
           <p class="model-desc">NVIDIA Nemotron 3 Ultra 550B MoE routed through OpenRouter free tier by the OmniRoute edge daemon.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2025-07-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1720,6 +1928,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Specialized enterprise coding platform model with automated unit test generation and refactoring.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-02-10</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1740,6 +1952,10 @@
             <span class="metric-pill">📚 <span>32k tokens</span></span>
           </div>
           <p class="model-desc">Ultra-low latency code agent model optimized for autocomplete and fast interactive edits.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-03-01</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1760,6 +1976,10 @@
             <span class="metric-pill">📚 <span>32k tokens</span></span>
           </div>
           <p class="model-desc">Lightweight 7B Zen-fast edge coder optimized for IDE autocomplete and inline refactoring at sub-100ms latency.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-02-14</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1780,6 +2000,10 @@
             <span class="metric-pill">📚 <span>128k tokens</span></span>
           </div>
           <p class="model-desc">Deep chain-of-thought reasoning coder for complex algorithms, architectural refactors, and bug forensics.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-03-04</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1800,6 +2024,10 @@
             <span class="metric-pill">📚 <span>200k tokens</span></span>
           </div>
           <p class="model-desc">70B frontier code model supporting 100+ languages with deep context and CI/CD-grade refactoring.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-03-18</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1820,6 +2048,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Specialized security audit coder trained on OWASP Top 10, CVE database, and zero-trust patterns.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-04-02</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1840,6 +2072,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Automated unit test and integration test generation. Supports Jest, pytest, JUnit, Go test frameworks.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-04-09</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1860,6 +2096,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Technical documentation generator producing JSDoc, OpenAPI specs, README files, and architecture diagrams.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-04-15</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1880,6 +2120,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Frontend specialist for React 19, Next.js 15, TypeScript, Tailwind CSS, and component architecture.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-04-21</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1900,6 +2144,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">Backend systems specialist for Go, Rust, gRPC, microservices, and high-throughput APIs.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-04-28</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1920,6 +2168,10 @@
             <span class="metric-pill">📚 <span>64k tokens</span></span>
           </div>
           <p class="model-desc">DevOps and SRE specialist for Kubernetes manifests, Terraform modules, Helm charts, and CI/CD pipelines.</p>
+          <div class="model-dates">
+              <span>🗓 <span>Released:</span> <strong>2026-05-05</strong></span>
+              <span>🔄 <span>Updated:</span> <strong>2024-12-15</strong></span>
+            </div>
           <div class="model-role">
             <strong><span>Role in Consilium:</span></strong> <span>High-Throughput Background Processing & Stream Parsing</span>
           </div>
@@ -1930,13 +2182,136 @@
         </div>
     </div>
 
+
+      <!-- One-line model registry: plain-text readable, terminal/raw friendly -->
+      <div class="model-line-list">
+        <div class="model-list-header"><span>📋 Full Registry of 94 Models (one line = one model)</span></div>
+        <div class="model-line"><span class="ml-idx">01</span><span class="ml-name">Gemini 3.1 Pro</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 100</span><span class="ml-desc">Premier enterprise reasoning frontier model with 2M token context, deep logic, and architectural planning capability.</span> <span class="ml-dates">🗓 2025-12-09 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">02</span><span class="ml-name">OmniRoute Gemini 3.1 Pro (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 100</span><span class="ml-desc">Premier enterprise reasoning frontier model with 2M context proxied via OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2025-12-09 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">03</span><span class="ml-name">Gemini 3.8 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 99</span><span class="ml-desc">Frontier ultra-fast autonomous agentic model with native real-time tool orchestration and multi-modal streaming.</span> <span class="ml-dates">🗓 2026-05-14 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">04</span><span class="ml-name">OmniRoute Gemini 3.8 Flash (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 99</span><span class="ml-desc">Frontier ultra-fast autonomous agentic model routed via internal OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2026-05-14 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">05</span><span class="ml-name">Claude 3.7 Sonnet (Vertex AI)</span><span class="ml-prov">Anthropic</span><span class="ml-iq">IQ 98</span><span class="ml-desc">Hybrid reasoning and instant response model available on Google Cloud Vertex AI.</span> <span class="ml-dates">🗓 2025-02-24 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">06</span><span class="ml-name">OmniRoute Claude Sonnet 4.5 (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 98</span><span class="ml-desc">Anthropic Claude Sonnet 4.5 frontier model proxied through OmniRoute daemon gateway.</span> <span class="ml-dates">🗓 2025-09-29 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">07</span><span class="ml-name">Gemini 3.1 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 96</span><span class="ml-desc">Lightweight high-efficiency frontier flash model with ultra-low latency inference.</span> <span class="ml-dates">🗓 2025-12-04 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">08</span><span class="ml-name">DeepSeek R1 (Reasoning)</span><span class="ml-prov">DeepSeek</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Frontier open reasoning model with transparent chain-of-thought verification on Google Cloud.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">09</span><span class="ml-name">OmniRoute DeepSeek R1 (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 95</span><span class="ml-desc">DeepSeek R1 reasoning executed through local OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">10</span><span class="ml-name">DeepSeek R1 (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Frontier open reasoning model with chain-of-thought verification, 100% free via OpenRouter tier.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">11</span><span class="ml-name">DeepSeek R1 (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 95</span><span class="ml-desc">DeepSeek R1 reasoning model on OpenRouter (higher limits than free tier).</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">12</span><span class="ml-name">Gemini 2.5 Pro</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Premier reasoning and code generation engine for complex analytical challenges.</span> <span class="ml-dates">🗓 2025-03-25 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">13</span><span class="ml-name">Codestral 25.01 (Vertex AI)</span><span class="ml-prov">Mistral AI</span><span class="ml-iq">IQ 94</span><span class="ml-desc">Specialized code completion, debugging, and fill-in-the-middle on Google Cloud.</span> <span class="ml-dates">🗓 2025-01-16 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">14</span><span class="ml-name">Gemini 2.5 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Google’s fastest flagship model with native multimodal reasoning and real-time responsiveness.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">15</span><span class="ml-name">OmniRoute Gemini 2.5 Flash (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Workhorse Google model routed via OmniRoute daemon. Fast, multimodal, 1M context.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">16</span><span class="ml-name">OmniRoute Qwen 2.5 Coder 32B (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen 2.5 Coder 32B code generation specialist routed via OmniRoute.</span> <span class="ml-dates">🗓 2024-11-12 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">17</span><span class="ml-name">Qwen 2.5 Coder 32B (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen code generation specialist with 128k context on OpenRouter free tier.</span> <span class="ml-dates">🗓 2024-11-12 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">18</span><span class="ml-name">OmniRoute CF Qwen 2.5 Coder 32B (Cloudflare via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen 2.5 Coder 32B code specialist via Cloudflare Workers AI on the OmniRoute edge.</span> <span class="ml-dates">🗓 2025-07-01 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">19</span><span class="ml-name">OmniRoute Gemini 2.5 Pro (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 90</span><span class="ml-desc">High-availability routing proxy via OmniRoute daemon with automatic load balancing and fallback.</span> <span class="ml-dates">🗓 2025-03-25 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">20</span><span class="ml-name">Gemini 2.5 Flash (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 88</span><span class="ml-desc">Google Gemini 2.5 Flash fast multimodal model on OpenRouter.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">21</span><span class="ml-name">OmniRoute OpenAI o1 (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 88</span><span class="ml-desc">OpenAI o1 advanced reasoning model with chain-of-thought proxied via OmniRoute.</span> <span class="ml-dates">🗓 2024-12-05 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">22</span><span class="ml-name">OmniRoute OpenAI o3-mini (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 88</span><span class="ml-desc">OpenAI o3-mini fast reasoning model with cost-effective chain-of-thought via OmniRoute.</span> <span class="ml-dates">🗓 2025-01-31 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">23</span><span class="ml-name">OpenAI o1 Preview (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 88</span><span class="ml-desc">OpenAI o1 advanced reasoning model with chain-of-thought on OpenRouter.</span> <span class="ml-dates">🗓 2024-09-12 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">24</span><span class="ml-name">OpenAI o1 Mini (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 88</span><span class="ml-desc">OpenAI o1 Mini fast reasoning model on OpenRouter.</span> <span class="ml-dates">🗓 2024-09-12 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">25</span><span class="ml-name">Claude 3.5 Sonnet (Vertex AI)</span><span class="ml-prov">Anthropic</span><span class="ml-iq">IQ 86</span><span class="ml-desc">Industry benchmark for code generation and multi-step reasoning on Vertex AI.</span> <span class="ml-dates">🗓 2024-10-22 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">26</span><span class="ml-name">Claude 3.5 Haiku (Vertex AI)</span><span class="ml-prov">Anthropic</span><span class="ml-iq">IQ 86</span><span class="ml-desc">High speed, cost-effective Anthropic model running in Google Cloud.</span> <span class="ml-dates">🗓 2024-11-04 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">27</span><span class="ml-name">OmniRoute Claude 3.5 Sonnet (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 86</span><span class="ml-desc">Anthropic Claude 3.5 Sonnet proxied through high-reliability OmniRoute daemon gateway.</span> <span class="ml-dates">🗓 2025-07-01 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">28</span><span class="ml-name">OmniRoute Claude 3.5 Haiku (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 86</span><span class="ml-desc">High speed, cost-effective Anthropic Claude 3.5 Haiku routed via OmniRoute.</span> <span class="ml-dates">🗓 2024-11-04 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">29</span><span class="ml-name">Claude 3.5 Haiku (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 86</span><span class="ml-desc">Anthropic Claude 3.5 Haiku fast inference model 100% free via OpenRouter community tier.</span> <span class="ml-dates">🗓 2025-07-01 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">30</span><span class="ml-name">Claude 3.5 Sonnet (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 86</span><span class="ml-desc">Anthropic Claude 3.5 Sonnet industry-leading code and reasoning model on OpenRouter.</span> <span class="ml-dates">🗓 2025-07-01 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">31</span><span class="ml-name">OmniRoute Llama 3.3 70B (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 85</span><span class="ml-desc">Meta Llama 3.3 70B Instruct open weights routed through OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2024-12-06 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">32</span><span class="ml-name">Llama 3.3 70B Instruct (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 85</span><span class="ml-desc">State-of-the-art Meta 70B open weight instruction model hosted on OpenRouter free tier.</span> <span class="ml-dates">🗓 2024-12-06 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">33</span><span class="ml-name">OmniRoute CF Llama 3.3 70B (Cloudflare via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 85</span><span class="ml-desc">Meta Llama 3.3 70B Instruct via Cloudflare Workers AI routed by the local OmniRoute edge daemon.</span> <span class="ml-dates">🗓 2025-07-01 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">34</span><span class="ml-name">Gemini 2.0 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 83</span><span class="ml-desc">Next-gen streaming architecture for high-frequency interactive dialogues and agent loops.</span> <span class="ml-dates">🗓 2024-12-11 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">35</span><span class="ml-name">Gemini 2.0 Flash Lite</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 83</span><span class="ml-desc">Ultra cost-efficient model designed for extreme throughput and low latency agent tasks.</span> <span class="ml-dates">🗓 2025-02-05 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">36</span><span class="ml-name">OmniRoute Gemini 2.0 Flash (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 83</span><span class="ml-desc">Next-gen streaming architecture routed via OmniRoute for high-frequency interactive dialogues.</span> <span class="ml-dates">🗓 2024-12-11 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">37</span><span class="ml-name">Gemini 2.0 Flash Exp (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 83</span><span class="ml-desc">Ultra-fast Google experimental Gemini 2.0 Flash endpoint accessed via OpenRouter free gateway.</span> <span class="ml-dates">🗓 2024-12-11 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">38</span><span class="ml-name">Llama 3.1 405B (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 82</span><span class="ml-desc">Meta Llama 3.1 405B frontier open weights model on OpenRouter.</span> <span class="ml-dates">🗓 2024-07-23 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">39</span><span class="ml-name">OmniRoute GPT-4o (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 82</span><span class="ml-desc">OpenAI GPT-4o multimodal flagship proxied through OmniRoute daemon gateway.</span> <span class="ml-dates">🗓 2024-05-13 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">40</span><span class="ml-name">OmniRoute GPT-4o Mini (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 82</span><span class="ml-desc">OpenAI GPT-4o Mini cost-efficient multimodal model proxied via OmniRoute.</span> <span class="ml-dates">🗓 2024-07-18 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">41</span><span class="ml-name">GPT-4o Mini (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 82</span><span class="ml-desc">OpenAI GPT-4o Mini cost-efficient model, 100% free via OpenRouter community tier.</span> <span class="ml-dates">🗓 2024-07-18 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">42</span><span class="ml-name">GPT-4o (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 82</span><span class="ml-desc">OpenAI GPT-4o multimodal flagship with 128k context on OpenRouter.</span> <span class="ml-dates">🗓 2024-05-13 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">43</span><span class="ml-name">GPT-4o Mini (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 82</span><span class="ml-desc">OpenAI GPT-4o Mini cost-efficient multimodal model on OpenRouter.</span> <span class="ml-dates">🗓 2024-07-18 → 2025-08-10</span></div>
+<div class="model-line"><span class="ml-idx">44</span><span class="ml-name">Mistral Large 2 (Vertex AI)</span><span class="ml-prov">Mistral AI</span><span class="ml-iq">IQ 75</span><span class="ml-desc">Mistral’s top-tier multilingual reasoning and coding model on Google Cloud.</span> <span class="ml-dates">🗓 2024-11-18 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">45</span><span class="ml-name">Mistral Large 3 (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 75</span><span class="ml-desc">Mistral Large 3 top-tier multilingual reasoning and coding model on OpenRouter.</span> <span class="ml-dates">🗓 2025-03-05 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">46</span><span class="ml-name">Gemini 1.5 Pro</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 70</span><span class="ml-desc">2,000,000 token context window capable of ingesting entire codebases and long video streams.</span> <span class="ml-dates">🗓 2024-02-15 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">47</span><span class="ml-name">OmniRoute Grok 2 (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 70</span><span class="ml-desc">xAI Grok 2 frontier model with real-time knowledge proxied via OmniRoute.</span> <span class="ml-dates">🗓 2024-08-13 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">48</span><span class="ml-name">OmniRoute Groq GPT-OSS 120B (Groq via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 70</span><span class="ml-desc">OpenAI GPT-OSS 120B on Groq LPU ultra-low-latency inference via the OmniRoute edge daemon.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">49</span><span class="ml-name">Grok 2 (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 70</span><span class="ml-desc">xAI Grok 2 frontier model with real-time knowledge on OpenRouter.</span> <span class="ml-dates">🗓 2024-08-13 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">50</span><span class="ml-name">Gemini 1.5 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 65</span><span class="ml-desc">Fast, lightweight multimodal model with 1,000,000 tokens context.</span> <span class="ml-dates">🗓 2024-05-14 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">51</span><span class="ml-name">Gemini 1.5 Flash 8B</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 65</span><span class="ml-desc">Compact 8-billion parameter version built for high-speed lightweight routing.</span> <span class="ml-dates">🗓 2024-05-14 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">52</span><span class="ml-name">AI21 Jamba 1.5 Large</span><span class="ml-prov">AI21 Labs</span><span class="ml-iq">IQ 60</span><span class="ml-desc">Hybrid Mamba-Transformer architecture offering 256,000 tokens long-context speed.</span> <span class="ml-dates">🗓 2024-08-22 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">53</span><span class="ml-name">Cohere Command R+</span><span class="ml-prov">Cohere</span><span class="ml-iq">IQ 58</span><span class="ml-desc">Enterprise Retrieval-Augmented Generation (RAG) model on Google Cloud.</span> <span class="ml-dates">🗓 2024-04-04 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">54</span><span class="ml-name">OpenRouter Free Models Router</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 50</span><span class="ml-desc">Meta-router that auto-picks any currently-available 100% free OpenRouter model. Never dies from a single model removal — TOP-1 entry choice.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">55</span><span class="ml-name">OpenCode Zen Coder Pro</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 50</span><span class="ml-desc">Zen-grade enterprise coding model with multi-language refactoring, AST analysis, and security audit. Pro tier with deeper reasoning.</span> <span class="ml-dates">🗓 2026-01-20 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">56</span><span class="ml-name">Meta Llama 3.1 (405B Instruct)</span><span class="ml-prov">Meta</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Massive 405-billion parameter frontier model running on Google TPU/GPU cluster.</span> <span class="ml-dates">🗓 2024-07-23 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">57</span><span class="ml-name">Gemini 3.0 Flash (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Google Gemini 3.0 Flash ultra-fast model, 100% free via OpenRouter community tier.</span> <span class="ml-dates">🗓 2025-11-06 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">58</span><span class="ml-name">Dolphin 3.0 R1 2506 (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Open-source reasoning model Dolphin 3.0 R1 fine-tuned for instruction following, free on OpenRouter.</span> <span class="ml-dates">🗓 2025-06-15 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">59</span><span class="ml-name">inclusionAI Ling 3.0 Flash Sante (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">inclusionAI Ling 3.0 Flash reasoning model, 262k context, free community tier.</span> <span class="ml-dates">🗓 2025-10-07 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">60</span><span class="ml-name">Gemini 3.0 Pro Exp (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Google Gemini 3.0 Pro experimental frontier model on OpenRouter.</span> <span class="ml-dates">🗓 2025-11-18 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">61</span><span class="ml-name">OmniRoute DeepSeek V3 (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 45</span><span class="ml-desc">DeepSeek V3 671B MoE with extreme cost efficiency and high coding quality routed via OmniRoute.</span> <span class="ml-dates">🗓 2024-12-26 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">62</span><span class="ml-name">Qwen 2.5 72B (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Alibaba Qwen 2.5 72B large instruction model on OpenRouter.</span> <span class="ml-dates">🗓 2024-09-19 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">63</span><span class="ml-name">Meta Llama 3.3 (70B Instruct)</span><span class="ml-prov">Meta</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Meta’s latest 70-billion parameter model fully hosted on Google Cloud Vertex AI.</span> <span class="ml-dates">🗓 2024-12-06 → 2025-11-15</span></div>
+<div class="model-line"><span class="ml-idx">64</span><span class="ml-name">Gemma 2 (27B Instruct)</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Google’s flagship open weights model with performance rivaling closed models.</span> <span class="ml-dates">🗓 2024-06-27 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">65</span><span class="ml-name">Gemma 2 (9B Instruct)</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 45</span><span class="ml-desc">High efficiency open weights model with exceptional reasoning-per-parameter ratio.</span> <span class="ml-dates">🗓 2024-06-27 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">66</span><span class="ml-name">Perplexity Sonar 405B (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Perplexity Llama 3.1 Sonar 405B with real-time web search integration on OpenRouter.</span> <span class="ml-dates">🗓 2024-09-13 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">67</span><span class="ml-name">NVIDIA Nemotron 70B (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">NVIDIA NeMo Nemotron 70B RLHF-optimized instruction model on OpenRouter.</span> <span class="ml-dates">🗓 2024-10-04 → 2025-04-20</span></div>
+<div class="model-line"><span class="ml-idx">68</span><span class="ml-name">Meta Llama 3.2 (90B Vision)</span><span class="ml-prov">Meta</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Premier open multimodal vision and text model on Google Cloud Vertex AI.</span> <span class="ml-dates">🗓 2024-09-25 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">69</span><span class="ml-name">OmniRoute Mistral 7B (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Fast, reliable Mistral 7B lightweight instruction model routed via OmniRoute.</span> <span class="ml-dates">🗓 2023-09-27 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">70</span><span class="ml-name">Mistral 7B Instruct (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Fast, reliable 7B lightweight instruction model on OpenRouter free queue.</span> <span class="ml-dates">🗓 2023-09-27 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">71</span><span class="ml-name">NVIDIA Nemotron 3 Ultra 550B (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Smartest free model of the fleet: NVIDIA Nemotron 3 Ultra 550B MoE (55B active) reasoning, 1M context, free community tier.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">72</span><span class="ml-name">Thinking Machines Inkling (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Thinking Machines flagship with 1M context on OpenRouter free tier.</span> <span class="ml-dates">🗓 2025-04-10 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">73</span><span class="ml-name">Thinking Machines Inkling Small (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Fast small variant of Inkling, 1M context, free community tier.</span> <span class="ml-dates">🗓 2025-04-14 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">74</span><span class="ml-name">NVIDIA Nemotron 3 Super 120B (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">NVIDIA Nemotron 3 Super 120B MoE (12B active), 262k context, free community tier.</span> <span class="ml-dates">🗓 2025-10-24 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">75</span><span class="ml-name">Dots Studio Dots3-Note Preview (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Dots3-Note 512k-context preview model on OpenRouter free tier.</span> <span class="ml-dates">🗓 2025-07-02 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">76</span><span class="ml-name">Google Gemma 4 31B IT (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Google Gemma 4 31B open-weights instruct via OpenRouter community tier (does NOT consume our Google account).</span> <span class="ml-dates">🗓 2025-10-16 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">77</span><span class="ml-name">Cohere North Mini Code (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Cohere North Mini coding specialist, 256k context, free community tier.</span> <span class="ml-dates">🗓 2025-08-05 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">78</span><span class="ml-name">Poolside Laguna S 2.1 (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Poolside Laguna S 2.1 code-generation model, 262k context, free community tier.</span> <span class="ml-dates">🗓 2025-09-12 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">79</span><span class="ml-name">OmniRoute CF GPT-OSS 120B (Cloudflare via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 45</span><span class="ml-desc">OpenAI GPT-OSS 120B open-weights routed through Cloudflare Workers AI via the local OmniRoute edge daemon.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">80</span><span class="ml-name">OmniRoute Z.ai GLM 5.3 Flash (edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Z.ai GLM 5.3 Flash fast frontier model routed by the OmniRoute edge daemon.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">81</span><span class="ml-name">OmniRoute OR Nemotron 3 Ultra 550B (OpenRouter via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 45</span><span class="ml-desc">NVIDIA Nemotron 3 Ultra 550B MoE routed through OpenRouter free tier by the OmniRoute edge daemon.</span> <span class="ml-dates">🗓 2025-07-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">82</span><span class="ml-name">Claude 3 Opus (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Anthropic Claude 3 Opus frontier model for complex reasoning on OpenRouter.</span> <span class="ml-dates">🗓 2024-03-04 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">83</span><span class="ml-name">DeepSeek V3 (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 45</span><span class="ml-desc">DeepSeek V3 671B MoE model with extreme cost efficiency and high coding quality.</span> <span class="ml-dates">🗓 2025-03-24 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">84</span><span class="ml-name">OpenCode Go Coder 32B</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Specialized enterprise coding platform model with automated unit test generation and refactoring.</span> <span class="ml-dates">🗓 2026-02-10 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">85</span><span class="ml-name">OpenCode Go Fast (Low-Latency)</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Ultra-low latency code agent model optimized for autocomplete and fast interactive edits.</span> <span class="ml-dates">🗓 2026-03-01 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">86</span><span class="ml-name">OpenCode Zen Fast 7B (Edge Coder)</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Lightweight 7B Zen-fast edge coder optimized for IDE autocomplete and inline refactoring at sub-100ms latency.</span> <span class="ml-dates">🗓 2026-02-14 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">87</span><span class="ml-name">OpenCode Zen Reasoner 32B</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Deep chain-of-thought reasoning coder for complex algorithms, architectural refactors, and bug forensics.</span> <span class="ml-dates">🗓 2026-03-04 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">88</span><span class="ml-name">OpenCode Zen Multi-Lang 70B</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">70B frontier code model supporting 100+ languages with deep context and CI/CD-grade refactoring.</span> <span class="ml-dates">🗓 2026-03-18 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">89</span><span class="ml-name">OpenCode Zen Security Auditor</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Specialized security audit coder trained on OWASP Top 10, CVE database, and zero-trust patterns.</span> <span class="ml-dates">🗓 2026-04-02 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">90</span><span class="ml-name">OpenCode Zen Test Generator</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Automated unit test and integration test generation. Supports Jest, pytest, JUnit, Go test frameworks.</span> <span class="ml-dates">🗓 2026-04-09 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">91</span><span class="ml-name">OpenCode Zen Docs Writer</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Technical documentation generator producing JSDoc, OpenAPI specs, README files, and architecture diagrams.</span> <span class="ml-dates">🗓 2026-04-15 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">92</span><span class="ml-name">OpenCode Zen Frontend (React/Next.js)</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Frontend specialist for React 19, Next.js 15, TypeScript, Tailwind CSS, and component architecture.</span> <span class="ml-dates">🗓 2026-04-21 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">93</span><span class="ml-name">OpenCode Zen Backend (Go/Rust)</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">Backend systems specialist for Go, Rust, gRPC, microservices, and high-throughput APIs.</span> <span class="ml-dates">🗓 2026-04-28 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">94</span><span class="ml-name">OpenCode Zen DevOps (K8s/Terraform)</span><span class="ml-prov">OpenCode AI</span><span class="ml-iq">IQ 45</span><span class="ml-desc">DevOps and SRE specialist for Kubernetes manifests, Terraform modules, Helm charts, and CI/CD pipelines.</span> <span class="ml-dates">🗓 2026-05-05 → 2024-12-15</span></div>
+      </div>
+
+      <div class="model-line-list">
+        <div class="model-list-header"><span>🏆 Top-20 Models by Composite Intelligence (IQ)</span></div>
+<div class="model-line"><span class="ml-idx">01</span><span class="ml-name">Gemini 3.1 Pro</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 100</span><span class="ml-desc">Premier enterprise reasoning frontier model with 2M token context, deep logic, and architectural planning capability.</span> <span class="ml-dates">🗓 2025-12-09 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">02</span><span class="ml-name">OmniRoute Gemini 3.1 Pro (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 100</span><span class="ml-desc">Premier enterprise reasoning frontier model with 2M context proxied via OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2025-12-09 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">03</span><span class="ml-name">Gemini 3.8 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 99</span><span class="ml-desc">Frontier ultra-fast autonomous agentic model with native real-time tool orchestration and multi-modal streaming.</span> <span class="ml-dates">🗓 2026-05-14 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">04</span><span class="ml-name">OmniRoute Gemini 3.8 Flash (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 99</span><span class="ml-desc">Frontier ultra-fast autonomous agentic model routed via internal OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2026-05-14 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">05</span><span class="ml-name">Claude 3.7 Sonnet (Vertex AI)</span><span class="ml-prov">Anthropic</span><span class="ml-iq">IQ 98</span><span class="ml-desc">Hybrid reasoning and instant response model available on Google Cloud Vertex AI.</span> <span class="ml-dates">🗓 2025-02-24 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">06</span><span class="ml-name">OmniRoute Claude Sonnet 4.5 (Edge Proxy)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 98</span><span class="ml-desc">Anthropic Claude Sonnet 4.5 frontier model proxied through OmniRoute daemon gateway.</span> <span class="ml-dates">🗓 2025-09-29 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">07</span><span class="ml-name">Gemini 3.1 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 96</span><span class="ml-desc">Lightweight high-efficiency frontier flash model with ultra-low latency inference.</span> <span class="ml-dates">🗓 2025-12-04 → 2026-09-01</span></div>
+<div class="model-line"><span class="ml-idx">08</span><span class="ml-name">DeepSeek R1 (Reasoning)</span><span class="ml-prov">DeepSeek</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Frontier open reasoning model with transparent chain-of-thought verification on Google Cloud.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">09</span><span class="ml-name">OmniRoute DeepSeek R1 (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 95</span><span class="ml-desc">DeepSeek R1 reasoning executed through local OmniRoute daemon cluster.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">10</span><span class="ml-name">DeepSeek R1 (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Frontier open reasoning model with chain-of-thought verification, 100% free via OpenRouter tier.</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">11</span><span class="ml-name">DeepSeek R1 (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 95</span><span class="ml-desc">DeepSeek R1 reasoning model on OpenRouter (higher limits than free tier).</span> <span class="ml-dates">🗓 2025-01-20 → 2026-06-20</span></div>
+<div class="model-line"><span class="ml-idx">12</span><span class="ml-name">Gemini 2.5 Pro</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 95</span><span class="ml-desc">Premier reasoning and code generation engine for complex analytical challenges.</span> <span class="ml-dates">🗓 2025-03-25 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">13</span><span class="ml-name">Codestral 25.01 (Vertex AI)</span><span class="ml-prov">Mistral AI</span><span class="ml-iq">IQ 94</span><span class="ml-desc">Specialized code completion, debugging, and fill-in-the-middle on Google Cloud.</span> <span class="ml-dates">🗓 2025-01-16 → 2024-12-15</span></div>
+<div class="model-line"><span class="ml-idx">14</span><span class="ml-name">Gemini 2.5 Flash</span><span class="ml-prov">Google DeepMind</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Google’s fastest flagship model with native multimodal reasoning and real-time responsiveness.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">15</span><span class="ml-name">OmniRoute Gemini 2.5 Flash (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Workhorse Google model routed via OmniRoute daemon. Fast, multimodal, 1M context.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">16</span><span class="ml-name">OmniRoute Qwen 2.5 Coder 32B (Daemon Cluster)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen 2.5 Coder 32B code generation specialist routed via OmniRoute.</span> <span class="ml-dates">🗓 2024-11-12 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">17</span><span class="ml-name">Qwen 2.5 Coder 32B (Free on OpenRouter)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen code generation specialist with 128k context on OpenRouter free tier.</span> <span class="ml-dates">🗓 2024-11-12 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">18</span><span class="ml-name">OmniRoute CF Qwen 2.5 Coder 32B (Cloudflare via edge)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 93</span><span class="ml-desc">Alibaba Qwen 2.5 Coder 32B code specialist via Cloudflare Workers AI on the OmniRoute edge.</span> <span class="ml-dates">🗓 2025-07-01 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">19</span><span class="ml-name">OmniRoute Gemini 2.5 Pro (Edge Router)</span><span class="ml-prov">OmniRoute</span><span class="ml-iq">IQ 90</span><span class="ml-desc">High-availability routing proxy via OmniRoute daemon with automatic load balancing and fallback.</span> <span class="ml-dates">🗓 2025-03-25 → 2026-02-15</span></div>
+<div class="model-line"><span class="ml-idx">20</span><span class="ml-name">Gemini 2.5 Flash (OpenRouter Premium)</span><span class="ml-prov">OpenRouter</span><span class="ml-iq">IQ 88</span><span class="ml-desc">Google Gemini 2.5 Flash fast multimodal model on OpenRouter.</span> <span class="ml-dates">🗓 2025-06-17 → 2026-02-15</span></div>
+      </div>
     </div>
   </details>
   <hr class="section-divider">
   <!-- =========================================================================
        SECTION 05: COMPARATIVE-AUDIT
        ========================================================================= -->
-  <details class="accordion-section" open id="comparative-audit">
+  <details class="accordion-section" id="comparative-audit">
     <summary class="accordion-summary">
       <span class="summary-num">[05]</span>
       <span class="summary-title"><strong>Comparative Audit: Standalone Chatbot vs. EvaLine Consilium System</strong></span>
@@ -2027,7 +2402,7 @@
     </div>
 
       <p class="lead-text"><span>An objective technical audit demonstrates the structural superiority of the distributed Consilium architecture over standalone consumer chatbots:</span></p>
-          <details class="sub-accordion" open id="sub-5-1">
+          <details class="sub-accordion" id="sub-5-1">
       <summary class="sub-summary">
         <span class="sub-icon">📊</span> <span class="sub-title"><strong>Question 5.1: What are the benchmark results: single chatbot vs. EvaLine Consilium?</strong></span> <span class="sub-badge">[<span>Factor Analysis</span>]</span>
       </summary>
@@ -2044,33 +2419,33 @@
           <tbody>
             <tr>
               <td><strong><span>Execution Architecture</span></strong></td>
-              <td><span>Isolated text prompt-reply in a browser widget.</span></td>
-              <td class="col-highlight"><span>Autonomous staff of specialized agents in a full-cycle loop.</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>Isolated text prompt-reply in a browser widget.</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>Autonomous staff of specialized agents in a full-cycle loop.</span></td>
             </tr>
             <tr>
               <td><strong><span>Hallucination Defense</span></strong></td>
-              <td><span>Low: standalone models hallucinate with high linguistic confidence.</span></td>
-              <td class="col-highlight"><span>High: heterogeneous cross-model debate and RAG verification (99.4% precision).</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>Low: standalone models hallucinate with high linguistic confidence.</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>High: heterogeneous cross-model debate and RAG verification (99.4% precision).</span></td>
             </tr>
             <tr>
               <td><strong><span>Tool Integration & Actions</span></strong></td>
-              <td><span>None (passive text generation and advice only).</span></td>
-              <td class="col-highlight"><span>Direct server orchestration, Git commits, CNC cutting, and Docker via MCP.</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>None (passive text generation and advice only).</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>Direct server orchestration, Git commits, CNC cutting, and Docker via MCP.</span></td>
             </tr>
             <tr>
               <td><strong><span>Enterprise Data Security</span></strong></td>
-              <td><span>Data ingested for training on public commercial servers.</span></td>
-              <td class="col-highlight"><span>Sovereign architecture: encrypted WireGuard tunnel and local private DBs.</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>Data ingested for training on public commercial servers.</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>Sovereign architecture: encrypted WireGuard tunnel and local private DBs.</span></td>
             </tr>
             <tr>
               <td><strong><span>Vendor Lock-in Risk</span></strong></td>
-              <td><span>100% dependent: outage at a single provider halts business.</span></td>
-              <td class="col-highlight"><span>Federation of 94 models with automatic sub-second failover.</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>100% dependent: outage at a single provider halts business.</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>Federation of 94 models with automatic sub-second failover.</span></td>
             </tr>
             <tr>
               <td><strong><span>Total Cost of Ownership</span></strong></td>
-              <td><span>Expensive per-seat subscriptions with unpredictable overages.</span></td>
-              <td class="col-highlight"><span>Hybrid pool: 90% of volume on free tier, 400%–900% ROI.</span></td>
+              <td data-label="<span>Generic Chatbot</span>"><span>Expensive per-seat subscriptions with unpredictable overages.</span></td>
+              <td class="col-highlight" data-label="<span>Consilium</span>"><span>Hybrid pool: 90% of volume on free tier, 400%–900% ROI.</span></td>
             </tr>
           </tbody>
         </table>
@@ -2078,7 +2453,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-5-2">
+          <details class="sub-accordion" id="sub-5-2">
       <summary class="sub-summary">
         <span class="sub-icon">🔒</span> <span class="sub-title"><strong>Question 5.2: How is enterprise security, privacy, and sovereign data governance audited?</strong></span> <span class="sub-badge">[<span>Zero Data Exposure</span>]</span>
       </summary>
@@ -2087,7 +2462,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-5-3">
+          <details class="sub-accordion" id="sub-5-3">
       <summary class="sub-summary">
         <span class="sub-icon">💵</span> <span class="sub-title"><strong>Question 5.3: What are the verified unit economics and TCO optimizations?</strong></span> <span class="sub-badge">[<span>85% Cost Reduction</span>]</span>
       </summary>
@@ -2102,7 +2477,7 @@
   <!-- =========================================================================
        SECTION 06: MILITARY-RESILIENCE
        ========================================================================= -->
-  <details class="accordion-section" open id="military-resilience">
+  <details class="accordion-section" id="military-resilience">
     <summary class="accordion-summary">
       <span class="summary-num">[06]</span>
       <span class="summary-title"><strong>Military Resilience, Blackout Defense & Dual-Node Cluster Topology</strong></span>
@@ -2196,7 +2571,7 @@
     </div>
 
       <p class="lead-text"><span>EvaLine infrastructure is engineered to defense-grade fault tolerance with full geographic and energy redundancy:</span></p>
-          <details class="sub-accordion" open id="sub-6-1">
+          <details class="sub-accordion" id="sub-6-1">
       <summary class="sub-summary">
         <span class="sub-icon">🇩🇪</span> <span class="sub-title"><strong>Question 6.1: Why is the dedicated EvaBrain compute core hosted in Frankfurt?</strong></span> <span class="sub-badge">[<span>8 vCPU / 32GB RAM</span>]</span>
       </summary>
@@ -2205,7 +2580,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-6-2">
+          <details class="sub-accordion" id="sub-6-2">
       <summary class="sub-summary">
         <span class="sub-icon">🇺🇸</span> <span class="sub-title"><strong>Question 6.2: What protective role does the EvaFace edge ingress proxy fulfill?</strong></span> <span class="sub-badge">[<span>HTTP/3 QUIC</span>]</span>
       </summary>
@@ -2214,7 +2589,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-6-3">
+          <details class="sub-accordion" id="sub-6-3">
       <summary class="sub-summary">
         <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Question 6.3: How does the WireGuard encrypted mesh backbone secure communications?</strong></span> <span class="sub-badge">[<span>P2P Encryption</span>]</span>
       </summary>
@@ -2223,7 +2598,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-6-4">
+          <details class="sub-accordion" id="sub-6-4">
       <summary class="sub-summary">
         <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Question 6.4: How is uninterrupted manufacturing continuity maintained during blackouts?</strong></span> <span class="sub-badge">[<span>Autonomous Plant</span>]</span>
       </summary>
@@ -2238,7 +2613,7 @@
   <!-- =========================================================================
        SECTION 07: ECOSYSTEM-CATALOG
        ========================================================================= -->
-  <details class="accordion-section" open id="ecosystem-catalog">
+  <details class="accordion-section" id="ecosystem-catalog">
     <summary class="accordion-summary">
       <span class="summary-num">[07]</span>
       <span class="summary-title"><strong>Unified Ecosystem: Domain Directory & Public Services Hub</strong></span>
@@ -2333,7 +2708,7 @@
     </div>
 
       <p class="lead-text"><span>Our unified digital ecosystem links specialized domain endpoints and API services for comprehensive enterprise operations:</span></p>
-          <details class="sub-accordion" open id="sub-7-1">
+          <details class="sub-accordion" id="sub-7-1">
       <summary class="sub-summary">
         <span class="sub-icon">🌐</span> <span class="sub-title"><strong>Question 7.1: What are the primary public web terminals and interfaces across the network?</strong></span> <span class="sub-badge">[<span>4 Core Domains</span>]</span>
       </summary>
@@ -2366,7 +2741,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-7-2">
+          <details class="sub-accordion" id="sub-7-2">
       <summary class="sub-summary">
         <span class="sub-icon">📚</span> <span class="sub-title"><strong>Question 7.2: Where can developers study technical documentation and specifications?</strong></span> <span class="sub-badge">[<span>Knowledge Base</span>]</span>
       </summary>
@@ -2378,7 +2753,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-7-3">
+          <details class="sub-accordion" id="sub-7-3">
       <summary class="sub-summary">
         <span class="sub-icon">🎙️</span> <span class="sub-title"><strong>Question 7.3: How do operators integrate the real-time EvaVoice API (FastAPI :8000)?</strong></span> <span class="sub-badge">[<span>STT & TTS Engine</span>]</span>
       </summary>
@@ -2396,7 +2771,7 @@
   <!-- =========================================================================
        SECTION 08: BUSINESS-SOLUTIONS
        ========================================================================= -->
-  <details class="accordion-section" open id="business-solutions">
+  <details class="accordion-section" id="business-solutions">
     <summary class="accordion-summary">
       <span class="summary-num">[08]</span>
       <span class="summary-title"><strong>Business Solutions, Manufacturing Integration & EvaBot Anatomy</strong></span>
@@ -2583,7 +2958,7 @@
                              Кетер
                                │
                  ▲                           ▲ [РЯД II: ДИАДА — 2 УЗЛА]
-     02. Адам (CISO / ЧПУ)              03. Ева (CXO / Голос)
+     02. Адам (Бэкенд/ЧПУ)              03. Ева (UI / Лицо)
          Бина / Гевура                      Хокма / Хесед
                │                                   │
           ▲                     ▲                     ▲ [РЯД III: ТРИАДА — 3 УЗЛА]
@@ -2599,7 +2974,7 @@
     </div>
 
       <p class="lead-text"><span><strong>EvaLine</strong> uniquely fuses physical industrial polymer manufacturing with an autonomous distributed agent factory:</span></p>
-          <details class="sub-accordion" open id="sub-8-1">
+          <details class="sub-accordion" id="sub-8-1">
       <summary class="sub-summary">
         <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Question 8.1: What are EvaLine's physical factory assets, capacity, and EU hub?</strong></span> <span class="sub-badge">[<span>2.8 Ha Plant</span>]</span>
       </summary>
@@ -2639,7 +3014,7 @@
             <strong><span>Pain:</span></strong> <span>Managers take 40–90 minutes to respond, night inquiries expire, and B2B clients defect to rivals. Staff turnover requires 3 months of costly training.</span>
           </div>
           <div class="biz-solution-box">
-            <strong><span>EvaBot Solution:</span></strong> <span>Role-based agents Adam (engineering/B2B) and Eva (omnichannel sales in 6 languages). First qualified response in 1.2 seconds, 24/7/365, with live inventory verification.</span>
+            <strong><span>EvaBot Solution:</span></strong> <span>Role-based agents Adam (backend, production, security) and Eva (frontend — the face of the company, 6 languages). First qualified response in 1.2 seconds, 24/7/365, with live inventory verification.</span>
           </div>
         </div>
 
@@ -2712,7 +3087,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-2">
+          <details class="sub-accordion" id="sub-8-2">
       <summary class="sub-summary">
         <span class="sub-icon">📐</span> <span class="sub-title"><strong>Question 8.2: How does the Pythagorean Tetraktys (1+2+3+4=10) map to Sephirot and 10 universal roles?</strong></span> <span class="sub-badge">[<span>10 Tetraktys Roles</span>]</span>
       </summary>
@@ -2755,8 +3130,8 @@
               <span class="sephira-level"><span>Node 02</span> &bull; <span>Gevurah & Binah // Severity & Discipline</span></span>
               <span>🛡️</span>
             </div>
-            <div class="sephira-title"><span>Adam (Chief Engineer / CISO)</span></div>
-            <div class="sephira-desc"><span>Chief of engineering, cybersecurity, and plant operations. Formal verification, budget limits, CNC nest QA, and ISO compliance.</span></div>
+            <div class="sephira-title"><span>Adam (Backend / Production / CISO)</span></div>
+            <div class="sephira-desc"><span>Chief of backend, development, security, manufacturing, and business processes. Formal verification, code audit, budget limits, CNC nest QA, and ISO compliance.</span></div>
             <div class="sephira-model"><strong><span>Stack:</span></strong> Claude 3.7 Sonnet • DeepSeek R1 • Linux MCP</div>
           </div>
           <div class="sephira-card">
@@ -2764,8 +3139,8 @@
               <span class="sephira-level"><span>Node 03</span> &bull; <span>Chesed & Chokmah // Mercy & Growth</span></span>
               <span>🤝</span>
             </div>
-            <div class="sephira-title"><span>Eva (Customer Experience Officer / CXO)</span></div>
-            <div class="sephira-desc"><span>Omnichannel sales & customer success director. Live empathetic dialogue in 6 languages (UK, EN, DE, PL, RO, RU) with live stock checks.</span></div>
+            <div class="sephira-title"><span>Eva (Frontend / Company Face / CXO)</span></div>
+            <div class="sephira-desc"><span>Frontend director and the face of the company: CX, service & sales. Live empathetic dialogue in 6 languages (UK, EN, DE, PL, RO, RU) with live stock checks.</span></div>
             <div class="sephira-model"><strong><span>Stack:</span></strong> Gemini 3.8 Flash • OmniRoute • Voice Engine</div>
           </div>
             </div>
@@ -2781,7 +3156,7 @@
               <span>⚖️</span>
             </div>
             <div class="sephira-title"><span>Consilium Arbiter</span></div>
-            <div class="sephira-desc"><span>Supreme dispute resolver. Mathematical adversarial synthesis between Adam (security) and Eva (sales), guaranteeing 99.4% precision.</span></div>
+            <div class="sephira-desc"><span>Supreme dispute resolver. Mathematical adversarial synthesis between Adam (backend & security) and Eva (frontend & sales), guaranteeing 99.4% precision.</span></div>
             <div class="sephira-model"><strong><span>Stack:</span></strong> Consilium Consensus Engine • Multi-LLM Judge</div>
           </div>
           <div class="sephira-card">
@@ -2853,7 +3228,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-3">
+          <details class="sub-accordion" id="sub-8-3">
       <summary class="sub-summary">
         <span class="sub-icon">⚡</span> <span class="sub-title"><strong>Question 8.3: What does the end-to-end autonomous pipeline look like: call to CNC (7 steps)?</strong></span> <span class="sub-badge">[<span>7-Step Pipeline</span>]</span>
       </summary>
@@ -2917,7 +3292,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-4">
+          <details class="sub-accordion" id="sub-8-4">
       <summary class="sub-summary">
         <span class="sub-icon">📈</span> <span class="sub-title"><strong>Question 8.4: What are the verified transformation benchmarks: Before vs. After?</strong></span> <span class="sub-badge">[<span>Before/After Metrics</span>]</span>
       </summary>
@@ -3036,7 +3411,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-5">
+          <details class="sub-accordion" id="sub-8-5">
       <summary class="sub-summary">
         <span class="sub-icon">📋</span> <span class="sub-title"><strong>Question 8.5: What is the phased onboarding methodology for enterprise (5 phases in 2-4 weeks)?</strong></span> <span class="sub-badge">[<span>5-Phase Protocol</span>]</span>
       </summary>
@@ -3150,7 +3525,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-6">
+          <details class="sub-accordion" id="sub-8-6">
       <summary class="sub-summary">
         <span class="sub-icon">💰</span> <span class="sub-title"><strong>Question 8.6: How does the real-time financial ROI calculator compute cost savings?</strong></span> <span class="sub-badge">[<span>Interactive ROI</span>]</span>
       </summary>
@@ -3227,7 +3602,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-7">
+          <details class="sub-accordion" id="sub-8-7">
       <summary class="sub-summary">
         <span class="sub-icon">🔌</span> <span class="sub-title"><strong>Question 8.7: How does the 21 MCP adapter suite integrate agents into enterprise IT systems?</strong></span> <span class="sub-badge">[<span>21 MCP Adapters</span>]</span>
       </summary>
@@ -3262,7 +3637,7 @@
   <!-- =========================================================================
        SECTION 09: GLOSSARY
        ========================================================================= -->
-  <details class="accordion-section" open id="glossary">
+  <details class="accordion-section" id="glossary">
     <summary class="accordion-summary">
       <span class="summary-num">[09]</span>
       <span class="summary-title"><strong>Plain-Language Glossary: High Technologies in Accessible Terms</strong></span>
@@ -3376,7 +3751,7 @@
       </div>
     </div>
 
-          <details class="sub-accordion" open id="sub-9-1">
+          <details class="sub-accordion" id="sub-9-1">
       <summary class="sub-summary">
         <span class="sub-icon">🤖</span> <span class="sub-title"><strong>Question 9.1: What do AI and agentic factory terms mean in plain language (9 terms)?</strong></span> <span class="sub-badge">[<span>AI & Agents</span>]</span>
       </summary>
@@ -3492,7 +3867,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-9-2">
+          <details class="sub-accordion" id="sub-9-2">
       <summary class="sub-summary">
         <span class="sub-icon">🏭</span> <span class="sub-title"><strong>Question 9.2: What essential terms explain EVA polymers and manufacturing (7 terms)?</strong></span> <span class="sub-badge">[<span>Polymers & Plant</span>]</span>
       </summary>
@@ -3584,7 +3959,7 @@
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-9-3">
+          <details class="sub-accordion" id="sub-9-3">
       <summary class="sub-summary">
         <span class="sub-icon">🛡️</span> <span class="sub-title"><strong>Question 9.3: How to understand mesh security, dual clusters, and blackout resilience (4 terms)?</strong></span> <span class="sub-badge">[<span>Security</span>]</span>
       </summary>

@@ -110,5 +110,5 @@ def get_section_09():
         "Глосарій термінів: Простими словами про високі технології EvaLine",
         "Plain-Language Glossary: High Technologies in Accessible Terms",
         "20 терминов", "20 термінів", "20 Clear Terms",
-        content, open=True
+        content, open=False
     )

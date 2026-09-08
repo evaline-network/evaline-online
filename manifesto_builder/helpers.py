@@ -34,7 +34,7 @@ def p_t(ru, uk, en, cls=""):
 def div_t(ru, uk, en, cls=""):
     return t(ru, uk, en, tag="div", cls=cls)
 
-def accordion_section(sec_id, num, title_ru, title_uk, title_en, badge_ru, badge_uk, badge_en, content, open=True):
+def accordion_section(sec_id, num, title_ru, title_uk, title_en, badge_ru, badge_uk, badge_en, content, open=False):
     op = ' open' if open else ''
     badge_html = f'<span class="summary-badge">[{t(badge_ru, badge_uk, badge_en, tag="span")}]</span>' if badge_ru else ''
     return f'''  <!-- =========================================================================
@@ -53,7 +53,7 @@ def accordion_section(sec_id, num, title_ru, title_uk, title_en, badge_ru, badge
   <hr class="section-divider">
 '''
 
-def sub_accordion(sub_id, icon, title_ru, title_uk, title_en, badge_ru, badge_uk, badge_en, content, open=True):
+def sub_accordion(sub_id, icon, title_ru, title_uk, title_en, badge_ru, badge_uk, badge_en, content, open=False):
     op = ' open' if open else ''
     badge_html = f' <span class="sub-badge">[{t(badge_ru, badge_uk, badge_en, tag="span")}]</span>' if badge_ru else ''
     icon_str = f'<span class="sub-icon">{icon}</span> ' if icon else ''

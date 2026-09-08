@@ -31,17 +31,14 @@ def get_nav_and_hero():
     <div class="toolbar-group">
       <span class="toolbar-label">{t("Оформление:", "Оформлення:", "Style:")}</span>
       <div class="btn-group theme-switcher" role="group" aria-label="Theme Selector">
-        <button type="button" class="theme-btn active" data-theme="cyber" onclick="setTheme('cyber')" title="Киберпанк (Неон / Dark)">
-          🎨 {t("Киберпанк", "Кіберпанк", "Cyber UI")}
-        </button>
-        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
-          📄 {t("Без стилей", "Без стилів", "Raw HTML")}
-        </button>
-        <button type="button" class="theme-btn" data-theme="paper" onclick="setTheme('paper')" title="Бумажный светлый минимализм">
-          ☀️ {t("Бумага", "Папір", "Paper Light")}
+        <button type="button" class="theme-btn active" data-theme="web" onclick="setTheme('web')" title="Полноценный веб поверх терминального стиля">
+          🖥️ {t("Веб", "Веб", "Web")}
         </button>
         <button type="button" class="theme-btn" data-theme="terminal" onclick="setTheme('terminal')" title="Зеленый моноширинный терминал">
           📟 {t("Терминал", "Термінал", "Terminal")}
+        </button>
+        <button type="button" class="theme-btn" data-theme="raw" onclick="setTheme('raw')" title="Чистый HTML без стилей оформления">
+          📄 {t("Без стилей", "Без стилів", "Raw HTML")}
         </button>
       </div>
     </div>
@@ -91,6 +88,13 @@ def get_nav_and_hero():
 
   <!-- HERO SECTION -->
   <section class="hero">
+    <pre class="hero-ascii" aria-label="EVALINE ASCII logo">
+   _______    _____    __    _____   ________
+  / ____/ |  / /   |  / /   /  _/ | / / ____/
+ / __/  | | / / /| | / /    / //  |/ / __/
+/ /___  | |/ / ___ |/ /____/ // /|  / /___
+/_____/  |___/_/  |_/_____/___/_/ |_/_____/
+</pre>
     <div class="hero-eyebrow">
       {t("СУВЕРЕННАЯ АГЕНТСКАЯ ФАБРИКА & РЕАЛЬНОЕ ПРОИЗВОДСТВО ПОЛИМЕРОВ",
          "СУВЕРЕННА АГЕНТСЬКА ФАБРИКА ТА РЕАЛЬНЕ ВИРОБНИЦТВО ПОЛІМЕРІВ",

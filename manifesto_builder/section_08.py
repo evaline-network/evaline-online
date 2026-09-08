@@ -66,9 +66,9 @@ def get_section_08():
           </div>
           <div class="biz-solution-box">
             <strong>{t("Решение EvaBot:", "Рішення EvaBot:", "EvaBot Solution:")}</strong> {t(
-              "Ролевые агенты Адам (инженер/B2B) и Ева (продажи/забота на 6 языках). Время первого квалифицированного ответа — 1.2 секунды в режиме 24/7/365 с проверкой реальных складских остатков.",
-              "Рольові агенти Адам (інженер/B2B) та Єва (продажі/турбота 6 мовами). Час першої кваліфікованої відповіді — 1.2 секунди в режимі 24/7/365 з перевіркою реальних залишків на складі.",
-              "Role-based agents Adam (engineering/B2B) and Eva (omnichannel sales in 6 languages). First qualified response in 1.2 seconds, 24/7/365, with live inventory verification."
+              "Ролевые агенты Адам (бэкенд, производство, безопасность) и Ева (фронтенд — лицо компании, 6 языков). Время первого квалифицированного ответа — 1.2 секунды в режиме 24/7/365 с проверкой реальных складских остатков.",
+              "Рольові агенти Адам (бекенд, виробництво, безпека) та Єва (фронтенд — обличчя компанії, 6 мовами). Час першої кваліфікованої відповіді — 1.2 секунди в режимі 24/7/365 з перевіркою реальних залишків на складі.",
+              "Role-based agents Adam (backend, production, security) and Eva (frontend — the face of the company, 6 languages). First qualified response in 1.2 seconds, 24/7/365, with live inventory verification."
             )}
           </div>
         </div>
@@ -203,21 +203,21 @@ def get_section_08():
 
     c2 = make_role_card(
         "02", "🛡️",
-        "Адам (Chief Engineer / CISO)", "Адам (Chief Engineer / CISO)", "Adam (Chief Engineer / CISO)",
+        "Адам (Бэкенд / Производство / CISO)", "Адам (Бекенд / Виробництво / CISO)", "Adam (Backend / Production / CISO)",
         "Бина / Гевура // Форма & Строгость", "Біна / Гевура // Форма & Суворість", "Gevurah & Binah // Severity & Discipline",
-        "Шеф инженерии, безопасности и производства. Формальная верификация, аудит кода, сметные лимиты, контроль раскроя на ЧПУ и соблюдение ГОСТ/ISO.",
-        "Шеф інженерії, безпеки та виробництва. Формальна верифікація, аудит коду, кошторисні ліміти, контроль розкрою на ЧПК та дотримання ДСТУ/ISO.",
-        "Chief of engineering, cybersecurity, and plant operations. Formal verification, budget limits, CNC nest QA, and ISO compliance.",
+        "Шеф бэкенда, разработки, безопасности, производства и бизнес-процессов. Формальная верификация, аудит кода, сметные лимиты, контроль раскроя на ЧПУ и соблюдение ГОСТ/ISO.",
+        "Шеф бекенду, розробки, безпеки, виробництва та бізнес-процесів. Формальна верифікація, аудит коду, кошторисні ліміти, контроль розкрою на ЧПК та дотримання ДСТУ/ISO.",
+        "Chief of backend, development, security, manufacturing, and business processes. Formal verification, code audit, budget limits, CNC nest QA, and ISO compliance.",
         "Claude 3.7 Sonnet • DeepSeek R1 • Linux MCP"
     )
 
     c3 = make_role_card(
         "03", "🤝",
-        "Ева (Customer Experience Officer / CXO)", "Єва (Customer Experience Officer / CXO)", "Eva (Customer Experience Officer / CXO)",
+        "Ева (Фронтенд / Лицо компании / CXO)", "Єва (Фронтенд / Обличчя компанії / CXO)", "Eva (Frontend / Company Face / CXO)",
         "Хокма / Хесед // Мудрость & Экспансия", "Хокма / Хесед // Мудрість & Експансія", "Chesed & Chokmah // Mercy & Growth",
-        "Директор клиентского опыта, сервиса и продаж. Мультиязычная живая коммуникация на 6 языках (UK, EN, DE, PL, RO, RU), эмпатия, омничейн-поддержка, B2B-сделки.",
-        "Директор клієнтського досвіду, сервісу та продажів. Багатомовна жива комунікація 6 мовами (UK, EN, DE, PL, RO, RU), емпатія, B2B-угоди.",
-        "Omnichannel sales & customer success director. Live empathetic dialogue in 6 languages (UK, EN, DE, PL, RO, RU) with live stock checks.",
+        "Фронтенд-директор и лицо компании: клиентский опыт, сервис и продажи. Мультиязычная живая коммуникация на 6 языках (UK, EN, DE, PL, RO, RU), эмпатия, омничейн-поддержка, B2B-сделки.",
+        "Фронтенд-директор та обличчя компанії: клієнтський досвід, сервіс і продажі. Багатомовна жива комунікація 6 мовами (UK, EN, DE, PL, RO, RU), емпатія, B2B-угоди.",
+        "Frontend director and the face of the company: CX, service & sales. Live empathetic dialogue in 6 languages (UK, EN, DE, PL, RO, RU) with live stock checks.",
         "Gemini 3.8 Flash • OmniRoute • Voice Engine"
     )
 
@@ -225,9 +225,9 @@ def get_section_08():
         "04", "⚖️",
         "Арбитр Консилиума (Consilium Arbiter)", "Арбітр Консиліуму (Consilium Arbiter)", "Consilium Arbiter",
         "Тиферет (Tifereth) // Гармония & Синтез", "Тіферет (Tifereth) // Гармонія & Синтез", "Tifereth (Beauty) // Synthesis & Consensus",
-        "Главный арбитр Консилиума. Алгоритмическое разрешение споров между Адамом (безопасность) и Евой (продажи), состязательный синтез с точностью 99.4%.",
-        "Головний арбітр Консиліуму. Алгоритмічне вирішення суперечок між Адамом (безпека) та Євою (продажі), змагальний синтез з точністю 99.4%.",
-        "Supreme dispute resolver. Mathematical adversarial synthesis between Adam (security) and Eva (sales), guaranteeing 99.4% precision.",
+        "Главный арбитр Консилиума. Алгоритмическое разрешение споров между Адамом (бэкенд и безопасность) и Евой (фронтенд и продажи), состязательный синтез с точностью 99.4%.",
+        "Головний арбітр Консиліуму. Алгоритмічне вирішення суперечок між Адамом (бекенд і безпека) та Євою (фронтенд і продажі), змагальний синтез з точністю 99.4%.",
+        "Supreme dispute resolver. Mathematical adversarial synthesis between Adam (backend & security) and Eva (frontend & sales), guaranteeing 99.4% precision.",
         "Consilium Consensus Engine • Multi-LLM Judge"
     )
 
@@ -864,5 +864,5 @@ def get_section_08():
         "Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot",
         "Business Solutions, Manufacturing Integration & EvaBot Anatomy",
         "Практическое внедрение", "Практичне впровадження", "Production Reality",
-        content, open=True
+        content, open=False
     )

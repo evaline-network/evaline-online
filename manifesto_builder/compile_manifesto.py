@@ -153,4 +153,13 @@ if os.path.exists(txt_source):
     shutil.copy(txt_source, '/var/www/evabot-backend/pages/evaline.online.unui.txt')
     print("[+] Synced manifesto.txt across public, repo root, and pages/")
 
+# Ensure MANIFESTO.md (Markdown export) is available on the web server root
+for md_out in ['/var/www/evabot-backend/public/MANIFESTO.md',
+               '/home/evabot/evaline-online/public/MANIFESTO.md']:
+    try:
+        shutil.copy('/home/evabot/evaline-online/MANIFESTO.md', md_out)
+    except (OSError, shutil.SameFileError):
+        pass
+print("[+] Synced MANIFESTO.md to public/")
+
 print("Master Compilation Finished Successfully!")

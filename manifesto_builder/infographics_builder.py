@@ -7,6 +7,7 @@ flowcharts, gantt), and ASCII fallback boxes for all 9 sections.
 
 import helpers
 from helpers import t
+import re
 
 def render_kpi_row(val, lbl_ru, lbl_uk, lbl_en, sub_ru, sub_uk, sub_en, accent="green"):
     return f'''        <tr class="kpi-row kpi-{accent}">
@@ -14,6 +15,68 @@ def render_kpi_row(val, lbl_ru, lbl_uk, lbl_en, sub_ru, sub_uk, sub_en, accent="
           <td class="kpi-lbl-cell"><strong>{t(lbl_ru, lbl_uk, lbl_en)}</strong></td>
           <td class="kpi-sub-cell"><small>{t(sub_ru, sub_uk, sub_en)}</small></td>
         </tr>'''
+
+# =============================================================================
+# Mindmap -> Markmap converter (zoomable, pan-able, fully responsive)
+# Markmap renders a rich zoom/pan mindmap that is perfectly readable on
+# portrait smartphones, unlike the static wide mermaid "mindmap" output.
+# =============================================================================
+def _mindmap_tree(mermaid_text):
+    """Parse a Mermaid `mindmap` block into a markmap JSON tree (dict)."""
+    root = {"type": "root", "content": "", "children": []}
+    stack = []  # (depth, node)
+    first = True
+    for raw in mermaid_text.splitlines():
+        if raw.strip().startswith("mindmap"):
+            continue
+        stripped = raw.rstrip()
+        if not stripped.strip():
+            continue
+        depth = len(raw) - len(raw.lstrip(" "))
+        content = stripped.strip()
+        # strip mermaid mindmap syntactic sugar: root((...)) / (parens) /
+        # [square] annotations, keeping the inner text
+        m_root = re.match(r"^root\s*\(\((.*?)\)\)\s*$", content, re.DOTALL)
+        if m_root:
+            root["content"] = m_root.group(1).strip() or "EvaLine"
+            first = False
+            continue
+        content = content.replace("((", "").replace("))", "")
+        content = content.replace("[", "").replace("]", "")
+        content = content.replace("(", "").replace(")", "")
+        content = content.replace("`", "").strip()
+        node = {"type": "branch" if depth > 0 else "root",
+                "content": content or "EvaLine", "children": []}
+        while stack and stack[-1][0] >= depth:
+            stack.pop()
+        if stack:
+            stack[-1][1]["children"].append(node)
+        else:
+            root["children"].append(node)
+        stack.append((depth, node))
+    if not root["content"]:
+        root["content"] = "EvaLine"
+    return root
+
+
+def render_markmap_block(m_ru, m_uk, m_en):
+    """Render a zoomable markmap container for trilingual mindmaps."""
+    import json
+
+    def _attr(tree):
+        # JSON goes into a single-quoted HTML attribute: escape apostrophes
+        # (&#39; is decoded back to ' by the browser before JS parses it)
+        return json.dumps(_mindmap_tree(tree), ensure_ascii=False).replace("'", "&#39;")
+
+    trees = [_attr(m_ru), _attr(m_uk), _attr(m_en)]
+    return t(
+        f'<div class="markmap" data-tree=\'{trees[0]}\'></div>',
+        f'<div class="markmap" data-tree=\'{trees[1]}\'></div>',
+        f'<div class="markmap" data-tree=\'{trees[2]}\'></div>',
+        tag="div",
+        cls="markmap-lang"
+    )
+
 
 def render_infographic_panel(
     sec_num, icon,
@@ -43,11 +106,33 @@ def render_infographic_panel(
         cls="mermaid-lang"
     )
 
+    # Mindmaps are rendered with markmap (zoom/pan, mobile-friendly) instead of
+    # the wide static mermaid mindmap output that is unreadable on phones.
+    is_mindmap = bool(mermaid_ru.strip().lower().startswith("mindmap"))
+    if is_mindmap:
+        mermaid_block = render_markmap_block(mermaid_ru, mermaid_uk, mermaid_en)
+    else:
+        # Mark wide horizontal flows so JS can flip them to vertical on phones.
+        is_lr = bool(re.search(r"\b(flowchart|graph) LR\b", mermaid_ru, re.IGNORECASE))
+        if is_lr:
+            cls_attr = ' class="mermaid mermaid-lang" data-flow="lr"'
+        else:
+            cls_attr = ' class="mermaid mermaid-lang"'
+        mermaid_block = t(
+            f'<div{cls_attr}>{mermaid_ru}</div>',
+            f'<div{cls_attr}>{mermaid_uk}</div>',
+            f'<div{cls_attr}>{mermaid_en}</div>',
+            tag="div",
+            cls="mermaid-lang"
+        )
+
     lbl_metric = t("Показатель", "Показник", "Metric")
     lbl_param = t("Параметр системы", "Параметр системи", "System Parameter")
     lbl_impact = t("Значение для бизнеса / ТУ", "Значення для бізнесу / ТУ", "Business Impact / Technical Spec")
 
     if getattr(helpers, 'INCLUDE_MERMAID', True):
+        badge = t("Mermaid.js // Auto-Layout",
+                  "Mermaid.js // Авто-компонування", "Mermaid.js // Auto-Layout")
         diagram_html = f'''      <!-- ARCHITECTURE DIAGRAM BOX -->
       <div class="diagram-box">
         <div class="diagram-box-header">
@@ -55,7 +140,7 @@ def render_infographic_panel(
             <span class="diagram-pulse-dot"></span>
             <strong>{t("АРХИТЕКТУРНАЯ СХЕМА И ДИАГРАММА ПОТОКОВ ДАННЫХ", "АРХІТЕКТУРНА СХЕМА ТА ДІАГРАМА ПОТОКІВ ДАНИХ", "ARCHITECTURE & DATAFLOW SCHEMATIC")}</strong>
           </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
+          <span class="diagram-badge">{badge}</span>
         </div>
         <div class="diagram-canvas">
           {mermaid_block}
@@ -243,8 +328,8 @@ def get_infographic_02():
   root((Фабрика EvaLine))
     Цифровой Штат (10 Ролей)
       01 Архитектор (Кетер // Стратегия)
-      02 Адам (Бина // CISO и ЧПУ)
-      03 Ева (Хокма // CXO и Продажи)
+      02 Адам (Бина // Бэкенд, Производство, Безопасность)
+      03 Ева (Хокма // Фронтенд и Лицо компании)
       04 Арбитр (Тиферет // Консенсус)
       05 Разработчик (Нецах // Кодинг)
       10 Мастер ЧПУ (Малхут // Завод)
@@ -262,8 +347,8 @@ def get_infographic_02():
   root((Фабрика EvaLine))
     Цифровий Штат (10 Ролей)
       01 Архітектор (Кетер // Стратегія)
-      02 Адам (Біна // CISO та ЧПК)
-      03 Ева (Хокма // CXO та Продажі)
+      02 Адам (Біна // Бекенд, Виробництво, Безпека)
+      03 Ева (Хокма // Фронтенд та Обличчя компанії)
       04 Арбітр (Тіферет // Консенсус)
       05 Розробник (Нецах // Кодинг)
       10 Майстер ЧПК (Малхут // Завод)
@@ -281,8 +366,8 @@ def get_infographic_02():
   root((EvaLine Factory))
     Digital Workforce (10 Roles)
       01 Architect (Kether // Strategy)
-      02 Adam (Binah // CISO & CNC)
-      03 Eva (Chokmah // CXO & Sales)
+      02 Adam (Binah // Backend, Production, Security)
+      03 Eva (Chokmah // Frontend & Company Face)
       04 Arbiter (Tifereth // Consensus)
       05 Lead Dev (Netzach // Code)
       10 CNC Master (Malkuth // Shopfloor)
@@ -301,8 +386,8 @@ def get_infographic_02():
 +------------------------------------+------------------------------------+
 |  ЦИФРОВОЙ ШТАТ (10 РОЛЕЙ)          |  21 ИНСТРУМЕНТ MCP                 |
 |  • 01. Архитектор (Кетер)          |  • Bash, Linux, Docker, WireGuard  |
-|  • 02. Адам (CISO / ЧПУ)           |  • SQLite, Postgres, Filesystem    |
-|  • 03. Ева (CXO / 6 языков)        |  • Chrome DevTools, Fetch, API     |
+|  • 02. Адам (Бэкенд/ЧПУ)           |  • SQLite, Postgres, Filesystem    |
+|  • 03. Ева (UI/Фронт/Лицо)        |  • Chrome DevTools, Fetch, API      |
 |  • 04. Арбитр Консилиума           +------------------------------------+
 |  • 05-10. Разработчик, Мастер ЧПУ  |  ТРЕХСЛОЙНЫЙ RAG (ПАМЯТЬ)          |
 |                                    |  • ChromaDB + SQLite FTS5 + Graph  |
@@ -342,8 +427,8 @@ def get_infographic_03():
   actor User as Бизнес / Оператор
   participant Arbiter as Арбитр Консилиума
   participant RAG as База знаний RAG (ТУ/1С)
-  participant Adam as Адам (CISO / Инженерия)
-  participant Eva as Ева (CXO / Продажи / Речь)
+  participant Adam as Адам (Бэкенд / Производство / Безопасность)
+  participant Eva as Ева (Фронтенд / Лицо компании)
   
   User->>Arbiter: Запрос / Задача расчета сметы
   Arbiter->>RAG: Поиск регламентов (ГОСТ, остатки склада)
@@ -361,8 +446,8 @@ def get_infographic_03():
   actor User as Бізнес / Оператор
   participant Arbiter as Арбітр Консиліуму
   participant RAG as База знань RAG (ТУ/1С)
-  participant Adam as Адам (CISO / Інженерія)
-  participant Eva as Ева (CXO / Продажі / Голос)
+  participant Adam as Адам (Бекенд / Виробництво / Безпека)
+  participant Eva as Ева (Фронтенд / Обличчя компанії)
   
   User->>Arbiter: Запит / Задача розрахунку кошторису
   Arbiter->>RAG: Пошук регламентів (ГОСТ, залишки складу)
@@ -380,8 +465,8 @@ def get_infographic_03():
   actor User as Enterprise Client
   participant Arbiter as Consilium Arbiter
   participant RAG as Knowledge RAG (Specs/ERP)
-  participant Adam as Adam (CISO / Chief Engineer)
-  participant Eva as Eva (CXO / Sales / Voice)
+  participant Adam as Adam (Backend / Production / Security)
+  participant Eva as Eva (Frontend / Company Face)
   
   User->>Arbiter: Request / Complex Specification
   Arbiter->>RAG: Retrieve grounded context (ISO/Inventory)
@@ -557,8 +642,8 @@ def get_infographic_05():
 
   subgraph AIConsilium["🤖 Цифровой надзор EvaLine"]
     direction TB
-    A1["Адам: Рецептуры, лимиты, ЧПУ раскрой"]
-    A2["Ева: CRM, расчет смет, 6 языков"]
+    A1["Адам: Бэкенд, сметы, ЧПУ раскрой"]
+    A2["Ева: Фронтенд, CRM, 6 языков"]
     A3["Юрист-Логист: УКТВЭД, таможня, ISO"]
   end
 
@@ -584,8 +669,8 @@ def get_infographic_05():
 
   subgraph AIConsilium["🤖 Цифровий нагляд EvaLine"]
     direction TB
-    A1["Адам: Рецептури, ліміти, ЧПК розкрій"]
-    A2["Ева: CRM, розрахунок кошторисів, 6 мов"]
+    A1["Адам: Бекенд, кошториси, ЧПК розкрій"]
+    A2["Ева: Фронтенд, CRM, 6 мов"]
     A3["Юрист-Логіст: УКТЗЕД, митниця, ISO"]
   end
 
@@ -611,8 +696,8 @@ def get_infographic_05():
 
   subgraph AIConsilium["🤖 EvaLine Autonomous Supervision"]
     direction TB
-    A1["Adam: Compounding specs & CNC G-Code"]
-    A2["Eva: Omnichannel CRM & multi-lingual sales"]
+    A1["Adam: Backend, specs & CNC G-Code"]
+    A2["Eva: Frontend, CRM & client care"]
     A3["Legal Agent: Customs, EU Directives, ISO"]
   end
 
@@ -873,7 +958,7 @@ def get_infographic_06():
     Edge --> Caddy["Caddy v2: SSL, DDoS фильтр, Early Response"]
   end
   
-  Caddy -->|Шифрованный туннель WireGuard Mesh (129ms)| Core["Compute Core: evabot-agent-vm (Франкфурт)"]
+  Caddy -->|"Шифрованный туннель WireGuard Mesh (129ms)"| Core["Compute Core: evabot-agent-vm (Франкфурт)"]
   
   subgraph CoreLayer["Вычислительное ядро (Frankfurt Core)"]
     Core --> CoreServer["Node.js / TypeScript Server :3000"]
@@ -892,7 +977,7 @@ def get_infographic_06():
     Edge --> Caddy["Caddy v2: SSL, DDoS фільтр, Early Response"]
   end
   
-  Caddy -->|Шифрований тунель WireGuard Mesh (129ms)| Core["Compute Core: evabot-agent-vm (Франкфурт)"]
+  Caddy -->|"Шифрований тунель WireGuard Mesh (129ms)"| Core["Compute Core: evabot-agent-vm (Франкфурт)"]
   
   subgraph CoreLayer["Обчислювальне ядро (Frankfurt Core)"]
     Core --> CoreServer["Node.js / TypeScript Server :3000"]
@@ -911,7 +996,7 @@ def get_infographic_06():
     Edge --> Caddy["Caddy v2: SSL, DDoS Mitigation, Early Response"]
   end
   
-  Caddy -->|Encrypted WireGuard Mesh Tunnel (129ms)| Core["Compute Core: evabot-agent-vm (Frankfurt)"]
+  Caddy -->|"Encrypted WireGuard Mesh Tunnel (129ms)"| Core["Compute Core: evabot-agent-vm (Frankfurt)"]
   
   subgraph CoreLayer["Dedicated Core (Frankfurt Compute Node)"]
     Core --> CoreServer["Node.js / TypeScript Server :3000"]
@@ -971,8 +1056,8 @@ def get_infographic_08():
 
     m_ru = """graph TD
   K["01. Архитектор // Кетер (Vision & Аксиомы)"]
-  B["02. Адам // Бина (CISO & Инженерия)"]
-  C["03. Ева // Хокма (CXO & Речь)"]
+  B["02. Адам // Бина (Бэкенд & Безопасность & Производство)"]
+  C["03. Ева // Хокма (Фронтенд & Лицо компании)"]
   T["04. Арбитр // Тиферет (Консилиум 99.4%)"]
   N["05. Разработчик // Нецах (Код & Git)"]
   H["06. Коммуникатор // Ход (Voice Engine)"]
@@ -1000,8 +1085,8 @@ def get_infographic_08():
 
     m_uk = """graph TD
   K["01. Архітектор // Кетер (Vision & Аксіоми)"]
-  B["02. Адам // Біна (CISO & Інженерія)"]
-  C["03. Ева // Хокма (CXO & Голос)"]
+  B["02. Адам // Біна (Бекенд & Безпека & Виробництво)"]
+  C["03. Ева // Хокма (Фронтенд & Обличчя компанії)"]
   T["04. Арбітр // Тіферет (Консиліум 99.4%)"]
   N["05. Розробник // Нецах (Код & Git)"]
   H["06. Комунікатор // Ход (Voice Engine)"]
@@ -1029,8 +1114,8 @@ def get_infographic_08():
 
     m_en = """graph TD
   K["01. Architect // Kether (Vision & Axioms)"]
-  B["02. Adam // Binah (CISO & Engineering)"]
-  C["03. Eva // Chokmah (CXO & Voice)"]
+  B["02. Adam // Binah (Backend & Security & Production)"]
+  C["03. Eva // Chokmah (Frontend & Company Face)"]
   T["04. Arbiter // Tifereth (Consilium 99.4%)"]
   N["05. Lead Dev // Netzach (Code & Git)"]
   H["06. Voice Spec // Hod (Voice Engine)"]
@@ -1173,7 +1258,7 @@ def get_infographic_08():
                              Кетер
                                │
                  ▲                           ▲ [РЯД II: ДИАДА — 2 УЗЛА]
-     02. Адам (CISO / ЧПУ)              03. Ева (CXO / Голос)
+     02. Адам (Бэкенд/ЧПУ)              03. Ева (UI / Лицо)
          Бина / Гевура                      Хокма / Хесед
                │                                   │
           ▲                     ▲                     ▲ [РЯД III: ТРИАДА — 3 УЗЛА]

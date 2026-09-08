@@ -34,6 +34,9 @@ def get_scripts():
     return '''
 <!-- MERMAID.JS CDN ENGINE & INITIALIZATION -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<!-- MARKMAP.JS (zoomable mindmaps, mobile-first) + d3 dependency -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script>
 
 <!-- EMBEDDED MODELS REGISTRY DATA & INTERACTIVE CLIENT ENGINE -->
 <script>
@@ -56,23 +59,176 @@ def get_scripts():
         lineColor: '#38bdf8',
         secondaryColor: '#161f30',
         tertiaryColor: '#111722',
-        fontFamily: 'Roboto, sans-serif'
+        fontFamily: 'Roboto, sans-serif',
+        fontSize: '13px'
       },
-      securityLevel: 'loose'
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true, wrappingWidth: 140 },
+      mindmap:   { useMaxWidth: true },
+      sequence:  { useMaxWidth: true, mirrorActors: false },
+      gantt:     { useMaxWidth: true }
     });
   }
 
-  function renderVisibleMermaid() {
-    if (typeof mermaid === 'undefined') return;
+  // Mobile portrait: flip horizontal flowchart LR -> vertical TD for readability.
+  // This runs once before mermaid parses the text; it mutates the source but the
+  // diagram semantics stay identical because LR/D are only layout hints.
+  function flipHorizontalFlowcharts() {
+    if (window.innerWidth > 768) return;
     document.querySelectorAll('.mermaid').forEach(el => {
-      if (el.offsetParent !== null && !el.getAttribute('data-processed')) {
-        try {
-          mermaid.run({ nodes: [el] });
-        } catch (err) {
-          console.warn('Mermaid render error:', err);
-        }
+      const src = el.textContent.trim();
+      if (src.startsWith('mindmap')) return; // markmap handles those
+      if (/\\b(flowchart|graph)\\s+LR\\b/i.test(src)) {
+        el.textContent = src.replace(/\\b(flowchart|graph)\\s+LR\\b/i, '$1 TD');
       }
     });
+  }
+
+  window.__mermaidErrors = [];
+  let mermaidSeq = 0;
+
+  // Minimal viewBox-preserving pan/zoom for mermaid diagrams (svg-pan-zoom
+  // drops the viewBox and breaks the responsive CSS sizing, so we roll our own):
+  //   drag = pan · pinch = zoom · dbl-click = zoom-in/reset · wheel = page scroll
+  function initMermaidPanZoom(svg) {
+    if (!svg || svg.dataset.pz) return;
+    svg.dataset.pz = '1';
+    svg.style.touchAction = 'none';
+    svg.style.cursor = 'grab';
+
+    // wrap diagram content into a transformable viewport group
+    const vp = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    vp.setAttribute('class', 'mz-viewport');
+    Array.from(svg.children).forEach(k => {
+      const tag = (k.tagName || '').toLowerCase();
+      if (tag !== 'style' && tag !== 'defs') vp.appendChild(k);
+    });
+    svg.appendChild(vp);
+
+    let scale = 1, tx = 0, ty = 0;
+    const apply = () => vp.setAttribute('transform', 'translate(' + tx + ' ' + ty + ') scale(' + scale + ')');
+    const reset = () => { scale = 1; tx = 0; ty = 0; apply(); };
+    const localPoint = (e) => {
+      const r = svg.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    const zoomAt = (p, factor) => {
+      const ns = Math.min(12, Math.max(1, scale * factor));
+      if (ns === scale) return;
+      const k = ns / scale;
+      tx = p.x - k * (p.x - tx);
+      ty = p.y - k * (p.y - ty);
+      scale = ns;
+      if (scale <= 1.001) { reset(); return; }
+      apply();
+    };
+
+    svg.addEventListener('dblclick', e => {
+      e.preventDefault();
+      if (scale > 1.01) reset();
+      else zoomAt(localPoint(e), 3);
+    });
+
+    const pts = new Map();
+    let lx = 0, ly = 0, dragging = false, pinchD = 0;
+    const dist = () => {
+      const v = Array.from(pts.values());
+      return Math.hypot(v[0].x - v[1].x, v[0].y - v[1].y);
+    };
+    const mid = () => {
+      const v = Array.from(pts.values());
+      return { x: (v[0].x + v[1].x) / 2, y: (v[0].y + v[1].y) / 2 };
+    };
+    svg.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pts.size === 1) {
+        dragging = true; lx = e.clientX; ly = e.clientY; pinchD = 0;
+      } else {
+        dragging = false; pinchD = dist();
+      }
+      try { svg.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    svg.addEventListener('pointermove', e => {
+      if (!pts.has(e.pointerId)) return;
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pts.size === 2) {
+        const d = dist();
+        if (pinchD > 0 && d > 0) zoomAt(mid(), d / pinchD);
+        pinchD = d;
+      } else if (dragging) {
+        tx += e.clientX - lx; ty += e.clientY - ly;
+        lx = e.clientX; ly = e.clientY;
+        if (scale > 1) apply();
+      }
+    });
+    const endPointer = e => {
+      pts.delete(e.pointerId);
+      if (pts.size === 1) {
+        const p = Array.from(pts.values())[0];
+        lx = p.x; ly = p.y; dragging = true; pinchD = 0;
+      } else {
+        dragging = false; pinchD = 0;
+      }
+    };
+    svg.addEventListener('pointerup', endPointer);
+    svg.addEventListener('pointercancel', endPointer);
+    apply();
+  }
+
+  // Sequential rendering with explicit unique ids: mermaid's concurrent
+  // Date.now()-based ids collide, which drops the viewBox and crops diagrams.
+  async function renderVisibleMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    flipHorizontalFlowcharts();
+    const pending = Array.from(document.querySelectorAll('.mermaid')).filter(el =>
+      el.offsetParent !== null && !el.getAttribute('data-processed'));
+    for (const el of pending) {
+      try {
+        const src = el.textContent.trim();
+        const id = 'mmd-' + (++mermaidSeq) + '-' + Date.now();
+        const result = await mermaid.render(id, src);
+        el.innerHTML = result.svg;
+        if (result.bindFunctions) result.bindFunctions(el);
+        el.setAttribute('data-processed', 'true');
+        initMermaidPanZoom(el.querySelector('svg'));
+      } catch (err) {
+        window.__mermaidErrors.push(String((err && err.message) || err).slice(0, 160));
+        console.warn('Mermaid render error:', err);
+      }
+    }
+  }
+
+  // Markmap zoomable mindmaps (portal-friendly pan/zoom, fits portrait screens)
+  function renderMarkmaps() {
+    if (typeof markmap === 'undefined' || !markmap.Markmap) return;
+    document.querySelectorAll('.markmap').forEach(el => {
+      if (el.dataset.rendered) return;
+      if (el.offsetParent === null) return; // hidden language variant — render on switch
+      let raw = el.getAttribute('data-tree');
+      if (!raw) { raw = el.textContent.trim(); }
+      if (!raw) return;
+      let root;
+      try { root = JSON.parse(raw); } catch (e) { return; }
+      el.innerHTML = '';
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '100%');
+      svg.setAttribute('height', '100%');
+      el.appendChild(svg);
+      try {
+        markmap.Markmap.create(svg, { autoFit: true, duration: 200, maxWidth: 220 }, root);
+      } catch (err) {
+        console.warn('Markmap render error:', err);
+        el.textContent = '⚠ Mindmap could not be rendered';
+      }
+      el.dataset.rendered = '1';
+    });
+  }
+
+  // Combined entry point: renders mermaid diagrams + markmap mindmaps
+  function renderVisibleDiagrams() {
+    renderVisibleMermaid();
+    renderMarkmaps();
   }
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -84,11 +240,13 @@ def get_scripts():
   let currentGlossaryFilter = 'all';
   let glossarySearchQuery = '';
 
-  // Master Theme Controller: 'cyber', 'raw', 'paper', 'terminal'
-  let currentTheme = urlParams.get('theme') || localStorage.getItem('evaline_theme') || 'cyber';
+  // Master Theme Controller: 'web' (full web over terminal style), 'terminal', 'raw'
+  let currentTheme = urlParams.get('theme') || localStorage.getItem('evaline_theme') || 'web';
+  // map legacy stored theme values to the new set
+  if (!['web', 'terminal', 'raw'].includes(currentTheme)) currentTheme = 'web';
 
   function setTheme(theme) {
-    if (!['cyber', 'raw', 'paper', 'terminal'].includes(theme)) theme = 'cyber';
+    if (!['web', 'terminal', 'raw'].includes(theme)) theme = 'web';
     currentTheme = theme;
     localStorage.setItem('evaline_theme', theme);
     const styleEl = document.getElementById('main-manifesto-styles');
@@ -110,34 +268,46 @@ def get_scripts():
     } else {
       if (styleEl) styleEl.disabled = false;
       document.documentElement.setAttribute('data-theme', theme);
-      // Restore diagram visibility based on active diagram mode
+      // Re-apply diagram visibility: ASCII art only in terminal/raw, web is vector-only
+      const asciiOk = currentTheme === 'terminal' || currentTheme === 'raw';
       if (currentDiagramMode !== 'ascii') {
         document.querySelectorAll('.diagram-canvas').forEach(el => el.style.display = 'block');
       }
-      if (currentDiagramMode === 'vector') {
-        document.querySelectorAll('.ascii-toggle').forEach(el => el.style.display = 'none');
-      }
-      setTimeout(renderVisibleMermaid, 50);
+      document.querySelectorAll('.ascii-toggle').forEach(el => {
+        if (!asciiOk) { el.style.display = 'none'; el.open = false; }
+        else if (currentDiagramMode === 'vector') { el.style.display = 'none'; el.open = false; }
+        else { el.style.display = 'block'; }
+      });
+      setTimeout(renderVisibleDiagrams, 50);
     }
   }
 
   function toggleStyles() {
-    setTheme(currentTheme === 'raw' ? 'cyber' : 'raw');
+    setTheme(currentTheme === 'raw' ? 'web' : 'raw');
   }
 
-  // Diagram Display Controller: 'all', 'vector', 'ascii'
+  // Diagram Display Controller: 'all', 'vector', 'ascii' (ASCII art only in terminal/raw)
   let currentDiagramMode = urlParams.get('diag') || 'all';
+  function isAsciiAllowed() {
+    // ASCII diagrams are reserved for the terminal & raw experience; web stays vector-only
+    return currentTheme === 'terminal' || currentTheme === 'raw';
+  }
   function toggleDiagramMode(mode) {
     if (!['all', 'vector', 'ascii'].includes(mode)) mode = 'all';
     currentDiagramMode = mode;
     document.querySelectorAll('.diagram-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-diag-mode') === mode);
     });
+    const asciiOk = isAsciiAllowed();
     document.querySelectorAll('.diagram-canvas').forEach(el => {
-      el.style.display = (mode === 'ascii' || currentTheme === 'raw') ? 'none' : 'block';
+      el.style.display = (mode === 'ascii' || currentTheme === 'raw' || (mode === 'vector')) ? 'none' : 'block';
     });
     document.querySelectorAll('.ascii-toggle').forEach(el => {
-      if (mode === 'vector') {
+      if (!asciiOk) {
+        // Web theme: no ASCII art at all — keep diagrams as vector only
+        el.style.display = 'none';
+        el.open = false;
+      } else if (mode === 'vector') {
         el.style.display = 'none';
         el.open = false;
       } else if (mode === 'ascii') {
@@ -148,7 +318,7 @@ def get_scripts():
       }
     });
     if (mode !== 'ascii') {
-      setTimeout(renderVisibleMermaid, 50);
+      setTimeout(renderVisibleDiagrams, 50);
     }
   }
 
@@ -180,7 +350,7 @@ def get_scripts():
     renderModels();
     renderGlossary();
     updateRoiCalc();
-    setTimeout(renderVisibleMermaid, 60);
+    setTimeout(renderVisibleDiagrams, 60);
   }
 
   // Global Accordion Controller
@@ -189,7 +359,7 @@ def get_scripts():
       d.open = isOpen;
     });
     if (isOpen) {
-      setTimeout(renderVisibleMermaid, 80);
+      setTimeout(renderVisibleDiagrams, 80);
     }
   }
 
@@ -294,6 +464,16 @@ def get_scripts():
       const roleLabel = currentLang === 'en' ? 'Role in Consilium:' : (currentLang === 'uk' ? 'Роль у Консиліумі:' : 'Роль в Консилиуме:');
       const roleText = (m.roleHints && m.roleHints[currentLang]) ? m.roleHints[currentLang] : (m.roleHint || '');
 
+      let datesHtml = '';
+      if (m.releaseDate || m.lastUpdate) {
+        const relLbl = currentLang === 'en' ? 'Released:' : (currentLang === 'uk' ? 'Реліз:' : 'Релиз:');
+        const updLbl = currentLang === 'en' ? 'Updated:' : (currentLang === 'uk' ? 'Оновлення:' : 'Обновление:');
+        datesHtml = '<div class="model-dates">' +
+                    '<span>🗓 ' + relLbl + ' <strong>' + (m.releaseDate || '—') + '</strong></span>' +
+                    '<span>🔄 ' + updLbl + ' <strong>' + (m.lastUpdate || '—') + '</strong></span>' +
+                    '</div>';
+      }
+
       return '<div class="model-card">' +
              '<div class="model-card-header">' +
              '<div class="model-name">' + m.name + '</div>' +
@@ -301,6 +481,7 @@ def get_scripts():
              '</div>' +
              '<div class="model-metrics">' + iqBadge + tierBadge + recBadge + ctxBadge + '</div>' +
              '<p class="model-desc">' + (m.desc || '') + '</p>' +
+             datesHtml +
              '<div class="model-role"><strong>' + roleLabel + '</strong> ' + roleText + '</div>' +
              priceHtml +
              '</div>';
@@ -453,13 +634,13 @@ def get_scripts():
     document.querySelectorAll('details').forEach(det => {
       det.addEventListener('toggle', () => {
         if (det.open) {
-          setTimeout(renderVisibleMermaid, 50);
+          setTimeout(renderVisibleDiagrams, 50);
         }
       });
     });
 
     // Initial render of visible diagrams
-    setTimeout(renderVisibleMermaid, 150);
+    setTimeout(renderVisibleDiagrams, 150);
   });
 </script>
 

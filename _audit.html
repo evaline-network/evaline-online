@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<pre id="report">RUNNING</pre>
+<iframe id="f" style="border:0"></iframe>
+<script>
+const SIZES = [
+  [320,568],[360,640],[390,844],[414,896],[480,854],[768,1024],
+  [568,320],[640,360],[854,480],[1024,768],[1280,720],[1440,900],[1920,1080]
+];
+const f = document.getElementById('f');
+const report = document.getElementById('report');
+const results = [];
+let idx = 0;
+
+function pathOf(el, doc) {
+  let parts = [];
+  let cur = el;
+  while (cur && cur !== doc.documentElement && parts.length < 5) {
+    let s = cur.tagName ? cur.tagName.toLowerCase() : '?';
+    if (cur.id) s += '#' + cur.id;
+    else if (cur.className && typeof cur.className === 'string') s += '.' + cur.className.split(/\s+/).filter(Boolean).slice(0,2).join('.');
+    parts.unshift(s);
+    cur = cur.parentElement;
+  }
+  return parts.join('>');
+}
+
+function auditSize(w, h, cb) {
+  f.style.width = w + 'px';
+  f.style.height = h + 'px';
+  f.src = 'index.html?lang=ru&audit=1';
+  f.onload = () => {
+    const d = f.contentDocument, win = f.contentWindow;
+    // expand all accordions to audit full content
+    setTimeout(() => {
+      try {
+        d.querySelectorAll('details').forEach(dt => { dt.open = true; });
+      } catch(e) {}
+      // wait for mermaid render + layout settle
+      setTimeout(() => {
+        try {
+          const docEl = d.documentElement;
+          const hOverflow = docEl.scrollWidth - docEl.clientWidth;
+          const bodyOverflow = d.body.scrollWidth - d.body.clientWidth;
+          // offending elements wider than viewport
+          const offenders = [];
+          d.querySelectorAll('*').forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.width === 0) return;
+            if (r.right > win.innerWidth + 1 || r.left < -1) {
+              const cs = win.getComputedStyle(el);
+              if (offenders.length < 30) offenders.push({
+                p: pathOf(el, d), right: Math.round(r.right), left: Math.round(r.left), w: Math.round(r.width)
+              });
+            }
+          });
+          // inner vertical scroll traps
+          const vtraps = [];
+          d.querySelectorAll('*').forEach(el => {
+            const cs = win.getComputedStyle(el);
+            if ((cs.overflowY === 'auto' || cs.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 2) {
+              if (vtraps.length < 30) vtraps.push({ p: pathOf(el, d), sh: el.scrollHeight, ch: el.clientHeight });
+            }
+          });
+          // CSS diagnostics on ALL mermaid svgs
+          const svgs = [];
+          d.querySelectorAll('.diagram-canvas .mermaid svg').forEach(svg => {
+            const cs = win.getComputedStyle(svg);
+            const r = svg.getBoundingClientRect();
+            svgs.push({
+              id: svg.id.slice(-8),
+              vb: svg.getAttribute('viewBox') ? 'Y' : 'N',
+              vbw: Math.round((svg.getAttribute('viewBox')||'0 0 0 0').split(' ').map(Number)[2]),
+              rect: Math.round(r.width), rectH: Math.round(r.height),
+              maxW: cs.maxWidth, overflow: cs.overflow,
+              attrW: svg.getAttribute('width') || '-',
+              inlineMaxW: (svg.style.maxWidth || '-')
+            });
+          });
+          const mmErrors = (win.__mermaidErrors || []).slice(0, 5);
+          const noVb = svgs.filter(s => s.vb === 'N').length;
+          // diagnose widest mermaid svg: parent chain widths
+          let chain = null;
+          let widest = null, maxW = 0;
+          d.querySelectorAll('.diagram-canvas .mermaid svg').forEach(sg => {
+            const r = sg.getBoundingClientRect();
+            if (r.width > maxW) { maxW = r.width; widest = sg; }
+          });
+          if (widest && maxW > win.innerWidth + 5) {
+            chain = [];
+            let cur = widest;
+            while (cur && cur !== d.documentElement && chain.length < 10) {
+              const r = cur.getBoundingClientRect();
+              const cs = win.getComputedStyle(cur);
+              chain.push({ tag: cur.tagName + '.' + String(cur.className).slice(0, 28), w: Math.round(r.width), minW: cs.minWidth, disp: cs.display });
+              cur = cur.parentElement;
+            }
+          }
+          results.push({ size: w + 'x' + h, hOverflow, bodyOverflow, svgs, offenders, vtraps, mmErrors, noVb, chain });
+        } catch(e) { results.push({ size: w + 'x' + h, error: String(e) }); }
+        cb();
+      }, 2500);
+    }, 400);
+  };
+}
+
+function next() {
+  if (idx >= SIZES.length) {
+    report.textContent = 'AUDIT_JSON_START' + JSON.stringify(results) + 'AUDIT_JSON_END';
+    return;
+  }
+  const [w, h] = SIZES[idx++];
+  auditSize(w, h, next);
+}
+next();
+</script>
+</body>
+</html>
