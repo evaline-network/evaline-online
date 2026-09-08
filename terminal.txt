@@ -1,0 +1,19 @@
+================================================================================
+EVALINE CLUSTER // NODE: evaline.online [SECURITY & IAM]
+================================================================================
+РОЛЬ:            Контур Периметровой Безопасности, IAM-Авторизация, OOM-Щит & Сервис-Меш
+ХОСТ:            evaline-micro-vm · Caddy Ingress · Строгий WAN-фильтр · Айова (США)
+СТАТУС:          ONLINE [LIVE] · WireGuard Mesh 100.125.200.49 <-> 100.66.98.4
+--------------------------------------------------------------------------------
+[ КЛАСТЕРНЫЕ ДОМЕНЫ EVALINE MESH ]:
+  [1] evabot.online    -> AI Core & Multi-LLM Consilium Hub (Frankfurt, 8 vCPU, 32 GB)
+  [2] evaline.network  -> Edge Mesh & WireGuard Routing Fabric (Iowa, Caddy HTTP/3)
+  [3] evaline.online   -> Security Governance, IAM Policies & OOM Shield
+  [4] evaline.website  -> Master Chronicle & Engineering Worklog (71 Events)
+
+[ РЕАЛЬНЫЕ МЕТРИКИ КЛАСТЕРА ]:
+  * EVABRAIN (Core):  8 vCPU Intel Xeon Sapphire Rapids | 32 GB DDR5 RAM | 100 GB NVMe
+  * EVAFACE  (Edge):  2 vCPU AMD EPYC | 1 GB RAM + 2 GB Swap | 20 GB Disk | Caddy 2.11
+  * WIREGUARD MESH:   Iowa ↔ Frankfurt | ChaCha20-Poly1305 | Latency: ~104 ms RTT
+  * МОДЕЛИ В ПУЛЕ:    78 моделей онлайн (Google Vertex AI ADC, Gemini 3.8/3.1, Claude)
+================================================================================

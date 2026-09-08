@@ -1,0 +1,76 @@
+2026-08-01 10:00:00 | EvaBrain | USER | ARCH     | DONE | Инициализация концепции автономного мультиагентного ассистента EvaBot с консилиумом нейросетей
+2026-08-01 11:30:00 | EvaBrain | USER | CLOUD    | DONE | Создание облачного проекта в Google Cloud Platform: evabot-agent-server
+2026-08-01 12:45:00 | EvaBrain | USER | IAM      | DONE | Регистрация сервисно-административного Google Account evabot.online@gmail.com
+2026-08-01 14:00:00 | EvaFace  | USER | DNS      | DONE | Регистрация доменных зон evabot.online, evaline.network, evaline.online, evaline.website
+2026-08-02 10:00:00 | Global   | USER | ARCH     | DONE | Разделение топологии на два физических узла: EvaFace (Edge) и EvaBrain (Compute Core)
+2026-08-02 12:00:00 | EvaFace  | USER | ARCH     | DONE | Спецификация EvaFace: легковесный edge-шлюз в us-central1-a (Iowa) для TLS и входящего трафика
+2026-08-02 14:00:00 | EvaBrain | USER | ARCH     | DONE | Спецификация EvaBrain: вычислительное ядро в europe-west3-a (Frankfurt) на c3-standard-8 DDR5
+2026-08-03 09:30:00 | EvaFace  | USER | CLOUD    | DONE | Развертывание ВМ evaline-micro-vm (e2-micro, 2 vCPU, 1 GB RAM, IP: 136.114.26.252)
+2026-08-03 11:00:00 | EvaBrain | USER | CLOUD    | DONE | Развертывание ВМ evabot-agent-vm (c3-standard-8, 8 vCPU Xeon, 32 GB RAM DDR5, IP: 34.159.202.82)
+2026-08-03 14:30:00 | Global   | USER | DEVOPS   | DONE | Установка базовой операционной системы Debian GNU/Linux 13 (trixie) на оба инстанса
+2026-08-04 10:15:00 | Global   | USER | NET      | DONE | Развертывание приватного шифрованного WireGuard-туннеля Tailscale Mesh
+2026-08-04 11:00:00 | EvaFace  | USER | NET      | DONE | Присвоение статического Tailscale IP для EvaFace: 100.125.200.49
+2026-08-04 11:05:00 | EvaBrain | USER | NET      | DONE | Присвоение статического Tailscale IP для EvaBrain: 100.66.98.4
+2026-08-04 15:00:00 | EvaBrain | USER | SECURITY | DONE | Проверка приватной связности и изоляция внутренних сервисов от публичного интернета
+2026-08-05 10:00:00 | EvaFace  | USER | DEVOPS   | DONE | Инсталляция высокопроизводительного обратного прокси Caddy 2.x на EvaFace
+2026-08-05 12:30:00 | EvaFace  | USER | SECURITY | DONE | Настройка автоматического выпуска Let's Encrypt TLS 1.3 / HTTP/3 для доменов
+2026-08-05 15:00:00 | Global   | USER | DNS      | DONE | Направление DNS A-записей доменов evabot.online, evaline.network, evaline.online на 136.114.26.252
+2026-08-06 11:00:00 | EvaBrain | USER | DEV      | DONE | Создание организации evaline-network на GitHub и репозитория evabot-online
+2026-08-07 14:00:00 | EvaBrain | USER | DEV      | DONE | Фиксация технологического стека: TypeScript 5.7, Node.js 22 LTS, строгая типизация
+2026-08-08 10:00:00 | EvaBrain | USER | FINANCE  | DONE | Стандарт тарификации: все финансовые метрики и цены токенов строго в USD ($) и EUR (€)
+2026-08-09 16:30:00 | EvaBrain | USER | I18N     | DONE | Внедрение трилингвального стандарта документации и интерфейсов: английский, украинский, русский
+2026-08-10 18:00:00 | EvaBrain | USER | DEV      | DONE | Настройка базовой структуры монорепозитория: /src/core, /src/models, /src/roles, /tests
+2026-08-11 10:00:00 | EvaBrain | USER | IAM      | DONE | Настройка Google Application Default Credentials (ADC) под evabot.online@gmail.com
+2026-08-12 11:30:00 | EvaBrain | USER | CLOUD    | DONE | Активация API: aiplatform.googleapis.com (Vertex AI), generativelanguage, compute
+2026-08-13 15:00:00 | EvaBrain | USER | CORE     | DONE | Разработка модуля GoogleAuthProvider с 5-уровневым каскадом получения токенов
+2026-08-14 17:00:00 | EvaBrain | USER | CORE     | DONE | Реализация автообновления IAM токенов и кэширования для снижения задержек API
+2026-08-15 18:30:00 | EvaBrain | USER | TEST     | DONE | Успешная валидация авторизационного каскада ADC на реальном Google Cloud Vertex API
+2026-08-16 10:00:00 | EvaBrain | USER | MODELS   | DONE | Создание реестра ModelRegistry: регистрация 36 моделей (Gemini 2.5, Gemma, Claude, DeepSeek)
+2026-08-17 14:00:00 | EvaBrain | USER | CORE     | DONE | Разработка UniversalLlmClient для нормализации параметров температуры и промптов
+2026-08-18 16:00:00 | EvaBrain | USER | CORE     | DONE | Внедрение абстракции мультипровайдерности: Google GenAI, Vertex AI, OmniRoute, OpenRouter
+2026-08-19 11:00:00 | EvaBrain | USER | CORE     | DONE | Поддержка потоковых ответов (Server-Sent Events) в интерфейсе клиента
+2026-08-20 18:00:00 | EvaBrain | USER | TEST     | DONE | Сквозные тесты клиентов: проверка отказоустойчивости при недоступности внешних шлюзов
+2026-08-21 10:00:00 | EvaBrain | USER | ROLES    | DONE | Разработка ConsiliumEngine: многоагентный движок обсуждения задач в 4 режимах
+2026-08-22 12:30:00 | EvaBrain | USER | ROLES    | DONE | Реализация режимов solo, broadcast, dialogue (дебаты двух моделей) и consilium
+2026-08-23 15:00:00 | EvaBrain | USER | ROLES    | DONE | Разработка CorporateRoles.ts: профили Architect, DevOps, Security Auditor, Assistant
+2026-08-24 17:30:00 | EvaBrain | USER | CORE     | DONE | Интеграция консенсус-арбитража для синтеза финального ответа из мнений экспертов
+2026-08-25 19:00:00 | EvaBrain | USER | TEST     | DONE | Успешный прогон совещания агентов Consilium на сложной архитектурной задаче
+2026-08-26 10:00:00 | EvaBrain | USER | UI       | DONE | Разработка черно-белого терминального интерфейса B&W Cyber Terminal UI
+2026-08-27 14:00:00 | EvaBrain | USER | GATEWAY  | DONE | Развертывание высокоскоростного OpenAI-совместимого шлюза OmniRoute LiteLLM на порту 20128
+2026-08-28 16:30:00 | EvaBrain | USER | CLI      | DONE | Создание консольного интерактивного агента terminal-chat.ts для разработчиков
+2026-08-29 11:00:00 | EvaBrain | USER | CORE     | DONE | Подключение локального шлюза OmniRoute к ModelRegistry и балансировщику
+2026-08-30 15:00:00 | EvaBrain | USER | UI       | DONE | Финальная доводка верстки терминала: индикаторы-светофоры, статус бэкенда
+2026-08-31 18:00:00 | EvaBrain | USER | TEST     | DONE | Интеграционное тестирование: связка TUI -> Caddy -> Tailscale -> EvaBrain -> OmniRoute
+2026-09-01 10:00:00 | EvaBrain | USER | BUILD    | DONE | Сборка релизного бандла v0.0.1: настройка esbuild и tsc компиляции
+2026-09-01 16:00:00 | EvaBrain | USER | TEST     | DONE | Создание автоматического тестового комплекта tests/index.ts (7 тест-сьютов)
+2026-09-02 11:00:00 | EvaBrain | USER | DEVOPS   | DONE | Создание и запуск системной службы evabot-brain.service на порту 3000 в /var/www/evabot-backend
+2026-09-02 15:30:00 | EvaBrain | USER | DEVOPS   | DONE | Разработка скрипта 4-сторонней синхронизации deploy-sync.sh
+2026-09-03 10:00:00 | EvaBrain | USER | TEST     | DONE | 100% покрытие тестами: успешное прохождение всех 7 наборов автоматических тестов
+2026-09-03 14:00:00 | EvaBrain | USER | DOCS     | DONE | Публикация документации: архитектурные спецификации и отчеты верификации на трех языках
+2026-09-04 10:30:00 | EvaBrain | USER | DEVOPS   | DONE | Развертывание Web IDE code-server на порту 8080 для браузерной разработки
+2026-09-04 13:00:00 | EvaBrain | USER | DEVOPS   | DONE | Развертывание Docker контейнера n8n на порту 5678 для автоматизации рабочих процессов
+2026-09-04 16:00:00 | EvaBrain | USER | DEVOPS   | DONE | Настройка графического рабочего стола XFCE и VNC сессии TigerVNC на порту 5900
+2026-09-05 09:00:00 | EvaBrain | USER | AI       | DONE | Инсталляция Antigravity 2.0 CLI (agy v1.1.27) в /home/evabot/.local/bin/agy
+2026-09-05 12:00:00 | EvaBrain | USER | DEVOPS   | DONE | Запуск системного демона antigravity-daemon.service на порту 9090
+2026-09-05 16:00:00 | EvaBrain | USER | MCP      | DONE | Подключение пула Model Context Protocol: Chrome DevTools, Docker, Filesystem, Memory, NotebookLM
+2026-09-06 05:30:00 | Global   | AGY  | AUDIT    | DONE | Комплексный аудит экосистемы серверов EvaBrain (c3-standard-8) и EvaFace (e2-micro)
+2026-09-06 05:45:00 | EvaFace  | AGY  | SSH      | DONE | TASK-01: Восстановление беспарольного SSH-доступа EvaBrain -> EvaFace (100.125.200.49) с sudo
+2026-09-06 06:05:00 | EvaBrain | AGY  | VERTEX   | DONE | TASK-08: Маршрутизация на Google Cloud Vertex AI REST API (europe-west3) под ADC evabot.online@gmail.com
+2026-09-06 06:15:00 | EvaFace  | AGY  | SECURITY | DONE | TASK-09: Активация OOM Shield на EvaFace, удаление conky, стабилизация RAM на уровне 58 МБ
+2026-09-06 06:22:00 | EvaFace  | AGY  | ROUTING  | DONE | TASK-10: Caddy мультидоменный роутинг на EvaFace, устранение 404, развертывание TUI страниц
+2026-09-06 06:26:00 | EvaBrain | AGY  | FIREWALL | DONE | TASK-11: Сетевой периметр EvaBrain: порты 3000 и 20128 закрыты от WAN (DROP), разрешен Tailscale
+2026-09-06 06:30:00 | EvaBrain | AGY  | MODELS   | DONE | TASK-12: Регистрация gemini-3.8-flash и gemini-3.1-pro в ModelRegistry (1M/2M контекст, USD/EUR)
+2026-09-06 06:33:00 | EvaFace  | AGY  | DOMAIN   | DONE | TASK-13: Подключение домена evaline.website, выпуск TLS 1.3 Let's Encrypt и TUI-лендинга
+2026-09-06 06:34:00 | Global   | AGY  | LOG      | DONE | TASK-14: Создание синхронизированной построчной хроники WORKLOG с 1 августа 2026 г.
+2026-09-06 06:37:00 | EvaFace  | AGY  | FIREWALL | DONE | TASK-15: Открытие UDP 443 (HTTP/3 QUIC) в GCP Firewall и default_sni evabot.online в Caddy
+2026-09-06 06:42:00 | EvaFace  | AGY  | UI       | DONE | TASK-16: Разделение специализаций 4 доменов (AI, Mesh, Security, Docs) и сквозная навигация
+2026-09-06 06:45:00 | EvaBrain | AGY  | LOG      | DONE | TASK-17: Реализация строгого построчного лога (1 строка = 1 событие) в форматах TSV, LOG, TXT и JSON API
+2026-09-06 06:46:00 | Global   | AGY  | UI       | DONE | TASK-18: Перевод всех сайтов на чистый живой Markdown-HTML текстовый интерфейс без лишнего оформления
+2026-09-06 06:51:00 | Global   | AGY  | UI       | DONE | TASK-19: Внедрение режима NOCSS по умолчанию с выключателем и построчными терминальными элементами
+2026-09-06 06:52:00 | Global   | AGY  | UI       | DONE | TASK-20: Резиновая адаптивность интерфейса (Fluid Responsive) под любую ширину экрана от 320px до 4K
+2026-09-06 06:56:00 | Global   | AGY  | UI       | DONE | TASK-21: Развертывание 100% Full-Width интерфейса с живыми аппаратными метриками (CPU/RAM/RTT/Uptime) и анимациями
+2026-09-06 07:02:00 | Global   | AGY  | BROWSER  | DONE | TASK-22: Установка и верификация топ-3 терминальных браузеров (Lynx 2.9.2, w3m 0.5.3, Links 2.29)
+2026-09-06 07:05:00 | Global   | AGY  | I18N     | DONE | TASK-23: Реализация мгновенной 3-язычной локализации (EN, UK, RU) для всех 4 доменов с поддержкой браузеров и TUI
+2026-09-06 07:08:00 | EvaBrain | AGY  | VOICE    | DONE | TASK-24: Интеграция двустороннего аудио-моста (Web Voice Bridge) с микрофоном локального ПК и озвучкой TTS
+2026-09-06 07:09:00 | EvaBrain | AGY  | API      | DONE | TASK-25: Расширение API телеметрии (/api/health) сводными метриками обоих серверов (EvaBrain + EvaFace)
+2026-09-06 07:13:00 | EvaBrain | AGY  | VOICE    | DONE | TASK-26: Настройка полнодуплексной виртуальной аудио-подсистемы PulseAudio (eva_mic + eva_speaker) и создание SSH аудио-моста для /voice
