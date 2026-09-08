@@ -2244,6 +2244,7 @@ details.sub-accordion[open] > summary.sub-summary {
   position: relative;
 }
 .diagram-canvas .mermaid svg {
+  width: 100% !important; /* override any pixel width attrs mermaid may set */
   max-width: 100% !important;
   height: auto !important;
   margin: 0 auto;
@@ -6060,6 +6061,12 @@ details.sub-accordion[open] > summary.sub-summary {
           <div class="hub-item-domain">evaline.website</div>
           <div class="hub-item-desc"><span class="t-ru">Единый навигационный каталог всех сервисов, продуктов, инструментов и точек входа компании.</span><span class="t-uk" hidden>Єдиний навігаційний каталог усіх сервісів, продуктів, інструментів та точок входу компанії.</span><span class="t-en" hidden>Unified navigation gateway across all company services, product catalogs, and corporate entry points.</span></div>
         </a>
+
+        <a href="https://github.com/evaline-network" target="_blank" rel="noopener" class="hub-item">
+          <span class="hub-item-badge" style="border-color: rgba(255, 214, 0, 0.4); color: var(--yellow);"><span class="t-ru">Открытый код</span><span class="t-uk" hidden>Відкритий код</span><span class="t-en" hidden>Open Source</span></span>
+          <div class="hub-item-domain">github.com/evaline-network</div>
+          <div class="hub-item-desc"><span class="t-ru">Официальная организация GitHub: 14 открытых репозиториев, монорепозиторий EvaBot, документация и автоматизация.</span><span class="t-uk" hidden>Офіційна організація GitHub: 14 відкритих репозиторіїв, монорепозиторій EvaBot, документація та автоматизація.</span><span class="t-en" hidden>Official GitHub Organization: 14 open-source repositories, EvaBot monorepo, tooling, and CI/CD pipelines.</span></div>
+        </a>
       </div>
       </div>
     </details>
@@ -7494,6 +7501,14 @@ details.sub-accordion[open] > summary.sub-summary {
     <p style="margin-top: 8px; color: var(--fg-subtle);">
       <span class="t-ru">Кластер: Франкфурт (8 vCPU Dedicated Core) ⟷ Айова (Edge HTTP/3) ⟷ Защищённый WireGuard Mesh-контур.</span><span class="t-uk" hidden>Кластер: Франкфурт (8 vCPU Dedicated Core) ⟷ Айова (Edge HTTP/3) ⟷ Захищений WireGuard Mesh-контур.</span><span class="t-en" hidden>Cluster: Frankfurt (8 vCPU Dedicated Core) ⟷ Iowa (Edge HTTP/3) ⟷ Encrypted WireGuard Mesh Tunnel.</span>
     </p>
+    <div style="margin-top: 16px; display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;">
+      <a href="https://evabot.online" target="_blank" rel="noopener">evabot.online ↗</a>
+      <a href="https://evaline.network" target="_blank" rel="noopener">evaline.network ↗</a>
+      <a href="https://evaline.online" style="color: var(--accent-green); font-weight: 700;">evaline.online ●</a>
+      <a href="https://evaline.website" target="_blank" rel="noopener">evaline.website ↗</a>
+      <span style="color: var(--border);">│</span>
+      <a href="https://github.com/evaline-network" target="_blank" rel="noopener" style="color: var(--accent-amber); font-weight: 700;">GitHub @evaline-network ↗</a>
+    </div>
   </footer>
 
 </div> <!-- End .container -->

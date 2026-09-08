@@ -2230,6 +2230,7 @@ details.sub-accordion[open] > summary.sub-summary {
   position: relative;
 }
 .diagram-canvas .mermaid svg {
+  width: 100% !important; /* override any pixel width attrs mermaid may set */
   max-width: 100% !important;
   height: auto !important;
   margin: 0 auto;

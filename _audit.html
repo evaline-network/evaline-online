@@ -101,7 +101,7 @@ function auditSize(w, h, cb) {
           results.push({ size: w + 'x' + h, hOverflow, bodyOverflow, svgs, offenders, vtraps, mmErrors, noVb, chain });
         } catch(e) { results.push({ size: w + 'x' + h, error: String(e) }); }
         cb();
-      }, 2500);
+      }, 5500);
     }, 400);
   };
 }
