@@ -40,6 +40,18 @@
   - CSS: `.markmap` 460px (380px ≤480px), touch-action none, подсказка pan/zoom, цвет текста #e6edf3.
   - Фикс пре-существующего бага парсера: edge-label со скобками `(129ms)` → обёрнут в кавычки (инфографика 07).
   - Проверено: headless chromium mobile 390px + desktop — 0 ошибок консоли, markmap 41 нода, JS `node --check` OK, w3m читаем.
+- [x] **P1.6** Полный адаптив без скроллбаров под любой экран/ориентацию (резиновая вёрстка):
+  - Mermaid: последовательный рендер с уникальными id (`mmd-N-...`) — конкур. рендеры коллизировали на Date.now() id, viewBox терялся и диаграммы обрезались на 150px.
+  - Свой pan/zoom для mermaid (drag / pinch / dbl-click; wheel не перехватывается) вместо svg-pan-zoom (тот удалял viewBox и ломал CSS-масштабирование).
+  - `.diagram-canvas .mermaid svg { width:100%!important; max-width:100%!important }` + `.mermaid { min-width:0; max-width:100% }` (flex min-width:auto растягивал контейнер до min-content gantt 2147px).
+  - Toolbar: `overflow-x:auto` → `flex-wrap:wrap` (без внутреннего скролла).
+  - kpi-table ≤768px: стековая вёрстка-карточки (thead скрыт), без горизонтального скролла.
+  - comparison-table ≤640px: карточки с `data-label` (добавлены атрибуты в генераторе) + `::before` подписи.
+  - ≤480px: wrap для `.sub-summary`, `.summary-badge`, `.glossary-header`, `.model-card-header`, `.infographic-title-wrap`, pills; `.phase-card` компактнее; markmap height clamp(280-320px, 50-55vh, 420-500px).
+  - Аудит 13 вьюпортов (320×568…1920×1080, портрет+ландшафт) через headless-chromium iframe-харнесс: **0 переполнений, 0 скролл-ловушек, 0 ошибок mermaid**. (Единственный flagged `<g>` внутри gantt-svg — clip svg'ом, визуального overflow нет.)
+- [x] **P1.7** Роли цифрового штата: **Ева = Фронтенд / Лицо компании**, **Адам = Бэкенд, Разработка, Производство, Бизнес-процессы, Безопасность (CISO)**.
+  - Обновлены 53 текста в infographics_builder / sections_01_03 / section_08 / build_manifesto_txt: markmap (02), sequenceDiagram, flowchart-подписи, Тетраксис (граф+ASCII), карточки ролей (08), Q2.1/Q3.4, ASCII-боксы (padding выровнен).
+  - Остатков старых ролей (`CISO и ЧПУ`, `CXO и Продажи`) в артефакте — 0.
 
 ## P2 — Мелочи / проверка на проде
 
