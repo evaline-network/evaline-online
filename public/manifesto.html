@@ -11,8 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <style id="main-manifesto-styles">
-:root {
+  <style>
+
+    :root {
       --bg: #07090e;
       --bg-card: rgba(14, 18, 27, 0.82);
       --bg-card-hover: rgba(20, 26, 40, 0.96);
@@ -1515,8 +1516,8 @@ html[data-lang="ru"] th.t-ru, html[data-lang="uk"] th.t-uk, html[data-lang="en"]
 
 /* Sticky Navigation & Top Control Toolbar */
 .top-nav {
-  position: sticky;
-  top: 0;
+  position: relative;
+
   z-index: 1000;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -1658,7 +1659,7 @@ details.accordion-section[open] {
 summary.accordion-summary {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
   padding: clamp(16px, 2.5vw, 22px) clamp(18px, 3vw, 28px);
   background: rgba(14, 18, 27, 0.95);
   cursor: pointer;
@@ -1670,28 +1671,33 @@ summary.accordion-summary {
 summary.accordion-summary::-webkit-details-marker {
   display: none;
 }
-summary.accordion-summary::before {
-  content: "▶";
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--accent-green);
-  transition: transform 0.25s ease;
-  display: inline-block;
-  flex-shrink: 0;
-}
-details.accordion-section[open] > summary.accordion-summary::before {
-  transform: rotate(90deg);
-  color: var(--accent-cyan);
-}
 details.accordion-section[open] > summary.accordion-summary {
   border-bottom-color: var(--border);
   background: rgba(18, 24, 38, 0.98);
+}
+.summary-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 16px);
+  flex: 1;
+}
+.summary-chevron {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+}
+details.accordion-section[open] > summary.accordion-summary .summary-chevron {
+  transform: rotate(90deg);
 }
 .summary-num {
   font-family: var(--font-mono);
   font-size: clamp(0.85rem, 1.3vw, 1.05rem);
   font-weight: 700;
-  color: var(--accent-green);
+  color: var(--accent);
   background: rgba(0, 230, 118, 0.1);
   border: 1px solid var(--border-accent);
   padding: 4px 10px;
@@ -1701,12 +1707,11 @@ details.accordion-section[open] > summary.accordion-summary {
 }
 .summary-title {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 1.9vw, 1.45rem);
+  font-size: clamp(1.1rem, 1.9vw, 1.5rem);
   font-weight: 700;
   color: #fff;
   margin: 0;
   line-height: 1.35;
-  flex: 1;
 }
 .summary-badge {
   font-family: var(--font-mono);
@@ -1717,8 +1722,6 @@ details.accordion-section[open] > summary.accordion-summary {
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--fg-muted);
   white-space: nowrap;
-  flex-shrink: 0;
-  margin-left: auto;
 }
 
 .accordion-content {
@@ -1744,7 +1747,7 @@ details.sub-accordion[open] {
 summary.sub-summary {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   padding: 13px 18px;
   cursor: pointer;
   user-select: none;
@@ -1756,50 +1759,50 @@ summary.sub-summary {
 summary.sub-summary::-webkit-details-marker {
   display: none;
 }
-summary.sub-summary::before {
-  content: "▶";
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-cyan);
-  transition: transform 0.25s ease;
-  display: inline-block;
-  flex-shrink: 0;
-}
-details.sub-accordion[open] > summary.sub-summary::before {
-  transform: rotate(90deg);
-  color: var(--accent-green);
-}
 details.sub-accordion[open] > summary.sub-summary {
   border-bottom-color: rgba(255, 255, 255, 0.06);
   background: rgba(20, 28, 44, 0.85);
 }
+.sub-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.sub-chevron {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--cyan);
+  transition: transform 0.25s ease;
+  display: inline-block;
+  width: 14px;
+  text-align: center;
+}
+details.sub-accordion[open] > summary.sub-summary .sub-chevron {
+  transform: rotate(90deg);
+}
 .sub-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 .sub-title {
-  font-family: var(--font-sans);
-  font-size: 1.02rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.18rem);
   font-weight: 600;
-  color: #fff;
-  line-height: 1.4;
-  flex: 1;
+  color: var(--fg);
+  margin: 0;
 }
 .sub-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 2px 10px;
+  font-size: 0.7rem;
+  padding: 3px 9px;
   border-radius: 12px;
   background: rgba(0, 229, 255, 0.08);
   border: 1px solid rgba(0, 229, 255, 0.25);
-  color: var(--accent-cyan);
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-left: auto;
+  color: var(--cyan);
 }
 .sub-content {
-  padding: 16px 20px 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 18px 20px;
 }
 
 
@@ -1847,773 +1850,6 @@ details.sub-accordion[open] > summary.sub-summary {
   text-transform: uppercase;
 }
 
-/* Additional Theme Accents & Control Bar Styles */
-:root {
-  --accent: #00e676;
-  --cyan: #00e5ff;
-  --accent-red: #f87171;
-}
-
-.mode-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.btn-ctrl {
-  background: rgba(20, 26, 40, 0.8);
-  border: 1px solid var(--border);
-  color: var(--fg-muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-}
-.btn-ctrl:hover {
-  color: var(--cyan);
-  border-color: var(--border-cyan);
-  background: rgba(0, 229, 255, 0.08);
-}
-.btn-ctrl.styles-disabled {
-  background: rgba(255, 214, 0, 0.15);
-  border-color: var(--accent-amber);
-  color: var(--accent-amber);
-}
-
-/* ==========================================================================
-   INFOGRAPHICS, KPI GAUGES, MERMAID & DASHBOARDS
-   ========================================================================== */
-.infographic-panel {
-  background: linear-gradient(135deg, rgba(14, 18, 27, 0.92) 0%, rgba(10, 14, 22, 0.95) 100%);
-  border: 1px solid rgba(0, 230, 118, 0.22);
-  border-radius: 14px;
-  padding: 22px 24px;
-  margin: 16px 0 24px 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-.infographic-panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #00e676, #00e5ff, #38bdf8, transparent);
-}
-.infographic-header {
-  margin-bottom: 20px;
-}
-.infographic-title-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
-}
-.infographic-icon {
-  font-size: 2rem;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 12px;
-}
-.infographic-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-.infographic-title {
-  font-family: var(--font-display);
-  font-size: 1.28rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 2px 0 0 0;
-}
-.infographic-desc {
-  color: var(--fg-muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  max-width: 900px;
-}
-
-/* KPI Metrics Grid */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-bottom: 22px;
-}
-.kpi-card {
-  background: rgba(18, 24, 38, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 10px;
-  padding: 16px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
-.kpi-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-}
-.kpi-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-}
-.kpi-green::after { background: #00e676; }
-.kpi-cyan::after { background: #00e5ff; }
-.kpi-amber::after { background: #ffd600; }
-.kpi-purple::after { background: #b388ff; }
-.kpi-red::after { background: #f87171; }
-
-.kpi-val {
-  font-family: var(--font-display);
-  font-size: 1.85rem;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin-bottom: 4px;
-}
-.kpi-green .kpi-val { color: #00e676; text-shadow: 0 0 12px rgba(0, 230, 118, 0.3); }
-.kpi-cyan .kpi-val { color: #00e5ff; text-shadow: 0 0 12px rgba(0, 229, 255, 0.3); }
-.kpi-amber .kpi-val { color: #ffd600; text-shadow: 0 0 12px rgba(255, 214, 0, 0.3); }
-.kpi-purple .kpi-val { color: #c084fc; text-shadow: 0 0 12px rgba(192, 132, 252, 0.3); }
-.kpi-red .kpi-val { color: #f87171; text-shadow: 0 0 12px rgba(248, 113, 113, 0.3); }
-
-.kpi-lbl {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #e6edf3;
-  margin-bottom: 4px;
-}
-.kpi-sub {
-  font-size: 0.76rem;
-  color: var(--fg-muted);
-  line-height: 1.35;
-}
-
-/* Diagram Box & Mermaid */
-.diagram-box {
-  background: rgba(10, 14, 22, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 16px 18px;
-  overflow: hidden;
-}
-.diagram-box-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.diagram-box-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--cyan);
-}
-.diagram-pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-.diagram-badge {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  color: var(--cyan);
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-.diagram-canvas {
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 12px 0;
-  display: block;
-}
-.diagram-canvas .mermaid {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 auto;
-  text-align: center;
-}
-.diagram-canvas .mermaid svg {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  display: block;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .diagram-canvas .mermaid svg {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  .diagram-canvas .mermaid svg[id*="sequence"],
-  .diagram-canvas .mermaid svg.sequenceDiagram {
-    min-width: 480px !important;
-  }
-}
-
-/* ASCII Fallback Toggle */
-.ascii-toggle {
-  margin-top: 12px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.08);
-  padding-top: 10px;
-}
-.ascii-toggle-btn {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--fg-muted);
-  cursor: pointer;
-  outline: none;
-}
-.ascii-toggle-btn:hover {
-  color: var(--cyan);
-}
-.ascii-diagram {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.4;
-  color: #38bdf8;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 14px;
-  overflow-x: auto;
-  margin: 10px 0 0 0;
-}
-
-/* SVG Tetraktys Pyramid */
-.tetraktys-svg-card {
-  background: rgba(14, 18, 27, 0.75);
-  border: 1px solid rgba(0, 230, 118, 0.2);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 20px;
-}
-.tetraktys-svg-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-.tetraktys-svg-title {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--accent-amber);
-}
-.svg-node circle {
-  transition: transform 0.2s ease, stroke-width 0.2s ease;
-  cursor: pointer;
-}
-.svg-node:hover circle {
-  filter: brightness(1.2);
-}
-
-/* =========================================================================
-   MASTER CONTROLS TOOLBAR & THEME PRESETS
-   ========================================================================= */
-.top-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 16px clamp(16px, 3vw, 32px);
-  background: rgba(10, 14, 22, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.brand-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.toolbar-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 18px;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.08);
-}
-
-.toolbar-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.toolbar-label {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--fg-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-.btn-group {
-  display: inline-flex;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-
-.btn-group .btn-ctrl,
-.btn-group .theme-btn,
-.btn-group .lang-btn,
-.btn-group .diagram-btn {
-  background: transparent;
-  border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--fg-muted);
-  padding: 5px 11px;
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-group button:last-child,
-.btn-group a:last-child {
-  border-right: none;
-}
-
-.btn-group .btn-ctrl:hover,
-.btn-group .theme-btn:hover,
-.btn-group .lang-btn:hover,
-.btn-group .diagram-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-.btn-group .active {
-  background: rgba(0, 230, 118, 0.15) !important;
-  color: var(--accent-green) !important;
-  font-weight: 700;
-  box-shadow: inset 0 0 10px rgba(0, 230, 118, 0.2);
-}
-
-/* Section Divider */
-.section-divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  margin: 32px 0;
-}
-
-/* =========================================================================
-   SEMANTIC KPI METRIC TABLE (Cyber UI Styling)
-   ========================================================================= */
-.kpi-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--border);
-  background: rgba(14, 18, 27, 0.75);
-  border-radius: 10px;
-  margin: 16px 0 24px;
-  overflow: hidden;
-}
-
-.kpi-table th {
-  background: rgba(0, 230, 118, 0.07);
-  color: var(--accent-green);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 10px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.kpi-table td {
-  padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--fg);
-}
-
-.kpi-val-cell {
-  font-family: var(--font-mono);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--accent-cyan);
-}
-
-.kpi-row.kpi-green .kpi-val-cell { color: var(--accent-green); }
-.kpi-row.kpi-cyan .kpi-val-cell { color: var(--accent-cyan); }
-.kpi-row.kpi-purple .kpi-val-cell { color: var(--accent-purple); }
-.kpi-row.kpi-amber .kpi-val-cell { color: var(--accent-amber); }
-.kpi-row.kpi-red .kpi-val-cell { color: #f87171; }
-
-.kpi-lbl-cell strong {
-  color: #fff;
-  font-size: 0.95rem;
-}
-
-.kpi-sub-cell small {
-  color: var(--fg-muted);
-  font-size: 0.82rem;
-  line-height: 1.35;
-}
-
-/* =========================================================================
-   THEME: PAPER LIGHT (High-Contrast Clean White Editorial)
-   ========================================================================= */
-[data-theme="paper"] {
-  --bg: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --border: #cbd5e1;
-  --border-accent: #059669;
-  --border-cyan: #0284c7;
-  --fg: #0f172a;
-  --fg-muted: #475569;
-  --fg-subtle: #64748b;
-  --accent-green: #059669;
-  --accent-cyan: #0284c7;
-  --accent-blue: #2563eb;
-  --accent-amber: #d97706;
-  --accent-purple: #7c3aed;
-}
-
-[data-theme="paper"] body {
-  background-color: #f8fafc;
-  color: #0f172a;
-  background-image: none;
-}
-
-[data-theme="paper"] .top-nav {
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom-color: #cbd5e1;
-}
-
-[data-theme="paper"] .brand-title {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .btn-group {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .btn-group .btn-ctrl,
-[data-theme="paper"] .btn-group .theme-btn,
-[data-theme="paper"] .btn-group .lang-btn,
-[data-theme="paper"] .btn-group .diagram-btn {
-  color: #475569;
-  border-right-color: #cbd5e1;
-}
-
-[data-theme="paper"] .btn-group .btn-ctrl:hover,
-[data-theme="paper"] .btn-group .theme-btn:hover,
-[data-theme="paper"] .btn-group .lang-btn:hover,
-[data-theme="paper"] .btn-group .diagram-btn:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-[data-theme="paper"] .btn-group .active {
-  background: #dcfce7 !important;
-  color: #059669 !important;
-  box-shadow: none;
-}
-
-[data-theme="paper"] .hero-title,
-[data-theme="paper"] .hero-title span {
-  color: #0f172a !important;
-  background: none !important;
-  -webkit-text-fill-color: #0f172a !important;
-}
-
-[data-theme="paper"] .hero-desc {
-  color: #334155;
-}
-
-[data-theme="paper"] .hero-nav-pill {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-  color: #1e293b;
-}
-
-[data-theme="paper"] .hero-nav-pill:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-[data-theme="paper"] p,
-[data-theme="paper"] li,
-[data-theme="paper"] .accordion-content,
-[data-theme="paper"] .sub-content {
-  color: #1e293b;
-}
-
-[data-theme="paper"] details.accordion-section {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-
-[data-theme="paper"] summary.accordion-summary {
-  background: #ffffff;
-  color: #0f172a;
-}
-
-[data-theme="paper"] details.accordion-section[open] > summary.accordion-summary {
-  background: #f8fafc;
-  border-bottom-color: #e2e8f0;
-}
-
-[data-theme="paper"] .summary-title {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .summary-num {
-  background: #e0f2fe;
-  border-color: #bae6fd;
-  color: #0369a1;
-}
-
-[data-theme="paper"] .infographic-panel {
-  background: #ffffff;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .infographic-title {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .infographic-desc {
-  color: #475569;
-}
-
-[data-theme="paper"] .diagram-box {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .diagram-box-header {
-  background: #f1f5f9;
-  border-bottom-color: #cbd5e1;
-}
-
-[data-theme="paper"] .diagram-box-title strong {
-  color: #0f172a;
-}
-
-[data-theme="paper"] details.sub-accordion {
-  background: #ffffff;
-  border-color: #e2e8f0;
-}
-
-[data-theme="paper"] summary.sub-summary {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-[data-theme="paper"] details.sub-accordion[open] > summary.sub-summary {
-  background: #f1f5f9;
-}
-
-[data-theme="paper"] .sub-title {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .kpi-table {
-  background: #ffffff;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .kpi-table th {
-  background: #f1f5f9;
-  color: #0f172a;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .kpi-table td {
-  border-color: #e2e8f0;
-  color: #1e293b;
-}
-
-[data-theme="paper"] .kpi-lbl-cell strong {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .ascii-diagram {
-  background: #f1f5f9 !important;
-  color: #0f172a !important;
-  border-color: #cbd5e1 !important;
-}
-
-[data-theme="paper"] .model-card {
-  background: #ffffff;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .model-name {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .model-desc {
-  color: #334155;
-}
-
-[data-theme="paper"] .glossary-card {
-  background: #ffffff;
-  border-color: #cbd5e1;
-}
-
-[data-theme="paper"] .glossary-term {
-  color: #0f172a;
-}
-
-[data-theme="paper"] .section-divider {
-  background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
-  border-top-color: #cbd5e1;
-}
-
-/* =========================================================================
-   THEME: TERMINAL CRT (Monospace Green Phosphor on Black)
-   ========================================================================= */
-[data-theme="terminal"] {
-  --bg: #050505;
-  --bg-card: rgba(0, 20, 10, 0.85);
-  --bg-card-hover: rgba(0, 30, 15, 0.95);
-  --border: #00ff66;
-  --border-accent: #00ff66;
-  --border-cyan: #ffb000;
-  --fg: #a7f3d0;
-  --fg-muted: #34d399;
-  --fg-subtle: #059669;
-  --accent-green: #00ff66;
-  --accent-cyan: #ffb000;
-  --accent-blue: #00ffcc;
-  --accent-amber: #ffb000;
-  --font-sans: 'Roboto Mono', monospace;
-  --font-display: 'Roboto Mono', monospace;
-}
-
-[data-theme="terminal"] body {
-  background-color: #050505;
-  color: #00ff66;
-  font-family: 'Roboto Mono', monospace;
-  background-image: linear-gradient(rgba(0, 255, 100, 0.03) 50%, rgba(0, 0, 0, 0.25) 50%);
-  background-size: 100% 4px;
-}
-
-[data-theme="terminal"] .summary-title {
-  color: #00ff66;
-  font-family: 'Roboto Mono', monospace;
-}
-
-[data-theme="terminal"] .kpi-val {
-  color: #ffb000;
-}
-
-[data-theme="terminal"] .hero-title span {
-  background: none !important;
-  -webkit-text-fill-color: #00ff66 !important;
-  color: #00ff66 !important;
-}
-
-[data-theme="terminal"] .kpi-table th {
-  background: rgba(0, 255, 100, 0.1);
-  color: #00ff66;
-}
-
-/* Print Optimization */
-@media print {
-  .top-nav, .accordion-controls, .theme-switcher, .lang-switcher {
-    display: none !important;
-  }
-  body {
-    background: #fff !important;
-    color: #000 !important;
-  }
-  details {
-    display: block !important;
-    border: none !important;
-    margin: 20px 0 !important;
-  }
-  details[open] {
-    display: block !important;
-  }
-  .accordion-content {
-    display: block !important;
-    padding: 0 !important;
-  }
-  summary {
-    font-size: 1.3rem !important;
-    font-weight: bold !important;
-    list-style: none !important;
-  }
-  .kpi-table {
-    border: 1px solid #000 !important;
-  }
-  .kpi-table th, .kpi-table td {
-    border: 1px solid #000 !important;
-    color: #000 !important;
-  }
-}
-
-
-
   </style>
 </head>
 <body>
@@ -2621,7 +1857,7 @@ details.sub-accordion[open] > summary.sub-summary {
 <header class="top-nav" role="banner">
   <div class="brand-row">
     <a href="https://evaline.online" class="brand-title">
-      <span class="logo-gem">◆</span> EVALINE // EVANETWORK
+      <span class="logo-gem">◆</span> EVALINE NETWORK (EVANET)
     </a>
     <div class="cluster-status-pill" id="cluster-status-indicator">
       <span class="pulse-dot"></span>
@@ -5633,295 +4869,14 @@ details.sub-accordion[open] > summary.sub-summary {
   <details class="accordion-section" open id="business-solutions">
     <summary class="accordion-summary">
       <span class="summary-num">[08]</span>
-      <span class="summary-title"><strong class="t-ru">Решение задач бизнеса, интеграция производства и анатомия EvaBot</strong><strong class="t-uk" hidden>Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot</strong><strong class="t-en" hidden>Business Solutions, Manufacturing Integration & EvaBot Anatomy</strong></span>
-      <span class="summary-badge">[<span class="t-ru">Практическое внедрение</span><span class="t-uk" hidden>Практичне впровадження</span><span class="t-en" hidden>Production Reality</span>]</span>
+      <span class="summary-title"><strong class="t-ru">Решение задач бизнеса, интеграция производства и анатомия EvaBot + финансовая модель</strong><strong class="t-uk" hidden>Рішення для бізнесу, інтеграція виробництва та анатомія EvaBot + фінансова модель</strong><strong class="t-en" hidden>Business Solutions, Manufacturing Integration & Financial Model</strong></span>
+      <span class="summary-badge">[<span class="t-ru">Практическое внедрение и финансы</span><span class="t-uk" hidden>Практичне впровадження та фінанси</span><span class="t-en" hidden>Implementation & Finance</span>]</span>
     </summary>
     <div class="accordion-content">
-          <!-- =====================================================================
-         INFOGRAPHIC & VISUAL DASHBOARD FOR SECTION 08
-         ===================================================================== -->
-    <div class="infographic-panel" id="infographic-sec-08">
-      <div class="infographic-header">
-        <div class="infographic-title-wrap">
-          <span class="infographic-icon">📐</span>
-          <div>
-            <div class="infographic-eyebrow">
-              <span class="t-ru">ИНФОГРАФИКА РАЗДЕЛА 08 // ТЕТРАКСИС И СФИРОТ</span><span class="t-uk" hidden>ІНФОГРАФІКА РОЗДІЛУ 08 // ТЕТРАКСИС ТА СФІРОТ</span><span class="t-en" hidden>SECTION 08 DASHBOARD // TETRAKTYS & SEPHIROT</span>
-            </div>
-            <h3 class="infographic-title">
-              <span class="t-ru">Сакральная пирамида Тетраксиса Пифагора (1 + 2 + 3 + 4 = 10) и Сфирот</span><span class="t-uk" hidden>Сакральна піраміда Тетраксиса Піфагора (1 + 2 + 3 + 4 = 10) та Сфірот</span><span class="t-en" hidden>Sacred Pythagorean Tetraktys Pyramid (1 + 2 + 3 + 4 = 10) and Sephirot</span>
-            </h3>
-          </div>
-        </div>
-        <div class="infographic-desc">
-          <span class="t-ru">10 универсальных должностей цифрового штата в строгой геометрической и метафизической гармонии.</span><span class="t-uk" hidden>10 універсальних посад цифрового штату в суворій геометричній та метафізичній гармонії.</span><span class="t-en" hidden>10 universal digital enterprise roles arranged in sacred geometric and metaphysical harmony.</span>
-        </div>
-      </div>
-
-      <!-- KPI METRIC TABLE (Semantic HTML with CSS-styling fallback) -->
-      <table class="kpi-table" border="1" cellpadding="8" cellspacing="0" width="100%">
-        <thead>
-          <tr>
-            <th width="18%" align="center"><span class="t-ru">Показатель</span><span class="t-uk" hidden>Показник</span><span class="t-en" hidden>Metric</span></th>
-            <th width="38%" align="left"><span class="t-ru">Параметр системы</span><span class="t-uk" hidden>Параметр системи</span><span class="t-en" hidden>System Parameter</span></th>
-            <th width="44%" align="left"><span class="t-ru">Значение для бизнеса / ТУ</span><span class="t-uk" hidden>Значення для бізнесу / ТУ</span><span class="t-en" hidden>Business Impact / Technical Spec</span></th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr class="kpi-row kpi-green">
-          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
-          <td class="kpi-lbl-cell"><strong><span class="t-ru">Универсальных должностей цифрового штата</span><span class="t-uk" hidden>Універсальних посад цифрового штату</span><span class="t-en" hidden>Universal Digital Job Positions</span></strong></td>
-          <td class="kpi-sub-cell"><small><span class="t-ru">От Главного Архитектора до Мастера ЧПУ</span><span class="t-uk" hidden>Від Головного Архітектора до Майстра ЧПК</span><span class="t-en" hidden>Direct alignment from Chief Architect to CNC Master</span></small></td>
-        </tr>
-        <tr class="kpi-row kpi-cyan">
-          <td class="kpi-val-cell" align="center"><strong class="kpi-val">1+2+3+4</strong></td>
-          <td class="kpi-lbl-cell"><strong><span class="t-ru">Сакральный Тетраксис Пифагора (=10)</span><span class="t-uk" hidden>Сакральний Тетраксис Піфагора (=10)</span><span class="t-en" hidden>Pythagorean Tetraktys (1+2+3+4=10)</span></strong></td>
-          <td class="kpi-sub-cell"><small><span class="t-ru">4 гармоничных яруса управления</span><span class="t-uk" hidden>4 гармонійних яруси управління</span><span class="t-en" hidden>Four harmonious organisational tiers</span></small></td>
-        </tr>
-        <tr class="kpi-row kpi-purple">
-          <td class="kpi-val-cell" align="center"><strong class="kpi-val">10</strong></td>
-          <td class="kpi-lbl-cell"><strong><span class="t-ru">Ступеней Древа Сфирот</span><span class="t-uk" hidden>Ступенів Дерева Сфірот</span><span class="t-en" hidden>Sephirot Emanation Stages</span></strong></td>
-          <td class="kpi-sub-cell"><small><span class="t-ru">От Кетер (Замысел) до Малхут (Физический мир)</span><span class="t-uk" hidden>Від Кетер (Задум) до Малхут (Фізичний світ)</span><span class="t-en" hidden>From Kether (Vision) down to Malkuth (Physical Plant)</span></small></td>
-        </tr>
-        <tr class="kpi-row kpi-amber">
-          <td class="kpi-val-cell" align="center"><strong class="kpi-val">0%</strong></td>
-          <td class="kpi-lbl-cell"><strong><span class="t-ru">Конфликтов и дублирования зон</span><span class="t-uk" hidden>Конфліктів та дублювання зон</span><span class="t-en" hidden>Zero Role Collision or Ambiguity</span></strong></td>
-          <td class="kpi-sub-cell"><small><span class="t-ru">Строгие математические и правовые границы</span><span class="t-uk" hidden>Суворі математичні та правові межі</span><span class="t-en" hidden>Deterministic responsibility boundaries across all agents</span></small></td>
-        </tr>
-        </tbody>
-      </table>
-
-            <div class="tetraktys-svg-card">
-        <div class="tetraktys-svg-header">
-          <span class="tetraktys-svg-title"><span class="t-ru">САКРАЛЬНАЯ ПИРАМИДА ТЕТРАКСИСА (1 + 2 + 3 + 4 = 10)</span><span class="t-uk" hidden>САКРАЛЬНА ПІРАМІДА ТЕТРАКСИСА (1 + 2 + 3 + 4 = 10)</span><span class="t-en" hidden>SACRED TETRAKTYS PYRAMID (1 + 2 + 3 + 4 = 10)</span></span>
-          <span class="diagram-tag">SVG Vector // 10 Nodes</span>
-        </div>
-        <div style="display: flex; justify-content: center; padding: 20px 10px;">
-          <svg viewBox="0 0 700 480" style="max-width: 680px; width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(0,230,118,0.15));">
-            <defs>
-              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffd600" stop-opacity="0.6"/>
-                <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#00e676" stop-opacity="0.6"/>
-              </linearGradient>
-            </defs>
-
-            <!-- CONNECTIONS -->
-            <line x1="350" y1="60" x2="260" y2="170" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="4,4"/>
-            <line x1="350" y1="60" x2="440" y2="170" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="4,4"/>
-            <line x1="260" y1="170" x2="440" y2="170" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            
-            <line x1="260" y1="170" x2="180" y2="280" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="260" y1="170" x2="350" y2="280" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="440" y1="170" x2="350" y2="280" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="440" y1="170" x2="520" y2="280" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            
-            <line x1="180" y1="280" x2="110" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="180" y1="280" x2="270" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="350" y1="280" x2="270" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="350" y1="280" x2="430" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="520" y1="280" x2="430" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-            <line x1="520" y1="280" x2="590" y2="390" stroke="url(#lineGrad)" stroke-width="1.5"/>
-
-            <!-- TIER I: MONAD (1 NODE) -->
-            <g class="svg-node" transform="translate(350, 60)">
-              <circle r="36" fill="#141c2b" stroke="#ffd600" stroke-width="3"/>
-              <circle r="42" fill="none" stroke="#ffd600" stroke-width="1" opacity="0.4"/>
-              <text text-anchor="middle" y="-6" fill="#ffd600" font-family="'Roboto', sans-serif" font-size="12" font-weight="700">01. АРХИТЕКТОР</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="10">Кетер (Kether)</text>
-              <text text-anchor="middle" y="24" fill="#ffd600" font-size="11">👑 РЯД I: МОНАДА</text>
-            </g>
-
-            <!-- TIER II: DYAD (2 NODES) -->
-            <g class="svg-node" transform="translate(260, 170)">
-              <circle r="34" fill="#141c2b" stroke="#f87171" stroke-width="2.5"/>
-              <text text-anchor="middle" y="-6" fill="#fff" font-family="'Roboto', sans-serif" font-size="12" font-weight="700">02. АДАМ (CISO)</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="10">Бина / Гевура</text>
-              <text text-anchor="middle" y="22" fill="#f87171" font-size="10">🛡️ Строгость</text>
-            </g>
-
-            <g class="svg-node" transform="translate(440, 170)">
-              <circle r="34" fill="#141c2b" stroke="#38bdf8" stroke-width="2.5"/>
-              <text text-anchor="middle" y="-6" fill="#fff" font-family="'Roboto', sans-serif" font-size="12" font-weight="700">03. ЕВА (CXO)</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="10">Хокма / Хесед</text>
-              <text text-anchor="middle" y="22" fill="#38bdf8" font-size="10">🤝 Мудрость</text>
-            </g>
-
-            <!-- TIER III: TRIAD (3 NODES) -->
-            <g class="svg-node" transform="translate(180, 280)">
-              <circle r="32" fill="#141c2b" stroke="#00e5ff" stroke-width="2"/>
-              <text text-anchor="middle" y="-5" fill="#fff" font-family="'Roboto', sans-serif" font-size="11" font-weight="700">04. АРБИТР</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9.5">Тиферет</text>
-              <text text-anchor="middle" y="22" fill="#00e5ff" font-size="9.5">⚖️ Синтез</text>
-            </g>
-
-            <g class="svg-node" transform="translate(350, 280)">
-              <circle r="32" fill="#141c2b" stroke="#00e5ff" stroke-width="2"/>
-              <text text-anchor="middle" y="-5" fill="#fff" font-family="'Roboto', sans-serif" font-size="11" font-weight="700">05. РАЗРАБОТЧИК</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9.5">Нецах</text>
-              <text text-anchor="middle" y="22" fill="#00e5ff" font-size="9.5">⚡ Код / Git</text>
-            </g>
-
-            <g class="svg-node" transform="translate(520, 280)">
-              <circle r="32" fill="#141c2b" stroke="#00e5ff" stroke-width="2"/>
-              <text text-anchor="middle" y="-5" fill="#fff" font-family="'Roboto', sans-serif" font-size="11" font-weight="700">06. ГОЛОС / ХОД</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9.5">Ход</text>
-              <text text-anchor="middle" y="22" fill="#00e5ff" font-size="9.5">🎙️ Речь</text>
-            </g>
-
-            <!-- TIER IV: TETRAD (4 NODES) -->
-            <g class="svg-node" transform="translate(110, 390)">
-              <circle r="30" fill="#141c2b" stroke="#00e676" stroke-width="2"/>
-              <text text-anchor="middle" y="-4" fill="#fff" font-family="'Roboto', sans-serif" font-size="10.5" font-weight="700">07. ПАМЯТЬ</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9">Йесод</text>
-              <text text-anchor="middle" y="21" fill="#00e676" font-size="9">💾 RAG</text>
-            </g>
-
-            <g class="svg-node" transform="translate(270, 390)">
-              <circle r="30" fill="#141c2b" stroke="#00e676" stroke-width="2"/>
-              <text text-anchor="middle" y="-4" fill="#fff" font-family="'Roboto', sans-serif" font-size="10.5" font-weight="700">08. SRE / DEVOPS</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9">Оболочка</text>
-              <text text-anchor="middle" y="21" fill="#00e676" font-size="9">🔧 Сеть</text>
-            </g>
-
-            <g class="svg-node" transform="translate(430, 390)">
-              <circle r="30" fill="#141c2b" stroke="#00e676" stroke-width="2"/>
-              <text text-anchor="middle" y="-4" fill="#fff" font-family="'Roboto', sans-serif" font-size="10.5" font-weight="700">09. ЮРИСТ</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9">Врата</text>
-              <text text-anchor="middle" y="21" fill="#00e676" font-size="9">📜 Нормы</text>
-            </g>
-
-            <g class="svg-node" transform="translate(590, 390)">
-              <circle r="30" fill="#141c2b" stroke="#00e676" stroke-width="2.5"/>
-              <circle r="35" fill="none" stroke="#00e676" stroke-width="1" opacity="0.4"/>
-              <text text-anchor="middle" y="-4" fill="#00e676" font-family="'Roboto', sans-serif" font-size="10.5" font-weight="700">10. МАСТЕР ЧПУ</text>
-              <text text-anchor="middle" y="10" fill="#8b949e" font-family="'Roboto Mono', monospace" font-size="9">Малхут</text>
-              <text text-anchor="middle" y="21" fill="#00e676" font-size="9">🏭 Завод</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <!-- ARCHITECTURE DIAGRAM BOX -->
-      <div class="diagram-box">
-        <div class="diagram-box-header">
-          <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <strong><span class="t-ru">АРХИТЕКТУРНАЯ СХЕМА И ДИАГРАММА ПОТОКОВ ДАННЫХ</span><span class="t-uk" hidden>АРХІТЕКТУРНА СХЕМА ТА ДІАГРАМА ПОТОКІВ ДАНИХ</span><span class="t-en" hidden>ARCHITECTURE & DATAFLOW SCHEMATIC</span></strong>
-          </div>
-          <span class="diagram-badge">Mermaid.js // Auto-Layout</span>
-        </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang t-ru"><div class="mermaid">flowchart TD
-  K["01. Руководитель / Архитектор<br/>(Стратегия и общие правила)"]
-  B["02. Адам: Техдир & Безопасник<br/>(Проверка кода, сметы, ЧПУ)"]
-  C["03. Ева: Клиентский директор<br/>(Продажи, голос, поддержка)"]
-  T["04. Арбитр Консилиума<br/>(Разрешение споров, точность 99.4%)"]
-  N["05. Разработчик программ<br/>(Код, микросервисы, Git)"]
-  H["06. Оператор речи / Голос<br/>(Живой диалог и звонки)"]
-  Y["07. Хранитель базы данных<br/>(Память RAG, прайсы, ГОСТы)"]
-  S["08. Системный Администратор<br/>(Серверы, сеть WireGuard, 24/7)"]
-  L["09. Юрист по контрактам<br/>(Таможня, экспорт, законы ЕС)"]
-  M["10. Мастер производства<br/>(Цех в Черноморске, станки ЧПУ)"]
-
-  K --> B & C
-  B --> T & N
-  C --> T & H
-  T --> Y
-  N --> S
-  H --> L
-  Y & S & L --> M
-
-  classDef t1 fill:#1c2333,stroke:#ffd600,stroke-width:2px,color:#ffd600;
-  classDef t2 fill:#1c2333,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
-  classDef t3 fill:#1c2333,stroke:#00e5ff,stroke-width:2px,color:#00e5ff;
-  classDef t4 fill:#1c2333,stroke:#00e676,stroke-width:2px,color:#00e676;
-  class K t1;
-  class B,C t2;
-  class T,N,H t3;
-  class Y,S,L,M t4;</div></div><div class="mermaid-lang t-uk" hidden><div class="mermaid">flowchart TD
-  K["01. Керівник / Архітектор<br/>(Стратегія та загальні правила)"]
-  B["02. Адам: Техдир & Безпека<br/>(Перевірка коду, кошториси, ЧПК)"]
-  C["03. Єва: Клієнтський директор<br/>(Продажі, голос, підтримка)"]
-  T["04. Арбітр Консиліуму<br/>(Вирішення суперечок, точність 99.4%)"]
-  N["05. Розробник програм<br/>(Код, мікросервіси, Git)"]
-  H["06. Оператор мови / Голос<br/>(Живий діалог та дзвінки)"]
-  Y["07. Охоронець бази даних<br/>(Пам'ять RAG, прайси, ДСТУ)"]
-  S["08. Системний Адміністратор<br/>(Сервери, мережа WireGuard, 24/7)"]
-  L["09. Юрист за контрактами<br/>(Митниця, експорт, закони ЄС)"]
-  M["10. Майстер виробництва<br/>(Цех у Чорноморську, верстати ЧПК)"]
-
-  K --> B & C
-  B --> T & N
-  C --> T & H
-  T --> Y
-  N --> S
-  H --> L
-  Y & S & L --> M
-
-  classDef t1 fill:#1c2333,stroke:#ffd600,stroke-width:2px,color:#ffd600;
-  classDef t2 fill:#1c2333,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
-  classDef t3 fill:#1c2333,stroke:#00e5ff,stroke-width:2px,color:#00e5ff;
-  classDef t4 fill:#1c2333,stroke:#00e676,stroke-width:2px,color:#00e676;
-  class K t1;
-  class B,C t2;
-  class T,N,H t3;
-  class Y,S,L,M t4;</div></div><div class="mermaid-lang t-en" hidden><div class="mermaid">flowchart TD
-  K["01. Chief Architect<br/>(Strategy & Foundational Rules)"]
-  B["02. Adam: Chief Engineer & CISO<br/>(Code audit, budgets, CNC limits)"]
-  C["03. Eva: Customer Experience CXO<br/>(Sales, voice, omnichannel care)"]
-  T["04. Consilium Arbiter<br/>(Dispute resolution, 99.4% precision)"]
-  N["05. Software Developer<br/>(Clean code, microservices, Git)"]
-  H["06. Voice Specialist<br/>(Real-time conversational speech)"]
-  Y["07. Memory & Data Specialist<br/>(RAG vector store, pricing, specs)"]
-  S["08. Systems SRE Engineer<br/>(Servers, WireGuard mesh, 24/7 uptime)"]
-  L["09. Legal & Compliance Counsel<br/>(Customs, trade law, EU directives)"]
-  M["10. Plant Production Master<br/>(Chornomorsk plant, CNC flatbeds)"]
-
-  K --> B & C
-  B --> T & N
-  C --> T & H
-  T --> Y
-  N --> S
-  H --> L
-  Y & S & L --> M
-
-  classDef t1 fill:#1c2333,stroke:#ffd600,stroke-width:2px,color:#ffd600;
-  classDef t2 fill:#1c2333,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
-  classDef t3 fill:#1c2333,stroke:#00e5ff,stroke-width:2px,color:#00e5ff;
-  classDef t4 fill:#1c2333,stroke:#00e676,stroke-width:2px,color:#00e676;
-  class K t1;
-  class B,C t2;
-  class T,N,H t3;
-  class Y,S,L,M t4;</div></div>
-        </div>
-              <!-- Text Monospace Diagram (ASCII / ANSI) -->
-      <details class="ascii-toggle" open>
-        <summary class="ascii-toggle-btn"><strong>📟 <span class="t-ru">Текстовая схема (ASCII / ANSI)</span><span class="t-uk" hidden>Текстова схема (ASCII / ANSI)</span><span class="t-en" hidden>Text schematic (ASCII / ANSI)</span></strong></summary>
-        <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">                      ▲ [РЯД I: МОНАДА — 1 УЗЕЛ]
-               01. Архитектор (Chief Architect)
-                             Кетер
-                               │
-                 ▲                           ▲ [РЯД II: ДИАДА — 2 УЗЛА]
-     02. Адам (CISO / ЧПУ)              03. Ева (CXO / Голос)
-         Бина / Гевура                      Хокма / Хесед
-               │                                   │
-          ▲                     ▲                     ▲ [РЯД III: ТРИАДА — 3 УЗЛА]
-04. Арбитр Консилиума   05. Разработчик (Код)    06. Голос (Ход)
-       Тиферет                 Нецах                 Ход
-          │                       │                   │
-    ▲               ▲                     ▲                  ▲ [РЯД IV: ТЕТРАДА — 4 УЗЛА]
-07. Память      08. SRE / DevOps      09. Юрист        10. Мастер ЧПУ
- (ChromaDB)     (WireGuard Mesh)     (Compliance)      (Цех Черноморск)
-    Йесод        Оболочка Йесод      Врата Малхут           Малхут</pre>
-      </details>
-      </div>
-    </div>
-
       <p class="lead-text"><span class="t-ru"><strong>EvaLine</strong> объединяет тяжелую физическую индустрию полимеров EVA и передовую распределенную фабрику автономных агентов:</span><span class="t-uk" hidden><strong>EvaLine</strong> об'єднує важку фізичну індустрію полімерів EVA та передову розподілену фабрику автономних агентів:</span><span class="t-en" hidden><strong>EvaLine</strong> uniquely fuses physical industrial polymer manufacturing with an autonomous distributed agent factory:</span></p>
           <details class="sub-accordion" open id="sub-8-1">
       <summary class="sub-summary">
-        <span class="sub-icon">🏭</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.1: Каковы физические мощности завода EvaLine и склада в ЕС?</strong><strong class="t-uk" hidden>Питання 8.1: Які фізичні потужності заводу EvaLine та складу в ЄС?</strong><strong class="t-en" hidden>Question 8.1: What are EvaLine's physical factory assets, capacity, and EU hub?</strong></span> <span class="sub-badge">[<span class="t-ru">Завод 2.8 га</span><span class="t-uk" hidden>Завод 2.8 га</span><span class="t-en" hidden>2.8 Ha Plant</span>]</span>
+        <span class="sub-icon">🏭</span> <span class="sub-title"><strong class="t-ru">Суверенное производство полимеров EvaLine и решение 6 болей бизнеса</strong><strong class="t-uk" hidden>Суверенне виробництво полімерів EvaLine та вирішення 6 болей бізнесу</strong><strong class="t-en" hidden>Physical Polymer Production at EvaLine Plant & Solving 6 Core Pains</strong></span> <span class="sub-badge">[<span class="t-ru">Завод 2.8 га</span><span class="t-uk" hidden>Завод 2.8 га</span><span class="t-en" hidden>2.8 Ha Plant</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -5972,56 +4927,56 @@ details.sub-accordion[open] > summary.sub-summary {
             <strong><span class="t-ru">Боль производства:</span><span class="t-uk" hidden>Біль виробництва:</span><span class="t-en" hidden>Manufacturing Pain:</span></strong> <span class="t-ru">Ошибки мастеров при расчете выкроек ковриков или татами приводят к перерасходу полимерного листа до 12% и накоплению обрезков.</span><span class="t-uk" hidden>Помилки майстрів при розрахунку викрійок килимків або татамі призводять до перевитрати полімерного листа до 12% та накопичення обрізків.</span><span class="t-en" hidden>Manual geometric calculation errors lead to up to 12% polymer sheet scrap and piles of unsellable offcut waste.</span>
           </div>
           <div class="biz-solution-box">
-            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Автоматическая генерация векторных карт раскроя (DXF/G-код) и строгая геометрическая оптимизация nesting. Снижение отходов до минимума (< 0.01% брака).</span><span class="t-uk" hidden>Автоматична генерація векторних карт розкрою (DXF/G-код) та сувора геометрична оптимізація nesting. Зниження відходів до мінімуму (< 0.01% браку).</span><span class="t-en" hidden>Automated CAD vector cutting generation (DXF/G-code) with algorithmic nesting. Cuts scrap waste to an absolute minimum (< 0.01% defects).</span>
-          </div>
-        </div>
-
-        <div class="biz-card">
-          <div class="biz-card-header">
-            <div class="biz-card-icon">💸</div>
-            <div class="biz-card-title"><span class="t-ru">Неконтролируемые расходы на облачный ИИ</span><span class="t-uk" hidden>Неконтрольовані витрати на хмарний ШІ</span><span class="t-en" hidden>Runaway Cloud AI Token Costs</span></div>
-          </div>
-          <div class="biz-pain-box">
-            <strong><span class="t-ru">Боль финансов:</span><span class="t-uk" hidden>Біль фінансів:</span><span class="t-en" hidden>Financial Pain:</span></strong> <span class="t-ru">Подключение сырых API OpenAI или Claude приводит к счетам в тысячи долларов за рутинные запросы, которые могла решить бесплатная модель.</span><span class="t-uk" hidden>Підключення сирих API OpenAI або Claude призводить до рахунків у тисячі доларів за рутинні запити, які могла вирішити безкоштовна модель.</span><span class="t-en" hidden>Unmanaged API tokens produce massive invoices for trivial questions that free models handle effortlessly.</span>
-          </div>
-          <div class="biz-solution-box">
-            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Двухуровневый маршрутизатор OmniRoute. 90% трафика направляется на авторизованный бесплатный пул Google AI Studio ($0.00), экономя до 85% бюджета.</span><span class="t-uk" hidden>Дворівневий маршрутизатор OmniRoute. 90% трафіку спрямовується на авторизований безкоштовний пул Google AI Studio ($0.00), заощаджуючи до 85% бюджету.</span><span class="t-en" hidden>OmniRoute 2-tier classifier routes 90% of routine traffic to verified Google AI Studio zero-cost quotas ($0.00), reducing token OpEx by 85%.</span>
-          </div>
-        </div>
-
-        <div class="biz-card">
-          <div class="biz-card-header">
-            <div class="biz-card-icon">⚖️</div>
-            <div class="biz-card-title"><span class="t-ru">Сложности с экспортом и стандартами ЕС</span><span class="t-uk" hidden>Складнощі з експортом та стандартами ЄС</span><span class="t-en" hidden>Export Friction & EU Compliance</span></div>
-          </div>
-          <div class="biz-pain-box">
-            <strong><span class="t-ru">Боль юристов и ВЭД:</span><span class="t-uk" hidden>Біль юристів та ЗЕД:</span><span class="t-en" hidden>Legal/Export Pain:</span></strong> <span class="t-ru">Ошибки в классификации кодов УКТВЭД, антикоррупционных требованиях UNIC и декларациях соответствия CE задерживают грузы на таможне.</span><span class="t-uk" hidden>Помилки в класифікації кодів УКТЗЕД, антикорупційних вимогах UNIC та деклараціях відповідності CE затримують вантажі на митниці.</span><span class="t-en" hidden>Misclassified HS/customs codes, UNIC anti-corruption audits, and CE paperwork cause prolonged customs inspections and fines.</span>
-          </div>
-          <div class="biz-solution-box">
-            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Юрист-агент по ВЭД проверяет спецификации по базе регламентов ЕС за 40 секунд. Логистический хаб в Братиславе обеспечивает бесшовный транзит.</span><span class="t-uk" hidden>Юрист-агент із ЗЕД перевіряє специфікації за базою регламентів ЄС за 40 секунд. Логістичний хаб у Братиславі забезпечує безшовний транзит.</span><span class="t-en" hidden>Specialized Legal agent audits export documentation in 40 seconds against EU directives. The Bratislava warehouse guarantees frictionless transit.</span>
+            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Встроенный математический калькулятор раскроя листа ЭВА (2000×1250 мм, ячейки Ромб/Соты). Автоматическая генерация файлов для плоттеров ЧПУ с браком менее 0.01%.</span><span class="t-uk" hidden>Вбудований математичний калькулятор розкрою листа ЕВА (2000×1250 мм, комірки Ромб/Стільники). Автоматична генерація файлів для плотерів ЧПК із браком менше 0.01%.</span><span class="t-en" hidden>Embedded algorithmic nesting calculator for EVA sheets (2000×1250mm, Shore 30-75A). Direct CNC G-code path generation with scrap rate under 0.01%.</span>
           </div>
         </div>
 
         <div class="biz-card">
           <div class="biz-card-header">
             <div class="biz-card-icon">🧠</div>
-            <div class="biz-card-title"><span class="t-ru">Утечка знаний при уходе ключевых мастеров</span><span class="t-uk" hidden>Витік знань при звільненні ключових майстрів</span><span class="t-en" hidden>Loss of Proprietary Factory Know-How</span></div>
+            <div class="biz-card-title"><span class="t-ru">Галлюцинации и ненадежность одиночного ИИ</span><span class="t-uk" hidden>Галюцинації та ненадійність одиночного ШІ</span><span class="t-en" hidden>Hallucinations of Standalone AI</span></div>
           </div>
           <div class="biz-pain-box">
-            <strong><span class="t-ru">Боль руководства:</span><span class="t-uk" hidden>Біль керівництва:</span><span class="t-en" hidden>Leadership Pain:</span></strong> <span class="t-ru">Специфика рецептур, свойства пластификаторов ЭВА и нюансы настроек станков хранятся только в головах ветеранов завода.</span><span class="t-uk" hidden>Специфіка рецептур, властивості пластифікаторів ЕВА та нюанси налаштувань верстатів зберігаються лише в головах ветеранів заводу.</span><span class="t-en" hidden>Decades of compounding chemistry, EVA polymer formulation, and foaming machine tweaks remain trapped in individuals minds.</span>
+            <strong><span class="t-ru">Боль бизнеса:</span><span class="t-uk" hidden>Біль бізнесу:</span><span class="t-en" hidden>Pain:</span></strong> <span class="t-ru">Обычный бот уверенно выдумывает несуществующие статьи законов, занижает цены или обещает невыполнимые сроки, подставляя бизнес под иски.</span><span class="t-uk" hidden>Звичайний бот упевнено вигадує неіснуючі статті законів, занижує ціни або обіцяє нездійсненні терміни, підставляючи бізнес під позови.</span><span class="t-en" hidden>Generic chatbots hallucinate non-existent statutes, misquote prices, or promise impossible fulfillment dates, creating legal liabilities.</span>
           </div>
           <div class="biz-solution-box">
-            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Оцифровка 100% корпоративной памяти в ChromaDB и SQLite FTS5. Знания принадлежат заводу, а агенты обучают новых операторов за часы.</span><span class="t-uk" hidden>Оцифрування 100% корпоративної пам'яті в ChromaDB та SQLite FTS5. Знання належать заводу, а агенти навчають нових операторів за години.</span><span class="t-en" hidden>100% of corporate manufacturing know-how indexed into ChromaDB and SQLite FTS5. Knowledge stays company-owned, onboarding operators in hours.</span>
+            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Евалайн Консилиум. Ни один важный документ не отдается одной модели. Решение вырабатывается состязательным спором 4–6 разнородных LLM с финальным аудитом CISO.</span><span class="t-uk" hidden>Євалайн Консиліум. Жоден важливий документ не довіряється одній моделі. Рішення виробляється змагальним спором 4–6 різнорідних LLM з фінальним аудитом CISO.</span><span class="t-en" hidden>The EvaLine Consilium. No mission-critical document is left to a single model. Consensus is reached through adversarial debate of 4–6 heterogeneous LLMs plus CISO audit.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">🔌</div>
+            <div class="biz-card-title"><span class="t-ru">Разрозненность софта («Зоопарк систем»)</span><span class="t-uk" hidden>Розрізненість софту («Зоопарк систем»)</span><span class="t-en" hidden>Software Fragmentation ('Tool Zoo')</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span class="t-ru">Боль бизнеса:</span><span class="t-uk" hidden>Біль бізнесу:</span><span class="t-en" hidden>Pain:</span></strong> <span class="t-ru">1С, CRM Битрикс, Telegram-каналы, складской софт и Excel живут изолированно. Менеджеры вручную копируют строки, порождая хаос и недостачи.</span><span class="t-uk" hidden>1С, CRM Бітрікс, Telegram-канали, складський софт та Excel живуть ізольовано. Менеджери вручну копіюють рядки, породжуючи хаос і нестачі.</span><span class="t-en" hidden>1C:Enterprise, Bitrix24 CRM, Telegram groups, and spreadsheets operate in silos. Manual copy-pasting creates missing orders and inventory discrepancies.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Единая шина из 21 MCP-сервера и модульных API. Агенты нативно обращаются к базам SQLite, PostgreSQL, ERP, складским таблицам и мессенджерам без посредников.</span><span class="t-uk" hidden>Єдина шина з 21 MCP-сервера та модульних API. Агенти нативно звертаються до баз SQLite, PostgreSQL, ERP, складських таблиць і месенджерів без посередників.</span><span class="t-en" hidden>Unified bus of 21 Model Context Protocol servers and modular REST endpoints. Agents natively query databases, ERPs, inventory tables, and messengers without intermediaries.</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <div class="biz-card-header">
+            <div class="biz-card-icon">⚖️</div>
+            <div class="biz-card-title"><span class="t-ru">Юридические риски экспорта в ЕС</span><span class="t-uk" hidden>Юридичні ризики експорту в ЄС</span><span class="t-en" hidden>EU Export Compliance & Customs Risks</span></div>
+          </div>
+          <div class="biz-pain-box">
+            <strong><span class="t-ru">Боль бизнеса:</span><span class="t-uk" hidden>Біль бізнесу:</span><span class="t-en" hidden>Pain:</span></strong> <span class="t-ru">Подготовка внешнеэкономических контрактов (ВЭД), проверка регламентов ЕС, кодов УКТВЭД, стандартов ISO 9001, CE и норм UNIC отнимает дни юристов.</span><span class="t-uk" hidden>Підготовка зовнішньоекономічних контрактів (ЗЕД), перевірка регламентів ЄС, кодів УКТЗЕД, стандартів ISO 9001, CE та норм UNIC забирає дні юристів.</span><span class="t-en" hidden>Export documentation, customs codes (HS codes), CE directives, ISO 9001 certifications, and UNIC anti-corruption audits demand days of legal counsel review.</span>
+          </div>
+          <div class="biz-solution-box">
+            <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Агент Legal Compliance. Проверяет контрактные спецификации за 40 секунд по обновляемой базе европейских нормативов логистического хаба в Братиславе.</span><span class="t-uk" hidden>Агент Legal Compliance. Перевіряє контрактні специфікації за 40 секунд за оновлюваною базою європейських нормативів логістичного хабу в Братиславі.</span><span class="t-en" hidden>Legal Compliance Agent. Audits trade contracts and dispatch declarations in 40 seconds against live EU regulatory databases at our Bratislava hub.</span>
           </div>
         </div>
 
         <div class="biz-card">
           <div class="biz-card-header">
             <div class="biz-card-icon">🛡️</div>
-            <div class="biz-card-title"><span class="t-ru">Риск блэкаутов и потери заказов</span><span class="t-uk" hidden>Ризик блекаутів та втрати замовлень</span><span class="t-en" hidden>Blackout Vulnerability & Outages</span></div>
+            <div class="biz-card-title"><span class="t-ru">Уязвимость перед блэкаутами</span><span class="t-uk" hidden>Вразливість перед блекаутами</span><span class="t-en" hidden>Grid Vulnerability & Blackouts</span></div>
           </div>
           <div class="biz-pain-box">
-            <strong><span class="t-ru">Боль инфраструктуры:</span><span class="t-uk" hidden>Біль інфраструктури:</span><span class="t-en" hidden>Infrastructure Pain:</span></strong> <span class="t-ru">Перебои с электричеством или связью парализуют прием заказов и отгрузку, приводя к штрафам по контрактам.</span><span class="t-uk" hidden>Перебої з електрикою або зв'язком паралізують прийом замовлень та відвантаження, призводячи до штрафів за контрактами.</span><span class="t-en" hidden>Grid outages, infrastructure disruptions, and telecom drops freeze sales and manufacturing, risking severe delivery breach penalties.</span>
+            <strong><span class="t-ru">Боль производства:</span><span class="t-uk" hidden>Біль виробництва:</span><span class="t-en" hidden>Manufacturing Pain:</span></strong> <span class="t-ru">Военные риски, аварии энергосетей и обрывы связи замораживают работу предприятия, приводя к штрафам за срыв поставок.</span><span class="t-uk" hidden>Військові ризики, аварії енергомереж та обриви зв'язку заморожують роботу підприємства, призводячи до штрафів за зрив поставок.</span><span class="t-en" hidden>Grid outages, infrastructure disruptions, and telecom drops freeze sales and manufacturing, risking severe delivery breach penalties.</span>
           </div>
           <div class="biz-solution-box">
             <strong><span class="t-ru">Решение EvaBot:</span><span class="t-uk" hidden>Рішення EvaBot:</span><span class="t-en" hidden>EvaBot Solution:</span></strong> <span class="t-ru">Двухузловой отказоустойчивый кластер (Франкфурт ⟷ Айова) на закрытой магистрали WireGuard Mesh. Облачные агенты продолжают прием заказов, а дизели питают цех.</span><span class="t-uk" hidden>Двовузловий відмовостійкий кластер (Франкфурт ⟷ Айова) на закритій магістралі WireGuard Mesh. Хмарні агенти продовжують прийом замовлень, а дизелі живлять цех.</span><span class="t-en" hidden>Dual-node resilient cluster (Frankfurt ⟷ Iowa) across encrypted WireGuard tunnels. Cloud agents run uninterrupted while on-site industrial generators power the machines.</span>
@@ -6034,148 +4989,7 @@ details.sub-accordion[open] > summary.sub-summary {
 
           <details class="sub-accordion" open id="sub-8-2">
       <summary class="sub-summary">
-        <span class="sub-icon">📐</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.2: Как устроен Тетраксис Пифагора (1+2+3+4=10), Сфирот и 10 универсальных должностей?</strong><strong class="t-uk" hidden>Питання 8.2: Як влаштований Тетраксис Піфагора (1+2+3+4=10), Сфірот та 10 універсальних посад?</strong><strong class="t-en" hidden>Question 8.2: How does the Pythagorean Tetraktys (1+2+3+4=10) map to Sephirot and 10 universal roles?</strong></span> <span class="sub-badge">[<span class="t-ru">10 ролей Тетраксиса</span><span class="t-uk" hidden>10 ролей Тетраксиса</span><span class="t-en" hidden>10 Tetraktys Roles</span>]</span>
-      </summary>
-      <div class="sub-content">
-
-      <div class="sephirot-box">
-        <div class="sephirot-header">
-          <div class="hero-eyebrow"><span class="t-ru">ТЕТРАКСИС ПИФАГОРА // 1 + 2 + 3 + 4 = 10 РОЛЕЙ</span><span class="t-uk" hidden>ТЕТРАКСИС ПІФАГОРА // 1 + 2 + 3 + 4 = 10 РОЛЕЙ</span><span class="t-en" hidden>PYTHAGOREAN TETRAKTYS // 1 + 2 + 3 + 4 = 10 ROLES</span></div>
-          <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin: 4px 0 8px;">
-            <span class="t-ru">Гармоничная иерархия 10 универсальных должностей цифрового штата</span><span class="t-uk" hidden>Гармонійна ієрархія 10 універсальних посад цифрового штату</span><span class="t-en" hidden>Harmonious Hierarchy of 10 Universal Roles in Sovereign Fleet</span>
-          </h4>
-          <p style="max-width: 860px; margin: 0 auto; color: var(--fg-muted);">
-            <span class="t-ru">В фабрике EvaLine устранена путаница хаотичных микроботов. 10 ролей структурированы по закону сакрального Тетраксиса Пифагора (1+2+3+4 = 10 узлов) в строгом соответствии с 10 ступенями Сфирот — от высшего замысла владельца до физического станка ЧПУ:</span><span class="t-uk" hidden>У фабриці EvaLine усунуто плутанину хаотичних мікроботів. 10 ролей структуровано за законом сакрального Тетраксису Піфагора (1+2+3+4 = 10 вузлів) у суворій відповідності з 10 ступенями Сфірот — від вищого задуму власника до фізичного верстата ЧПК:</span><span class="t-en" hidden>EvaLine eliminates chaotic ad-hoc bots by structuring exactly 10 universal positions under the sacred Pythagorean Tetraktys (1+2+3+4 = 10 nodes) in direct parallel with the 10 Sephirot — from sovereign visionary intent down to physical CNC execution:</span>
-          </p>
-        </div>
-
-        <div class="tetraktys-container">
-          <!-- TIER 1: MONAD -->
-          <div class="tetraktys-tier-block">
-            <div class="tier-heading">▲ <span class="t-ru">РЯД I // МОНАДА (1 УЗЕЛ): ВЫСШИЙ ЗАМЫСЕЛ ⟷ КЕТЕР</span><span class="t-uk" hidden>РЯД I // МОНАДА (1 ВУЗОЛ): ВИЩИЙ ЗАДУМ ⟷ КЕТЕР</span><span class="t-en" hidden>TIER I // MONAD (1 NODE): SOVEREIGN INTENT ⟷ KETHER</span></div>
-            <div class="sephirot-grid" style="grid-template-columns: 1fr;">
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 01</span><span class="t-uk" hidden>Вузол 01</span><span class="t-en" hidden>Node 01</span> &bull; <span class="t-ru">Кетер (Kether) // Высший замысел</span><span class="t-uk" hidden>Кетер (Kether) // Вищий задум</span><span class="t-en" hidden>Kether (Crown) // Sovereign Vision</span></span>
-              <span>👑</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Архитектор (Chief Architect)</span><span class="t-uk" hidden>Архітектор (Chief Architect)</span><span class="t-en" hidden>Chief Architect</span></div>
-            <div class="sephira-desc"><span class="t-ru">Определение глобального видения, системных аксиом, декомпозиция задач верхнего уровня и стратегическое целеполагание.</span><span class="t-uk" hidden>Визначення глобального бачення, системних аксіом, декомпозиція завдань верхнього рівня та стратегічне цілепокладання.</span><span class="t-en" hidden>Definition of global vision, system axioms, high-level task decomposition, and sovereign architectural roadmaps.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Gemini 3.1 Pro (2M Context) • Claude 3.7</div>
-          </div>
-            </div>
-          </div>
-
-          <!-- TIER 2: DYAD -->
-          <div class="tetraktys-tier-block">
-            <div class="tier-heading">▲▲ <span class="t-ru">РЯД II // ДИАДА (2 УЗЛА): БИНАРНЫЙ КОНТУР СИЛ ⟷ БИНА / ГЕВУРА & ХОКМА / ХЕСЕД</span><span class="t-uk" hidden>РЯД II // ДІАДА (2 ВУЗЛИ): БІНАРНИЙ КОНТУР СИЛ ⟷ БІНА / ГЕВУРА & ХОКМА / ХЕСЕД</span><span class="t-en" hidden>TIER II // DYAD (2 NODES): BINARY FORCE POLARITY ⟷ GEVURAH & CHESED</span></div>
-            <div class="sephirot-grid">
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 02</span><span class="t-uk" hidden>Вузол 02</span><span class="t-en" hidden>Node 02</span> &bull; <span class="t-ru">Бина / Гевура // Форма & Строгость</span><span class="t-uk" hidden>Біна / Гевура // Форма & Суворість</span><span class="t-en" hidden>Gevurah & Binah // Severity & Discipline</span></span>
-              <span>🛡️</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Адам (Chief Engineer / CISO)</span><span class="t-uk" hidden>Адам (Chief Engineer / CISO)</span><span class="t-en" hidden>Adam (Chief Engineer / CISO)</span></div>
-            <div class="sephira-desc"><span class="t-ru">Шеф инженерии, безопасности и производства. Формальная верификация, аудит кода, сметные лимиты, контроль раскроя на ЧПУ и соблюдение ГОСТ/ISO.</span><span class="t-uk" hidden>Шеф інженерії, безпеки та виробництва. Формальна верифікація, аудит коду, кошторисні ліміти, контроль розкрою на ЧПК та дотримання ДСТУ/ISO.</span><span class="t-en" hidden>Chief of engineering, cybersecurity, and plant operations. Formal verification, budget limits, CNC nest QA, and ISO compliance.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Claude 3.7 Sonnet • DeepSeek R1 • Linux MCP</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 03</span><span class="t-uk" hidden>Вузол 03</span><span class="t-en" hidden>Node 03</span> &bull; <span class="t-ru">Хокма / Хесед // Мудрость & Экспансия</span><span class="t-uk" hidden>Хокма / Хесед // Мудрість & Експансія</span><span class="t-en" hidden>Chesed & Chokmah // Mercy & Growth</span></span>
-              <span>🤝</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Ева (Customer Experience Officer / CXO)</span><span class="t-uk" hidden>Єва (Customer Experience Officer / CXO)</span><span class="t-en" hidden>Eva (Customer Experience Officer / CXO)</span></div>
-            <div class="sephira-desc"><span class="t-ru">Директор клиентского опыта, сервиса и продаж. Мультиязычная живая коммуникация на 6 языках (UK, EN, DE, PL, RO, RU), эмпатия, омничейн-поддержка, B2B-сделки.</span><span class="t-uk" hidden>Директор клієнтського досвіду, сервісу та продажів. Багатомовна жива комунікація 6 мовами (UK, EN, DE, PL, RO, RU), емпатія, B2B-угоди.</span><span class="t-en" hidden>Omnichannel sales & customer success director. Live empathetic dialogue in 6 languages (UK, EN, DE, PL, RO, RU) with live stock checks.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Gemini 3.8 Flash • OmniRoute • Voice Engine</div>
-          </div>
-            </div>
-          </div>
-
-          <!-- TIER 3: TRIAD -->
-          <div class="tetraktys-tier-block">
-            <div class="tier-heading">▲▲▲ <span class="t-ru">РЯД III // ТРИАДА (3 УЗЛА): ДИНАМИЧЕСКИЙ БАЛАНС ⟷ ТИФЕРЕТ, НЕЦАХ, ХОД</span><span class="t-uk" hidden>РЯД III // ТРІАДА (3 ВУЗЛИ): ДИНАМІЧНИЙ БАЛАНС ⟷ ТІФЕРЕТ, НЕЦАХ, ХОД</span><span class="t-en" hidden>TIER III // TRIAD (3 NODES): DYNAMIC HARMONY ⟷ TIFERETH, NETZACH, HOD</span></div>
-            <div class="sephirot-grid">
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 04</span><span class="t-uk" hidden>Вузол 04</span><span class="t-en" hidden>Node 04</span> &bull; <span class="t-ru">Тиферет (Tifereth) // Гармония & Синтез</span><span class="t-uk" hidden>Тіферет (Tifereth) // Гармонія & Синтез</span><span class="t-en" hidden>Tifereth (Beauty) // Synthesis & Consensus</span></span>
-              <span>⚖️</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Арбитр Консилиума (Consilium Arbiter)</span><span class="t-uk" hidden>Арбітр Консиліуму (Consilium Arbiter)</span><span class="t-en" hidden>Consilium Arbiter</span></div>
-            <div class="sephira-desc"><span class="t-ru">Главный арбитр Консилиума. Алгоритмическое разрешение споров между Адамом (безопасность) и Евой (продажи), состязательный синтез с точностью 99.4%.</span><span class="t-uk" hidden>Головний арбітр Консиліуму. Алгоритмічне вирішення суперечок між Адамом (безпека) та Євою (продажі), змагальний синтез з точністю 99.4%.</span><span class="t-en" hidden>Supreme dispute resolver. Mathematical adversarial synthesis between Adam (security) and Eva (sales), guaranteeing 99.4% precision.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Consilium Consensus Engine • Multi-LLM Judge</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 05</span><span class="t-uk" hidden>Вузол 05</span><span class="t-en" hidden>Node 05</span> &bull; <span class="t-ru">Нецах (Netzach) // Победа & Энергия</span><span class="t-uk" hidden>Нецах (Netzach) // Перемога & Енергія</span><span class="t-en" hidden>Netzach (Victory) // Dynamic Execution</span></span>
-              <span>⚡</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Разработчик (Lead Developer / Coder)</span><span class="t-uk" hidden>Розробник (Lead Developer / Coder)</span><span class="t-en" hidden>Lead Developer / Coder</span></div>
-            <div class="sephira-desc"><span class="t-ru">Ведущий инженер разработки и кодинга. Написание чистого кода, сборка микросервисов, рефакторинг, тесты, линтинг, Docker, Git и скрипты.</span><span class="t-uk" hidden>Провідний інженер розробки та кодингу. Написання чистого коду, збірка мікросервісів, рефакторинг, тести, лінтинг, Docker, Git та скрипти.</span><span class="t-en" hidden>Lead software engineer. Writes clean code, refactors microservices, builds Docker containers, Git commits, and manages unit tests.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Claude 3.7 Sonnet • DeepSeek R1 • LSP Servers</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 06</span><span class="t-uk" hidden>Вузол 06</span><span class="t-en" hidden>Node 06</span> &bull; <span class="t-ru">Ход (Hod) // Речь & Форма выражения</span><span class="t-uk" hidden>Ход (Hod) // Мова & Форма вираження</span><span class="t-en" hidden>Hod (Splendor) // Speech & Expression</span></span>
-              <span>🎙️</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Коммуникатор (Voice & Speech Specialist)</span><span class="t-uk" hidden>Комунікатор (Voice & Speech Specialist)</span><span class="t-en" hidden>Voice & Speech Specialist</span></div>
-            <div class="sephira-desc"><span class="t-ru">Специалист по речевому взаимодействию. Потоковый синтез и распознавание речи в реальном времени (EvaVoice FastAPI :8000), SIP/VoIP звонки.</span><span class="t-uk" hidden>Спеціаліст з мовної взаємодії. Потоковий синтез та розпізнавання мови в реальному часі (EvaVoice FastAPI :8000), дзвінки SIP/VoIP.</span><span class="t-en" hidden>Speech and voice specialist. Real-time neural audio streaming (EvaVoice FastAPI :8000), SIP/VoIP PBX routing, and interactive dialogues.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> EvaVoice Engine • WebSpeech • WebSocket</div>
-          </div>
-            </div>
-          </div>
-
-          <!-- TIER 4: TETRAD -->
-          <div class="tetraktys-tier-block">
-            <div class="tier-heading">▲▲▲▲ <span class="t-ru">РЯД IV // ТЕТРАДА (4 УЗЛА): МАТЕРИАЛИЗАЦИЯ (1 + 2 + 3 + 4 = 10) ⟷ ЙЕСОД, МАЛХУТ</span><span class="t-uk" hidden>РЯД IV // ТЕТРАДА (4 ВУЗЛИ): МАТЕРІАЛІЗАЦІЯ (1 + 2 + 3 + 4 = 10) ⟷ ЙЕСОД, МАЛХУТ</span><span class="t-en" hidden>TIER IV // TETRAD (4 NODES): PHYSICAL EMBODIMENT (1+2+3+4=10) ⟷ YESOD, MALKUTH</span></div>
-            <div class="sephirot-grid">
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 07</span><span class="t-uk" hidden>Вузол 07</span><span class="t-en" hidden>Node 07</span> &bull; <span class="t-ru">Йесод (Yesod) // Основание & Память</span><span class="t-uk" hidden>Йесод (Yesod) // Основа & Пам'ять</span><span class="t-en" hidden>Yesod (Foundation) // Grounded Knowledge</span></span>
-              <span>💾</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Хранитель Памяти (Data & RAG Specialist)</span><span class="t-uk" hidden>Охоронець Пам'яті (Data & RAG Specialist)</span><span class="t-en" hidden>Data & RAG Specialist</span></div>
-            <div class="sephira-desc"><span class="t-ru">Архивариус и хранитель знаний. Векторные базы ChromaDB, таблицы SQLite FTS5, семантическая память Memory Graph, прайс-листы и регламенты ТУ.</span><span class="t-uk" hidden>Архіваріус та охоронець знань. Векторні бази ChromaDB, таблиці SQLite FTS5, семантична пам'ять Memory Graph, прайс-листи та регламенти ТУ.</span><span class="t-en" hidden>Corporate memory librarian. High-density ChromaDB vector collections, SQLite FTS5 index, Memory Graph MCP, and technical specs.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> ChromaDB • SQLite FTS5 • Memory Graph MCP</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 08</span><span class="t-uk" hidden>Вузол 08</span><span class="t-en" hidden>Node 08</span> &bull; <span class="t-ru">Оболочка Йесод // Защитный каркас</span><span class="t-uk" hidden>Оболонка Йесод // Захисний каркас</span><span class="t-en" hidden>Yesod Shell // Infrastructure Backbone</span></span>
-              <span>🔧</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Системный Администратор (SRE / DevOps)</span><span class="t-uk" hidden>Системний Адміністратор (SRE / DevOps)</span><span class="t-en" hidden>SRE / DevOps Engineer</span></div>
-            <div class="sephira-desc"><span class="t-ru">Дежурный системный инженер. Мониторинг задержек 94 моделей, шифрованная магистраль WireGuard Mesh, EarlyOOM, Caddy HTTP/3 и аптайм 99.9%.</span><span class="t-uk" hidden>Черговий системний інженер. Моніторинг затримок 94 моделей, шифрована магістраль WireGuard Mesh, EarlyOOM, Caddy HTTP/3 та аптайм 99.9%.</span><span class="t-en" hidden>Site reliability engineer. 94-model latency monitoring, WireGuard Mesh dual-node backbone, EarlyOOM daemon, and 99.9% cluster uptime.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> WireGuard Mesh • Caddy v2 • Watchdog Daemons</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 09</span><span class="t-uk" hidden>Вузол 09</span><span class="t-en" hidden>Node 09</span> &bull; <span class="t-ru">Врата Малхут // Таможня & Законы</span><span class="t-uk" hidden>Брама Малхут // Митниця & Закони</span><span class="t-en" hidden>Gates of Malkuth // Regulatory Boundary</span></span>
-              <span>📜</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Юрист-Логист (Legal & EU Compliance)</span><span class="t-uk" hidden>Юрист-Логіст (Legal & EU Compliance)</span><span class="t-en" hidden>Legal & EU Compliance Counsel</span></div>
-            <div class="sephira-desc"><span class="t-ru">Юрист по ВЭД и координатор европейской логистики. Проверка контрактов, кодов УКТВЭД, антикоррупционных норм UNIC, логистика хаба в Братиславе.</span><span class="t-uk" hidden>Юрист із ЗЕД та координатор європейської логістики. Перевірка контрактів, кодів УКТЗЕД, антикорупційних норм UNIC, логістика хабу в Братиславі.</span><span class="t-en" hidden>Cross-border legal and EU logistics counsel. Audits foreign trade contracts, HS/customs codes, UNIC regulations, and Bratislava hub dispatches.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> Legal Compliance RAG • EU Trade Directives</div>
-          </div>
-          <div class="sephira-card">
-            <div class="sephira-tag">
-              <span class="sephira-level"><span class="t-ru">Узел 10</span><span class="t-uk" hidden>Вузол 10</span><span class="t-en" hidden>Node 10</span> &bull; <span class="t-ru">Малхут (Malkuth) // Физический Мир</span><span class="t-uk" hidden>Малхут (Malkuth) // Фізичний Світ</span><span class="t-en" hidden>Malkuth (Kingdom) // Physical Matter</span></span>
-              <span>🏭</span>
-            </div>
-            <div class="sephira-title"><span class="t-ru">Мастер Завода (CNC & Production Master)</span><span class="t-uk" hidden>Майстер Заводу (CNC & Production Master)</span><span class="t-en" hidden>CNC & Plant Production Master</span></div>
-            <div class="sephira-desc"><span class="t-ru">Шеф производственного цеха и ЧПУ. Реальное физическое производство на заводе в Черноморске (2.8 га, 550+ т/мес), раскрой на плоттерах, коврики, маты, татами.</span><span class="t-uk" hidden>Шеф виробничого цеху та ЧПК. Реальне фізичне виробництво на заводі в Чорноморську (2.8 га, 550+ т/міс), розкрій на плотерах, килимки, мати, татамі.</span><span class="t-en" hidden>Shopfloor and CNC production master. Physical execution at Chornomorsk plant (2.8 ha, 550+ t/mo), automated nesting, auto mats, and tatami.</span></div>
-            <div class="sephira-model"><strong><span class="t-ru">Стек:</span><span class="t-uk" hidden>Стек:</span><span class="t-en" hidden>Stack:</span></strong> CAM DXF/G-Code • Foaming Presses • ISO 9001</div>
-          </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      </div>
-    </details>
-
-          <details class="sub-accordion" open id="sub-8-3">
-      <summary class="sub-summary">
-        <span class="sub-icon">⚡</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.3: Как выглядит сквозной конвейер: от звонка до станка ЧПУ и отгрузки (7 шагов)?</strong><strong class="t-uk" hidden>Питання 8.3: Як виглядає наскрізний конвеєр: від дзвінка до верстата ЧПК та відвантаження (7 кроків)?</strong><strong class="t-en" hidden>Question 8.3: What does the end-to-end autonomous pipeline look like: call to CNC (7 steps)?</strong></span> <span class="sub-badge">[<span class="t-ru">Сквозной конвейер</span><span class="t-uk" hidden>Наскрізний конвеєр</span><span class="t-en" hidden>7-Step Pipeline</span>]</span>
+        <span class="sub-icon">🔄</span> <span class="sub-title"><strong class="t-ru">Сквозной автономный конвейер данных: от звонка до станка ЧПУ и отгрузки</strong><strong class="t-uk" hidden>Наскрізний автономний конвеєр даних: від дзвінка до верстата ЧПК та відвантаження</strong><strong class="t-en" hidden>End-to-End Autonomous Dataflow: From Omnichannel Lead to CNC & Shipping</strong></span> <span class="sub-badge">[<span class="t-ru">7 ступеней конвейера</span><span class="t-uk" hidden>7 ступенів конвеєра</span><span class="t-en" hidden>7-Step Pipeline</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -6229,8 +5043,43 @@ details.sub-accordion[open] > summary.sub-summary {
         <div class="pipe-step">
           <span class="pipe-badge"><span class="t-ru">Шаг 07 // Исполнение</span><span class="t-uk" hidden>Крок 07 // Виконання</span><span class="t-en" hidden>Step 07 // Action</span></span>
           <div class="pipe-name"><span class="t-ru">Физическое действие</span><span class="t-uk" hidden>Фізична дія</span><span class="t-en" hidden>Physical Execution</span></div>
-          <div class="pipe-desc"><span class="t-ru">Формирование счетов в 1С, выгрузка G-кода на раскройные плоттеры ЧПУ в Черноморске.</span><span class="t-uk" hidden>Формування рахунків в 1С, вивантаження G-коду на розкрійні плотери ЧПК у Чорноморську.</span><span class="t-en" hidden>Generates invoices in 1C/ERP and dispatches G-code nesting to CNC cutting flatbeds.</span></div>
-          <div class="pipe-tech">MCP 1C • CNC G-Code • Bitrix24 Hook</div>
+          <div class="pipe-desc"><span class="t-ru">Запись накладной в 1С, отправка файла раскроя на плоттер ЧПУ и голосовой ответ клиенту.</span><span class="t-uk" hidden>Запис накладної в 1С, відправка файлу розкрою на плотер ЧПК та голосова відповідь клієнту.</span><span class="t-en" hidden>Records invoice in 1C/ERP, dispatches cutting files to CNC, and speaks back to customer.</span></div>
+          <div class="pipe-tech">21 MCP Servers • ЧПУ Плоттер • ERP/1C</div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-3">
+      <summary class="sub-summary">
+        <span class="sub-icon">🔌</span> <span class="sub-title"><strong class="t-ru">Архитектура универсальной интеграции в IT-ландшафт предприятия</strong><strong class="t-uk" hidden>Архітектура універсальної інтеграції в IT-ландшафт підприємства</strong><strong class="t-en" hidden>Universal Enterprise Integration Architecture (ERP, CRM, CNC, Meshes)</strong></span> <span class="sub-badge">[<span class="t-ru">21 MCP Коннектор</span><span class="t-uk" hidden>21 MCP Конектор</span><span class="t-en" hidden>21 MCP Adapters</span>]</span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h4 class="card-title"><span class="t-ru">1С:Предприятие & МойСклад</span><span class="t-uk" hidden>1С:Підприємство та МійСклад</span><span class="t-en" hidden>1C:Enterprise & MoySklad ERP</span></h4>
+          <p class="card-text"><span class="t-ru">Двусторонний обмен через OData / REST API. Агенты считывают складские остатки листов ЭВА, формируют счета, регистрируют оплаты и списывают сырье без участия бухгалтера.</span><span class="t-uk" hidden>Двосторонній обмін через OData / REST API. Агенти зчитують залишки листів ЕВА, формують рахунки, реєструють оплати та списують сировину без участі бухгалтера.</span><span class="t-en" hidden>Bi-directional sync via OData/REST. Agents query EVA sheet inventory, generate invoices, register payments, and debit raw materials automatically.</span></p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h4 class="card-title"><span class="t-ru">CRM Битрикс24 / amoCRM / HubSpot</span><span class="t-uk" hidden>CRM Бітрікс24 / amoCRM / HubSpot</span><span class="t-en" hidden>Bitrix24 / amoCRM / HubSpot</span></h4>
+          <p class="card-text"><span class="t-ru">Автоматическое ведение лидов, парсинг входящих сообщений, продвижение сделок по воронке, генерация коммерческих предложений и контроль SLA ответов менеджеров.</span><span class="t-uk" hidden>Автоматичне ведення лідів, парсинг вхідних повідомлень, пересування угод за воронкою, генерація комерційних пропозицій та контроль SLA менеджерів.</span><span class="t-en" hidden>Automated lead creation, omnichannel message ingestion, pipeline progression, PDF quotation generation, and SLA response time enforcement.</span></p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h4 class="card-title"><span class="t-ru">Мессенджеры Telegram & WhatsApp</span><span class="t-uk" hidden>Месенджери Telegram та WhatsApp</span><span class="t-en" hidden>Telegram & WhatsApp Gateways</span></h4>
+          <p class="card-text"><span class="t-ru">Прямая поддержка клиентов и дилеров: боты принимают размеры салонов авто, отправляют фото образцов ячеек Ромб/Соты и принимают оплату по QR-кодам.</span><span class="t-uk" hidden>Пряма підтримка клієнтів та дилерів: боти приймають розміри салонів авто, надсилають фото зразків комірок Ромб/Стільники та приймають оплату за QR-кодом.</span><span class="t-en" hidden>Direct dealer and customer support: accepts vehicle dimensions, shares high-res swatch photos of diamond/cell textures, and processes QR payments.</span></p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏭</div>
+          <h4 class="card-title"><span class="t-ru">Промышленный контур ЧПУ & CAM</span><span class="t-uk" hidden>Промисловий контур ЧПК та CAM</span><span class="t-en" hidden>Industrial CNC & CAM Machine Bus</span></h4>
+          <p class="card-text"><span class="t-ru">Генерация DXF/G-кода для цифровых раскройных комплексов (плоттеров). Оптимизация схемы раскладки (раскроя) листа минимизирует краевые отходы.</span><span class="t-uk" hidden>Генерація DXF/G-коду для цифрових розкрійних комплексів (плотерів). Оптимізація схеми розкладки листа мінімізує відходи сировини.</span><span class="t-en" hidden>Automated DXF/G-code vector generation for digital flatbed CNC cutting systems. Optimal nesting geometry minimizes edge trim waste.</span></p>
         </div>
       </div>
     
@@ -6239,7 +5088,84 @@ details.sub-accordion[open] > summary.sub-summary {
 
           <details class="sub-accordion" open id="sub-8-4">
       <summary class="sub-summary">
-        <span class="sub-icon">📈</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.4: Каковы подтвержденные метрики бизнес-трансформации («До» и «После»)?</strong><strong class="t-uk" hidden>Питання 8.4: Які підтверджені метрики бізнес-трансформації («До» та «Після»)?</strong><strong class="t-en" hidden>Question 8.4: What are the verified transformation benchmarks: Before vs. After?</strong></span> <span class="sub-badge">[<span class="t-ru">Метрики До/После</span><span class="t-uk" hidden>Метрики До/Після</span><span class="t-en" hidden>Before/After Metrics</span>]</span>
+        <span class="sub-icon">💰</span> <span class="sub-title"><strong class="t-ru">Интерактивный калькулятор экономической окупаемости внедрения (ROI)</strong><strong class="t-uk" hidden>Інтерактивний калькулятор економічної окупності впровадження (ROI)</strong><strong class="t-en" hidden>Interactive ROI & Financial Payback Calculator</strong></span> <span class="sub-badge">[<span class="t-ru">Экономия OpEx</span><span class="t-uk" hidden>Економія OpEx</span><span class="t-en" hidden>OpEx Savings</span>]</span>
+      </summary>
+      <div class="sub-content">
+
+      <div class="roi-calc-box" id="roi-calculator">
+        <div class="roi-calc-header">
+          <div>
+            <h3 style="color:#fff; margin: 0 0 4px 0;">
+              <span class="t-ru">Интерактивный калькулятор окупаемости внедрения EvaBot</span><span class="t-uk" hidden>Інтерактивний калькулятор окупності впровадження EvaBot</span><span class="t-en" hidden>Interactive EvaBot Investment & ROI Payback Calculator</span>
+            </h3>
+            <p style="color: var(--fg-muted); margin: 0; font-size: 0.92rem;">
+              <span class="t-ru">Передвигайте ползунки под реальные параметры вашей компании:</span><span class="t-uk" hidden>Пересувайте повзунки під реальні параметри вашої компанії:</span><span class="t-en" hidden>Adjust sliders to reflect your organization's real parameters:</span>
+            </p>
+          </div>
+          <div class="roi-badge">⚡ Real-time OpEx Engine</div>
+        </div>
+
+        <div class="roi-layout">
+          <div class="roi-sliders">
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span class="t-ru">Сотрудников в отделе (продажи, саппорт, сметчики):</span><span class="t-uk" hidden>Співробітників у відділі (продажі, саппорт, кошторис):</span><span class="t-en" hidden>Department Staff (Sales, Support, Estimators):</span></span>
+                <span class="roi-field-val" id="val-staff">5 человек</span>
+              </div>
+              <input type="range" id="slider-staff" class="roi-slider" min="1" max="50" value="5" oninput="updateRoiCalc()">
+            </div>
+
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span class="t-ru">Обращений и заказов в месяц:</span><span class="t-uk" hidden>Звернень та замовлень на місяць:</span><span class="t-en" hidden>Monthly Inquiries & Orders:</span></span>
+                <span class="roi-field-val" id="val-tickets">3 500 заявок</span>
+              </div>
+              <input type="range" id="slider-tickets" class="roi-slider" min="200" max="30000" step="100" value="3500" oninput="updateRoiCalc()">
+            </div>
+
+            <div class="roi-field">
+              <div class="roi-field-header">
+                <span><span class="t-ru">Средняя стоимость часа специалиста:</span><span class="t-uk" hidden>Середня вартість години фахівця:</span><span class="t-en" hidden>Average Hourly Wage of Specialist:</span></span>
+                <span class="roi-field-val" id="val-wage">$15 / час</span>
+              </div>
+              <input type="range" id="slider-wage" class="roi-slider" min="5" max="60" step="1" value="15" oninput="updateRoiCalc()">
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span class="t-ru">Чистая экономия бюджета в месяц:</span><span class="t-uk" hidden>Чиста економія бюджету на місяць:</span><span class="t-en" hidden>Net Monthly Cost Savings:</span></span>
+              <span class="roi-result-val green" id="res-savings">$7,625</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">С учетом снижения OpEx на 80%+</span><span class="t-uk" hidden>З урахуванням зниження OpEx на 80%+</span><span class="t-en" hidden>Reflects an 80%+ OpEx reduction</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span class="t-ru">Высвобождено рабочих часов:</span><span class="t-uk" hidden>Вивільнено робочих годин:</span><span class="t-en" hidden>Work Hours Liberated:</span></span>
+              <span class="roi-result-val cyan" id="res-hours">525 ч/мес</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">Направлено на развитие и сделки</span><span class="t-uk" hidden>Спрямовано на розвиток та угоди</span><span class="t-en" hidden>Reinvested into growth & closures</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span class="t-ru">Прогнозируемый ROI платформы:</span><span class="t-uk" hidden>Прогнозований ROI платформи:</span><span class="t-en" hidden>Projected Platform ROI:</span></span>
+              <span class="roi-result-val amber" id="res-roi">420%</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">Возврат инвестиций в первый же месяц</span><span class="t-uk" hidden>Повернення інвестицій у перший же місяць</span><span class="t-en" hidden>Capital return within the first 30 days</span></span>
+            </div>
+
+            <div class="roi-result-card">
+              <span class="roi-result-label"><span class="t-ru">Срок полной окупаемости:</span><span class="t-uk" hidden>Термін повної окупності:</span><span class="t-en" hidden>Full Payback Horizon:</span></span>
+              <span class="roi-result-val" id="res-payback" style="color: #a78bfa;">18 дней</span>
+              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">За счет гибридных бесплатных квот</span><span class="t-uk" hidden>Завдяки гібридним безкоштовним квотам</span><span class="t-en" hidden>Enabled by zero-cost hybrid quotas</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-5">
+      <summary class="sub-summary">
+        <span class="sub-icon">📈</span> <span class="sub-title"><strong class="t-ru">Измеримые метрики бизнес-трансформации: «До» и «После» внедрения</strong><strong class="t-uk" hidden>Вимірювані метрики бізнес-трансформації: «До» та «Після» впровадження</strong><strong class="t-en" hidden>Measurable Transformation Metrics: Before vs. After Implementation</strong></span> <span class="sub-badge">[<span class="t-ru">99.4% точность</span><span class="t-uk" hidden>99.4% точність</span><span class="t-en" hidden>99.4% Precision</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -6356,9 +5282,9 @@ details.sub-accordion[open] > summary.sub-summary {
       </div>
     </details>
 
-          <details class="sub-accordion" open id="sub-8-5">
+          <details class="sub-accordion" open id="sub-8-6">
       <summary class="sub-summary">
-        <span class="sub-icon">📋</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.5: Как выглядит пошаговый протокол интеграции на предприятие (5 фаз за 2–4 недели)?</strong><strong class="t-uk" hidden>Питання 8.5: Як виглядає покроковий протокол інтеграції на підприємство (5 фаз за 2–4 тижні)?</strong><strong class="t-en" hidden>Question 8.5: What is the phased onboarding methodology for enterprise (5 phases in 2-4 weeks)?</strong></span> <span class="sub-badge">[<span class="t-ru">5 фаз внедрения</span><span class="t-uk" hidden>5 фаз впровадження</span><span class="t-en" hidden>5-Phase Protocol</span>]</span>
+        <span class="sub-icon">📋</span> <span class="sub-title"><strong class="t-ru">5-фазный регламентированный протокол интеграции на предприятие (от 2 до 4 недель)</strong><strong class="t-uk" hidden>5-фазний регламентований протокол інтеграції на підприємство (від 2 до 4 тижнів)</strong><strong class="t-en" hidden>5-Phase Enterprise Onboarding & Integration Protocol (2 to 4 Weeks)</strong></span> <span class="sub-badge">[<span class="t-ru">Методология внедрения</span><span class="t-uk" hidden>Методологія впровадження</span><span class="t-en" hidden>Onboarding Roadmap</span>]</span>
       </summary>
       <div class="sub-content">
 
@@ -6447,179 +5373,218 @@ details.sub-accordion[open] > summary.sub-summary {
           </div>
         </div>
       </div>
-            <!-- Gantt Implementation Roadmap Box -->
-      <div class="diagram-box" style="margin-top: 24px;">
-        <div class="diagram-box-header">
-          <div class="diagram-box-title">
-            <span class="diagram-pulse-dot"></span>
-            <strong><span class="t-ru">ДИАГРАММА ГАНТА // ДОРОЖНАЯ КАРТА ВНЕДРЕНИЯ ЗА 30 ДНЕЙ</span><span class="t-uk" hidden>ДІАГРАМА ГАНТА // ДОРОЖНЯ КАРТА ВПРОВАДЖЕННЯ ЗА 30 ДНІВ</span><span class="t-en" hidden>GANTT CHART // 30-DAY IMPLEMENTATION ROADMAP</span></strong>
-          </div>
-          <span class="diagram-badge">Mermaid.js Gantt</span>
-        </div>
-        <div class="diagram-canvas">
-          <div class="mermaid-lang t-ru"><div class="mermaid">gantt
-  title Дорожная карта интеграции фабрики агентов EvaLine (30 дней)
-  dateFormat  YYYY-MM-DD
-  axisFormat  %d.%m
-  section 1. Экспресс-аудит (Дни 1-7)
-  Интервью ключевых специалистов :a1, 2026-10-01, 3d
-  Сбор регламентов, ТУ и прайсов :a2, after a1, 4d
-  section 2. Суверенное ядро (Дни 8-14)
-  Развертывание локального сервера :b1, after a2, 3d
-  Индексация RAG (ChromaDB + FTS5)  :b2, after b1, 4d
-  section 3. Подключение MCP (Дни 15-21)
-  Интеграция с 1С, ERP и базой данных :c1, after b2, 4d
-  Настройка прав и контуров защиты    :c2, after c1, 3d
-  section 4. Запуск Консилиума (Дни 22-30)
-  Обучение операторов и персонала     :d1, after c2, 4d
-  Промышленный запуск 24/7            :d2, after d1, 5d</div></div><div class="mermaid-lang t-uk" hidden><div class="mermaid">gantt
-  title Дорожня карта інтеграції фабрики агентів EvaLine (30 днів)
-  dateFormat  YYYY-MM-DD
-  axisFormat  %d.%m
-  section 1. Експрес-аудит (Дні 1-7)
-  Інтерв'ю ключових спеціалістів :a1, 2026-10-01, 3d
-  Збір регламентів, ТУ та прайсів :a2, after a1, 4d
-  section 2. Суверенне ядро (Дні 8-14)
-  Розгортання локального сервера :b1, after a2, 3d
-  Індексація RAG (ChromaDB + FTS5)  :b2, after b1, 4d
-  section 3. Підключення MCP (Дні 15-21)
-  Інтеграція з 1С, ERP та базою даних :c1, after b2, 4d
-  Налаштування прав та контурів захисту :c2, after c1, 3d
-  section 4. Запуск Консиліуму (Дні 22-30)
-  Навчання операторів та персоналу     :d1, after c2, 4d
-  Промисловий запуск 24/7              :d2, after d1, 5d</div></div><div class="mermaid-lang t-en" hidden><div class="mermaid">gantt
-  title EvaLine Agent Factory Implementation Roadmap (30 Days)
-  dateFormat  YYYY-MM-DD
-  axisFormat  %d.%m
-  section 1. Discovery & Audit (Days 1-7)
-  Stakeholder interviews & pain audit :a1, 2026-10-01, 3d
-  Document & ERP spec ingestion        :a2, after a1, 4d
-  section 2. Sovereign Core (Days 8-14)
-  Deploy on-prem/cloud node            :b1, after a2, 3d
-  RAG Indexing (ChromaDB + FTS5)       :b2, after b1, 4d
-  section 3. MCP Tool Hub (Days 15-21)
-  Integrate 1C / ERP / CNC tools       :c1, after b2, 4d
-  Security sandboxing & permissions    :c2, after c1, 3d
-  section 4. Consilium Go-Live (Days 22-30)
-  Staff workshops & shadow runs        :d1, after c2, 4d
-  24/7 Autonomous Production Go-Live   :d2, after d1, 5d</div></div>
-        </div>
-        <details class="ascii-toggle" open>
-          <summary class="ascii-toggle-btn"><strong>📟 <span class="t-ru">Текстовый график внедрения (ASCII)</span><span class="t-uk" hidden>Текстовий графік впровадження (ASCII)</span><span class="t-en" hidden>Implementation text schedule (ASCII)</span></strong></summary>
-          <pre class="ascii-diagram" style="font-family: 'Roboto Mono', monospace; font-size: 0.82rem; overflow-x: auto; background: #07090e; color: #00e676; padding: 14px; border: 1px solid #1c2333; border-radius: 8px; line-height: 1.25;">+-------------------------------------------------------------------------+
-|               4 ФАЗЫ ВНЕДРЕНИЯ ПОД КЛЮЧ ЗА 30 ДНЕЙ                      |
-|                                                                         |
-|  [ФАЗА 1: ДНИ 1-7]    Интервью, сбор ТУ, оцифровка документации         |
-|  [ФАЗА 2: ДНИ 8-14]   Установка суверенного сервера и индексация RAG    |
-|  [ФАЗА 3: ДНИ 15-21]  Подключение 21 MCP к 1С/ERP и станкам ЧПУ         |
-|  [ФАЗА 4: ДНИ 22-30]  Обучение команды и ввод Консилиума 24/7 в строй   |
-+-------------------------------------------------------------------------+</pre>
-        </details>
-      </div>
-    
-      </div>
-    </details>
-
-          <details class="sub-accordion" open id="sub-8-6">
-      <summary class="sub-summary">
-        <span class="sub-icon">💰</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.6: Как устроен интерактивный калькулятор экономической окупаемости внедрения (ROI)?</strong><strong class="t-uk" hidden>Питання 8.6: Як влаштований інтерактивний калькулятор економічної окупності впровадження (ROI)?</strong><strong class="t-en" hidden>Question 8.6: How does the real-time financial ROI calculator compute cost savings?</strong></span> <span class="sub-badge">[<span class="t-ru">Калькулятор ROI</span><span class="t-uk" hidden>Калькулятор ROI</span><span class="t-en" hidden>Interactive ROI</span>]</span>
-      </summary>
-      <div class="sub-content">
-
-      <div class="roi-calc-box" id="roi-calculator">
-        <div class="roi-calc-header">
-          <div>
-            <h3 style="color:#fff; margin: 0 0 4px 0;">
-              <span class="t-ru">Интерактивный калькулятор окупаемости внедрения EvaBot</span><span class="t-uk" hidden>Інтерактивний калькулятор окупності впровадження EvaBot</span><span class="t-en" hidden>Interactive EvaBot Investment & ROI Payback Calculator</span>
-            </h3>
-            <p style="color: var(--fg-muted); margin: 0; font-size: 0.92rem;">
-              <span class="t-ru">Передвигайте ползунки под реальные параметры вашей компании:</span><span class="t-uk" hidden>Пересувайте повзунки під реальні параметри вашої компанії:</span><span class="t-en" hidden>Adjust sliders to reflect your organization's real parameters:</span>
-            </p>
-          </div>
-          <div class="roi-badge">⚡ Real-time OpEx Engine</div>
-        </div>
-
-        <div class="roi-layout">
-          <div class="roi-sliders">
-            <div class="roi-field">
-              <div class="roi-field-header">
-                <span><span class="t-ru">Сотрудников в отделе (продажи, саппорт, сметчики):</span><span class="t-uk" hidden>Співробітників у відділі (продажі, саппорт, кошторис):</span><span class="t-en" hidden>Department Staff (Sales, Support, Estimators):</span></span>
-                <span class="roi-field-val" id="val-staff">5 человек</span>
-              </div>
-              <input type="range" id="slider-staff" class="roi-slider" min="1" max="50" value="5" oninput="updateRoiCalc()">
-            </div>
-
-            <div class="roi-field">
-              <div class="roi-field-header">
-                <span><span class="t-ru">Обращений и заказов в месяц:</span><span class="t-uk" hidden>Звернень та замовлень на місяць:</span><span class="t-en" hidden>Monthly Inquiries & Orders:</span></span>
-                <span class="roi-field-val" id="val-tickets">3 500 заявок</span>
-              </div>
-              <input type="range" id="slider-tickets" class="roi-slider" min="200" max="30000" step="100" value="3500" oninput="updateRoiCalc()">
-            </div>
-
-            <div class="roi-field">
-              <div class="roi-field-header">
-                <span><span class="t-ru">Средняя стоимость часа специалиста:</span><span class="t-uk" hidden>Середня вартість години фахівця:</span><span class="t-en" hidden>Average Hourly Wage of Specialist:</span></span>
-                <span class="roi-field-val" id="val-wage">$15 / час</span>
-              </div>
-              <input type="range" id="slider-wage" class="roi-slider" min="5" max="60" step="1" value="15" oninput="updateRoiCalc()">
-            </div>
-          </div>
-
-          <div class="roi-results">
-            <div class="roi-result-card">
-              <span class="roi-result-label"><span class="t-ru">Чистая экономия бюджета в месяц:</span><span class="t-uk" hidden>Чиста економія бюджету на місяць:</span><span class="t-en" hidden>Net Monthly Cost Savings:</span></span>
-              <span class="roi-result-val green" id="res-savings">$7,625</span>
-              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">С учетом снижения OpEx на 80%+</span><span class="t-uk" hidden>З урахуванням зниження OpEx на 80%+</span><span class="t-en" hidden>Reflects an 80%+ OpEx reduction</span></span>
-            </div>
-
-            <div class="roi-result-card">
-              <span class="roi-result-label"><span class="t-ru">Высвобождено рабочих часов:</span><span class="t-uk" hidden>Вивільнено робочих годин:</span><span class="t-en" hidden>Work Hours Liberated:</span></span>
-              <span class="roi-result-val cyan" id="res-hours">525 ч/мес</span>
-              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">Направлено на развитие и сделки</span><span class="t-uk" hidden>Спрямовано на розвиток та угоди</span><span class="t-en" hidden>Reinvested into growth & closures</span></span>
-            </div>
-
-            <div class="roi-result-card">
-              <span class="roi-result-label"><span class="t-ru">Прогнозируемый ROI платформы:</span><span class="t-uk" hidden>Прогнозований ROI платформи:</span><span class="t-en" hidden>Projected Platform ROI:</span></span>
-              <span class="roi-result-val amber" id="res-roi">420%</span>
-              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">Возврат инвестиций в первый же месяц</span><span class="t-uk" hidden>Повернення інвестицій у перший же місяць</span><span class="t-en" hidden>Capital return within the first 30 days</span></span>
-            </div>
-
-            <div class="roi-result-card">
-              <span class="roi-result-label"><span class="t-ru">Срок полной окупаемости:</span><span class="t-uk" hidden>Термін повної окупності:</span><span class="t-en" hidden>Full Payback Horizon:</span></span>
-              <span class="roi-result-val" id="res-payback" style="color: #a78bfa;">18 дней</span>
-              <span style="font-size: 0.74rem; color: var(--fg-subtle);"><span class="t-ru">За счет гибридных бесплатных квот</span><span class="t-uk" hidden>Завдяки гібридним безкоштовним квотам</span><span class="t-en" hidden>Enabled by zero-cost hybrid quotas</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
     
       </div>
     </details>
 
           <details class="sub-accordion" open id="sub-8-7">
       <summary class="sub-summary">
-        <span class="sub-icon">🔌</span> <span class="sub-title"><strong class="t-ru">Вопрос 8.7: Как архитектура 21 MCP-коннектора интегрирует фабрику агентов в IT-ландшафт предприятия?</strong><strong class="t-uk" hidden>Питання 8.7: Як архітектура 21 MCP-конектора інтегрує фабрику агентів в IT-ландшафт підприємства?</strong><strong class="t-en" hidden>Question 8.7: How does the 21 MCP adapter suite integrate agents into enterprise IT systems?</strong></span> <span class="sub-badge">[<span class="t-ru">21 MCP Коннектор</span><span class="t-uk" hidden>21 MCP Конектор</span><span class="t-en" hidden>21 MCP Adapters</span>]</span>
+        <span class="sub-icon">✡️</span> <span class="sub-title"><strong class="t-ru">Анатомия системы: Древо корпоративного интеллекта Sephirot (10 ступеней)</strong><strong class="t-uk" hidden>Анатомія системи: Древо корпоративного інтелекту Sephirot (10 ступенів)</strong><strong class="t-en" hidden>EvaBot System Anatomy: The 10-Tier Sephirot Decision Tree</strong></span> <span class="sub-badge">[<span class="t-ru">10 ступеней разума</span><span class="t-uk" hidden>10 ступенів розуму</span><span class="t-en" hidden>10 Decision Tiers</span>]</span>
       </summary>
       <div class="sub-content">
 
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">🔌</div>
-          <h4 class="card-title"><span class="t-ru">Протокол Model Context Protocol (MCP)</span><span class="t-uk" hidden>Протокол Model Context Protocol (MCP)</span><span class="t-en" hidden>Model Context Protocol (MCP) Core</span></h4>
-          <p class="card-text"><span class="t-ru">21 специализированный сервер стандартизирует доступ агентов к данным: файловые системы, репозитории Git, СУБД SQLite/PostgreSQL, SSH-консоли и веб-браузер.</span><span class="t-uk" hidden>21 спеціалізований сервер стандартизує доступ агентів до даних: файлові системи, репозиторії Git, СУБД SQLite/PostgreSQL, SSH-консолі та веб-браузер.</span><span class="t-en" hidden>21 specialized MCP servers standardize agent access to file trees, Git commits, SQL databases, remote SSH bash shells, and live Chrome DevTools.</span></p>
+      <div class="sephirot-box">
+        <div class="sephirot-header">
+          <div class="hero-eyebrow"><span class="t-ru">АРХИТЕКТУРА SEPHIROT ENGINE // 10 УРОВНЕЙ ИНТЕЛЛЕКТА</span><span class="t-uk" hidden>АРХІТЕКТУРА SEPHIROT ENGINE // 10 РІВНІВ ІНТЕЛЕКТУ</span><span class="t-en" hidden>SEPHIROT ENGINE ARCHITECTURE // 10 TIERS OF INTELLIGENCE</span></div>
+          <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin: 4px 0 8px;">
+            <span class="t-ru">10 ступеней принятия решений: От высшего замысла до станка ЧПУ</span><span class="t-uk" hidden>10 ступенів прийняття рішень: Від вищого задуму до верстата ЧПК</span><span class="t-en" hidden>10 Spheres of Corporate Intelligence: From Sovereign Vision to CNC Fabric</span>
+          </h4>
+          <p style="max-width: 800px; margin: 0 auto; color: var(--fg-muted);">
+            <span class="t-ru">В ядре EvaBot реализована классическая 10-уровневая структура каскадного делегирования решений:</span><span class="t-uk" hidden>У ядрі EvaBot реалізована класична 10-рівнева структура каскадного делегування рішень:</span><span class="t-en" hidden>At the core of EvaBot lies a formal 10-tier cascading delegation hierarchy:</span>
+          </p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🔄</div>
-          <h4 class="card-title"><span class="t-ru">Бесшовная интеграция с 1С:Предприятие</span><span class="t-uk" hidden>Безшовна інтеграція з 1С:Підприємство</span><span class="t-en" hidden>Seamless 1C:Enterprise Integration</span></h4>
-          <p class="card-text"><span class="t-ru">Двусторонний обмен через OData / REST API: чтение номенклатуры, проверка реальных остатков полимеров на складах и автоматическое выставление счетов.</span><span class="t-uk" hidden>Двосторонній обмін через OData / REST API: читання номенклатури, перевірка реальних залишків полімерів на складах та автоматичне виставлення рахунків.</span><span class="t-en" hidden>Bidirectional OData/REST sync: real-time inventory queries, warehouse polymer stock reconciliation, and automated invoicing.</span></p>
+        <div class="sephirot-grid">
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 01</span><span class="t-uk" hidden>Ступінь 01</span><span class="t-en" hidden>Tier 01</span></span>
+            <span>👑</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Кетер (Kether) — Высший замысел</span><span class="t-uk" hidden>Кетер (Kether) — Вищий задум</span><span class="t-en" hidden>Kether (Crown) — Sovereign Vision</span></div>
+          <div class="sephira-desc"><span class="t-ru">Высший замысел собственника, стратегические цели компании и корпоративные аксиомы.</span><span class="t-uk" hidden>Вищий задум власника, стратегічні цілі компанії та корпоративні аксіоми.</span><span class="t-en" hidden>The founder's sovereign vision, macro corporate objectives, and immutable principles.</span></div>
+          <div class="sephira-model">Gemini 3.1 Pro (2M Context)</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 02</span><span class="t-uk" hidden>Ступінь 02</span><span class="t-en" hidden>Tier 02</span></span>
+            <span>💡</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Хокма (Chokmah) — Стратегия</span><span class="t-uk" hidden>Хокма (Chokmah) — Стратегія</span><span class="t-en" hidden>Chokmah (Wisdom) — Strategy</span></div>
+          <div class="sephira-desc"><span class="t-ru">Трансформация видения в 2–3 смелые стратегические гипотезы с оценкой рисков.</span><span class="t-uk" hidden>Трансформація задуму в 2–3 сміливі стратегічні гіпотези з оцінкою ризиків.</span><span class="t-en" hidden>Synthesizing visionary intent into actionable hypotheses with risk/reward models.</span></div>
+          <div class="sephira-model">Gemini 3.8 Flash • Speed</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 03</span><span class="t-uk" hidden>Ступінь 03</span><span class="t-en" hidden>Tier 03</span></span>
+            <span>📐</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Бина (Binah) — Архитектура</span><span class="t-uk" hidden>Бина (Binah) — Архітектура</span><span class="t-en" hidden>Binah (Understanding) — Architecture</span></div>
+          <div class="sephira-desc"><span class="t-ru">Строгая декомпозиция, формальные спецификации, схемы БД и технологические ограничения.</span><span class="t-uk" hidden>Сувора декомпозиція, формальні специфікації, схеми БД та технологічні обмеження.</span><span class="t-en" hidden>Formal architectural decomposition, relational DB schemas, and technical bounds.</span></div>
+          <div class="sephira-model">Claude 3.7 Sonnet • Refactoring</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 04</span><span class="t-uk" hidden>Ступінь 04</span><span class="t-en" hidden>Tier 04</span></span>
+            <span>🤝</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Хесед (Chesed) — Экспансия</span><span class="t-uk" hidden>Хесед (Chesed) — Експансія</span><span class="t-en" hidden>Chesed (Mercy) — Expansion</span></div>
+          <div class="sephira-desc"><span class="t-ru">Продажи, мультиязычный маркетинг, забота о клиентах и партнерские программы B2B.</span><span class="t-uk" hidden>Продажі, багатомовний маркетинг, турбота про клієнтів та партнерські програми B2B.</span><span class="t-en" hidden>Omnichannel sales, multilingual marketing, customer success, and partner relations.</span></div>
+          <div class="sephira-model">Agent Eva • 6 Languages</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 05</span><span class="t-uk" hidden>Ступінь 05</span><span class="t-en" hidden>Tier 05</span></span>
+            <span>🛡️</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Гевура (Gevurah) — CISO & Аудит</span><span class="t-uk" hidden>Гевура (Gevurah) — CISO та Аудит</span><span class="t-en" hidden>Gevurah (Severity) — CISO & Audit</span></div>
+          <div class="sephira-desc"><span class="t-ru">Бескомпромиссный контроль безопасности, лимитов смет, комплаенса UNIC/ISO.</span><span class="t-uk" hidden>Безкомпромісний контроль безпеки, лімітів кошторису, комплаєнсу UNIC/ISO.</span><span class="t-en" hidden>Zero-trust security enforcement, budget guardrails, UNIC compliance, and PII shields.</span></div>
+          <div class="sephira-model">Agent Adam • CISO & Rules</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 06</span><span class="t-uk" hidden>Ступінь 06</span><span class="t-en" hidden>Tier 06</span></span>
+            <span>⚖️</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Тиферет (Tifereth) — Синтез</span><span class="t-uk" hidden>Тиферет (Tifereth) — Синтез</span><span class="t-en" hidden>Tifereth (Beauty) — Consensus</span></div>
+          <div class="sephira-desc"><span class="t-ru">Гармонизация компромиссов: сведение аргументов Хесед (продажи) и Гевура (CISO) в консенсус.</span><span class="t-uk" hidden>Гармонізація компромісів: зведення аргументів Хесед (продажі) та Гевура (CISO) в консенсус.</span><span class="t-en" hidden>Harmonizing trade-offs: balancing aggressive growth (Chesed) with security (Gevurah).</span></div>
+          <div class="sephira-model">Consilium Arbiter Engine</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 07</span><span class="t-uk" hidden>Ступінь 07</span><span class="t-en" hidden>Tier 07</span></span>
+            <span>⚡</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Нецах (Netzach) — DevOps & CI/CD</span><span class="t-uk" hidden>Нецах (Netzach) — DevOps та CI/CD</span><span class="t-en" hidden>Netzach (Victory) — DevOps & SRE</span></div>
+          <div class="sephira-desc"><span class="t-ru">Непрерывная интеграция, мониторинг контейнеров, деплой без простоев.</span><span class="t-uk" hidden>Безперервна інтеграція, моніторинг контейнерів, деплой без простоїв.</span><span class="t-en" hidden>Continuous integration, container orchestration, zero-downtime rolling deploys.</span></div>
+          <div class="sephira-model">SRE Daemon • Mesh Watchdog</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 08</span><span class="t-uk" hidden>Ступінь 08</span><span class="t-en" hidden>Tier 08</span></span>
+            <span>🎙️</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Ход (Hod) — Коммуникация</span><span class="t-uk" hidden>Ход (Hod) — Комунікація</span><span class="t-en" hidden>Hod (Splendor) — Speech & UI</span></div>
+          <div class="sephira-desc"><span class="t-ru">Голосовой движок EvaVoice, интерактивные веб-интерфейсы, документация API.</span><span class="t-uk" hidden>Голосовий рушій EvaVoice, інтерактивні веб-інтерфейси, документація API.</span><span class="t-en" hidden>EvaVoice speech synthesis, responsive cybernetic interfaces, and API docs.</span></div>
+          <div class="sephira-model">EvaVoice FastAPI :8000</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 09</span><span class="t-uk" hidden>Ступінь 09</span><span class="t-en" hidden>Tier 09</span></span>
+            <span>💾</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Йесод (Yesod) — Память & RAG</span><span class="t-uk" hidden>Йесод (Yesod) — Пам'ять та RAG</span><span class="t-en" hidden>Yesod (Foundation) — Grounded Memory</span></div>
+          <div class="sephira-desc"><span class="t-ru">Векторный фундамент ChromaDB, таблицы SQLite, сессионная память и архив знаний.</span><span class="t-uk" hidden>Векторний фундамент ChromaDB, таблиці SQLite, сесійна пам'ять та архів знань.</span><span class="t-en" hidden>High-density ChromaDB vector collections, SQLite FTS5 index, and episodic graphs.</span></div>
+          <div class="sephira-model">ChromaDB + SQLite FTS5</div>
+        </div>
+        <div class="sephira-card">
+          <div class="sephira-tag">
+            <span class="sephira-level"><span class="t-ru">Ступень 10</span><span class="t-uk" hidden>Ступінь 10</span><span class="t-en" hidden>Tier 10</span></span>
+            <span>🏭</span>
+          </div>
+          <div class="sephira-title"><span class="t-ru">Малхут (Malkuth) — Завод & Материя</span><span class="t-uk" hidden>Малхут (Malkuth) — Завод та Матерія</span><span class="t-en" hidden>Malkuth (Kingdom) — Physical World</span></div>
+          <div class="sephira-desc"><span class="t-ru">Реальное воплощение: раскрой на ЧПУ, пресс-формы в Черноморске, хаб в Братиславе.</span><span class="t-uk" hidden>Реальне втілення: розкрій на ЧПК, прес-форми в Чорноморську, хаб у Братиславі.</span><span class="t-en" hidden>Physical materialization: CNC flatbed cutting, foaming presses, and EU deliveries.</span></div>
+          <div class="sephira-model">EvaLine Chornomorsk Plant</div>
+        </div>
+        </div>
+      </div>
+    
+      </div>
+    </details>
+
+          <details class="sub-accordion" open id="sub-8-8">
+      <summary class="sub-summary">
+        <span class="sub-icon">💡</span> <span class="sub-title"><strong class="t-ru">Финансовая модель: от первого агента до масштабирования</strong><strong class="t-uk" hidden>Фінансова модель: від першого агента до масштабування</strong><strong class="t-en" hidden>Financial Model: From First Agent to Full Scale</strong></span> <span class="sub-badge">[<span class="t-ru">Инвестиции и доход</span><span class="t-uk" hidden>Інвестиції та дохід</span><span class="t-en" hidden>Investment & Revenue</span>]</span>
+      </summary>
+      <div class="sub-content">
+
+      <p style="color: var(--fg-muted); margin-bottom: 20px;">
+        <span class="t-ru">Прозрачная экономика: сколько стоит запустить одного или десять агентов, как масштабироваться и какой доход можно получить на системе EvaBot.</span><span class="t-uk" hidden>Прозора економіка: скільки коштує запустити одного або десять агентів, як масштабуватися і який дохід можна отримати на системі EvaBot.</span><span class="t-en" hidden>Transparent economics: launch costs for 1 or 10 agents, scaling roadmap, and realistic revenue projections on EvaBot.</span>
+      </p>
+
+      <div class="finance-grid">
+        <div class="finance-card">
+          <div class="finance-header">
+            <span class="finance-icon">🚀</span>
+            <h4><span class="t-ru">Минимальный запуск: 1 агент</span><span class="t-uk" hidden>Мінімальний запуск: 1 агент</span><span class="t-en" hidden>Minimum Launch: 1 Agent</span></h4>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">Инфраструктура (VM + домен + TLS)</span><span class="t-uk" hidden>Інфраструктура (VM + домен + TLS)</span><span class="t-en" hidden>Infrastructure (VM + domain + TLS)</span></span>
+            <span class="finance-val">$8–15 / мес</span>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">LLM API (смешанный пул)</span><span class="t-uk" hidden>LLM API (змішаний пул)</span><span class="t-en" hidden>LLM API (hybrid pool)</span></span>
+            <span class="finance-val">$0–50 / мес</span>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">Интеграции (1С/CRM/боты)</span><span class="t-uk" hidden>Інтеграції (1С/CRM/боти)</span><span class="t-en" hidden>Integrations (ERP/CRM/bots)</span></span>
+            <span class="finance-val">$0–30 / мес</span>
+          </div>
+          <div class="finance-total">
+            <span><span class="t-ru">ИТОГО в месяц:</span><span class="t-uk" hidden>РАЗОМ на місяць:</span><span class="t-en" hidden>TOTAL per month:</span></span>
+            <span class="finance-val highlight">$8–95 / мес</span>
+          </div>
+          <div class="finance-note">
+            <span class="t-ru">Доход от 1 агента: $300–2,000/мес при оказании услуг клиентам.</span><span class="t-uk" hidden>Дохід від 1 агента: $300–2,000/міс при наданні послуг клієнтам.</span><span class="t-en" hidden>Revenue from 1 agent: $300–2,000/mo when serving clients.</span>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🏭</div>
-          <h4 class="card-title"><span class="t-ru">Промышленный контур ЧПУ & CAM</span><span class="t-uk" hidden>Промисловий контур ЧПК та CAM</span><span class="t-en" hidden>Industrial CNC & CAM Machine Bus</span></h4>
-          <p class="card-text"><span class="t-ru">Генерация DXF/G-кода для цифровых раскройных комплексов (плоттеров). Оптимизация схемы раскладки (раскроя) листа минимизирует краевые отходы.</span><span class="t-uk" hidden>Генерація DXF/G-коду для цифрових розкрійних комплексів (плотерів). Оптимізація схеми розкладки листа мінімізує відходи сировини.</span><span class="t-en" hidden>Automated DXF/G-code vector generation for digital flatbed CNC cutting systems. Optimal nesting geometry minimizes edge trim waste.</span></p>
+        <div class="finance-card">
+          <div class="finance-header">
+            <span class="finance-icon">🏭</span>
+            <h4><span class="t-ru">Промышленный запуск: 10 агентов</span><span class="t-uk" hidden>Промисловий запуск: 10 агентів</span><span class="t-en" hidden>Industrial Launch: 10 Agents</span></h4>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">Кластер (3 узла + балансировщик)</span><span class="t-uk" hidden>Кластер (3 вузли + балансувальник)</span><span class="t-en" hidden>Cluster (3 nodes + balancer)</span></span>
+            <span class="finance-val">$60–150 / мес</span>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">Пропускная способность LLM</span><span class="t-uk" hidden>Пропускна здатність LLM</span><span class="t-en" hidden>LLM throughput</span></span>
+            <span class="finance-val">$50–300 / мес</span>
+          </div>
+          <div class="finance-row">
+            <span><span class="t-ru">MCP-интеграции + мониторинг</span><span class="t-uk" hidden>MCP-інтеграції + моніторинг</span><span class="t-en" hidden>MCP integrations + monitoring</span></span>
+            <span class="finance-val">$30–100 / мес</span>
+          </div>
+          <div class="finance-total">
+            <span><span class="t-ru">ИТОГО в месяц:</span><span class="t-uk" hidden>РАЗОМ на місяць:</span><span class="t-en" hidden>TOTAL per month:</span></span>
+            <span class="finance-val highlight">$140–550 / мес</span>
+          </div>
+          <div class="finance-note">
+            <span class="t-ru">Доход от 10 агентов: $3,000–25,000/мес при полной загрузке.</span><span class="t-uk" hidden>Дохід від 10 агентів: $3,000–25,000/міс при повному навантаженні.</span><span class="t-en" hidden>Revenue from 10 agents: $3,000–25,000/mo at full utilization.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scaling-roadmap">
+        <h3 style="color:#fff; margin: 32px 0 16px; font-family: var(--font-display); font-size: 1.4rem;">
+          <span class="t-ru">Помесячная дорожная карта развития и заработка</span><span class="t-uk" hidden>Помісячна дорожня карта розвитку та заробітку</span><span class="t-en" hidden>Monthly Scaling Roadmap & Earnings</span>
+        </h3>
+        <div class="roadmap-steps">
+          <div class="roadmap-step">
+            <div class="roadmap-month"><span class="t-ru">Месяц 1–2</span><span class="t-uk" hidden>Місяць 1–2</span><span class="t-en" hidden>Month 1–2</span></div>
+            <div class="roadmap-title"><span class="t-ru">Запуск MVP</span><span class="t-uk" hidden>Запуск MVP</span><span class="t-en" hidden>MVP Launch</span></div>
+            <div class="roadmap-desc"><span class="t-ru">1 агент на базе бесплатных моделей. Интеграция с 1 CRM/мессенджером. Вложения: $0–50/мес. Ожидаемый доход: $300–800/мес.</span><span class="t-uk" hidden>1 агент на базі безкоштовних моделей. Інтеграція з 1 CRM/месенджером. Інвестиції: $0–50/міс. Очікуваний дохід: $300–800/міс.</span><span class="t-en" hidden>1 agent on free-tier models. Single CRM/messenger integration. Investment: $0–50/mo. Expected revenue: $300–800/mo.</span></div>
+          </div>
+          <div class="roadmap-step">
+            <div class="roadmap-month"><span class="t-ru">Месяц 3–4</span><span class="t-uk" hidden>Місяць 3–4</span><span class="t-en" hidden>Month 3–4</span></div>
+            <div class="roadmap-title"><span class="t-ru">Расширение пула</span><span class="t-uk" hidden>Розширення пулу</span><span class="t-en" hidden>Pool Expansion</span></div>
+            <div class="roadmap-desc"><span class="t-ru">Добавление 2–3 платных моделей для сложных задач. 3 канала коммуникации. Вложения: $80–150/мес. Ожидаемый доход: $800–2,500/мес.</span><span class="t-uk" hidden>Додавання 2–3 платних моделей для складних завдань. 3 канали комунікації. Інвестиції: $80–150/міс. Очікуваний дохід: $800–2,500/міс.</span><span class="t-en" hidden>Add 2–3 frontier models for complex tasks. 3 communication channels. Investment: $80–150/mo. Expected revenue: $800–2,500/mo.</span></div>
+          </div>
+          <div class="roadmap-step">
+            <div class="roadmap-month"><span class="t-ru">Месяц 5–7</span><span class="t-uk" hidden>Місяць 5–7</span><span class="t-en" hidden>Month 5–7</span></div>
+            <div class="roadmap-title"><span class="t-ru">Масштабирование команды</span><span class="t-uk" hidden>Масштабування команди</span><span class="t-en" hidden>Team Scaling</span></div>
+            <div class="roadmap-desc"><span class="t-ru">5–7 специализированных агентов. Полная интеграция 1С/ERP. Вложения: $150–300/мес. Ожидаемый доход: $2,500–8,000/мес.</span><span class="t-uk" hidden>5–7 спеціалізованих агентів. Повна інтеграція 1С/ERP. Інвестиції: $150–300/міс. Очікуваний дохід: $2,500–8,000/міс.</span><span class="t-en" hidden>5–7 specialized agents. Full ERP/1C integration. Investment: $150–300/mo. Expected revenue: $2,500–8,000/mo.</span></div>
+          </div>
+          <div class="roadmap-step">
+            <div class="roadmap-month"><span class="t-ru">Месяц 8–10</span><span class="t-uk" hidden>Місяць 8–10</span><span class="t-en" hidden>Month 8–10</span></div>
+            <div class="roadmap-title"><span class="t-ru">Полная автономия</span><span class="t-uk" hidden>Повна автономія</span><span class="t-en" hidden>Full Autonomy</span></div>
+            <div class="roadmap-desc"><span class="t-ru">10 агентов с Консилиумом. Двухузловой кластер. Вложения: $300–600/мес. Ожидаемый доход: $8,000–20,000/мес.</span><span class="t-uk" hidden>10 агентів з Консиліумом. Двовузловий кластер. Інвестиції: $300–600/міс. Очікуваний дохід: $8,000–20,000/міс.</span><span class="t-en" hidden>10-agent Consilium fleet. Dual-node cluster. Investment: $300–600/mo. Expected revenue: $8,000–20,000/mo.</span></div>
+          </div>
+          <div class="roadmap-step">
+            <div class="roadmap-month"><span class="t-ru">Месяц 11–12</span><span class="t-uk" hidden>Місяць 11–12</span><span class="t-en" hidden>Month 11–12</span></div>
+            <div class="roadmap-title"><span class="t-ru">Максимальная экспансия</span><span class="t-uk" hidden>Максимальна експансія</span><span class="t-en" hidden>Maximum Expansion</span></div>
+            <div class="roadmap-desc"><span class="t-ru">20+ агентов, мультиязычный охват, white-label решения. Вложения: $600–1,200/мес. Ожидаемый доход: $20,000–50,000/мес.</span><span class="t-uk" hidden>20+ агентів, багатомовний охоп, white-label рішення. Інвестиції: $600–1,200/міс. Очікуваний дохід: $20,000–50,000/міс.</span><span class="t-en" hidden>20+ agents, multilingual coverage, white-label solutions. Investment: $600–1,200/mo. Expected revenue: $20,000–50,000/mo.</span></div>
+          </div>
         </div>
       </div>
     
